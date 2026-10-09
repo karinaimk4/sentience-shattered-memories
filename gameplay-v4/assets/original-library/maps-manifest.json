@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "designResolution": {
+    "width": 1672,
+    "height": 941,
+    "note": "Target size is 1672x941 (transition 02 is 1672x940); scale with nearest-neighbor filtering. Collision floor is authored near the lower 22 percent of each image."
+  },
+  "storyRoute": [
+    "nagazora_ruins",
+    "arc_city_night",
+    "arc_to_schicksal",
+    "helheim_labs",
+    "schicksal_airport",
+    "schicksal_to_babylon",
+    "babylon_snowfield",
+    "taixuan_steps",
+    "taixuan_to_quanta",
+    "sea_of_quanta",
+    "kolosten_storm",
+    "imaginary_tree_arena"
+  ],
+  "maps": {
+    "nagazora_ruins": {
+      "file": "map-00-nagazora-ruins-v1.png",
+      "weather": "honkai_storm",
+      "hazards": ["broken_road", "falling_debris", "lightning_marker"],
+      "enemyPool": ["chariot", "archangel", "knight"]
+    },
+    "arc_city_night": {
+      "file": "map-01-arc-city-night-v1.png",
+      "weather": "neon_rain",
+      "hazards": ["traffic_barrier", "drone_laser", "honkai_crack"],
+      "enemyPool": ["alloy_chariot", "archangel", "templar"]
+    },
+    "schicksal_airport": {
+      "file": "map-02-schicksal-airport-v1.png",
+      "weather": "high_wind",
+      "hazards": ["security_laser", "cargo_crate", "platform_gap"],
+      "enemyPool": ["templar", "storm_templar", "paladin"]
+    },
+    "babylon_snowfield": {
+      "file": "map-03-babylon-snowfield-v1.png",
+      "weather": "blizzard",
+      "hazards": ["ice_patch", "snow_drift", "crystal_spike"],
+      "enemyPool": ["frost_chariot", "baradiel", "frost_knight"]
+    },
+    "taixuan_steps": {
+      "file": "map-04-taixuan-steps-v1.png",
+      "weather": "mist_and_feathers",
+      "hazards": ["falling_rock", "illusion_wall", "wind_gust"],
+      "enemyPool": ["knight", "nocturnal_knight", "templar"]
+    },
+    "kolosten_storm": {
+      "file": "map-05-kolosten-storm-v1.png",
+      "weather": "golden_storm",
+      "hazards": ["clockwork_ray", "collapsing_arch", "imaginary_tether"],
+      "enemyPool": ["paladin", "scarlet_uriel", "storm_templar"]
+    },
+    "sea_of_quanta": {
+      "file": "map-06-sea-of-quanta-v1.png",
+      "weather": "quantum_flux",
+      "hazards": ["phase_gap", "gravity_flip", "quantum_wave"],
+      "enemyPool": ["cassiel", "nocturnal_knight", "quantum_shadow"]
+    },
+    "helheim_labs": {
+      "file": "map-07-helheim-labs-v1.png",
+      "weather": "bio_alarm",
+      "hazards": ["containment_burst", "security_laser", "toxin_vent"],
+      "enemyPool": ["alloy_chariot", "templar", "escaped_subject"],
+      "bossGate": "aesir_heimdall"
+    },
+    "imaginary_tree_arena": {
+      "file": "map-08-imaginary-tree-boss-arena-v1.png",
+      "weather": "imaginary_pulse",
+      "hazards": ["root_beam", "world_fragment", "time_ring"],
+      "enemyPool": [],
+      "bossGate": "story_finale"
+    }
+  },
+  "transitions": {
+    "arc_to_schicksal": {
+      "file": "transition-01-arc-heliopolis-schicksal-v1.png",
+      "from": "arc_city_night",
+      "via": "heliopolis_loading_tunnel",
+      "to": "helheim_labs"
+    },
+    "schicksal_to_babylon": {
+      "file": "transition-02-schicksal-babylon-v1.png",
+      "from": "schicksal_airport",
+      "via": "transport_hangar",
+      "to": "babylon_snowfield"
+    },
+    "taixuan_to_quanta": {
+      "file": "transition-03-taixuan-quanta-v1.png",
+      "from": "taixuan_steps",
+      "via": "sentience_illusion_rift",
+      "to": "sea_of_quanta"
+    }
+  },
+  "endlessRules": {
+    "segmentSeconds": [35, 55],
+    "transitionEverySegments": [2, 4],
+    "eliteEverySeconds": 75,
+    "bossGateEverySeconds": 180,
+    "avoidImmediateBiomeRepeat": true
+  }
+}

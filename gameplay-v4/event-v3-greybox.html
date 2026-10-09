@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17172a">
+  <title>Bếp Lửa Thái Hư V3 — Greybox Canvas</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="event-v3-greybox.css?v=1">
+</head>
+<body>
+  <header class="topbar">
+    <a href="event-demo-pixel.html">← Demo cũ</a>
+    <div><small>V3 · GREYBOX CANVAS</small><h1>Bếp Lửa Thái Hư</h1></div>
+    <div class="status"><span id="loop-status">ĐANG CHẠY</span><b id="level-name">Lv.1 · Quầy Xe Đẩy</b></div>
+  </header>
+
+  <main>
+    <section class="hud" aria-label="Chỉ số Rush">
+      <div><span>Thời gian</span><b id="time-value">90.0s</b></div>
+      <div><span>Xu ca</span><b id="coin-value">0</b></div>
+      <div><span>Uy tín</span><b id="rep-value">50</b></div>
+      <div class="wide"><span>Khí quán</span><div class="meter split"><i id="atmos-fill"></i></div><b id="atmos-value">0</b></div>
+      <div class="wide"><span>Stress Fu Hua</span><div class="meter"><i id="stress-fill"></i></div><b id="stress-value">0</b></div>
+      <div class="wide"><span>Nộ Senti</span><div class="meter rage"><i id="rage-fill"></i></div><b id="rage-value">0</b></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="panel left-panel">
+        <h2>Đội hình Lv.1</h2>
+        <label>Lễ tân
+          <select id="reception-select">
+            <option value="rozaliya">Rozaliya</option>
+            <option value="elysia">Elysia</option>
+          </select>
+        </label>
+        <p class="note">Thân chibi tạm đổi màu. Tên và vai trò lấy từ đội hình, không hard-code Pardo.</p>
+        <div id="roster" class="roster"></div>
+
+        <h2>Điều khiển Senti</h2>
+        <p>Click ô trống để đi. Click icon job nhấp nháy để nhận việc. Phím <kbd>G</kbd> bật debug.</p>
+        <button id="horn-btn">📣 Cổ Vũ Cưỡng Chế</button>
+        <button id="tea-btn">🍵 Pha Trà Cúc</button>
+        <button id="chase-btn">⛓ Chế độ Đuổi: TẮT</button>
+      </aside>
+
+      <section class="stage-shell">
+        <div class="stage-head">
+          <span>CANVAS 640×416 · FIXED UPDATE 1/60</span>
+          <div>
+            <button data-scale="2" class="active">×2</button>
+            <button data-scale="3">×3</button>
+          </div>
+        </div>
+        <div id="canvas-wrap" class="canvas-wrap scale-2">
+          <canvas id="rush-canvas" width="640" height="416" aria-label="Greybox Rush Hour"></canvas>
+        </div>
+        <div class="legend">
+          <span><i class="dot senti"></i>Senti</span><span><i class="dot hua"></i>Fu Hua</span>
+          <span><i class="dot reception"></i>Lễ tân</span><span><i class="dot server"></i>Phục vụ</span>
+          <span><i class="dot guest"></i>Khách</span>
+        </div>
+      </section>
+
+      <aside class="panel right-panel">
+        <h2>Job Board</h2>
+        <div id="job-list" class="job-list"></div>
+        <h2>Debug nghiệm thu</h2>
+        <button id="spawn-btn">+ Gọi khách ngay</button>
+        <button id="doze-btn">Ép Liliya ngủ gật</button>
+        <button id="conflict-btn">Đặt ZEN cạnh YATTA</button>
+        <button id="level-btn">Nhảy Lv.2 debug</button>
+        <button id="speed-btn">Tốc độ ×1</button>
+        <pre id="qa-stats"></pre>
+      </aside>
+    </section>
+  </main>
+
+  <div id="toast" role="status"></div>
+  <script type="module" src="event-v3-greybox.js?v=1"></script>
+</body>
+</html>

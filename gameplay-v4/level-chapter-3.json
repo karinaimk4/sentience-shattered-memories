@@ -1,0 +1,940 @@
+{
+  "chapter": 3,
+  "title": "PHÒNG THÍ NGHIỆM CỦA NGƯỜI CHẾT",
+  "place": "HELHEIM LABS → SÂN BAY SCHICKSAL",
+  "color": "#5be0d9",
+  "lengthMeters": 4340,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    11,
+    16
+  ],
+  "physics": {
+    "speed": 320,
+    "backSpeed": 230,
+    "gravity": 1800,
+    "jumpVelocity": 680,
+    "groundY": 490
+  },
+  "opening": [
+    [
+      "Senti",
+      "Tên nào sưu tập ký ức như sưu tập bọ thế này?"
+    ],
+    [
+      "Fu Hua",
+      "Những ký ức trong bể chứa... đều là của tôi."
+    ],
+    [
+      "Senti",
+      "Vậy ta đập vỡ cái kho này rồi đưa chúng về."
+    ]
+  ],
+  "scenes": [
+    {
+      "from": 3200,
+      "to": 3420,
+      "id": "lab-corridor",
+      "name": "3.1 · HÀNH LANG HELHEIM",
+      "objective": "Né dung dịch trơn · Thương diệt bọ nổ",
+      "line": "Dung dịch đang rò. Đừng để lũ bọ lại gần!"
+    },
+    {
+      "from": 3420,
+      "to": 3640,
+      "id": "memory-vault",
+      "name": "3.2 · KHO LƯU TRỮ",
+      "objective": "Phân biệt bể xanh và đỏ · Phá kính nứt",
+      "line": "Mỗi bể chứa một lát cắt của Old Timer."
+    },
+    {
+      "from": 3640,
+      "to": 3860,
+      "id": "split-pipes",
+      "name": "3.3 · HAI ĐƯỜNG ỐNG",
+      "objective": "Đu qua ống · Mở đường cho Fu Hua",
+      "line": "Ta đi trên, cô ở dưới. Gặp nhau ở cuối hành lang!"
+    },
+    {
+      "from": 3860,
+      "to": 4080,
+      "id": "assist-break",
+      "name": "3.4 · TƯỜNG CÁCH LY",
+      "objective": "Gọi Fu Hua Assist · Phá khối đá",
+      "line": "Bức tường này không giữ được Old Timer đâu."
+    },
+    {
+      "from": 4080,
+      "to": 4300,
+      "id": "schicksal-airfield",
+      "name": "3.5 · SÂN BAY TRÊN MÂY",
+      "objective": "Phản laser drone · Đối đầu Heimdall",
+      "line": "Gió lạnh thật. Con mecha kia còn lạnh hơn."
+    },
+    {
+      "from": 4300,
+      "to": 4340,
+      "id": "heimdall",
+      "name": "HEIMDALL",
+      "objective": "Đọc nhịp đòn · Phá khiên · Sống sót qua mọi pha",
+      "line": ""
+    }
+  ],
+  "arenas": [
+    {
+      "m": 3420,
+      "name": "BỌ ĐỘT BIẾN",
+      "waves": [
+        [
+          "enemy",
+          "flyer",
+          "enemy"
+        ],
+        [
+          "elite",
+          "flyer"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường bọ đột biến có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 3705,
+      "name": "KHO BỂ CHỨA",
+      "waves": [
+        [
+          "elite",
+          "enemy",
+          "flyer"
+        ],
+        [
+          "machine",
+          "elite"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường kho bể chứa có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 3990,
+      "name": "PHÒNG CÁCH LY",
+      "waves": [
+        [
+          "enemy",
+          "knight",
+          "flyer"
+        ],
+        [
+          "elite",
+          "machine",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường phòng cách ly có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 4300,
+      "name": "AESIR HEIMDALL",
+      "waves": [
+        [
+          "machine",
+          "flyer"
+        ],
+        [
+          "heimdall"
+        ]
+      ],
+      "before": [
+        [
+          "Fu Hua",
+          "Heimdall có khiên năng lượng. Thương sẽ làm nó chập mạch."
+        ],
+        [
+          "Senti",
+          "Rồi cô ngắt chuỗi kiếm của nó. Ta chém phần còn lại."
+        ]
+      ],
+      "after": [
+        [
+          "Ký ức chính #3",
+          "“Đối tượng Fu Hua. Mỗi lần xóa ký ức, dữ liệu rò rỉ vượt ngưỡng. Nó đang tự sống lại...”"
+        ],
+        [
+          "Fu Hua",
+          "Cổng kia dẫn tới... Babylon."
+        ],
+        [
+          "Senti",
+          "Cô biết nơi đó. Ta đi cùng cô."
+        ]
+      ],
+      "power": 1050
+    }
+  ],
+  "checkpoints": [
+    3200,
+    3310,
+    3485,
+    3640,
+    3770,
+    3925,
+    4060,
+    4185,
+    4265
+  ],
+  "placements": [
+    {
+      "m": 3228,
+      "pattern": "ch3-layout-0"
+    },
+    {
+      "m": 3266,
+      "pattern": "ch3-layout-1"
+    },
+    {
+      "m": 3342,
+      "pattern": "ch3-layout-2"
+    },
+    {
+      "m": 3380,
+      "pattern": "ch3-layout-3"
+    },
+    {
+      "m": 3456,
+      "pattern": "ch3-layout-4"
+    },
+    {
+      "m": 3532,
+      "pattern": "ch3-layout-5"
+    },
+    {
+      "m": 3570,
+      "pattern": "ch3-layout-6"
+    },
+    {
+      "m": 3608,
+      "pattern": "ch3-layout-7"
+    },
+    {
+      "m": 3798,
+      "pattern": "ch3-layout-8"
+    },
+    {
+      "m": 3836,
+      "pattern": "ch3-layout-9"
+    },
+    {
+      "m": 3874,
+      "pattern": "ch3-layout-10"
+    },
+    {
+      "m": 3950,
+      "pattern": "ch3-layout-11"
+    },
+    {
+      "m": 4026,
+      "pattern": "ch3-layout-12"
+    },
+    {
+      "m": 4102,
+      "pattern": "ch3-layout-13"
+    },
+    {
+      "m": 4140,
+      "pattern": "ch3-layout-14"
+    },
+    {
+      "m": 4216,
+      "pattern": "ch3-layout-15"
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch3-layout-0",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "lab-corridor",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch3-layout-1",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "lab-corridor",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch3-layout-2",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "lab-corridor",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-3",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "lab-corridor",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch3-layout-4",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "memory-vault",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-5",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "memory-vault",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch3-layout-6",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "memory-vault",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-7",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "memory-vault",
+      "offset": 640
+    },
+    {
+      "id": "ch3-layout-8",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "split-pipes",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch3-layout-9",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "split-pipes",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch3-layout-10",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "assist-break",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-11",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "assist-break",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-12",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "assist-break",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch3-layout-13",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "schicksal-airfield",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch3-layout-14",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "schicksal-airfield",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch3-layout-15",
+      "length": 1250,
+      "difficulty": "hard",
+      "kind": "gap",
+      "region": "schicksal-airfield",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      },
+      "intermediate": true
+    }
+  ],
+  "patrols": [
+    {
+      "m": 3275,
+      "kind": "flyer"
+    },
+    {
+      "m": 3363,
+      "kind": "machine"
+    },
+    {
+      "m": 3539,
+      "kind": "knight"
+    },
+    {
+      "m": 3627,
+      "kind": "elite"
+    },
+    {
+      "m": 3803,
+      "kind": "machine"
+    },
+    {
+      "m": 3891,
+      "kind": "enemy"
+    },
+    {
+      "m": 4067,
+      "kind": "elite"
+    },
+    {
+      "m": 4155,
+      "kind": "flyer"
+    }
+  ],
+  "beats": [
+    {
+      "m": 3310,
+      "id": "ch3-beat-0",
+      "speaker": "Senti",
+      "text": "Nhìn những bể chứa này. Ai đó đã đóng chai ký ức của cô."
+    },
+    {
+      "m": 3520,
+      "id": "ch3-beat-1",
+      "speaker": "Fu Hua",
+      "text": "Bể xanh chứa dữ liệu; bể đỏ khóa một sinh vật đang ngủ."
+    },
+    {
+      "m": 3760,
+      "id": "ch3-beat-2",
+      "speaker": "Senti",
+      "text": "Ta chém ống nước thật đấy. Đừng hỏi có tính trước không!"
+    },
+    {
+      "m": 4080,
+      "id": "ch3-beat-3",
+      "speaker": "Fu Hua",
+      "text": "Ngoài kia là sân bay Schicksal. Heimdall đang đợi."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 3450,
+      "id": "ch3-clue-0",
+      "title": "HỒ SƠ F.H.",
+      "lines": [
+        [
+          "Hệ thống",
+          "Mẫu F.H. · Xóa ký ức lần 28 · Dữ liệu tiếp tục tự tổ chức."
+        ],
+        [
+          "Fu Hua",
+          "Họ đã cố xóa tôi nhiều lần hơn tôi nhớ."
+        ],
+        [
+          "Senti",
+          "Vậy kẻ này biết cách Mnemosyne được sinh ra."
+        ]
+      ]
+    },
+    {
+      "m": 3590,
+      "id": "ch3-clue-1",
+      "title": "BỂ MÀU ĐỎ",
+      "lines": [
+        [
+          "Dấu vết",
+          "Khóa đỏ ghi “không mở”. Mặt kính chuyển động như có thứ gì thở bên trong."
+        ],
+        [
+          "Senti",
+          "Bể xanh thì phá được. Bể đỏ tốt nhất để yên."
+        ]
+      ]
+    },
+    {
+      "m": 4200,
+      "id": "ch3-clue-2",
+      "title": "CỔNG BABYLON",
+      "lines": [
+        [
+          "Hệ thống",
+          "Tọa độ chuyển tiếp: Siberia · Babylon Labs."
+        ],
+        [
+          "Fu Hua",
+          "Tôi không muốn quay lại."
+        ],
+        [
+          "Senti",
+          "Tôi biết. Nhưng lần này cô không đi một mình."
+        ]
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-5",
+      "m": 3550,
+      "y": 402,
+      "title": "CHIẾC KÍNH RÂM",
+      "condition": "spear",
+      "lines": [
+        [
+          "Ký ức ẩn #5",
+          "Fu Hua và Senti đi mua sắm. Senti đội cả đống kính râm lên đầu rồi bắt Fu Hua chọn cái ngầu nhất."
+        ],
+        [
+          "Senti",
+          "Ta không muốn nó bị xóa thêm lần nữa."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresNode": "glass-wall"
+    },
+    {
+      "id": "hidden-6",
+      "m": 3910,
+      "y": 402,
+      "title": "BÀI TOÁN BUỒN NGỦ",
+      "condition": "assist",
+      "lines": [
+        [
+          "Ký ức ẩn #6",
+          "Fu Hua kiên nhẫn giải một bài toán. Senti ngủ gục trên bàn trước khi cô viết xong dòng thứ ba."
+        ],
+        [
+          "Senti",
+          "Old Timer... ký ức này là của chúng ta."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresAssist": true
+    }
+  ],
+  "nodes": [
+    {
+      "m": 3540,
+      "id": "glass-wall",
+      "hp": 68,
+      "order": 0,
+      "requiredWeapon": "spear"
+    },
+    {
+      "m": 3730,
+      "id": "coolant-pipe",
+      "hp": 76,
+      "order": 1,
+      "requiredWeapon": "sword"
+    },
+    {
+      "m": 3860,
+      "id": "quarantine-wall",
+      "hp": 110,
+      "order": 2,
+      "requiredWeapon": "spear"
+    }
+  ],
+  "weather": [
+    {
+      "id": "ch3-weather-0",
+      "kind": "slip",
+      "from": 3200,
+      "to": 3580,
+      "title": "DUNG DỊCH RÒ RỈ",
+      "hint": "Giữ nhịp · L né khỏi vũng trơn"
+    },
+    {
+      "id": "ch3-weather-1",
+      "kind": "neon",
+      "from": 4000,
+      "to": 4340,
+      "title": "GIÓ SÂN BAY",
+      "hint": "Né tia từ drone"
+    }
+  ],
+  "salvage": [
+    {
+      "m": 3335,
+      "id": "salvage-ch3-0"
+    },
+    {
+      "m": 3490,
+      "id": "salvage-ch3-1"
+    },
+    {
+      "m": 3645,
+      "id": "salvage-ch3-2"
+    },
+    {
+      "m": 3800,
+      "id": "salvage-ch3-3"
+    },
+    {
+      "m": 3955,
+      "id": "salvage-ch3-4"
+    },
+    {
+      "m": 4110,
+      "id": "salvage-ch3-5"
+    }
+  ],
+  "unlock": {
+    "at": 3820,
+    "type": "assist",
+    "title": "FU HUA ASSIST"
+  },
+  "materials": [],
+  "gearRewards": {},
+  "blueprintRewards": {},
+  "gearStories": {},
+  "sources": [
+    "HoS_Script_Ch1-4.md",
+    "HoS_Script_Ch5-7_Endings.md",
+    "HoS_Story_Bible.md",
+    "HoS_Game_Design_Doc.md"
+  ],
+  "vats": [
+    {
+      "m": 3490,
+      "id": "vat-blue-1",
+      "kind": "blue"
+    },
+    {
+      "m": 3535,
+      "id": "vat-red-1",
+      "kind": "red"
+    },
+    {
+      "m": 3570,
+      "id": "vat-blue-2",
+      "kind": "blue"
+    },
+    {
+      "m": 3625,
+      "id": "vat-red-2",
+      "kind": "red"
+    }
+  ],
+  "cutscenes": [
+    {
+      "m": 3275,
+      "id": "ch3-arrival",
+      "visual": "arrival",
+      "title": "BỂ CHỨA KÝ ỨC",
+      "lines": [
+        [
+          "Senti",
+          "Tàu đâm thẳng vào Helheim. Những bể kia... có tên cô trên từng nhãn."
+        ],
+        [
+          "Fu Hua",
+          "Tôi không nhớ đã đồng ý để họ giữ thứ gì ở đây."
+        ],
+        [
+          "Senti",
+          "Vậy ta sẽ mở từng bể. Nhưng cái nào màu đỏ thì khoan đã."
+        ]
+      ]
+    },
+    {
+      "m": 3470,
+      "id": "ch3-vault",
+      "visual": "vault",
+      "title": "KHO LƯU TRỮ",
+      "lines": [
+        [
+          "Hệ thống",
+          "MẪU F.H. · TÁCH KÝ ỨC · LẦN XÓA THỨ 28."
+        ],
+        [
+          "Fu Hua",
+          "Hai mươi tám lần...?"
+        ],
+        [
+          "Senti",
+          "Bể xanh giữ ký ức. Bể đỏ nhốt bọ sống. Đọc nhãn trước khi chém!"
+        ]
+      ]
+    },
+    {
+      "m": 3735,
+      "id": "ch3-pipe",
+      "requiresNode": "coolant-pipe",
+      "visual": "pipe",
+      "title": "LỐI ĐI CỦA FU HUA",
+      "lines": [
+        [
+          "Fu Hua",
+          "Ống nước vừa nổ! Cậu tính sẵn chuyện đó à?"
+        ],
+        [
+          "Senti",
+          "Đương nhiên! Ta thông minh mà."
+        ],
+        [
+          "Senti",
+          "...Lửa dưới đường của cô tắt rồi. Đi tiếp đi, Old Timer."
+        ]
+      ]
+    },
+    {
+      "m": 3865,
+      "id": "ch3-assist",
+      "requiresNode": "quarantine-wall",
+      "visual": "assist",
+      "title": "FU HUA MỞ ĐƯỜNG",
+      "lines": [
+        [
+          "Senti",
+          "Khóa cách ly đóng cả hai lối. Đám bọ đang kéo đến!"
+        ],
+        [
+          "Fu Hua",
+          "Lùi lại. Edge of Taixuan!"
+        ],
+        [
+          "Senti",
+          "Ồ. Cô đấm thủng cả tường thật. Từ giờ ta gọi cô vào trận được chứ?"
+        ],
+        [
+          "Fu Hua",
+          "Được. Khi cần, cứ gọi tôi."
+        ]
+      ]
+    },
+    {
+      "m": 4070,
+      "id": "ch3-airfield",
+      "visual": "airfield",
+      "title": "SÂN BAY SCHICKSAL",
+      "lines": [
+        [
+          "Fu Hua",
+          "Ngoài kia là sân bay lơ lửng. Heimdall đang chặn cổng."
+        ],
+        [
+          "Senti",
+          "Một con mecha cầm kiếm đỏ. Ta có Thương, cô có cú đấm vừa rồi."
+        ],
+        [
+          "Fu Hua",
+          "Nó khóa khiên bằng năng lượng. Phá trụ rồi ngắt nhịp chém của nó."
+        ]
+      ]
+    }
+  ],
+  "sideStories": [
+    {
+      "id": "ch3-side-erased",
+      "m": 3510,
+      "title": "HỒ SƠ BỊ XÓA LẦN THỨ 28",
+      "item": "mnemosyne_record",
+      "enemies": [
+        "elite",
+        "flyer"
+      ],
+      "reward": "mnemosyne_shard",
+      "start": [
+        [
+          "Thiết bị phụ",
+          "Bản ghi xóa ký ức lần 28 bị khóa bởi hai thực thể bảo vệ."
+        ],
+        [
+          "Senti",
+          "Vậy đánh chúng rồi mở. Ta muốn biết ai đã bắt Old Timer quên."
+        ]
+      ],
+      "end": [
+        [
+          "Bản ghi phụ",
+          "Ký ức không biến mất. Chúng liên kết với nhau và tự đặt tên: MNEMOSYNE."
+        ],
+        [
+          "Fu Hua",
+          "Nó không chỉ là một cỗ máy. Nó được sinh ra từ những phần tôi cố chôn đi."
+        ]
+      ]
+    },
+    {
+      "id": "ch3-side-technician",
+      "m": 4105,
+      "title": "TIN NHẮN CỦA KỸ THUẬT VIÊN",
+      "item": "helheim_message",
+      "enemies": [
+        "machine",
+        "elite",
+        "flyer"
+      ],
+      "reward": "helheim_core",
+      "start": [
+        [
+          "Tin nhắn chưa gửi",
+          "Nếu ai đọc được: đừng mở bể đỏ. Những sinh vật đó học cách gọi tên chúng tôi."
+        ],
+        [
+          "Senti",
+          "Quá muộn rồi. Chúng biết ta ở đây."
+        ]
+      ],
+      "end": [
+        [
+          "Tin nhắn chưa gửi",
+          "Tôi để chìa khóa cổng Babylon trong lõi Heimdall. Xin hãy đưa những ký ức ra ngoài."
+        ],
+        [
+          "Senti",
+          "Được. Ta sẽ hoàn thành việc ngươi không kịp làm."
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="832" height="64" viewBox="0 0 832 64" shape-rendering="crispEdges">
+ <g transform="translate(0 0)"><!-- alloy ingot -->
+  <path fill="#101927" d="M8 35h48v15H8zM14 22h36l6 13H8z"/><path fill="#809caf" d="M11 34h42v12H11z"/><path fill="#d3e1df" d="M17 24h30l5 10H12z"/><path fill="#5a718a" d="M20 28h24v4H20zM17 39h30v3H17z"/><path fill="#f3efdf" d="M19 24h25v3H19z"/>
+ </g>
+ <g transform="translate(64 0)"><!-- common memory crystal -->
+  <path fill="#11132b" d="M26 7h13l17 21-13 28H22L8 30z"/><path fill="#9974d4" d="M26 10h11l14 18-11 23H23L12 30z"/><path fill="#e5cbff" d="M26 10h11l-3 19-14 6-8-5z"/><path fill="#5d4a9c" d="M34 29l17-1-11 23H23l-3-16z"/><path fill="#fff4ff" d="M27 12h5l-4 14-10 4z"/>
+ </g>
+ <g transform="translate(128 0)"><!-- Namiko oscillator coil -->
+  <path fill="#151823" d="M14 11h36v42H14z"/><path fill="#5ac8ca" d="M18 15h28v34H18z"/><path fill="#123b4a" d="M23 19h18v26H23z"/><path fill="#e4b871" d="M26 20h5v24h-5zM34 20h5v24h-5z"/><path fill="#ffdf9d" d="M27 22h3v4h-3zM35 29h3v4h-3zM27 36h3v4h-3z"/><path fill="#162029" d="M10 25h8v13h-8zM46 25h8v13h-8z"/><path fill="#91f5ed" d="M20 15h24v3H20z"/>
+ </g>
+ <g transform="translate(192 0)"><!-- Taixuan seal -->
+  <path fill="#1a1b27" d="M25 6h14l18 25-18 26H25L7 31z"/><path fill="#c79d58" d="M26 9h12l15 22-15 23H26L11 31z"/><path fill="#f4db98" d="M28 14h8l12 17-12 17h-8L16 31z"/><path fill="#694a65" d="M30 18h4v11h9v4h-9v12h-4V33h-9v-4h9z"/><path fill="#fff4ca" d="M29 10h6v4h-6z"/>
+ </g>
+ <g transform="translate(256 0)"><!-- Oblivion inscription feather -->
+  <path fill="#15152a" d="M11 55l3-25L40 8l13 4-2 14-30 31z"/><path fill="#c4b5ec" d="M14 51l3-21L40 11l10 3-3 12z"/><path fill="#f7efff" d="M17 48l5-18 19-15 6 1-8 16z"/><path fill="#655999" d="M21 52l27-31-3 10-19 20z"/><path fill="#aa83d7" d="M12 56l24-27 3 2-24 27z"/><path fill="#ffffff" d="M31 20l9-6h4l-9 8z"/>
+ </g>
+ <g transform="translate(320 0)"><!-- sentience prism -->
+  <path fill="#171226" d="M26 5h12l19 25-19 28H26L7 30z"/><path fill="#9e5a9e" d="M27 9h10l15 21-15 23H27L12 30z"/><path fill="#e997bc" d="M27 11h10l-5 19-20 0z"/><path fill="#5d315f" d="M32 30h20L37 53H27L12 30z"/><path fill="#fff3e0" d="M24 29h16v4H24zM30 23h4v16h-4z"/>
+ </g>
+ <g transform="translate(384 0)"><!-- special brick artifact -->
+  <path fill="#12131b" d="M7 16h50v35H7z"/><path fill="#888b92" d="M11 20h42v27H11z"/><path fill="#c8c6b9" d="M11 20h42v6H11z"/><path fill="#595d69" d="M11 39h42v8H11z"/><path fill="#373946" d="M29 20h4v12h20v3H33v12h-4V35H11v-3h18z"/><path fill="#e9be74" d="M25 29h14v4H25zM30 25h4v13h-4z"/>
+ </g>
+ <g transform="translate(448 0)"><!-- brick rune fragment -->
+  <path fill="#16161f" d="M9 15h46v38H9z"/><path fill="#666a77" d="M13 19h38v30H13z"/><path fill="#aaa9a6" d="M13 19h38v6H13z"/><path fill="#4a4c5b" d="M13 43h38v6H13z"/><path fill="#f5d390" d="M20 31h24v4H20zM29 25h5v18h-5z"/><path fill="#da8768" d="M16 37h8v3h-8zM41 27h6v3h-6z"/>
+ </g>
+ <g transform="translate(512 0)"><!-- crimson PRI mark -->
+  <path fill="#1b1220" d="M12 9h40v46H12z"/><path fill="#7f3346" d="M16 13h32v38H16z"/><path fill="#df745c" d="M20 17h24v30H20z"/><path fill="#ffb170" d="M26 22h12v20H26z"/><path fill="#572136" d="M30 18h4v10h10v4H34v15h-4V32H20v-4h10z"/><path fill="#ffe2a0" d="M27 20h10v4H27z"/>
+ </g>
+ <g transform="translate(576 0)"><!-- torus ring -->
+  <path fill="#151323" d="M22 6h20l16 16v20L42 58H22L6 42V22z"/><path fill="#e6c47c" d="M24 10h16l14 14v16L40 54H24L10 40V24z"/><path fill="#764887" d="M27 20h10l7 7v10l-7 7H27l-7-7V27z"/><path fill="#151323" d="M29 25h6l4 4v6l-4 4h-6l-4-4v-6z"/><path fill="#fff0af" d="M24 10h16v4H24z"/>
+ </g>
+ <g transform="translate(640 0)"><!-- Dirac residue -->
+  <path fill="#101827" d="M8 8h48v48H8z"/><path fill="#315a85" d="M13 13h38v38H13z"/>
+  <path fill="#8ce7ef" d="M32 15c12 0 18 8 18 17s-7 17-18 17c-9 0-15-5-15-12 0-6 5-11 12-11 6 0 10 4 10 8 0 4-3 7-7 7-3 0-5-2-5-5h5c0 1 1 2 2 2 2 0 3-2 3-4 0-3-3-5-7-5-5 0-9 4-9 9 0 6 5 9 12 9 9 0 14-6 14-14 0-8-6-14-15-14z"/>
+  <path fill="#e8fdff" d="M28 14h8v5h-8zM46 29h6v7h-6z"/>
+ </g>
+ <g transform="translate(704 0)"><!-- shattered sword shard -->
+  <path fill="#151521" d="M9 8h46v48H9z"/><path fill="#6b334d" d="M14 13h36v38H14z"/>
+  <path fill="#e7edf5" d="M30 10h7l-2 25-7 12-5-4 7-11z"/><path fill="#81dfda" d="M37 18l12 7-5 5-9-5z"/>
+  <path fill="#e76978" d="M15 18l12 7-3 6-11-5zM37 39l13 6-4 6-12-7z"/><path fill="#fff5d5" d="M26 44h12v5H26z"/>
+ </g>
+ <g transform="translate(768 0)"><!-- Pericles golden laurel -->
+  <path fill="#171522" d="M8 8h48v48H8z"/><path fill="#644b2c" d="M13 13h38v38H13z"/>
+  <path fill="none" stroke="#f2d17e" stroke-width="5" d="M19 47C9 31 16 18 27 13M45 47c10-16 3-29-8-34"/>
+  <path fill="#ffe8a4" d="M14 37l10 2-3 7-8-4zM13 27l10 1-2 7-9-3zM18 17l9 4-4 6-8-5zM50 37l-10 2 3 7 8-4zM51 27l-10 1 2 7 9-3zM46 17l-9 4 4 6 8-5z"/>
+  <path fill="#fff8d1" d="M28 10h8v8h-8zM27 44h10v6H27z"/>
+ </g>
+</svg>

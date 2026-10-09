@@ -1,0 +1,34 @@
+# Generated deployment output
+web-dist/
+node_modules/
+
+# Local QA and temporary output
+/tmp/
+/qa/
+gameplay-v4/qa/
+
+# Old generated builds and packages
+/dist/
+/release/
+gameplay-v4/build/
+gameplay-v4/build-*/
+gameplay-v4/*.zip
+gameplay-v4/*.mp4
+gameplay-v4/docs/audio-research/*.mp4
+*.tar.gz
+
+# Review-only exports; approved assets live in gameplay-v4/assets/
+gameplay-v4/concepts/
+gameplay-v4/event-minigame-assets-review-v1/
+
+# Superseded local prototypes kept on this machine only
+/assets/
+/cũ/
+/gameplay-v2/
+/gameplay-v2-terrain/
+/gameplay-v3-story/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.log

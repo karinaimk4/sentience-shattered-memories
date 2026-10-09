@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "statCaps": {
+    "critRate": 0.75,
+    "gearCritDamageBonus": 1.0,
+    "attackSpeedBonus": 0.35,
+    "cooldownReduction": 0.3,
+    "shieldRatio": 0.6
+  },
+  "weaponIconSheet": "equipment-weapon-cores-v1.png",
+  "weapons": [
+    {"id":"cloth_resolve","name":"Cloth-Wrapped Resolve","rarity":2,"maxLevel":20,"maxAtk":35,"crit":0.02,"iconIndex":0},
+    {"id":"training_fists","name":"Schicksal Training Fists","rarity":3,"maxLevel":30,"maxAtk":62,"crit":0.04,"iconIndex":1},
+    {"id":"jade_current","name":"Jade Current Bracers","rarity":3,"maxLevel":30,"maxAtk":58,"crit":0.06,"iconIndex":2},
+    {"id":"tai_xuan","name":"Grips of Tai Xuan","rarity":4,"maxLevel":40,"maxAtk":96,"crit":0.08,"iconIndex":3},
+    {"id":"fenghuang_down","name":"Fenghuang Down","rarity":4,"maxLevel":40,"maxAtk":92,"crit":0.06,"iconIndex":4},
+    {"id":"domain_sentience","name":"Domain of Sentience","rarity":5,"maxLevel":50,"maxAtk":132,"crit":0.10,"iconIndex":5},
+    {"id":"infinite_intimidator","name":"Infinite Intimidator","rarity":5,"maxLevel":50,"maxAtk":145,"crit":0.08,"iconIndex":6},
+    {"id":"incredibly_infinite","name":"Incredibly Infinite Intimidator","rarity":6,"maxLevel":65,"maxAtk":182,"crit":0.12,"iconIndex":7},
+    {"id":"shattered_core","name":"Shattered Memory Core","rarity":6,"maxLevel":65,"maxAtk":170,"crit":0.10,"iconIndex":8,"secret":true}
+  ],
+  "stigmataSets": [
+    {"id":"training_memory","name":"Training Memory","rarity":2,"maxLevel":20,"sheet":"stigmata-training-memory-2star-v1.png"},
+    {"id":"nagazora_survivor","name":"Nagazora Survivor","rarity":3,"maxLevel":30,"sheet":"stigmata-nagazora-survivor-3star-v1.png"},
+    {"id":"taixuan_companions","name":"Taixuan Companions","rarity":4,"maxLevel":40,"sheet":"stigmata-taixuan-companions-4star-v1.png"},
+    {"id":"sovereign_sentience","name":"Sovereign of Sentience","rarity":5,"maxLevel":50,"sheet":"stigmata-sovereign-sentience-5star-v1.png"},
+    {"id":"shattered_memories","name":"Shattered Memories","rarity":5,"maxLevel":50,"sheet":"stigmata-shattered-memories-secret-v1.png","secret":true}
+  ]
+}

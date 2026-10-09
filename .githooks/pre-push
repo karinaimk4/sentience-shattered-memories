@@ -1,0 +1,9 @@
+#!/bin/sh
+# Chan push thang vao main. Chi dung ALLOW_PUSH_MAIN=1 cho lan khoi tao repo rong.
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  if [ "$remote_ref" = "refs/heads/main" ] && [ "$ALLOW_PUSH_MAIN" != "1" ]; then
+    echo "DUNG LAI - khong push thang vao main. Hay tao nhanh feat/fix/docs va mo Pull Request." >&2
+    exit 1
+  fi
+done
+exit 0

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="128" viewBox="0 0 768 128" shape-rendering="crispEdges">
+  <!-- 0 Arc neon loop pylon -->
+  <g><path fill="#18162c" d="M10 23h76v97H10z"/><path fill="#5d4071" d="M5 15h86v12H5zm5 101h76v8H10z"/><path fill="#ed7dcc" d="M14 32h68v57H14z"/><path fill="#24213e" d="M19 37h58v47H19z"/><path fill="#7ce1ef" d="M26 43h8v34h-8zm35 0h8v34h-8z"/><path fill="#f8d7ed" d="M39 48h18v7H39zm0 17h18v7H39z"/><path fill="#ec7dd0" d="M43 55h10v10H43z"/><path fill="#2f2443" d="M18 94h60v16H18z"/><path fill="#f7c575" d="M24 100h48v4H24z"/></g>
+  <!-- 1 Helheim cracked glass gate -->
+  <g transform="translate(96)"><path fill="#142f3a" d="M13 5h70v119H13z"/><path fill="#76ddd6" d="M18 10h60v109H18z"/><path fill="#1d4b57" d="M24 16h48v97H24z"/><path fill="#89e7df" d="M29 22h38v85H29z"/><path fill="#c9fff4" d="m48 22-8 27 11 9-15 31 13-16 8 8 10-32-12 12 2-19z"/><path fill="#ec819d" d="M18 61h60v6H18z"/></g>
+  <!-- 2 Helheim coolant pipe -->
+  <g transform="translate(192)"><path fill="#1b343f" d="M22 3h52v122H22z"/><path fill="#629aa5" d="M28 4h40v121H28z"/><path fill="#a8e9e6" d="M34 4h9v121h-9z"/><path fill="#3e6974" d="M19 24h58v12H19zm0 67h58v12H19z"/><path fill="#d2fff7" d="M42 51h12v23H42z"/><path fill="#ec7c99" d="M46 55h4v15h-4z"/><path fill="#75ddd2" d="M68 48h11v8H68zm0 11h11v8H68z"/></g>
+  <!-- 3 Quarantine column -->
+  <g transform="translate(288)"><path fill="#152b36" d="M11 8h74v116H11z"/><path fill="#3c6570" d="M17 14h62v104H17z"/><path fill="#173943" d="M23 22h50v88H23z"/><path fill="#e27b96" d="M23 57h50v16H23z"/><path fill="#ffe1e6" d="M29 62h38v5H29z"/><path fill="#87ded7" d="M29 29h8v20h-8zm30 0h8v20h-8zm-30 52h8v20h-8zm30 0h8v20h-8z"/></g>
+  <!-- 4 Babylon memory projector -->
+  <g transform="translate(384)"><path fill="#1a3448" d="M15 46h66v78H15z"/><path fill="#54899c" d="M21 52h54v66H21z"/><path fill="#b7edf6" d="M29 59h38v35H29z"/><path fill="#315c70" d="M34 64h28v25H34z"/><path fill="#f0b0cb" d="M44 69h8v15h-8z"/><path fill="#dffaff" d="m48 3 17 38H31z"/><path fill="#8ad8e9" d="m48 16 8 21H40z"/><path fill="#e8c982" d="M27 102h42v6H27z"/></g>
+  <!-- 5 Babylon memory crate -->
+  <g transform="translate(480)"><path fill="#183047" d="M8 35h80v89H8z"/><path fill="#73afc2" d="M13 29h70v9H13zm0 87h70v8H13z"/><path fill="#d8f7ff" d="M19 45h58v58H19z"/><path fill="#4b7587" d="M25 51h46v46H25z"/><path fill="#e2a7c1" d="M44 55h8v38h-8zM29 70h38v8H29z"/><path fill="#fff0c5" d="M34 105h28v5H34z"/></g>
+  <!-- 6 Taixuan false wall -->
+  <g transform="translate(576)"><path fill="#36273b" d="M7 7h82v117H7z"/><path fill="#725268" d="M13 13h70v105H13z"/><path fill="#2c2032" d="M19 19h58v93H19z"/><path fill="#e8a8cd" d="m48 18 6 22-8 15 11 15-14 20 5 23-15-25 10-18-9-15 13-15z"/><path fill="#e1bf79" d="M22 28h18v4H22zm35 65h16v4H57z"/></g>
+  <!-- 7 Taixuan shadow seal -->
+  <g transform="translate(672)"><path fill="#241827" d="M9 10h78v114H9z"/><path fill="#68455d" d="M15 16h66v102H15z"/><path fill="#311f35" d="M22 23h52v88H22z"/><path fill="#f0aed4" d="m48 29 8 16 17 7-17 8-8 21-8-21-17-8 17-7z"/><path fill="#c75483" d="m48 43 5 10-5 12-5-12z"/><path fill="#edc77c" d="M27 92h42v5H27zm8 8h26v4H35z"/></g>
+</svg>

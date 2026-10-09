@@ -1,0 +1,48 @@
+{
+  "music": {
+    "file": "assets/audio/official-site-bgm.mp3",
+    "label": "Honkai Impact 3rd · nhạc nền trang chính thức"
+  },
+  "sfx": {
+    "slash-1": {
+      "file": "assets/audio/slash-1.ogg",
+      "source": "hos-attack",
+      "start": 1.0,
+      "duration": 0.35
+    },
+    "slash-2": {
+      "file": "assets/audio/slash-2.ogg",
+      "source": "hos-attack",
+      "start": 2.2,
+      "duration": 0.42
+    },
+    "impact": {
+      "file": "assets/audio/impact.ogg",
+      "source": "hos-attack",
+      "start": 3.6,
+      "duration": 0.42
+    },
+    "evade": {
+      "file": "assets/audio/evade.ogg",
+      "source": "hos-evade",
+      "start": 1.0,
+      "duration": 0.65
+    }
+  },
+  "voice": {
+    "hos-battle": {
+      "file": "assets/audio/hos-battle.ogg",
+      "source": "hos-ultimate",
+      "start": 0.73,
+      "duration": 3.15
+    },
+    "hua-battle": {
+      "file": "assets/audio/hua-battle.ogg",
+      "source": "hua-ultimate",
+      "start": 1.79,
+      "duration": 2.35
+    }
+  },
+  "provenance": "docs/audio-research/official-sources.json",
+  "note": "Voice and combat effects are short excerpts from the official skill demonstration mix, not isolated voice stems or narration of the Vietnamese script."
+}

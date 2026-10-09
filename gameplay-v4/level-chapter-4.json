@@ -1,0 +1,895 @@
+{
+  "chapter": 4,
+  "title": "TUYẾT VÀ NHỮNG ĐIỀU KHÔNG NÊN NHỚ",
+  "place": "ĐỒNG TUYẾT → BABYLON",
+  "color": "#a7d9f3",
+  "lengthMeters": 5480,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    11,
+    16
+  ],
+  "physics": {
+    "speed": 320,
+    "backSpeed": 230,
+    "gravity": 1800,
+    "jumpVelocity": 680,
+    "groundY": 490
+  },
+  "opening": [
+    [
+      "Fu Hua",
+      "...Babylon."
+    ],
+    [
+      "Senti",
+      "Old Timer, chạy gần ta. Cô không cần nhìn những ảo ảnh đó."
+    ],
+    [
+      "Fu Hua",
+      "Tôi vẫn đi được."
+    ],
+    [
+      "Senti",
+      "Ta biết. Lần này ta đi trước."
+    ]
+  ],
+  "scenes": [
+    {
+      "from": 4340,
+      "to": 4560,
+      "id": "siberia-snow",
+      "name": "4.1 · ĐỒNG TUYẾT SIBERIA",
+      "objective": "Giữ S chống bão · Né hố băng",
+      "line": "Tuyết che mất mép vực. Nhìn bước chân ta!"
+    },
+    {
+      "from": 4560,
+      "to": 4780,
+      "id": "babylon-hall",
+      "name": "4.2 · HÀNH LANG BABYLON",
+      "objective": "Chém máy chiếu làm chậm · Giữ Fu Hua an toàn",
+      "line": "Những bóng trên kính... là ký ức, không phải cô."
+    },
+    {
+      "from": 4780,
+      "to": 5000,
+      "id": "abyss-chain",
+      "name": "4.3 · VỰC SÂU",
+      "objective": "Nhận Xích · Kéo qua vực",
+      "line": "Xích này trói người khác? Không, nó sẽ kéo cô qua."
+    },
+    {
+      "from": 5000,
+      "to": 5220,
+      "id": "babylon-core",
+      "name": "4.4 · LÕI BABYLON",
+      "objective": "Xích quét bầy quái · Mở cửa lõi",
+      "line": "Chúng không được chạm vào Old Timer."
+    },
+    {
+      "from": 5220,
+      "to": 5440,
+      "id": "parvati-lair",
+      "name": "4.5 · SÀN BĂNG",
+      "objective": "Né cột băng · Phá giáp Parvati",
+      "line": "Nền đóng băng rồi. Cái gì đang bò ra?"
+    },
+    {
+      "from": 5440,
+      "to": 5480,
+      "id": "parvati",
+      "name": "PARVATI",
+      "objective": "Đọc nhịp đòn · Phá khiên · Sống sót qua mọi pha",
+      "line": ""
+    }
+  ],
+  "arenas": [
+    {
+      "m": 4560,
+      "name": "THÚ BĂNG",
+      "waves": [
+        [
+          "enemy",
+          "flyer"
+        ],
+        [
+          "elite",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường thú băng có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 4845,
+      "name": "MÁY CHIẾU KÝ ỨC",
+      "waves": [
+        [
+          "enemy",
+          "flyer"
+        ],
+        [
+          "elite",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường máy chiếu ký ức có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 5130,
+      "name": "LÕI BABYLON",
+      "waves": [
+        [
+          "enemy",
+          "knight"
+        ],
+        [
+          "elite",
+          "machine"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường lõi babylon có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 5440,
+      "name": "PARVATI",
+      "waves": [
+        [
+          "elite",
+          "machine"
+        ],
+        [
+          "parvati"
+        ]
+      ],
+      "before": [
+        [
+          "Fu Hua",
+          "Parvati tạo cột băng trước khi lăn. Xích giúp cậu tránh nó."
+        ],
+        [
+          "Senti",
+          "Ta phá giáp bằng Thương. Cô giữ sức cho đòn cuối."
+        ]
+      ],
+      "after": [
+        [
+          "Ký ức chính #4",
+          "“Dữ liệu rò rỉ đạt ngưỡng tự tổ chức. Một cấu trúc ý thức phụ đang hình thành.”"
+        ],
+        [
+          "Fu Hua",
+          "Mnemosyne sinh ra từ phần đau đớn mà tôi đã chôn vùi."
+        ],
+        [
+          "Senti",
+          "Taixuan hiện ra phía trước. Nhưng nơi đó... hoàn hảo quá mức."
+        ]
+      ],
+      "power": 1350
+    }
+  ],
+  "checkpoints": [
+    4340,
+    4450,
+    4625,
+    4780,
+    4910,
+    5065,
+    5200,
+    5325,
+    5405
+  ],
+  "placements": [
+    {
+      "m": 4368,
+      "pattern": "ch4-layout-0"
+    },
+    {
+      "m": 4406,
+      "pattern": "ch4-layout-1"
+    },
+    {
+      "m": 4482,
+      "pattern": "ch4-layout-2"
+    },
+    {
+      "m": 4520,
+      "pattern": "ch4-layout-3"
+    },
+    {
+      "m": 4596,
+      "pattern": "ch4-layout-4"
+    },
+    {
+      "m": 4672,
+      "pattern": "ch4-layout-5"
+    },
+    {
+      "m": 4710,
+      "pattern": "ch4-layout-6"
+    },
+    {
+      "m": 4748,
+      "pattern": "ch4-layout-7"
+    },
+    {
+      "m": 4938,
+      "pattern": "ch4-layout-8"
+    },
+    {
+      "m": 4976,
+      "pattern": "ch4-layout-9"
+    },
+    {
+      "m": 5014,
+      "pattern": "ch4-layout-10"
+    },
+    {
+      "m": 5090,
+      "pattern": "ch4-layout-11"
+    },
+    {
+      "m": 5166,
+      "pattern": "ch4-layout-12"
+    },
+    {
+      "m": 5242,
+      "pattern": "ch4-layout-13"
+    },
+    {
+      "m": 5280,
+      "pattern": "ch4-layout-14"
+    },
+    {
+      "m": 5356,
+      "pattern": "ch4-layout-15"
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch4-layout-0",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "siberia-snow",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch4-layout-1",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "siberia-snow",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-2",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "siberia-snow",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch4-layout-3",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "siberia-snow",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-4",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "babylon-hall",
+      "offset": 640
+    },
+    {
+      "id": "ch4-layout-5",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "babylon-hall",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch4-layout-6",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "babylon-hall",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch4-layout-7",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "babylon-hall",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-8",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "abyss-chain",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-9",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "abyss-chain",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch4-layout-10",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "babylon-core",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch4-layout-11",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "babylon-core",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-12",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "babylon-core",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch4-layout-13",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "parvati-lair",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch4-layout-14",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "parvati-lair",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch4-layout-15",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "parvati-lair",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    }
+  ],
+  "patrols": [
+    {
+      "m": 4415,
+      "kind": "machine"
+    },
+    {
+      "m": 4503,
+      "kind": "enemy"
+    },
+    {
+      "m": 4679,
+      "kind": "elite"
+    },
+    {
+      "m": 4767,
+      "kind": "flyer"
+    },
+    {
+      "m": 4943,
+      "kind": "enemy"
+    },
+    {
+      "m": 5031,
+      "kind": "knight"
+    },
+    {
+      "m": 5207,
+      "kind": "flyer"
+    },
+    {
+      "m": 5295,
+      "kind": "machine"
+    }
+  ],
+  "beats": [
+    {
+      "m": 4430,
+      "id": "ch4-beat-0",
+      "speaker": "Senti",
+      "text": "Bão tuyết đang nuốt cả con đường. Cứ theo giọng ta."
+    },
+    {
+      "m": 4700,
+      "id": "ch4-beat-1",
+      "speaker": "Fu Hua",
+      "text": "Các máy chiếu kéo tôi trở lại một ngày tôi muốn quên."
+    },
+    {
+      "m": 5040,
+      "id": "ch4-beat-2",
+      "speaker": "Senti",
+      "text": "Xích nhận này đủ dài. Old Timer, nắm chặt!"
+    },
+    {
+      "m": 5300,
+      "id": "ch4-beat-3",
+      "speaker": "Fu Hua",
+      "text": "Sàn băng chỉ nứt khi bị đánh từ trên xuống."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 4650,
+      "id": "ch4-clue-0",
+      "title": "NHẬT KÝ LỒNG ẤP",
+      "lines": [
+        [
+          "Nhật ký",
+          "Những đứa trẻ từng ở đây không còn trong bản ghi chính thức."
+        ],
+        [
+          "Fu Hua",
+          "Tôi nhớ tiếng họ. Tôi đã cố quên."
+        ],
+        [
+          "Senti",
+          "Không cần gánh một mình nữa."
+        ]
+      ]
+    },
+    {
+      "m": 4970,
+      "id": "ch4-clue-1",
+      "title": "BẢN ĐỒ VỰC",
+      "lines": [
+        [
+          "Dấu vết",
+          "Một vực sâu chia đôi lõi Babylon. Trên cao còn một sợi xích ký ức."
+        ],
+        [
+          "Senti",
+          "Ta sẽ lấy nó."
+        ]
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-7",
+      "m": 4680,
+      "y": 404,
+      "title": "TÁCH TRÀ NÓNG",
+      "condition": "calm",
+      "lines": [
+        [
+          "Ký ức ẩn #7",
+          "Giữa mùa đông, Senti thổi ly trà nóng quá vội rồi nhăn mặt. Fu Hua lặng lẽ đẩy ly nước mát sang."
+        ],
+        [
+          "Senti",
+          "Ta không muốn nó bị xóa thêm lần nữa."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresNode": "memory-projector-2"
+    },
+    {
+      "id": "hidden-8",
+      "m": 5200,
+      "y": 405,
+      "title": "CHIẾC CHĂN",
+      "condition": "chain",
+      "lines": [
+        [
+          "Ký ức ẩn #8",
+          "Senti lén đắp chăn cho Fu Hua ngủ quên trên ghế, rồi ngồi cạnh canh cho đến sáng."
+        ],
+        [
+          "Senti",
+          "Old Timer... ký ức này là của chúng ta."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresNode": "memory-crate"
+    }
+  ],
+  "nodes": [
+    {
+      "m": 4655,
+      "id": "memory-projector-1",
+      "hp": 72,
+      "order": 0,
+      "requiredWeapon": "sword"
+    },
+    {
+      "m": 4725,
+      "id": "memory-projector-2",
+      "hp": 82,
+      "order": 1,
+      "requiredWeapon": "sword"
+    },
+    {
+      "m": 5180,
+      "id": "memory-crate",
+      "hp": 105,
+      "order": 2,
+      "requiredWeapon": "chain"
+    }
+  ],
+  "weather": [
+    {
+      "id": "ch4-weather-0",
+      "kind": "snow",
+      "from": 4340,
+      "to": 4680,
+      "title": "BÃO TUYẾT BABYLON",
+      "hint": "Giữ S khi gió mạnh"
+    },
+    {
+      "id": "ch4-weather-1",
+      "kind": "slip",
+      "from": 5350,
+      "to": 5480,
+      "title": "SÀN BĂNG PARVATI",
+      "hint": "Giữ nhịp · L né khỏi vũng trơn"
+    }
+  ],
+  "salvage": [
+    {
+      "m": 4475,
+      "id": "salvage-ch4-0"
+    },
+    {
+      "m": 4630,
+      "id": "salvage-ch4-1"
+    },
+    {
+      "m": 4785,
+      "id": "salvage-ch4-2"
+    },
+    {
+      "m": 4940,
+      "id": "salvage-ch4-3"
+    },
+    {
+      "m": 5095,
+      "id": "salvage-ch4-4"
+    },
+    {
+      "m": 5250,
+      "id": "salvage-ch4-5"
+    }
+  ],
+  "unlock": {
+    "at": 4950,
+    "type": "chain",
+    "title": "XÍCH NHẬN"
+  },
+  "materials": [],
+  "gearRewards": {},
+  "blueprintRewards": {},
+  "gearStories": {},
+  "sources": [
+    "HoS_Script_Ch1-4.md",
+    "HoS_Script_Ch5-7_Endings.md",
+    "HoS_Story_Bible.md",
+    "HoS_Game_Design_Doc.md"
+  ],
+  "cutscenes": [
+    {
+      "m": 4385,
+      "id": "ch4-whiteout",
+      "visual": "snow",
+      "title": "BÃO TUYẾT BABYLON",
+      "lines": [
+        [
+          "Senti",
+          "Old Timer, chạy gần ta. Tuyết đang giấu cả mép vực."
+        ],
+        [
+          "Fu Hua",
+          "Tôi nghe tiếng những đứa trẻ trong gió."
+        ],
+        [
+          "Senti",
+          "Đừng nhìn lại. Lần này ta đi trước."
+        ]
+      ]
+    },
+    {
+      "m": 4605,
+      "id": "ch4-incubators",
+      "visual": "incubator",
+      "title": "HÀNH LANG LỒNG ẤP",
+      "lines": [
+        [
+          "Fu Hua",
+          "Những cái bóng trên kính... tôi đã gặp chúng ở đây."
+        ],
+        [
+          "Senti",
+          "Máy chiếu đang ép cô nhớ lại. Ta sẽ chém vỡ từng cái."
+        ]
+      ]
+    },
+    {
+      "m": 4900,
+      "id": "ch4-chain",
+      "visual": "chain",
+      "title": "XÍCH NHẬN",
+      "lines": [
+        [
+          "Senti",
+          "Sợi xích kia từng dùng để giam người. Giờ nó sẽ kéo chúng ta ra khỏi đây."
+        ],
+        [
+          "Fu Hua",
+          "Cậu chắc mình biết cách dùng chứ?"
+        ],
+        [
+          "Senti",
+          "...Nắm chặt là được!"
+        ]
+      ]
+    },
+    {
+      "m": 5035,
+      "id": "ch4-landing",
+      "requiresWeapon": "chain",
+      "visual": "landing",
+      "title": "QUA VỰC",
+      "lines": [
+        [
+          "Senti",
+          "...Lỗi ta. Kéo hơi mạnh."
+        ],
+        [
+          "Fu Hua",
+          "Lần sau nhẹ tay một chút."
+        ],
+        [
+          "Senti",
+          "Nhưng qua được rồi còn gì!"
+        ]
+      ]
+    },
+    {
+      "m": 5320,
+      "id": "ch4-core",
+      "visual": "ice",
+      "title": "LÕI BABYLON",
+      "lines": [
+        [
+          "Fu Hua",
+          "Sàn đang đóng băng. Parvati ở bên dưới."
+        ],
+        [
+          "Senti",
+          "Thương phá giáp, Xích chặn cú lăn. Cô giữ sức cho đòn cuối."
+        ]
+      ]
+    }
+  ],
+  "chainMemory": {
+    "m": 4900
+  },
+  "sideStories": [
+    {
+      "id": "ch4-side-names",
+      "m": 4685,
+      "title": "NHỮNG CÁI TÊN BỊ XÓA",
+      "item": "incubator_tags",
+      "enemies": [
+        "flyer",
+        "elite",
+        "flyer"
+      ],
+      "reward": "incubator_tag",
+      "start": [
+        [
+          "Danh sách lồng ấp",
+          "Mười hai dòng tên đã bị thay bằng số thứ tự."
+        ],
+        [
+          "Fu Hua",
+          "Tôi vẫn nhớ giọng của họ, nhưng không nhớ hết tên."
+        ],
+        [
+          "Senti",
+          "Vậy ta giành lại bản ghi này."
+        ]
+      ],
+      "end": [
+        [
+          "Danh sách khôi phục",
+          "Tên của mười hai đứa trẻ hiện lại trên kính."
+        ],
+        [
+          "Fu Hua",
+          "Tôi sẽ mang chúng theo. Không để hệ thống xóa thêm lần nữa."
+        ]
+      ]
+    },
+    {
+      "id": "ch4-side-tea",
+      "m": 5265,
+      "title": "ẤM TRÀ CHƯA NGUỘI",
+      "item": "warm_teapot",
+      "enemies": [
+        "elite",
+        "machine"
+      ],
+      "reward": "warm_memory",
+      "start": [
+        [
+          "Ký ức lạc",
+          "Một ấm trà vẫn còn hơi ấm giữa căn phòng đóng băng."
+        ],
+        [
+          "Senti",
+          "Chắc chắn là bẫy. Nhưng bỏ trà của Old Timer thì phí quá."
+        ]
+      ],
+      "end": [
+        [
+          "Ký ức lạc",
+          "Fu Hua đẩy một ly nước mát sang khi Senti bị bỏng lưỡi vì uống quá vội."
+        ],
+        [
+          "Senti",
+          "...Không được cười. Ta chỉ thử nhiệt độ thôi."
+        ]
+      ]
+    }
+  ]
+}

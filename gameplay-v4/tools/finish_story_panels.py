@@ -1,0 +1,19 @@
+from pathlib import Path
+R=Path(__file__).resolve().parents[1]
+p=R/'gameplay-v2.js';s=p.read_text(encoding='utf-8');s="import {openJourneys,journeyName,openAudioSettings} from './story-panels.js';\n"+s
+s=s.replace("function syncHome(){", "function syncHome(){\n $('#journey-name').textContent=journeyName(localStorage);")
+s=s.replace("if(!audio)return;if(g?.mode==='story')", "if(!audio)return;if(!gameAudio.music&&gameAudio.manifest)gameAudio.unlock(audio);if(g?.mode==='story')")
+s+='''
+function showJourneys(){openJourneys(()=>{g=null;save=sanitizeSave(readSave(localStorage))||ensureGear(newSave());committed=structuredClone(save);switchScreen('home');syncHome()});}
+$('#audio-settings').onclick=()=>openAudioSettings(gameAudio);
+'''
+p.write_text(s,encoding='utf-8')
+p=R/'index.html';s=p.read_text(encoding='utf-8');s=s.replace('<button id="sound"','<button id="audio-settings" class="subtle">CHỈNH ÂM THANH</button><button id="sound"');s=s.replace('<div id="save-summary"','<p id="journey-name" class="journey-name"></p><div id="save-summary"').replace('CHƠI TỪ ĐẦU · GIỮ BẢN LƯU CŨ','HÀNH TRÌNH · TẠO MỚI / CHỌN PHIÊN');p.write_text(s,encoding='utf-8')
+p=R/'loadout.css';s=p.read_text(encoding='utf-8');s+='''
+.forge-grid{display:grid;gap:15px}.forge-grid article{padding:22px;border:1px solid #ab98774d;background:#1a1d2c}.forge-grid h3{color:#ecc994}.forge-grid small{display:block;margin:15px 0}.forge-grid .forge-cost{color:#efcc93}.story-dialog{color:#ddd7d2;background:#141725;border:1px solid #a38f71;width:min(800px,90vw);max-height:85vh;padding:28px}.story-dialog::backdrop{background:#050814cc}.story-dialog h2{color:#eac998;font:28px Georgia}.story-dialog p{font-size:13px;line-height:1.7;color:#b6b5c1}.dialog-heading{display:flex;justify-content:space-between;align-items:start;gap:20px}.dialog-heading small{font-size:10px;letter-spacing:2px;color:#caa677}.journey-card{padding:20px;border:1px solid #ffffff22;margin:12px 0}.journey-card h3{margin:0;color:#e9caa0}.story-dialog input:not([type=range]){background:#0c1020;color:#eee;border:1px solid #79707c;padding:12px;max-width:100%;box-sizing:border-box}.journey-card button{margin:8px 6px 0 0}.journey-create{display:grid;gap:12px;margin-top:24px}.journey-create label{display:grid;gap:10px}.journey-name{color:#d9c9ac!important;font-size:12px!important}.audio-slider{display:grid;grid-template-columns:1fr 60px;gap:16px;margin:25px 0}.audio-slider input{grid-row:2;accent-color:#d9b783;width:100%}.audio-slider output{grid-row:2;font-size:12px}.audio-dialog{max-width:580px}@media(max-width:650px){.story-dialog{padding:18px}.masthead{flex-wrap:wrap;gap:10px}.journey-card input{width:100%}.dialog-heading button{padding:10px}}
+''';p.write_text(s,encoding='utf-8')
+p=R/'save-validation.js';s=p.read_text(encoding='utf-8');s=s.replace('t.slice(0,1000)',"t.slice(0,1000).replaceAll('Bà cụ','Old Timer').replaceAll('bà cụ','Old Timer').replaceAll('Bà ấy','Cô ấy').replaceAll('bà ấy','cô ấy')")
+s=s.replace(' return s;'," for(const [m,events] of [[450,['forge-attila-m']],[900,['forge-attila-b','forge-namiko']]])if(s.cleared.includes(m))for(const event of events)if(!s.storyEvents.includes(event))s.storyEvents.push(event);\n return s;");p.write_text(s,encoding='utf-8')
+p=R/'canonical-catalog.js';s=p.read_text(encoding='utf-8').replace("source:'Story · Nagazora Husk'","source:'Bàn rèn · Thiết kế tại trạm cứu hộ Chương 1'").replace("source:'Story · Ba trận đầu Chương 1'","source:'Story · Nhận T; rèn M/B từ bản thiết kế'");p.write_text(s,encoding='utf-8')
+p=R/'tools/package_build.py';s=p.read_text(encoding='utf-8').replace("files=['index.html'", "files=['story-environment.js','environment-runtime.js','boss-husk.js','story-crafting.js','story-sessions.js','story-panels.js','audio-system.js','audio-manifest.json','index.html'");p.write_text(s,encoding='utf-8')
+print('Journey selector, audio controls and forge UI integrated.')

@@ -1,0 +1,3407 @@
+{
+  "version": 2,
+  "atlas": "assets/characters-alpha.png",
+  "atlasSize": [
+    2048,
+    2464
+  ],
+  "cellSize": [
+    256,
+    176
+  ],
+  "anchor": [
+    112,
+    156
+  ],
+  "sheets": [
+    {
+      "id": "idle",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "size": [
+        1086,
+        1448
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 4
+      },
+      "frameCount": 12,
+      "background": "source alpha",
+      "uniformScale": 0.285
+    },
+    {
+      "id": "run",
+      "source": "hos-run-cycle-v3-face.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frameCount": 6,
+      "background": "source alpha",
+      "uniformScale": 0.235
+    },
+    {
+      "id": "jump",
+      "source": "hos-jump-cycle-v2-cute.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 1
+      },
+      "frameCount": 4,
+      "background": "source alpha",
+      "uniformScale": 0.225
+    },
+    {
+      "id": "dash",
+      "source": "hos-dash-slide-raw.png",
+      "size": [
+        1024,
+        506
+      ],
+      "layout": {
+        "rows": 2,
+        "columnsPerRow": [
+          5,
+          4
+        ]
+      },
+      "frameCount": 9,
+      "background": "offline chroma removal; exported RGBA",
+      "uniformScale": 0.53
+    },
+    {
+      "id": "sword",
+      "source": "hos-sword-combat-raw.png",
+      "size": [
+        576,
+        1024
+      ],
+      "layout": {
+        "rows": 5,
+        "columnsPerRow": [
+          3,
+          2,
+          2,
+          2,
+          3
+        ]
+      },
+      "frameCount": 12,
+      "background": "offline chroma removal; exported RGBA",
+      "uniformScale": 0.5
+    },
+    {
+      "id": "spear",
+      "source": "hos-spear-combat-raw.png",
+      "size": [
+        1024,
+        506
+      ],
+      "layout": {
+        "rows": 2,
+        "columnsPerRow": [
+          4,
+          3
+        ]
+      },
+      "frameCount": 7,
+      "background": "offline chroma removal; exported RGBA",
+      "uniformScale": 0.55
+    },
+    {
+      "id": "chain",
+      "source": "hos-chain-combat-raw.png",
+      "size": [
+        1024,
+        506
+      ],
+      "layout": {
+        "rows": 2,
+        "columnsPerRow": [
+          4,
+          3
+        ]
+      },
+      "frameCount": 7,
+      "background": "offline chroma removal; exported RGBA",
+      "uniformScale": 0.55
+    },
+    {
+      "id": "hurt",
+      "source": "hos-hurt-defeat-raw.png",
+      "size": [
+        1024,
+        506
+      ],
+      "layout": {
+        "rows": 2,
+        "columnsPerRow": [
+          5,
+          2
+        ]
+      },
+      "frameCount": 7,
+      "background": "offline chroma removal; exported RGBA",
+      "uniformScale": 0.53
+    },
+    {
+      "id": "hua",
+      "source": "fuhua-martial-assist-v1.png",
+      "size": [
+        1983,
+        793
+      ],
+      "layout": {
+        "rows": 2,
+        "columns": 5,
+        "note": "Hand-trimmed column boundaries avoid adjacent-pose bleed"
+      },
+      "frameCount": 10,
+      "background": "source alpha",
+      "uniformScale": 0.285
+    },
+    {
+      "id": "enemy",
+      "source": "enemy-chariot-base-v1.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frameCount": 6,
+      "background": "source alpha",
+      "uniformScale": 0.24
+    },
+    {
+      "id": "elite",
+      "source": "enemy-chariot-alloy-v1.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frameCount": 6,
+      "background": "source alpha",
+      "uniformScale": 0.24
+    },
+    {
+      "id": "knight",
+      "source": "enemy-knight-base-v1.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frameCount": 6,
+      "background": "source alpha",
+      "uniformScale": 0.24
+    },
+    {
+      "id": "boss",
+      "source": "enemy-templar-base-v1.png",
+      "size": [
+        1983,
+        793
+      ],
+      "layout": {
+        "columns": 6,
+        "rows": 1
+      },
+      "frameCount": 6,
+      "background": "source alpha",
+      "uniformScale": 0.34
+    },
+    {
+      "id": "loot",
+      "source": "equipment-upgrade-materials-v1.png",
+      "size": [
+        1774,
+        887
+      ],
+      "layout": {
+        "columns": 4,
+        "rows": 2
+      },
+      "frameCount": 8,
+      "background": "source alpha",
+      "uniformScale": 0.12
+    },
+    {
+      "id": "stigma",
+      "source": "stigmata-training-memory-2star-v1.png",
+      "size": [
+        2172,
+        724
+      ],
+      "layout": {
+        "columns": 3,
+        "rows": 1
+      },
+      "frameCount": 3,
+      "background": "source alpha",
+      "uniformScale": 0.13
+    }
+  ],
+  "frames": [
+    {
+      "id": "idle.0",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        0,
+        0,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        169.0,
+        346
+      ],
+      "scale": 0.285,
+      "content": "back left",
+      "atlasRect": [
+        0,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.1",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        362,
+        0,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        531.5,
+        344
+      ],
+      "scale": 0.285,
+      "content": "back",
+      "atlasRect": [
+        256,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.2",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        724,
+        0,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        893.5,
+        345
+      ],
+      "scale": 0.285,
+      "content": "back right",
+      "atlasRect": [
+        512,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.3",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        0,
+        362,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        172.0,
+        724
+      ],
+      "scale": 0.285,
+      "content": "left profile",
+      "atlasRect": [
+        768,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.4",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        362,
+        362,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        538.0,
+        724
+      ],
+      "scale": 0.285,
+      "content": "idle front",
+      "atlasRect": [
+        1024,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.5",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        724,
+        362,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        898.5,
+        724
+      ],
+      "scale": 0.285,
+      "content": "right profile",
+      "atlasRect": [
+        1280,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.6",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        0,
+        724,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        188.5,
+        1086
+      ],
+      "scale": 0.285,
+      "content": "expression stern",
+      "atlasRect": [
+        1536,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.7",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        362,
+        724,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        539.0,
+        1086
+      ],
+      "scale": 0.285,
+      "content": "expression calm",
+      "atlasRect": [
+        1792,
+        0,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.8",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        724,
+        724,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        882.5,
+        1086
+      ],
+      "scale": 0.285,
+      "content": "expression smile",
+      "atlasRect": [
+        0,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.9",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        0,
+        1086,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        176.5,
+        1392
+      ],
+      "scale": 0.285,
+      "content": "gesture left",
+      "atlasRect": [
+        256,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.10",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        362,
+        1086,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        522.0,
+        1391
+      ],
+      "scale": 0.285,
+      "content": "gesture center",
+      "atlasRect": [
+        512,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "idle.11",
+      "source": "hos-character-master-sharp-v2-expressive.png",
+      "sourceRect": [
+        724,
+        1086,
+        362,
+        362
+      ],
+      "sourceFootAnchor": [
+        880.5,
+        1385
+      ],
+      "scale": 0.285,
+      "content": "gesture right",
+      "atlasRect": [
+        768,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.0",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        183.0,
+        584
+      ],
+      "scale": 0.235,
+      "content": "run stride 0",
+      "atlasRect": [
+        1024,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.1",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        362,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        538.0,
+        584
+      ],
+      "scale": 0.235,
+      "content": "run stride 1",
+      "atlasRect": [
+        1280,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.2",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        724,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        906.5,
+        585
+      ],
+      "scale": 0.235,
+      "content": "run stride 2",
+      "atlasRect": [
+        1536,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.3",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        1086,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1262.5,
+        563
+      ],
+      "scale": 0.235,
+      "content": "run stride 3",
+      "atlasRect": [
+        1792,
+        176,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.4",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        1448,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1635.0,
+        584
+      ],
+      "scale": 0.235,
+      "content": "run stride 4",
+      "atlasRect": [
+        0,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "run.5",
+      "source": "hos-run-cycle-v3-face.png",
+      "sourceRect": [
+        1810,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1974.5,
+        584
+      ],
+      "scale": 0.235,
+      "content": "run stride 5",
+      "atlasRect": [
+        256,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "jump.0",
+      "source": "hos-jump-cycle-v2-cute.png",
+      "sourceRect": [
+        0,
+        0,
+        543,
+        724
+      ],
+      "sourceFootAnchor": [
+        280.5,
+        656
+      ],
+      "scale": 0.225,
+      "content": "jump anticipation",
+      "atlasRect": [
+        512,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "jump.1",
+      "source": "hos-jump-cycle-v2-cute.png",
+      "sourceRect": [
+        543,
+        0,
+        543,
+        724
+      ],
+      "sourceFootAnchor": [
+        821.5,
+        606
+      ],
+      "scale": 0.225,
+      "content": "jump rising",
+      "atlasRect": [
+        768,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "jump.2",
+      "source": "hos-jump-cycle-v2-cute.png",
+      "sourceRect": [
+        1086,
+        0,
+        543,
+        724
+      ],
+      "sourceFootAnchor": [
+        1336.0,
+        529
+      ],
+      "scale": 0.225,
+      "content": "jump apex",
+      "atlasRect": [
+        1024,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "jump.3",
+      "source": "hos-jump-cycle-v2-cute.png",
+      "sourceRect": [
+        1629,
+        0,
+        543,
+        724
+      ],
+      "sourceFootAnchor": [
+        1888.0,
+        656
+      ],
+      "scale": 0.225,
+      "content": "jump landing",
+      "atlasRect": [
+        1280,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.0",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        0,
+        20,
+        205,
+        220
+      ],
+      "sourceFootAnchor": [
+        112,
+        215
+      ],
+      "scale": 0.53,
+      "content": "dash anticipation",
+      "atlasRect": [
+        1536,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.1",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        205,
+        20,
+        195,
+        220
+      ],
+      "sourceFootAnchor": [
+        310,
+        215
+      ],
+      "scale": 0.53,
+      "content": "dash push",
+      "atlasRect": [
+        1792,
+        352,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.2",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        405,
+        25,
+        230,
+        220
+      ],
+      "sourceFootAnchor": [
+        516,
+        213
+      ],
+      "scale": 0.53,
+      "content": "low dash",
+      "atlasRect": [
+        0,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.3",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        638,
+        30,
+        215,
+        215
+      ],
+      "sourceFootAnchor": [
+        748,
+        214
+      ],
+      "scale": 0.53,
+      "content": "slide entry",
+      "atlasRect": [
+        256,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.4",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        853,
+        20,
+        171,
+        220
+      ],
+      "sourceFootAnchor": [
+        936,
+        215
+      ],
+      "scale": 0.53,
+      "content": "dash recovery",
+      "atlasRect": [
+        512,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.5",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        100,
+        270,
+        230,
+        200
+      ],
+      "sourceFootAnchor": [
+        230,
+        444
+      ],
+      "scale": 0.53,
+      "content": "slide transition",
+      "atlasRect": [
+        768,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.6",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        335,
+        285,
+        240,
+        190
+      ],
+      "sourceFootAnchor": [
+        457,
+        444
+      ],
+      "scale": 0.53,
+      "content": "slide low hold",
+      "atlasRect": [
+        1024,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.7",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        590,
+        260,
+        200,
+        220
+      ],
+      "sourceFootAnchor": [
+        700,
+        446
+      ],
+      "scale": 0.53,
+      "content": "slide rising",
+      "atlasRect": [
+        1280,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "dash.8",
+      "source": "hos-dash-slide-raw.png",
+      "sourceRect": [
+        830,
+        260,
+        190,
+        220
+      ],
+      "sourceFootAnchor": [
+        922,
+        446
+      ],
+      "scale": 0.53,
+      "content": "slide end",
+      "atlasRect": [
+        1536,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.0",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        0,
+        0,
+        198,
+        210
+      ],
+      "sourceFootAnchor": [
+        101,
+        203
+      ],
+      "scale": 0.5,
+      "content": "ready",
+      "atlasRect": [
+        1792,
+        528,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.1",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        210,
+        0,
+        190,
+        210
+      ],
+      "sourceFootAnchor": [
+        294,
+        203
+      ],
+      "scale": 0.5,
+      "content": "guard up",
+      "atlasRect": [
+        0,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.2",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        405,
+        0,
+        170,
+        210
+      ],
+      "sourceFootAnchor": [
+        492,
+        203
+      ],
+      "scale": 0.5,
+      "content": "reverse guard",
+      "atlasRect": [
+        256,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.3",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        10,
+        210,
+        212,
+        200
+      ],
+      "sourceFootAnchor": [
+        101,
+        400
+      ],
+      "scale": 0.5,
+      "content": "low guard",
+      "atlasRect": [
+        512,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.4",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        405,
+        210,
+        171,
+        200
+      ],
+      "sourceFootAnchor": [
+        488,
+        399
+      ],
+      "scale": 0.5,
+      "content": "profile",
+      "atlasRect": [
+        768,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.5",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        15,
+        410,
+        180,
+        194
+      ],
+      "sourceFootAnchor": [
+        114,
+        594
+      ],
+      "scale": 0.5,
+      "content": "slash startup",
+      "atlasRect": [
+        1024,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.6",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        194,
+        410,
+        282,
+        194
+      ],
+      "sourceFootAnchor": [
+        300,
+        594
+      ],
+      "scale": 0.5,
+      "content": "slash active",
+      "atlasRect": [
+        1280,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.7",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        20,
+        608,
+        159,
+        206
+      ],
+      "sourceFootAnchor": [
+        104,
+        803
+      ],
+      "scale": 0.5,
+      "content": "uppercut startup",
+      "atlasRect": [
+        1536,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.8",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        180,
+        607,
+        230,
+        207
+      ],
+      "sourceFootAnchor": [
+        277,
+        804
+      ],
+      "scale": 0.5,
+      "content": "uppercut active",
+      "atlasRect": [
+        1792,
+        704,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.9",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        10,
+        825,
+        166,
+        199
+      ],
+      "sourceFootAnchor": [
+        99,
+        1000
+      ],
+      "scale": 0.5,
+      "content": "recover",
+      "atlasRect": [
+        0,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.10",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        180,
+        824,
+        190,
+        200
+      ],
+      "sourceFootAnchor": [
+        285,
+        1001
+      ],
+      "scale": 0.5,
+      "content": "finisher ready",
+      "atlasRect": [
+        256,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "sword.11",
+      "source": "hos-sword-combat-raw.png",
+      "sourceRect": [
+        376,
+        824,
+        190,
+        200
+      ],
+      "sourceFootAnchor": [
+        480,
+        1003
+      ],
+      "scale": 0.5,
+      "content": "finisher recover",
+      "atlasRect": [
+        512,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.0",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        0,
+        20,
+        180,
+        220
+      ],
+      "sourceFootAnchor": [
+        93,
+        215
+      ],
+      "scale": 0.55,
+      "content": "ready",
+      "atlasRect": [
+        768,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.1",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        190,
+        20,
+        270,
+        220
+      ],
+      "sourceFootAnchor": [
+        282,
+        215
+      ],
+      "scale": 0.55,
+      "content": "windup",
+      "atlasRect": [
+        1024,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.2",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        455,
+        20,
+        234,
+        220
+      ],
+      "sourceFootAnchor": [
+        549,
+        215
+      ],
+      "scale": 0.55,
+      "content": "sweep startup",
+      "atlasRect": [
+        1280,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.3",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        690,
+        20,
+        315,
+        220
+      ],
+      "sourceFootAnchor": [
+        780,
+        215
+      ],
+      "scale": 0.55,
+      "content": "thrust active",
+      "atlasRect": [
+        1536,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.4",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        20,
+        260,
+        335,
+        220
+      ],
+      "sourceFootAnchor": [
+        166,
+        450
+      ],
+      "scale": 0.55,
+      "content": "wide strike",
+      "atlasRect": [
+        1792,
+        880,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.5",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        365,
+        260,
+        305,
+        220
+      ],
+      "sourceFootAnchor": [
+        513,
+        450
+      ],
+      "scale": 0.55,
+      "content": "circle active",
+      "atlasRect": [
+        0,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "spear.6",
+      "source": "hos-spear-combat-raw.png",
+      "sourceRect": [
+        700,
+        260,
+        300,
+        240
+      ],
+      "sourceFootAnchor": [
+        827,
+        453
+      ],
+      "scale": 0.55,
+      "content": "recovery",
+      "atlasRect": [
+        256,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.0",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        0,
+        20,
+        180,
+        220
+      ],
+      "sourceFootAnchor": [
+        93,
+        215
+      ],
+      "scale": 0.55,
+      "content": "ready",
+      "atlasRect": [
+        512,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.1",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        190,
+        20,
+        270,
+        220
+      ],
+      "sourceFootAnchor": [
+        282,
+        215
+      ],
+      "scale": 0.55,
+      "content": "windup",
+      "atlasRect": [
+        768,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.2",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        455,
+        20,
+        234,
+        220
+      ],
+      "sourceFootAnchor": [
+        549,
+        215
+      ],
+      "scale": 0.55,
+      "content": "sweep startup",
+      "atlasRect": [
+        1024,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.3",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        690,
+        20,
+        315,
+        220
+      ],
+      "sourceFootAnchor": [
+        780,
+        215
+      ],
+      "scale": 0.55,
+      "content": "lash active",
+      "atlasRect": [
+        1280,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.4",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        20,
+        260,
+        335,
+        220
+      ],
+      "sourceFootAnchor": [
+        166,
+        450
+      ],
+      "scale": 0.55,
+      "content": "wide strike",
+      "atlasRect": [
+        1536,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.5",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        365,
+        260,
+        305,
+        220
+      ],
+      "sourceFootAnchor": [
+        513,
+        450
+      ],
+      "scale": 0.55,
+      "content": "circle active",
+      "atlasRect": [
+        1792,
+        1056,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "chain.6",
+      "source": "hos-chain-combat-raw.png",
+      "sourceRect": [
+        700,
+        260,
+        300,
+        240
+      ],
+      "sourceFootAnchor": [
+        827,
+        453
+      ],
+      "scale": 0.55,
+      "content": "recovery",
+      "atlasRect": [
+        0,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.0",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        0,
+        20,
+        180,
+        220
+      ],
+      "sourceFootAnchor": [
+        90,
+        213
+      ],
+      "scale": 0.53,
+      "content": "brace",
+      "atlasRect": [
+        256,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.1",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        180,
+        20,
+        160,
+        220
+      ],
+      "sourceFootAnchor": [
+        264,
+        213
+      ],
+      "scale": 0.53,
+      "content": "hurt",
+      "atlasRect": [
+        512,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.2",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        340,
+        20,
+        160,
+        220
+      ],
+      "sourceFootAnchor": [
+        420,
+        213
+      ],
+      "scale": 0.53,
+      "content": "hurt heavy",
+      "atlasRect": [
+        768,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.3",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        500,
+        20,
+        195,
+        225
+      ],
+      "sourceFootAnchor": [
+        586,
+        213
+      ],
+      "scale": 0.53,
+      "content": "fall tumble",
+      "atlasRect": [
+        1024,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.4",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        705,
+        150,
+        200,
+        110
+      ],
+      "sourceFootAnchor": [
+        810,
+        244
+      ],
+      "scale": 0.53,
+      "content": "defeat on ground",
+      "atlasRect": [
+        1280,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.5",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        640,
+        270,
+        190,
+        215
+      ],
+      "sourceFootAnchor": [
+        743,
+        453
+      ],
+      "scale": 0.53,
+      "content": "recover",
+      "atlasRect": [
+        1536,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hurt.6",
+      "source": "hos-hurt-defeat-raw.png",
+      "sourceRect": [
+        840,
+        270,
+        180,
+        215
+      ],
+      "sourceFootAnchor": [
+        920,
+        453
+      ],
+      "scale": 0.53,
+      "content": "dazed",
+      "atlasRect": [
+        1792,
+        1232,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.0",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        394,
+        398
+      ],
+      "sourceFootAnchor": [
+        206,
+        361
+      ],
+      "scale": 0.285,
+      "content": "guard",
+      "atlasRect": [
+        0,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.1",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        394,
+        0,
+        377,
+        398
+      ],
+      "sourceFootAnchor": [
+        576,
+        361
+      ],
+      "scale": 0.285,
+      "content": "punch",
+      "atlasRect": [
+        256,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.2",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        771,
+        0,
+        389,
+        398
+      ],
+      "sourceFootAnchor": [
+        960,
+        361
+      ],
+      "scale": 0.285,
+      "content": "palm",
+      "atlasRect": [
+        512,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.3",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        1160,
+        0,
+        394,
+        398
+      ],
+      "sourceFootAnchor": [
+        1360,
+        367
+      ],
+      "scale": 0.285,
+      "content": "sweep",
+      "atlasRect": [
+        768,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.4",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        1554,
+        0,
+        429,
+        398
+      ],
+      "sourceFootAnchor": [
+        1750,
+        361
+      ],
+      "scale": 0.285,
+      "content": "burst",
+      "atlasRect": [
+        1024,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.5",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        0,
+        398,
+        394,
+        395
+      ],
+      "sourceFootAnchor": [
+        203,
+        737
+      ],
+      "scale": 0.285,
+      "content": "ward",
+      "atlasRect": [
+        1280,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.6",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        394,
+        398,
+        377,
+        395
+      ],
+      "sourceFootAnchor": [
+        569,
+        737
+      ],
+      "scale": 0.285,
+      "content": "gold palm",
+      "atlasRect": [
+        1536,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.7",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        771,
+        398,
+        389,
+        395
+      ],
+      "sourceFootAnchor": [
+        957,
+        737
+      ],
+      "scale": 0.285,
+      "content": "barrier",
+      "atlasRect": [
+        1792,
+        1408,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.8",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        1160,
+        398,
+        394,
+        395
+      ],
+      "sourceFootAnchor": [
+        1345,
+        737
+      ],
+      "scale": 0.285,
+      "content": "charge",
+      "atlasRect": [
+        0,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "hua.9",
+      "source": "fuhua-martial-assist-v1.png",
+      "sourceRect": [
+        1554,
+        398,
+        429,
+        395
+      ],
+      "sourceFootAnchor": [
+        1750,
+        737
+      ],
+      "scale": 0.285,
+      "content": "assist release",
+      "atlasRect": [
+        256,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.0",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        180.5,
+        538
+      ],
+      "scale": 0.24,
+      "content": "idle",
+      "atlasRect": [
+        512,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.1",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        362,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        546.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "walk",
+      "atlasRect": [
+        768,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.2",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        724,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        905.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "attack startup",
+      "atlasRect": [
+        1024,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.3",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        1086,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1267.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "attack active",
+      "atlasRect": [
+        1280,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.4",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        1448,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1629.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "hurt",
+      "atlasRect": [
+        1536,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "enemy.5",
+      "source": "enemy-chariot-base-v1.png",
+      "sourceRect": [
+        1810,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1980.0,
+        542
+      ],
+      "scale": 0.24,
+      "content": "defeat",
+      "atlasRect": [
+        1792,
+        1584,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.0",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        180.5,
+        540
+      ],
+      "scale": 0.24,
+      "content": "idle",
+      "atlasRect": [
+        0,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.1",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        362,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        546.0,
+        540
+      ],
+      "scale": 0.24,
+      "content": "walk",
+      "atlasRect": [
+        256,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.2",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        724,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        905.0,
+        540
+      ],
+      "scale": 0.24,
+      "content": "attack startup",
+      "atlasRect": [
+        512,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.3",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        1086,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1267.0,
+        540
+      ],
+      "scale": 0.24,
+      "content": "attack active",
+      "atlasRect": [
+        768,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.4",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        1448,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1629.0,
+        542
+      ],
+      "scale": 0.24,
+      "content": "hurt",
+      "atlasRect": [
+        1024,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "elite.5",
+      "source": "enemy-chariot-alloy-v1.png",
+      "sourceRect": [
+        1810,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1986.5,
+        544
+      ],
+      "scale": 0.24,
+      "content": "defeat",
+      "atlasRect": [
+        1280,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.0",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        186.5,
+        538
+      ],
+      "scale": 0.24,
+      "content": "idle",
+      "atlasRect": [
+        1536,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.1",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        362,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        543.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "walk",
+      "atlasRect": [
+        1792,
+        1760,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.2",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        724,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        905.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "attack startup",
+      "atlasRect": [
+        0,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.3",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        1086,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1267.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "attack active",
+      "atlasRect": [
+        256,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.4",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        1448,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1629.0,
+        538
+      ],
+      "scale": 0.24,
+      "content": "hurt",
+      "atlasRect": [
+        512,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "knight.5",
+      "source": "enemy-knight-base-v1.png",
+      "sourceRect": [
+        1810,
+        0,
+        362,
+        724
+      ],
+      "sourceFootAnchor": [
+        1982.0,
+        546
+      ],
+      "scale": 0.24,
+      "content": "defeat",
+      "atlasRect": [
+        768,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.0",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        330,
+        793
+      ],
+      "sourceFootAnchor": [
+        175.0,
+        620
+      ],
+      "scale": 0.34,
+      "content": "idle",
+      "atlasRect": [
+        1024,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.1",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        330,
+        0,
+        331,
+        793
+      ],
+      "sourceFootAnchor": [
+        495.5,
+        619
+      ],
+      "scale": 0.34,
+      "content": "walk",
+      "atlasRect": [
+        1280,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.2",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        661,
+        0,
+        331,
+        793
+      ],
+      "sourceFootAnchor": [
+        826.5,
+        620
+      ],
+      "scale": 0.34,
+      "content": "attack startup",
+      "atlasRect": [
+        1536,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.3",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        992,
+        0,
+        330,
+        793
+      ],
+      "sourceFootAnchor": [
+        1157.0,
+        620
+      ],
+      "scale": 0.34,
+      "content": "attack active",
+      "atlasRect": [
+        1792,
+        1936,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.4",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        1322,
+        0,
+        330,
+        793
+      ],
+      "sourceFootAnchor": [
+        1481.5,
+        620
+      ],
+      "scale": 0.34,
+      "content": "hurt",
+      "atlasRect": [
+        0,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "boss.5",
+      "source": "enemy-templar-base-v1.png",
+      "sourceRect": [
+        1652,
+        0,
+        331,
+        793
+      ],
+      "sourceFootAnchor": [
+        1814.0,
+        634
+      ],
+      "scale": 0.34,
+      "content": "defeat",
+      "atlasRect": [
+        256,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.0",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "sourceFootAnchor": [
+        239.5,
+        435
+      ],
+      "scale": 0.12,
+      "content": "gold",
+      "atlasRect": [
+        512,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.1",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "sourceFootAnchor": [
+        664.0,
+        439
+      ],
+      "scale": 0.12,
+      "content": "crystal",
+      "atlasRect": [
+        768,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.2",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "sourceFootAnchor": [
+        1104.0,
+        435
+      ],
+      "scale": 0.12,
+      "content": "alloy",
+      "atlasRect": [
+        1024,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.3",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "sourceFootAnchor": [
+        1540.0,
+        439
+      ],
+      "scale": 0.12,
+      "content": "quanta",
+      "atlasRect": [
+        1280,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.4",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        0,
+        444,
+        444,
+        443
+      ],
+      "sourceFootAnchor": [
+        237.0,
+        833
+      ],
+      "scale": 0.12,
+      "content": "memory",
+      "atlasRect": [
+        1536,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.5",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        444,
+        444,
+        443,
+        443
+      ],
+      "sourceFootAnchor": [
+        669.0,
+        834
+      ],
+      "scale": 0.12,
+      "content": "chip",
+      "atlasRect": [
+        1792,
+        2112,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.6",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        887,
+        444,
+        443,
+        443
+      ],
+      "sourceFootAnchor": [
+        1102.0,
+        834
+      ],
+      "scale": 0.12,
+      "content": "honkai",
+      "atlasRect": [
+        0,
+        2288,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "loot.7",
+      "source": "equipment-upgrade-materials-v1.png",
+      "sourceRect": [
+        1330,
+        444,
+        444,
+        443
+      ],
+      "sourceFootAnchor": [
+        1545.0,
+        831
+      ],
+      "scale": 0.12,
+      "content": "feather",
+      "atlasRect": [
+        256,
+        2288,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "stigma.0",
+      "source": "stigmata-training-memory-2star-v1.png",
+      "sourceRect": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "sourceFootAnchor": [
+        344.0,
+        662
+      ],
+      "scale": 0.13,
+      "content": "training top",
+      "atlasRect": [
+        512,
+        2288,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "stigma.1",
+      "source": "stigmata-training-memory-2star-v1.png",
+      "sourceRect": [
+        724,
+        0,
+        724,
+        724
+      ],
+      "sourceFootAnchor": [
+        1065.5,
+        663
+      ],
+      "scale": 0.13,
+      "content": "training middle",
+      "atlasRect": [
+        768,
+        2288,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    },
+    {
+      "id": "stigma.2",
+      "source": "stigmata-training-memory-2star-v1.png",
+      "sourceRect": [
+        1448,
+        0,
+        724,
+        724
+      ],
+      "sourceFootAnchor": [
+        1790.5,
+        662
+      ],
+      "scale": 0.13,
+      "content": "training bottom",
+      "atlasRect": [
+        1024,
+        2288,
+        256,
+        176
+      ],
+      "footAnchor": [
+        112,
+        156
+      ]
+    }
+  ],
+  "terrain": [
+    {
+      "file": "assets/terrain-0.png",
+      "source": "map-00-nagazora-ruins-v1.png",
+      "sourceRect": [
+        0,
+        690,
+        1672,
+        150
+      ],
+      "content": "broken concrete and road"
+    },
+    {
+      "file": "assets/terrain-1.png",
+      "source": "map-01-arc-city-night-v1.png",
+      "sourceRect": [
+        0,
+        735,
+        1672,
+        150
+      ],
+      "content": "metal bridge / roof"
+    },
+    {
+      "file": "assets/terrain-2.png",
+      "source": "map-03-babylon-snowfield-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "snow covered research platform"
+    },
+    {
+      "file": "assets/terrain-3.png",
+      "source": "map-04-taixuan-steps-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "stone steps / timber"
+    },
+    {
+      "file": "assets/terrain-4.png",
+      "source": "map-06-sea-of-quanta-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "floating quanta rock"
+    }
+  ],
+  "unusedSources": [
+    {
+      "file": "enemy-archangel-base-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "enemy-chariot-blazing-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "enemy-chariot-frost-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "equipment-weapon-cores-v1.png",
+      "width": 1254,
+      "height": 1254,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "fuhua-character-master-v1.png",
+      "width": 1090,
+      "height": 1443,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "fuhua-run-jump-land-v1.png",
+      "width": 1983,
+      "height": 793,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-character-master-raw.png",
+      "width": 576,
+      "height": 1024,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-character-master-sharp-v1.png",
+      "width": 1086,
+      "height": 1448,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-effects-pack-raw.png",
+      "width": 1024,
+      "height": 506,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-jump-cycle-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-rage-raw.png",
+      "width": 1024,
+      "height": 506,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-run-cycle-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-run-cycle-v2-cute.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "hos-weapons-master-raw.png",
+      "width": 576,
+      "height": 1024,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "map-02-schicksal-airport-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "map-05-kolosten-storm-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "map-07-helheim-labs-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "map-08-imaginary-tree-boss-arena-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "stigmata-nagazora-survivor-3star-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "stigmata-shattered-memories-secret-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "stigmata-sovereign-sentience-5star-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "stigmata-taixuan-companions-4star-v1.png",
+      "width": 2172,
+      "height": 724,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "transition-01-arc-heliopolis-schicksal-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "transition-02-schicksal-babylon-v1.png",
+      "width": 1672,
+      "height": 940,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    },
+    {
+      "file": "transition-03-taixuan-quanta-v1.png",
+      "width": 1672,
+      "height": 941,
+      "alphaRange": [
+        255,
+        255
+      ],
+      "status": "inspected contact sheet; not loaded by this build"
+    }
+  ]
+}

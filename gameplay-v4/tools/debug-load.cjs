@@ -1,0 +1,10 @@
+const {chromium}=require('./playwright-runtime.cjs');
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});const page=await browser.newPage();const events=[];
+ page.on('pageerror',e=>events.push('PAGE '+(e.stack||e.message)));
+ page.on('console',m=>{if(['error','warning'].includes(m.type()))events.push('CONSOLE '+m.type()+' '+m.text())});
+ page.on('requestfailed',r=>events.push('FAILED '+r.url()+' '+r.failure()?.errorText));
+ page.on('response',r=>{if(r.status()>=400)events.push('HTTP '+r.status()+' '+r.url())});
+ await page.goto(process.argv[2]||'http://127.0.0.1:4181/?qa=1');await page.waitForTimeout(12000);
+ const state=await page.evaluate(()=>({ready:!!window.__qa?.ready,storyDisabled:document.querySelector('#story')?.disabled,errorHidden:document.querySelector('#error')?.hidden,errorText:document.querySelector('#error')?.textContent,body:document.body.innerText.slice(0,500)}));
+ console.log(JSON.stringify({state,events},null,2));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

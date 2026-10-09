@@ -1,0 +1,16 @@
+{
+  "name": "sentience-shattered-memories-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web build and GitHub Pages deployment workflow for Sentience: Shattered Memories.",
+  "scripts": {
+    "build": "node scripts/build-web-game.mjs",
+    "preview": "node scripts/serve-web-game.cjs",
+    "dev": "npm run build && npm run preview",
+    "test:smoke": "node scripts/smoke-deploy.cjs",
+    "prepare": "git config core.hooksPath .githooks"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

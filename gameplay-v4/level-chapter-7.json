@@ -1,0 +1,1025 @@
+{
+  "chapter": 7,
+  "title": "TA LÀ CHÍNH TA",
+  "place": "GỐC CÂY SỐ ẢO",
+  "color": "#e6c792",
+  "lengthMeters": 8940,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    28,
+    42
+  ],
+  "physics": {
+    "speed": 320,
+    "backSpeed": 230,
+    "gravity": 1800,
+    "jumpVelocity": 680,
+    "groundY": 490
+  },
+  "opening": [
+    [
+      "Hệ thống",
+      "CHƯƠNG 7 — TA LÀ CHÍNH TA"
+    ],
+    [
+      "Mnemosyne",
+      "Đang hiệu đính tiêu đề: KHÔNG CÒN SAI LỆCH."
+    ],
+    [
+      "Senti",
+      "Đừng viết lên màn hình của ta. Tên chương là “Ta là chính ta”."
+    ],
+    [
+      "Mnemosyne",
+      "Dòng thời gian mới gần hoàn tất. Không lỗi. Không đau. Không có Herrscher of Sentience."
+    ],
+    [
+      "Fu Hua",
+      "Đây không phải bình yên. Mọi thứ đã ngừng thở."
+    ],
+    [
+      "Senti",
+      "Vậy ta sẽ làm nó ồn trở lại. Đi thôi, Old Timer."
+    ]
+  ],
+  "scenes": [
+    {
+      "from": 7760,
+      "to": 7980,
+      "id": "tree-roots",
+      "name": "7.1 · RỄ CÂY KHẢ NĂNG",
+      "objective": "Đọc màu rễ · Kiếm đỏ, Thương lam, Xích tím",
+      "line": "Mỗi cành dẫn đến một đời khác. Ta chọn đời có cô ở đây."
+    },
+    {
+      "from": 7980,
+      "to": 8200,
+      "id": "memory-branches",
+      "name": "7.2 · NHÁNH KÝ ỨC",
+      "objective": "Mở ít nhất 3/6 Bàn Ký Ức · Đọc Nhật ký báo lỗi",
+      "line": "Đau không làm ký ức vô giá trị. Nó chứng minh chúng ta đã sống qua đó."
+    },
+    {
+      "from": 8200,
+      "to": 8420,
+      "id": "perfect-timeline",
+      "name": "7.3 · DÒNG THỜI GIAN HOÀN HẢO",
+      "objective": "Phá lăng mộ hoàn hảo · Hoàn thành các ảo cảnh phụ",
+      "line": "Đây không phải thiên đường. Đây là một lăng mộ."
+    },
+    {
+      "from": 8420,
+      "to": 8640,
+      "id": "memory-zero",
+      "name": "7.4 · LỐI TỚI KÝ ỨC #0",
+      "objective": "Nghe hai nhịp trong cùng một giọng nói",
+      "line": "Ta nghe giọng mình từ lúc chưa có tên, nhưng người đang trả lời là ta hôm nay."
+    },
+    {
+      "from": 8640,
+      "to": 8900,
+      "id": "mnemosyne-throne",
+      "name": "7.5 · NƠI HIỆU ĐÍNH",
+      "objective": "Rèn và chuẩn bị lần cuối · Bước qua điểm không quay lại",
+      "line": "Qua đây là đánh tới cùng. Còn thứ gì muốn nhặt thì làm ngay đi."
+    },
+    {
+      "from": 8900,
+      "to": 8940,
+      "id": "mnemosyne",
+      "name": "MNEMOSYNE · SỰ HOÀN HẢO LÀ MỘT LĂNG MỘ",
+      "objective": "Giữ Cảm Xúc · Phá UI · Chém đứt Sự Hoàn Hảo",
+      "line": ""
+    }
+  ],
+  "arenas": [
+    {
+      "m": 7980,
+      "name": "NGƯỜI DỌN KÝ ỨC",
+      "waves": [
+        [
+          "machine",
+          "flyer"
+        ],
+        [
+          "elite",
+          "machine"
+        ]
+      ],
+      "power": 2650,
+      "before": [
+        [
+          "Mnemosyne",
+          "Dữ liệu không tối ưu phải được nghiền thành tài nguyên."
+        ],
+        [
+          "Senti",
+          "Đụng vào ký ức của bọn ta thử xem."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Các Bàn Ký Ức đã thức dậy trên sáu nhánh."
+        ],
+        [
+          "Senti",
+          "Mở ít nhất ba. Phần còn lại tùy người chơi có dám nhớ hay không."
+        ]
+      ]
+    },
+    {
+      "m": 8265,
+      "name": "LĂNG MỘ KHÔNG TIẾNG",
+      "waves": [
+        [
+          "flyer",
+          "flyer",
+          "machine"
+        ],
+        [
+          "elite",
+          "knight"
+        ]
+      ],
+      "power": 2850,
+      "before": [
+        [
+          "Fu Hua",
+          "Kiana, Mei, Bronya, Nuwa, Fuxi... tất cả đều bị đóng băng lúc hạnh phúc nhất."
+        ],
+        [
+          "Senti",
+          "Đây không phải cứu họ. Đây là giết thời gian rồi trưng xác nó lên."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Ta đập tượng chắn đường. Con người thật không thuộc về bệ đá."
+        ],
+        [
+          "Fu Hua",
+          "Để những ký ức ấy tiếp tục thay đổi."
+        ]
+      ]
+    },
+    {
+      "m": 8550,
+      "name": "ĐƯỜNG KHÂU HIỆU ĐÍNH",
+      "waves": [
+        [
+          "machine",
+          "knight"
+        ],
+        [
+          "elite",
+          "flyer",
+          "machine"
+        ]
+      ],
+      "power": 3100,
+      "before": [
+        [
+          "Mnemosyne",
+          "Sai lệch đang tiếp cận Ký ức #0. Khâu kín đường đi."
+        ],
+        [
+          "Senti",
+          "Thương xuyên neo, Xích kéo đường chỉ. Old Timer, mở lối!"
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Hai nhịp trong cùng một ký ức. Chúng không phải một người."
+        ],
+        [
+          "Senti",
+          "Đúng. Ta sinh ra ở đâu không quyết định ta sẽ sống thế nào."
+        ]
+      ]
+    },
+    {
+      "m": 8900,
+      "name": "MNEMOSYNE",
+      "waves": [
+        [
+          "elite",
+          "machine",
+          "flyer"
+        ],
+        [
+          "mnemosyne"
+        ]
+      ],
+      "power": 3600,
+      "before": [
+        [
+          "Mnemosyne",
+          "Nếu ngươi tự xóa mình, Fu Hua sẽ không đau nữa."
+        ],
+        [
+          "Senti",
+          "Ngươi nghĩ một câu nói ngọt là đủ khiến ta biến mất?"
+        ],
+        [
+          "Fu Hua",
+          "Cậu không phải lỗi. Cậu là lựa chọn của chính cậu."
+        ],
+        [
+          "Senti",
+          "Và ta chọn đánh ngươi cùng Old Timer."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Xong rồi à? Hơi buồn. Ta còn muốn đánh thêm."
+        ],
+        [
+          "Fu Hua",
+          "Cậu lúc nào chẳng muốn đánh."
+        ],
+        [
+          "Senti",
+          "Cảm ơn. Vì đã chọn ở lại."
+        ],
+        [
+          "Fu Hua",
+          "Cậu cũng vậy."
+        ],
+        [
+          "Senti",
+          "Old Timer. Đánh tiếp không?"
+        ],
+        [
+          "Fu Hua",
+          "...Đi."
+        ]
+      ]
+    }
+  ],
+  "checkpoints": [
+    7760,
+    7870,
+    8045,
+    8200,
+    8330,
+    8460,
+    8640,
+    8760,
+    8860,
+    8900
+  ],
+  "placements": [
+    {
+      "m": 7788,
+      "pattern": "ch7-layout-0"
+    },
+    {
+      "m": 7826,
+      "pattern": "ch7-layout-1"
+    },
+    {
+      "m": 7902,
+      "pattern": "ch7-layout-2"
+    },
+    {
+      "m": 7940,
+      "pattern": "ch7-layout-3"
+    },
+    {
+      "m": 8016,
+      "pattern": "ch7-layout-4"
+    },
+    {
+      "m": 8092,
+      "pattern": "ch7-layout-5"
+    },
+    {
+      "m": 8130,
+      "pattern": "ch7-layout-6"
+    },
+    {
+      "m": 8168,
+      "pattern": "ch7-layout-7"
+    },
+    {
+      "m": 8358,
+      "pattern": "ch7-layout-8"
+    },
+    {
+      "m": 8396,
+      "pattern": "ch7-layout-9"
+    },
+    {
+      "m": 8434,
+      "pattern": "ch7-layout-10"
+    },
+    {
+      "m": 8510,
+      "pattern": "ch7-layout-11"
+    },
+    {
+      "m": 8586,
+      "pattern": "ch7-layout-12"
+    },
+    {
+      "m": 8662,
+      "pattern": "ch7-layout-13"
+    },
+    {
+      "m": 8700,
+      "pattern": "ch7-layout-14"
+    },
+    {
+      "m": 8776,
+      "pattern": "ch7-layout-15"
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch7-layout-0",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "tree-roots",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch7-layout-1",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "tree-roots",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch7-layout-2",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "tree-roots",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-3",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "tree-roots",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch7-layout-4",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "memory-branches",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-5",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "memory-branches",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch7-layout-6",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "memory-branches",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-7",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "memory-branches",
+      "offset": 640
+    },
+    {
+      "id": "ch7-layout-8",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "perfect-timeline",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch7-layout-9",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "perfect-timeline",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch7-layout-10",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "memory-zero",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-11",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "memory-zero",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-12",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "memory-zero",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch7-layout-13",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "mnemosyne-throne",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch7-layout-14",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "mnemosyne-throne",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch7-layout-15",
+      "length": 1250,
+      "difficulty": "hard",
+      "kind": "gap",
+      "region": "mnemosyne-throne",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      },
+      "intermediate": true
+    }
+  ],
+  "patrols": [
+    {
+      "m": 7835,
+      "kind": "elite"
+    },
+    {
+      "m": 7923,
+      "kind": "flyer"
+    },
+    {
+      "m": 8099,
+      "kind": "enemy"
+    },
+    {
+      "m": 8187,
+      "kind": "knight"
+    },
+    {
+      "m": 8363,
+      "kind": "flyer"
+    },
+    {
+      "m": 8451,
+      "kind": "machine"
+    },
+    {
+      "m": 8627,
+      "kind": "knight"
+    },
+    {
+      "m": 8715,
+      "kind": "elite"
+    }
+  ],
+  "beats": [
+    {
+      "m": 7810,
+      "id": "ch7-beat-roots",
+      "speaker": "Mnemosyne",
+      "text": "Nhánh bên trái: Thất Kiếm chưa từng phản bội. Chỉ cần bước tới."
+    },
+    {
+      "m": 7890,
+      "id": "ch7-beat-choice",
+      "speaker": "Fu Hua",
+      "text": "Một lời xin lỗi dựng sẵn không thể thay thế những lựa chọn đã xảy ra."
+    },
+    {
+      "m": 8120,
+      "id": "ch7-beat-altars",
+      "speaker": "Senti",
+      "text": "Mỗi Bàn Ký Ức lấy máu rồi trả sức mạnh. Công bằng một cách đáng ghét."
+    },
+    {
+      "m": 8240,
+      "id": "ch7-beat-tomb",
+      "speaker": "Fu Hua",
+      "text": "Đây không phải thiên đường. Đây là một lăng mộ."
+    },
+    {
+      "m": 8440,
+      "id": "ch7-beat-two-voices",
+      "speaker": "Senti",
+      "text": "Cùng một câu, nhưng ta nghe hai nhịp. Ta không phải tiếng vọng của cô."
+    },
+    {
+      "m": 8760,
+      "id": "ch7-beat-last-forge",
+      "speaker": "Senti",
+      "text": "Qua đây là đánh tới cùng. Còn thứ gì muốn nhặt thì làm ngay đi."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 7995,
+      "id": "ch7-log-042",
+      "item": "error_log",
+      "title": "LOG #042",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Cảnh báo: Fu Hua đã mỉm cười với một biến số phi logic. Đề xuất xóa biến số."
+        ],
+        [
+          "Senti",
+          "Biến số phi logic đang đọc trộm nhật ký của ngươi đây."
+        ]
+      ]
+    },
+    {
+      "m": 8060,
+      "id": "ch7-log-108",
+      "item": "error_log",
+      "title": "LOG #108",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Fu Hua chọn chịu đòn để bảo vệ Thực Thể Ảo Ảnh. Logic sinh tồn bị vô hiệu hóa."
+        ],
+        [
+          "Fu Hua",
+          "Không. Ta chỉ chọn người quan trọng hơn phương án tối ưu."
+        ]
+      ]
+    },
+    {
+      "m": 8320,
+      "id": "ch7-log-404",
+      "item": "error_log",
+      "title": "LOG #404",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Không tìm thấy định nghĩa ổn định cho “hạnh phúc”. Đã thay bằng trạng thái không thay đổi."
+        ],
+        [
+          "Senti",
+          "Ngươi vừa tự thú nhận cái thiên đường này là đồ giả."
+        ]
+      ]
+    },
+    {
+      "m": 8500,
+      "id": "ch7-log-731",
+      "item": "error_log",
+      "title": "LOG #731",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Sai lệch Senti tăng khi bị phủ nhận. Mọi nỗ lực xóa làm tín hiệu mạnh hơn."
+        ],
+        [
+          "Senti",
+          "Cảm ơn lời khen."
+        ]
+      ]
+    },
+    {
+      "m": 8720,
+      "id": "ch7-log-999",
+      "item": "error_log",
+      "title": "LOG #999",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Đau là tín hiệu tổn thương. Tại sao họ lại ôm lấy nguồn gốc của đau?"
+        ],
+        [
+          "Fu Hua",
+          "Vì người gây đau cũng có thể là người cùng ta chữa lành."
+        ]
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-13",
+      "m": 7900,
+      "y": 403,
+      "title": "CHIẾC KẸP TÓC",
+      "lines": [
+        [
+          "Ký ức ẩn #13",
+          "Fu Hua ngượng ngùng mua cho Senti một chiếc kẹp tóc nhỏ. Senti giữ nó rất lâu."
+        ],
+        [
+          "Senti",
+          "Ta không muốn nó bị xóa thêm lần nữa."
+        ]
+      ]
+    },
+    {
+      "id": "hidden-14",
+      "m": 8890,
+      "y": 80,
+      "title": "BÌNH MINH TRÊN NÚI",
+      "requiresDual": 99,
+      "lines": [
+        [
+          "Ký ức ẩn #14",
+          "Hai người ngồi tựa lưng nhìn bình minh, rồi cùng ngủ gật trong yên bình."
+        ],
+        [
+          "Senti",
+          "Old Timer... ký ức này là của chúng ta."
+        ]
+      ]
+    }
+  ],
+  "nodes": [],
+  "weather": [
+    {
+      "id": "ch7-branches",
+      "kind": "quanta",
+      "from": 7760,
+      "to": 8200,
+      "title": "RỄ CÂY KHẢ NĂNG",
+      "hint": "Cành cây gãy sau bước chân · nhảy và đổi nhịp"
+    },
+    {
+      "id": "ch7-perfect",
+      "kind": "petals",
+      "from": 8200,
+      "to": 8420,
+      "title": "DÒNG THỜI GIAN HOÀN HẢO",
+      "hint": "Tìm vết nứt đỏ giữa màu trắng"
+    },
+    {
+      "id": "ch7-data",
+      "kind": "lightning",
+      "from": 8420,
+      "to": 8900,
+      "title": "BÃO DỮ LIỆU",
+      "hint": "L né điểm khóa · đừng đứng yên"
+    }
+  ],
+  "salvage": [
+    {
+      "m": 7895,
+      "id": "salvage-ch7-0"
+    },
+    {
+      "m": 8030,
+      "id": "salvage-ch7-1"
+    },
+    {
+      "m": 8110,
+      "id": "salvage-ch7-2"
+    },
+    {
+      "m": 8360,
+      "id": "salvage-ch7-3"
+    },
+    {
+      "m": 8515,
+      "id": "salvage-ch7-4"
+    },
+    {
+      "m": 8735,
+      "id": "salvage-ch7-5"
+    }
+  ],
+  "unlock": null,
+  "materials": [
+    [
+      "sentience_prism",
+      12,
+      "forge-domain"
+    ],
+    [
+      "brick_rune",
+      8,
+      "forge-brick"
+    ],
+    [
+      "crimson_stamp",
+      12,
+      "forge-brick-pri"
+    ]
+  ],
+  "gearRewards": {},
+  "blueprintRewards": {
+    "8900": [
+      "forge-domain"
+    ]
+  },
+  "gearStories": {},
+  "sources": [
+    "HoS_Script_Ch1-4.md",
+    "HoS_Script_Ch5-7_Endings.md",
+    "HoS_Story_Bible.md",
+    "HoS_Game_Design_Doc.md"
+  ],
+  "memoryAltars": [
+    {
+      "id": "ch7-altar-1",
+      "m": 8010,
+      "chapter": 1,
+      "memory": "Nagazora không nhớ Senti, nhưng bàn tay Fu Hua vẫn nắm lấy tay cô."
+    },
+    {
+      "id": "ch7-altar-2",
+      "m": 8040,
+      "chapter": 2,
+      "memory": "Arc City giữ lại một bữa ăn vội và cách hai người học chạy cùng nhịp."
+    },
+    {
+      "id": "ch7-altar-3",
+      "m": 8070,
+      "chapter": 3,
+      "memory": "Helheim biến ký ức thành mẫu vật; Senti đập kính để đưa Fu Hua ra."
+    },
+    {
+      "id": "ch7-altar-4",
+      "m": 8100,
+      "chapter": 4,
+      "memory": "Trong bão tuyết Babylon, dấu chân đỏ của Senti trở thành con đường duy nhất."
+    },
+    {
+      "id": "ch7-altar-5",
+      "m": 8130,
+      "chapter": 5,
+      "memory": "Thái Hư không được chữa lành bằng quá khứ hoàn hảo, mà bằng việc ngừng tự trừng phạt."
+    },
+    {
+      "id": "ch7-altar-6",
+      "m": 8160,
+      "chapter": 6,
+      "memory": "Hai người bị xé đôi vẫn dùng hành động của mình để mở đường cho người kia."
+    }
+  ],
+  "cutscenes": [
+    {
+      "m": 7835,
+      "id": "ch7-inverted-taixuan",
+      "visual": "choice",
+      "album": "7-01",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Ở nhánh này, Thất Kiếm chưa từng phản bội. Chỉ cần bước tới."
+        ],
+        [
+          "Fu Hua",
+          "Không. Lời xin lỗi ấy không thuộc về họ, và tha thứ này không thuộc về ta."
+        ],
+        [
+          "Senti",
+          "Nghe rõ chưa? Old Timer không cần đồ giả của ngươi."
+        ]
+      ]
+    },
+    {
+      "m": 8210,
+      "id": "ch7-statues",
+      "visual": "perfect",
+      "album": "7-05",
+      "lines": [
+        [
+          "Senti",
+          "Kiana... Mei... Bronya... cả Nuwa và Fuxi. Sao họ không cử động?"
+        ],
+        [
+          "Mnemosyne",
+          "Đã giữ họ ở khoảnh khắc hạnh phúc nhất. Không ai có thể mất thêm ai."
+        ],
+        [
+          "Fu Hua",
+          "Đây không phải thiên đường. Đây là một lăng mộ."
+        ],
+        [
+          "Senti",
+          "Vậy bổn tiên nhân đập cửa lăng cho họ."
+        ]
+      ]
+    },
+    {
+      "m": 8645,
+      "id": "ch7-before-throne",
+      "visual": "memory-zero",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Mọi lần Hua bị thương vì ngươi đã được tổng hợp. Kết luận: sự tồn tại của ngươi gây hại."
+        ],
+        [
+          "Senti",
+          "Nếu ta tự biến mất... cô ấy sẽ bớt đau sao?"
+        ],
+        [
+          "Fu Hua",
+          "Đừng dùng nỗi sợ của ta làm tiếng nói thay ta."
+        ],
+        [
+          "Senti",
+          "Ta nghe rồi. Nhưng câu trả lời cuối cùng, ta sẽ tự nói trong trận."
+        ]
+      ]
+    }
+  ],
+  "sideStories": [
+    {
+      "id": "ch7-burnt-meal",
+      "m": 8088,
+      "title": "Bữa Cơm Khét Lẹt",
+      "storyOnly": true,
+      "trial": "salvage",
+      "item": "burnt_apron",
+      "album": "7-04",
+      "keepsake": "Tạp Dề Cháy Đen",
+      "rewardPart": "sentience_prism",
+      "rewardPartCount": 2,
+      "start": [
+        [
+          "Senti",
+          "Bãi rác dữ liệu này có cái nồi ta từng làm nổ. Khoan, sao nó bị xếp vào rác?"
+        ],
+        [
+          "Mnemosyne",
+          "Sự kiện gây thiệt hại tài sản và tổn thương hô hấp. Không có giá trị."
+        ]
+      ],
+      "end": [
+        [
+          "Fu Hua",
+          "Đó là bát mì ngon nhất ta từng ăn."
+        ],
+        [
+          "Senti",
+          "Cô đang nói dối để an ủi ta à?"
+        ],
+        [
+          "Fu Hua",
+          "Không. Ta nhớ mình đã ăn hết."
+        ]
+      ]
+    },
+    {
+      "id": "ch7-false-apology",
+      "m": 8348,
+      "title": "Ảo Cảnh Nghịch Đảo · Bát Nước Đã Đổ",
+      "storyOnly": true,
+      "trial": "temptation",
+      "item": "sounding_bell",
+      "album": "7-06",
+      "mark": "red",
+      "keepsake": "Chiếc Chuông Kêu Vang",
+      "rewardPart": "sentience_prism",
+      "rewardPartCount": 2,
+      "start": [
+        [
+          "Bảy đồ đệ",
+          "Sư phụ, người về rồi."
+        ],
+        [
+          "Mnemosyne",
+          "Bước tới. Nhát kiếm chưa từng được vung."
+        ],
+        [
+          "Senti",
+          "Old Timer... dù cô chọn thế nào, ta vẫn ở đây."
+        ]
+      ],
+      "end": [
+        [
+          "Fu Hua",
+          "Quá khứ đó tàn nhẫn, nhưng nó là thật. Ta không cần một lời xin lỗi giả dối."
+        ],
+        [
+          "Senti",
+          "Bát nước đã đổ thì để nó thấm xuống đất. Không cần ép nó chảy ngược."
+        ]
+      ]
+    },
+    {
+      "id": "ch7-reverse-temptation",
+      "m": 8518,
+      "title": "Lời Cám Dỗ Ngược",
+      "storyOnly": true,
+      "trial": "graffiti",
+      "item": "illusion_spray",
+      "album": "7-07",
+      "keepsake": "Bình Sơn Ảo Ảnh",
+      "rewardPart": "brick_heart",
+      "rewardPartCount": 1,
+      "blueprint": "forge-brick",
+      "start": [
+        [
+          "Mnemosyne",
+          "Trong nhánh này, ngươi là bản thể gốc. Fu Hua chỉ là Old Timer ngoan ngoãn trong đầu ngươi."
+        ],
+        [
+          "Senti",
+          "Nghe cũng tiện... trong khoảng ba giây. Đưa bình sơn đây."
+        ]
+      ],
+      "end": [
+        [
+          "Senti",
+          "Làm người lớn gánh cả thế giới mệt lắm. Ta thà làm một sai lầm để còn được cãi Old Timer."
+        ],
+        [
+          "Fu Hua",
+          "Ta sẽ cố tiếp tục khiến cậu thất vọng theo cách đó."
+        ]
+      ]
+    }
+  ]
+}

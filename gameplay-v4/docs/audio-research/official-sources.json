@@ -1,0 +1,66 @@
+[
+  {
+    "id": "official-bgm",
+    "url": "https://fastcdn.hoyoverse.com/mi18n/bh3_global/m20230317hy14h0glc0/upload/7f169296ed090065558dde0b2dbce6b6_5011656282203629547.mp3",
+    "file": "official-site-bgm.mp3",
+    "type": "music",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/home",
+    "bytes": 2401920,
+    "local": "assets\\audio\\official-site-bgm.mp3"
+  },
+  {
+    "id": "hos-attack",
+    "url": "https://webstatic.mihoyo.com/upload/op-public/2021/03/03/32cdca3821d2a359dde0c72fd9ff20e4_4950627213515938598.mp4",
+    "file": "hos-attack.mp4",
+    "type": "reference-video",
+    "character": "Herrscher of Sentience",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries",
+    "bytes": 7579634,
+    "local": "docs\\audio-research\\hos-attack.mp4",
+    "wav": "docs\\audio-research\\hos-attack.wav"
+  },
+  {
+    "id": "hos-evade",
+    "url": "https://webstatic.mihoyo.com/upload/op-public/2021/03/03/e9c97244fc65842945096eae1e5f8c14_4092661102836735950.mp4",
+    "file": "hos-evade.mp4",
+    "type": "reference-video",
+    "character": "Herrscher of Sentience",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries",
+    "bytes": 5004927,
+    "local": "docs\\audio-research\\hos-evade.mp4",
+    "wav": "docs\\audio-research\\hos-evade.wav"
+  },
+  {
+    "id": "hos-ultimate",
+    "url": "https://webstatic.mihoyo.com/upload/op-public/2021/03/03/37a51893483e7b6aab3024a4baf40937_2349540169183103039.mp4",
+    "file": "hos-ultimate.mp4",
+    "type": "reference-video",
+    "character": "Herrscher of Sentience",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries",
+    "bytes": 7324550,
+    "local": "docs\\audio-research\\hos-ultimate.mp4",
+    "wav": "docs\\audio-research\\hos-ultimate.wav"
+  },
+  {
+    "id": "hua-attack",
+    "url": "https://webstatic.mihoyo.com/upload/op-public/2020/08/06/3b627e7cd5fff23dd7efae37ce2addef_2977693449822253780.mp4",
+    "file": "hua-attack.mp4",
+    "type": "reference-video",
+    "character": "Azure Empyrea",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries",
+    "bytes": 4575366,
+    "local": "docs\\audio-research\\hua-attack.mp4",
+    "wav": "docs\\audio-research\\hua-attack.wav"
+  },
+  {
+    "id": "hua-ultimate",
+    "url": "https://webstatic.mihoyo.com/upload/op-public/2020/08/06/8725aa430eb3548c8f5cc195e65b9b49_6336984479009716582.mp4",
+    "file": "hua-ultimate.mp4",
+    "type": "reference-video",
+    "character": "Azure Empyrea",
+    "sourcePage": "https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries",
+    "bytes": 3778034,
+    "local": "docs\\audio-research\\hua-ultimate.mp4",
+    "wav": "docs\\audio-research\\hua-ultimate.wav"
+  }
+]

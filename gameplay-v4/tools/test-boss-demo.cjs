@@ -1,0 +1,36 @@
+const {chromium}=require('./playwright-runtime.cjs');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+
+(async()=>{
+ const key='sentience-gameplay-v4-save-20260926';
+ const original=fs.readFileSync(path.join(__dirname,'../qa/boss-checkpoint.json'),'utf8');
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1080}});
+ const errors=[];page.on('pageerror',e=>{if(!(e.stack||e.message).includes('widget.sndcdn.com'))errors.push(e.message)});
+ await page.addInitScript(([k,raw])=>localStorage.setItem(k,raw),[key,original]);
+ await page.goto('http://127.0.0.1:4181/?boss-demo=1&qa=1');
+ await page.waitForFunction(()=>window.__qa?.ready);
+ await page.evaluate(()=>__qa.manual());
+ let s=await page.evaluate(()=>__qa.snapshot());
+ assert.equal(s.phase,'dialogue');assert.equal(s.arena?.m,3200);assert.equal(s.arena?.waves.length,1);
+ assert.deepEqual(s.save.weapons,['sword','spear']);assert.equal(s.save.checkpoint.m,3170);
+ assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),original);
+ await page.screenshot({path:path.join(__dirname,'../qa/chariot-demo-opening.png')});
+ for(let i=0;i<s.arena.before.length;i++)await page.evaluate(()=>{__qa.advance();__qa.advance()});
+ s=await page.evaluate(()=>__qa.snapshot());assert.equal(s.phase,'arena');assert.equal(s.enemies.filter(e=>e.ai?.type==='chariot').length,1);
+ assert.equal(s.enemies.find(e=>e.ai?.type==='chariot').ai.pylons.length,3);
+ await page.keyboard.press('Escape');assert(await page.locator('#pause-panel').isVisible());
+ await page.locator('#return-home').click();assert(await page.locator('#home').isVisible());
+ assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),original);
+ await page.locator('#boss-demo').click();assert(await page.locator('#dialogue').isVisible());
+ for(let i=0;i<s.arena.before.length;i++)await page.evaluate(()=>{__qa.advance();__qa.advance()});
+ s=await page.evaluate(()=>__qa.step([],2000,false));
+ if(s.phase==='dying')s=await page.evaluate(()=>__qa.step([],100,false));
+ assert(s.metrics.respawns>=1,'Demo should restart at the boss after defeat');
+ assert.equal(s.arena?.m,3200);assert.equal(s.phase,'dialogue');
+ assert.equal(await page.evaluate(k=>localStorage.getItem(k),key),original);
+ await browser.close();assert.deepEqual(errors,[]);
+ console.log('Boss demo PASS: direct link, one-wave boss, three pylons, replay, original save unchanged');
+})().catch(e=>{console.error(e);process.exit(1)});

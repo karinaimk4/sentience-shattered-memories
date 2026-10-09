@@ -1,0 +1,1760 @@
+{
+  "chapter": 1,
+  "title": "KHÔNG AI NHỚ TA",
+  "lengthMeters": 2000,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    8,
+    12
+  ],
+  "physics": {
+    "speed": 300,
+    "backSpeed": 220,
+    "gravity": 1800,
+    "jumpVelocity": 660,
+    "groundY": 490
+  },
+  "biomes": [
+    {
+      "from": 0,
+      "id": 0,
+      "name": "Nagazora"
+    }
+  ],
+  "opening": [
+    [
+      "Senti",
+      "...Chỗ này là đâu? Tại sao trông quen vậy?"
+    ],
+    [
+      "Senti",
+      "...Mà khoan, tại sao ta lại hỏi câu đó?"
+    ],
+    [
+      "Senti",
+      "Này. Con quái đằng kia. Nhìn ta này."
+    ],
+    [
+      "Senti",
+      "...Đi xuyên qua luôn? Ta đang đứng ngay đây mà."
+    ],
+    [
+      "Senti",
+      "Bình tĩnh. Gọi kiếm ra, đập một trận là chúng sẽ—"
+    ],
+    [
+      "Senti",
+      "...Tay ta?"
+    ],
+    [
+      "Senti",
+      "Không. Ta vẫn ở đây. Thanh kiếm trong khối ký ức kia... ta còn chạm được vào nó."
+    ]
+  ],
+  "arenas": [
+    {
+      "m": 100,
+      "name": "Thanh kiếm thức tỉnh",
+      "waves": [
+        [
+          "enemy",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "À. Giờ thì các ngươi thấy ta rồi?"
+        ],
+        [
+          "Senti",
+          "Được. Nhớ cho kỹ gương mặt này!"
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Đúng rồi! Không ai được phép phớt lờ ta!"
+        ],
+        [
+          "Senti",
+          "...Tiếng động vừa rồi là từ trên mái nhà?"
+        ],
+        [
+          "Senti",
+          "Cách ra đòn đó... Không thể nhầm được. Old Timer!"
+        ]
+      ]
+    },
+    {
+      "m": 450,
+      "name": "Chariot giữa đổ nát",
+      "waves": [
+        [
+          "elite"
+        ],
+        [
+          "elite",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Tiếng đánh nhau ở phía bên kia. Đường dưới sập mất rồi."
+        ],
+        [
+          "Senti",
+          "Ngươi định chặn ta? Cứ lao tới đi. Ta đang chờ đấy."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Trông hung hăng vậy mà chỉ biết lao thẳng."
+        ],
+        [
+          "Senti",
+          "Old Timer! Nghe thấy ta không?"
+        ],
+        [
+          "Senti",
+          "...Sao lại im rồi?"
+        ]
+      ]
+    },
+    {
+      "m": 900,
+      "name": "Thực tại rạn nứt",
+      "waves": [
+        [
+          "enemy",
+          "knight"
+        ],
+        [
+          "knight",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Vừa nãy tòa nhà đó còn nguyên. Chớp mắt một cái đã biến mất."
+        ],
+        [
+          "Senti",
+          "Không phải thành phố đang sụp... có thứ gì đó đang làm nó quên mất hình dạng của mình."
+        ],
+        [
+          "Senti",
+          "Giống bàn tay ta lúc nãy."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Những mảnh này có hơi ấm. Chúng không chỉ là đá vụn."
+        ],
+        [
+          "Senti",
+          "Nếu thành phố còn nhớ được một căn bếp... nó cũng phải nhớ Old Timer ở đâu chứ."
+        ],
+        [
+          "Senti",
+          "Đèn đỏ phía trước. Ta đã nhìn thấy nó rồi."
+        ]
+      ]
+    },
+    {
+      "m": 1300,
+      "name": "Ngã tư lặp lại",
+      "waves": [
+        [
+          "enemy",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Old Timer! Cuối cùng cũng—"
+        ],
+        [
+          "Fu Hua · Vọng ảnh",
+          "...Còn một đợt nữa."
+        ],
+        [
+          "Senti",
+          "Đằng sau! OLD TIMER!"
+        ],
+        [
+          "Fu Hua · Vọng ảnh",
+          "...Còn một đợt nữa."
+        ],
+        [
+          "Senti",
+          "Không. Vừa nãy cô ấy đã ngã xuống. Sao lại đứng đúng chỗ đó?"
+        ],
+        [
+          "Senti",
+          "Ta sẽ dọn đám quái này trước. Lần này cô không phải đánh một mình."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Dừng lại rồi... Old Timer, nhìn ta đi."
+        ],
+        [
+          "Senti",
+          "Chưa được. Ba vết nứt vẫn đang kéo cô ấy về chỗ cũ."
+        ],
+        [
+          "Senti",
+          "Được thôi. Một nút không đủ thì ta phá cả ba."
+        ]
+      ],
+      "loop": true
+    },
+    {
+      "m": 1700,
+      "name": "Nút khóa cuối",
+      "waves": [
+        [
+          "elite",
+          "knight"
+        ],
+        [
+          "enemy",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Fu Hua · Vọng ảnh",
+          "...Đừng lại gần. Nơi này..."
+        ],
+        [
+          "Senti",
+          "Cô vừa nghe thấy ta, đúng không?"
+        ],
+        [
+          "Senti",
+          "Đừng biến mất nữa. Ta sắp tới rồi."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Ta đã thấy Old Timer kiệt sức đủ rồi."
+        ],
+        [
+          "Senti",
+          "Lần này cứ để ta mở đường."
+        ]
+      ]
+    },
+    {
+      "m": 2000,
+      "name": "Nagazora Husk",
+      "waves": [
+        [
+          "boss"
+        ]
+      ],
+      "before": [
+        [
+          "Dấu vết Nagazora",
+          "Những mảnh giáp từ các con phố vừa đi qua trôi về cùng một điểm. Cánh cổng sau lưng Fu Hua khép lại."
+        ],
+        [
+          "Fu Hua",
+          "...Nó lại đến."
+        ],
+        [
+          "Senti",
+          "Vậy ra ngươi là thứ cứ kéo cô ấy trở về."
+        ],
+        [
+          "Nagazora Husk",
+          "TIẾN TRÌNH HIỆU ĐÍNH: XÓA NHÂN CHỨNG."
+        ],
+        [
+          "Senti",
+          "Ta đã nhớ đường tới đây. Và lần này, ta sẽ nhớ cả cách đập nát ngươi."
+        ],
+        [
+          "Dấu hiệu chiến đấu",
+          "Lõi chỉ mở sau mỗi chiêu. Nhảy qua sóng, né hoặc phản đòn cú lao, cúi dưới tia quét. Khi khiên xuất hiện, hạ lính giữ khiên trước."
+        ]
+      ],
+      "after": [
+        [
+          "Senti",
+          "Thấy chưa? Chưa cần đủ đồ ta đã vô địch rồi!"
+        ],
+        [
+          "Senti",
+          "...Old Timer? Đứng dậy được không?"
+        ],
+        [
+          "Fu Hua",
+          "...Cậu là ai?"
+        ],
+        [
+          "Senti",
+          "..."
+        ],
+        [
+          "Senti",
+          "Old Timer... không nhớ ta sao?"
+        ],
+        [
+          "Fu Hua",
+          "Ta..."
+        ],
+        [
+          "Ký ức chính #1",
+          "Bụi đá. Một bàn tay vươn xuống. Một bàn tay nắm lấy. Gương mặt cả hai người đều nhòe đi."
+        ],
+        [
+          "Senti",
+          "Đừng cố. Cô đang đau."
+        ],
+        [
+          "Fu Hua",
+          "Nơi này... là ký ức. Không phải thực tại."
+        ],
+        [
+          "Senti",
+          "Vậy thì ta sẽ đưa cô ra ngoài."
+        ],
+        [
+          "Senti",
+          "Không sao. Old Timer sẽ nhớ ra thôi. Mà nếu không nhớ... ta sẽ ép Old Timer nhớ!"
+        ],
+        [
+          "Fu Hua",
+          "...Cậu lúc nào cũng nói như vậy sao?"
+        ],
+        [
+          "Senti",
+          "Sau này cô sẽ biết. Đi thôi."
+        ],
+        [
+          "Giọng nói lạ",
+          "Ký ức #7,203. Sai lệch phát hiện. Bắt đầu hiệu đính."
+        ]
+      ],
+      "power": 600
+    }
+  ],
+  "checkpoints": [
+    0,
+    112,
+    300,
+    462,
+    700,
+    912,
+    1150,
+    1280,
+    1315,
+    1510,
+    1712,
+    1980
+  ],
+  "placements": [
+    {
+      "m": 18,
+      "pattern": "ch1-authored-00"
+    },
+    {
+      "m": 53,
+      "pattern": "ch1-authored-01"
+    },
+    {
+      "m": 125,
+      "pattern": "ch1-authored-02"
+    },
+    {
+      "m": 150,
+      "pattern": "ch1-authored-03"
+    },
+    {
+      "m": 180,
+      "pattern": "ch1-authored-04"
+    },
+    {
+      "m": 210,
+      "pattern": "ch1-authored-05"
+    },
+    {
+      "m": 245,
+      "pattern": "ch1-authored-06"
+    },
+    {
+      "m": 330,
+      "pattern": "ch1-authored-07"
+    },
+    {
+      "m": 358,
+      "pattern": "ch1-authored-08"
+    },
+    {
+      "m": 386,
+      "pattern": "ch1-authored-09"
+    },
+    {
+      "m": 414,
+      "pattern": "ch1-authored-10"
+    },
+    {
+      "m": 498,
+      "pattern": "ch1-authored-11"
+    },
+    {
+      "m": 526,
+      "pattern": "ch1-authored-12"
+    },
+    {
+      "m": 554,
+      "pattern": "ch1-authored-13"
+    },
+    {
+      "m": 582,
+      "pattern": "ch1-authored-14"
+    },
+    {
+      "m": 610,
+      "pattern": "ch1-authored-15"
+    },
+    {
+      "m": 638,
+      "pattern": "ch1-authored-16"
+    },
+    {
+      "m": 666,
+      "pattern": "ch1-authored-17"
+    },
+    {
+      "m": 722,
+      "pattern": "ch1-authored-18"
+    },
+    {
+      "m": 750,
+      "pattern": "ch1-authored-19"
+    },
+    {
+      "m": 778,
+      "pattern": "ch1-authored-20"
+    },
+    {
+      "m": 806,
+      "pattern": "ch1-authored-21"
+    },
+    {
+      "m": 834,
+      "pattern": "ch1-authored-22"
+    },
+    {
+      "m": 862,
+      "pattern": "ch1-authored-23"
+    },
+    {
+      "m": 946,
+      "pattern": "ch1-authored-24"
+    },
+    {
+      "m": 974,
+      "pattern": "ch1-authored-25"
+    },
+    {
+      "m": 1002,
+      "pattern": "ch1-authored-26"
+    },
+    {
+      "m": 1030,
+      "pattern": "ch1-authored-27"
+    },
+    {
+      "m": 1058,
+      "pattern": "ch1-authored-28"
+    },
+    {
+      "m": 1086,
+      "pattern": "ch1-authored-29"
+    },
+    {
+      "m": 1114,
+      "pattern": "ch1-authored-30"
+    },
+    {
+      "m": 1170,
+      "pattern": "ch1-authored-31"
+    },
+    {
+      "m": 1198,
+      "pattern": "ch1-authored-32"
+    },
+    {
+      "m": 1226,
+      "pattern": "ch1-authored-33"
+    },
+    {
+      "m": 1338,
+      "pattern": "ch1-authored-34"
+    },
+    {
+      "m": 1366,
+      "pattern": "ch1-authored-35"
+    },
+    {
+      "m": 1394,
+      "pattern": "ch1-authored-36"
+    },
+    {
+      "m": 1422,
+      "pattern": "ch1-authored-37"
+    },
+    {
+      "m": 1450,
+      "pattern": "ch1-authored-38"
+    },
+    {
+      "m": 1478,
+      "pattern": "ch1-authored-39"
+    },
+    {
+      "m": 1534,
+      "pattern": "ch1-authored-40"
+    },
+    {
+      "m": 1562,
+      "pattern": "ch1-authored-41"
+    },
+    {
+      "m": 1590,
+      "pattern": "ch1-authored-42"
+    },
+    {
+      "m": 1618,
+      "pattern": "ch1-authored-43"
+    },
+    {
+      "m": 1646,
+      "pattern": "ch1-authored-44"
+    },
+    {
+      "m": 1730,
+      "pattern": "ch1-authored-45"
+    },
+    {
+      "m": 1758,
+      "pattern": "ch1-authored-46"
+    },
+    {
+      "m": 1786,
+      "pattern": "ch1-authored-47"
+    },
+    {
+      "m": 1814,
+      "pattern": "ch1-authored-48"
+    },
+    {
+      "m": 1842,
+      "pattern": "ch1-authored-49"
+    },
+    {
+      "m": 1870,
+      "pattern": "ch1-authored-50"
+    },
+    {
+      "m": 1898,
+      "pattern": "ch1-authored-51"
+    },
+    {
+      "m": 1926,
+      "pattern": "ch1-authored-52"
+    }
+  ],
+  "revision": "4-narrative-adventure",
+  "scenes": [
+    {
+      "to": 400,
+      "id": "street",
+      "name": "1.1 · ĐƯỜNG PHỐ NAGAZORA",
+      "biome": 0,
+      "focus": 0,
+      "zoom": 1.1,
+      "accent": "#d6b6de",
+      "line": "Cả thành phố phớt lờ ta sao?",
+      "objective": "Tìm dấu hiệu chứng minh mình vẫn tồn tại",
+      "from": 0
+    },
+    {
+      "to": 800,
+      "id": "roofs",
+      "name": "1.2 · TÒA NHÀ SỤP ĐỔ",
+      "biome": 0,
+      "focus": 0.38,
+      "zoom": 1.7,
+      "accent": "#f2cb9e",
+      "line": "Nền nhà cũng muốn chạy trốn à?",
+      "objective": "Lần theo tiếng quyền trên những mái nhà sụp",
+      "from": 400
+    },
+    {
+      "to": 1250,
+      "id": "fracture",
+      "name": "1.3 · KHU VỰC KÝ ỨC VỠ",
+      "biome": 0,
+      "focus": 0.88,
+      "zoom": 1.3,
+      "accent": "#c38afa",
+      "line": "Không chỉ mặt đường. Cả ký ức cũng đang vỡ.",
+      "objective": "Theo dấu Fu Hua qua các ký ức đang bị xóa",
+      "from": 800
+    },
+    {
+      "to": 1600,
+      "id": "loop",
+      "name": "1.4 · VÒNG LẶP KÝ ỨC",
+      "biome": 0,
+      "focus": 0.56,
+      "zoom": 1.45,
+      "accent": "#e9a7c8",
+      "line": "Đèn giao thông đó... ta đã đi qua rồi. Old Timer?!",
+      "objective": "Cứu Fu Hua khỏi cảnh chiến đấu lặp lại",
+      "from": 1250
+    },
+    {
+      "to": 2000,
+      "id": "escape",
+      "name": "1.5 · PHÁ VÒNG LẶP",
+      "biome": 0,
+      "focus": 0.12,
+      "zoom": 1.2,
+      "accent": "#ffb184",
+      "line": "Old Timer, chờ đó. Ta sẽ phá hết những thứ này!",
+      "objective": "Cắt ba nút đang giữ Fu Hua · Chạy khỏi đổ nát",
+      "from": 1600
+    },
+    {
+      "to": 2020,
+      "id": "husk",
+      "name": "NAGAZORA HUSK",
+      "biome": 0,
+      "focus": 0.75,
+      "zoom": 1.55,
+      "accent": "#e194e4",
+      "line": "",
+      "objective": "Giữ lối ra cho Fu Hua · Phá kẻ chặn đường",
+      "from": 2000
+    }
+  ],
+  "patrols": [
+    {
+      "m": 150,
+      "kind": "enemy"
+    },
+    {
+      "m": 210,
+      "kind": "enemy"
+    },
+    {
+      "m": 275,
+      "kind": "enemy"
+    },
+    {
+      "m": 345,
+      "kind": "enemy"
+    },
+    {
+      "m": 395,
+      "kind": "enemy"
+    },
+    {
+      "m": 505,
+      "kind": "elite"
+    },
+    {
+      "m": 575,
+      "kind": "elite"
+    },
+    {
+      "m": 640,
+      "kind": "elite"
+    },
+    {
+      "m": 755,
+      "kind": "elite"
+    },
+    {
+      "m": 820,
+      "kind": "knight"
+    },
+    {
+      "m": 985,
+      "kind": "knight"
+    },
+    {
+      "m": 1055,
+      "kind": "knight"
+    },
+    {
+      "m": 1110,
+      "kind": "knight"
+    },
+    {
+      "m": 1205,
+      "kind": "knight"
+    },
+    {
+      "m": 1395,
+      "kind": "enemy"
+    },
+    {
+      "m": 1470,
+      "kind": "enemy"
+    },
+    {
+      "m": 1550,
+      "kind": "enemy"
+    },
+    {
+      "m": 1595,
+      "kind": "enemy"
+    },
+    {
+      "m": 1640,
+      "kind": "enemy"
+    },
+    {
+      "m": 1800,
+      "kind": "enemy"
+    },
+    {
+      "m": 1880,
+      "kind": "enemy"
+    },
+    {
+      "m": 1930,
+      "kind": "enemy"
+    }
+  ],
+  "sources": [
+    "HoS_Script_Ch1-4.md: Chương 1",
+    "HoS_Design_Decisions.md",
+    "HoS_Game_Design_Doc.md: Nagazora Husk",
+    "HoS_Story_Bible.md: Chương 1"
+  ],
+  "swordCrystal": {
+    "m": 7,
+    "y": 400
+  },
+  "nodes": [
+    {
+      "id": "loop-light",
+      "m": 1310,
+      "hp": 84,
+      "order": 0
+    },
+    {
+      "id": "escape-1",
+      "m": 1625,
+      "hp": 56,
+      "order": 1
+    },
+    {
+      "id": "escape-2",
+      "m": 1772,
+      "hp": 56,
+      "order": 2
+    },
+    {
+      "id": "escape-3",
+      "m": 1955,
+      "hp": 84,
+      "order": 3
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-1",
+      "m": 865,
+      "y": 245,
+      "title": "BẾP TAIXUAN",
+      "lines": [
+        [
+          "Ký ức ẩn #1",
+          "Fu Hua nấu ăn ở Taixuan. Khói phủ kín căn bếp."
+        ],
+        [
+          "Senti",
+          "Cái gì đây? Old Timer nấu ăn tệ vậy sao?"
+        ],
+        [
+          "Ký ức kết tinh",
+          "Sự ấm áp nhỏ nhoi còn lại hóa thành Marco Polo (T). Mang nó theo để không quên cảm giác có một nơi để trở về."
+        ]
+      ]
+    },
+    {
+      "id": "hidden-2",
+      "m": 1929,
+      "y": 465,
+      "slide": true,
+      "title": "CƠN MƯA ĐẦU TIÊN",
+      "lines": [
+        [
+          "Ký ức ẩn #2",
+          "Senti đưa tay chạm vào mưa lần đầu, ngẩng đầu nhìn lên, ngỡ ngàng."
+        ],
+        [
+          "Senti",
+          "...Thì ra cảm giác ấy vẫn còn ở đây."
+        ],
+        [
+          "Ký ức kết tinh",
+          "Giọt mưa đầu tiên đọng lại thành Marco Polo (B). Một bằng chứng rằng Senti từng chạm được vào thế giới."
+        ]
+      ]
+    }
+  ],
+  "openingStaging": [
+    "wind",
+    "wake",
+    "ignored",
+    "ghost",
+    "summon",
+    "hand-glitch",
+    "crystal"
+  ],
+  "beats": [
+    {
+      "m": 25,
+      "id": "after-sword",
+      "speaker": "Senti",
+      "text": "Đỏ mắt lên hết rồi à? Vậy là thanh kiếm kéo ta trở lại với thế giới này."
+    },
+    {
+      "m": 68,
+      "id": "self-check",
+      "speaker": "Senti",
+      "text": "Tay vẫn còn. Kiếm vẫn còn. Ta cũng vẫn còn. Tốt."
+    },
+    {
+      "m": 155,
+      "id": "voice",
+      "speaker": "Senti",
+      "text": "Tiếng quyền đó... mỗi lần dạy ta tập, Old Timer đều ra đòn như vậy."
+    },
+    {
+      "m": 225,
+      "id": "shortcut",
+      "speaker": "Senti",
+      "text": "Tiếng động trên cao. Phải tìm đường lên mái nhà... cô ấy không ở dưới này."
+    },
+    {
+      "m": 310,
+      "id": "empty-city",
+      "speaker": "Senti",
+      "text": "Không người. Không tiếng xe. Chỉ có quái và tiếng đánh nhau ở phía trước..."
+    },
+    {
+      "m": 405,
+      "id": "roof",
+      "speaker": "Senti",
+      "text": "Old Timer! Nếu nghe thấy thì trả lời ta một tiếng!"
+    },
+    {
+      "m": 505,
+      "id": "quiet",
+      "speaker": "Senti",
+      "text": "...Lại im rồi. Đừng nói là ta vừa nghe nhầm."
+    },
+    {
+      "m": 605,
+      "id": "crumble",
+      "speaker": "Senti",
+      "text": "Đứng lâu là nền vỡ. Thành phố này đúng là không muốn giữ khách."
+    },
+    {
+      "m": 720,
+      "id": "glimpse",
+      "speaker": "Senti",
+      "text": "Áo trắng ở bên kia! Khoan— biến mất rồi?"
+    },
+    {
+      "m": 810,
+      "id": "fracture",
+      "speaker": "Senti",
+      "text": "Con đường vừa nhấp nháy. Không phải mắt ta. Là chính nó."
+    },
+    {
+      "id": "snow-lore",
+      "m": 963,
+      "speaker": "Senti",
+      "text": "Tuyết ở Nagazora? Một ký ức khác đang tràn vào... phải qua trước khi nó nuốt cả con phố."
+    },
+    {
+      "m": 980,
+      "id": "kitchen-echo",
+      "speaker": "Senti",
+      "text": "Những thứ nhỏ nhặt thế này mà cũng bị nhốt lại... ai lại muốn giữ cả một căn bếp cháy?",
+      "requiresMemory": "hidden-1"
+    },
+    {
+      "id": "lava-lore",
+      "m": 1030,
+      "speaker": "Senti",
+      "text": "Mặt đường đỏ lên rồi. Không phải ánh đèn. Đừng chạm xuống khe nứt."
+    },
+    {
+      "m": 1080,
+      "id": "warmth",
+      "speaker": "Senti",
+      "text": "Ta nhớ cảm giác này. Không nhớ vì sao. Nhưng ta biết nó thuộc về Old Timer."
+    },
+    {
+      "m": 1190,
+      "id": "redlight",
+      "speaker": "Senti",
+      "text": "Đèn đỏ. Vết nứt trên biển báo. Ta đã đi qua chỗ này rồi."
+    },
+    {
+      "m": 1370,
+      "id": "first-break",
+      "speaker": "Senti",
+      "text": "Một vết nứt đã biến mất. Lần này không còn quay lại từ đầu nữa."
+    },
+    {
+      "m": 1480,
+      "id": "resolve",
+      "speaker": "Senti",
+      "text": "Old Timer cứ thích tự mình gánh hết. Đến cả trong ký ức cũng vậy."
+    },
+    {
+      "m": 1570,
+      "id": "three-locks",
+      "speaker": "Senti",
+      "text": "Ba nút còn lại đang nối vào cô ấy. Phải chém theo dòng sáng, từ ngoài vào trong."
+    },
+    {
+      "m": 1640,
+      "id": "heard",
+      "speaker": "Senti",
+      "text": "Cô ấy vừa quay đầu. Ta thấy rồi. Chỉ cần thêm một chút nữa."
+    },
+    {
+      "m": 1800,
+      "id": "collapse",
+      "speaker": "Senti",
+      "text": "Nút vỡ rồi, cả Nagazora cũng bắt đầu tan theo. Không được dừng."
+    },
+    {
+      "m": 1900,
+      "id": "last",
+      "speaker": "Senti",
+      "text": "Ta tới đây. Lần này cô không phải đứng dậy một mình nữa."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 285,
+      "id": "broken-sign",
+      "title": "BIỂN CHỈ ĐƯỜNG BỊ XÓA",
+      "lines": [
+        [
+          "Senti",
+          "Tên đường bị xóa sạch. Nhưng vết nứt thì còn."
+        ],
+        [
+          "Senti",
+          "Có thứ gì đó đang sửa nơi này... mà sửa chẳng ra hồn."
+        ]
+      ]
+    },
+    {
+      "m": 745,
+      "id": "white-feather",
+      "title": "DẤU VẾT QUEN THUỘC",
+      "lines": [
+        [
+          "Senti",
+          "Dấu quyền trên cột. Mép vỡ còn mới."
+        ],
+        [
+          "Senti",
+          "Là cô ấy. Lần này chắc chắn."
+        ]
+      ]
+    },
+    {
+      "m": 1160,
+      "id": "clock",
+      "title": "CHIẾC ĐỒNG HỒ DỪNG LẠI",
+      "lines": [
+        [
+          "Senti",
+          "Kim giây cứ quay về cùng một chỗ."
+        ],
+        [
+          "Senti",
+          "Nếu lát nữa lại gặp cái đèn đỏ ấy... ta biết phải tìm gì rồi."
+        ]
+      ]
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch1-authored-00",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        42,
+        92
+      ],
+      "label": "Nagazora encounter 1",
+      "spacing": 145,
+      "blockWidth": 145,
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-01",
+      "length": 1150,
+      "difficulty": "tutorial",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.6
+      },
+      "kind": "gap",
+      "label": "Nagazora encounter 2",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-02",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 190,
+      "label": "Nagazora encounter 3",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-03",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.55
+      },
+      "label": "Nagazora encounter 4",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-04",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 645,
+      "label": "Nagazora encounter 5",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-05",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        42,
+        92
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 6",
+      "spacing": 185,
+      "blockWidth": 185,
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-06",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 7",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-07",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        38,
+        82,
+        128,
+        160
+      ],
+      "label": "Nagazora encounter 8",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-08",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.68
+      },
+      "label": "Nagazora encounter 9",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-09",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 165,
+      "label": "Nagazora encounter 10",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-10",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        42,
+        92
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 11",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "roofs",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.62
+      }
+    },
+    {
+      "id": "ch1-authored-11",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 690,
+      "label": "Nagazora encounter 12",
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-12",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        38,
+        82,
+        128,
+        160
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 13",
+      "spacing": 145,
+      "blockWidth": 145,
+      "region": "roofs",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.62
+      }
+    },
+    {
+      "id": "ch1-authored-13",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        65,
+        115,
+        75
+      ],
+      "label": "Nagazora encounter 14",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-14",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.68
+      },
+      "label": "Nagazora encounter 15",
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-15",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 215,
+      "label": "Nagazora encounter 16",
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-16",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 17",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "roofs",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.62
+      }
+    },
+    {
+      "id": "ch1-authored-17",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 18",
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-18",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 600,
+      "label": "Nagazora encounter 19",
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-19",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        48,
+        108,
+        148,
+        95
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 20",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "roofs",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.62
+      }
+    },
+    {
+      "id": "ch1-authored-20",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        42,
+        92
+      ],
+      "label": "Nagazora encounter 21",
+      "spacing": 185,
+      "blockWidth": 185,
+      "region": "roofs"
+    },
+    {
+      "id": "ch1-authored-21",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.55
+      },
+      "label": "Nagazora encounter 22",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-22",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 190,
+      "label": "Nagazora encounter 23",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-23",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        65,
+        115,
+        75
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 24",
+      "spacing": 185,
+      "blockWidth": 185,
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-24",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 600,
+      "label": "Nagazora encounter 25",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-25",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 26",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-26",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 27",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-27",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.55
+      },
+      "label": "Nagazora encounter 28",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-28",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 140,
+      "label": "Nagazora encounter 29",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-29",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        48,
+        108,
+        148,
+        95
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 30",
+      "spacing": 185,
+      "blockWidth": 185,
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-30",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 31",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-31",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 645,
+      "label": "Nagazora encounter 32",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-32",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 33",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-33",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 34",
+      "region": "fracture"
+    },
+    {
+      "id": "ch1-authored-34",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 35",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-35",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "heights": [
+        60,
+        115
+      ],
+      "enemyOffset": 1120,
+      "label": "Nagazora encounter 36",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-36",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 600,
+      "label": "Nagazora encounter 37",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-37",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 165,
+      "label": "Nagazora encounter 38",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-38",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        65,
+        115,
+        75
+      ],
+      "label": "Nagazora encounter 39",
+      "spacing": 185,
+      "blockWidth": 185,
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-39",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.55
+      },
+      "label": "Nagazora encounter 40",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-40",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        42,
+        92
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 41",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-41",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 42",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-42",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "heights": [
+        60,
+        115
+      ],
+      "enemyOffset": 1120,
+      "label": "Nagazora encounter 43",
+      "region": "street"
+    },
+    {
+      "id": "ch1-authored-43",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 645,
+      "label": "Nagazora encounter 44",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-44",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 45",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-45",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 165,
+      "label": "Nagazora encounter 46",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-46",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "rare": true,
+      "label": "Nagazora encounter 47",
+      "spacing": 165,
+      "blockWidth": 165,
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-47",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true,
+      "label": "Nagazora encounter 48",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-48",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "heights": [
+        60,
+        115
+      ],
+      "enemyOffset": 1120,
+      "label": "Nagazora encounter 49",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-49",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 645,
+      "label": "Nagazora encounter 50",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-50",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true,
+      "label": "Nagazora encounter 51",
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-51",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "label": "Nagazora encounter 52",
+      "spacing": 145,
+      "blockWidth": 145,
+      "region": "escape"
+    },
+    {
+      "id": "ch1-authored-52",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.62
+      },
+      "label": "Nagazora encounter 53",
+      "region": "escape"
+    }
+  ],
+  "gearRewards": {
+    "100": [
+      "armored_bracers",
+      "attila:T"
+    ],
+    "2000": [
+      "marco_polo:M"
+    ]
+  },
+  "blueprintRewards": {
+    "450": [
+      "forge-attila-m"
+    ],
+    "900": [
+      "forge-attila-b",
+      "forge-namiko"
+    ]
+  },
+  "gearStories": {
+    "100": [
+      [
+        "Dấu vết người bảo vệ",
+        "Trong tủ cứu hộ có một đôi Armored Bracers và dấu khắc Attila (T). Một người đã ở lại giữ con phố này cho dân chạy thoát."
+      ],
+      [
+        "Senti",
+        "Không ai nhớ tên người đó nữa sao? Vậy ta giữ lấy. Lần này sẽ có người trở về."
+      ]
+    ],
+    "450": [
+      [
+        "Bản thiết kế",
+        "Bên dưới đống đổ nát là khuôn Attila (M), chưa thể sử dụng. Cần Hợp kim và Tinh thể để khôi phục."
+      ],
+      [
+        "Senti",
+        "Tìm thêm phụ tùng trên đường. Ta không để ký ức này mất thêm lần nữa."
+      ]
+    ],
+    "900": [
+      [
+        "Trạm cứu hộ",
+        "Ngăn kéo lưu bản thiết kế CAS-II Namiko và khuôn Attila (B). Nét bút dừng giữa dòng, trước khi công việc hoàn thành."
+      ],
+      [
+        "Senti",
+        "Sóng xung kích... có thể mở được đường. Phần còn lại để ta làm."
+      ],
+      [
+        "Bàn rèn",
+        "Đã mở công thức. Thu gom thùng phụ tùng dọc đường; rèn ở trang Chuẩn bị tại checkpoint."
+      ]
+    ],
+    "2000": [
+      [
+        "Ký ức còn lại",
+        "Khi Husk tan rã, một dấu khắc Marco Polo (M) ở lại trên nền đá. Ký ức về những bước chân vẫn tiến về phía trước."
+      ]
+    ]
+  }
+}

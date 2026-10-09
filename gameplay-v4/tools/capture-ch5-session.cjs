@@ -1,0 +1,4 @@
+const {chromium}=require('./playwright-runtime.cjs');
+const fs=require('node:fs'),path=require('node:path');
+const root=path.resolve(__dirname,'..'),payload=require('../qa/Hanh-trinh-Chuong-5.json'),key='sentience-gameplay-v4-save-20260926';
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true});const page=await browser.newPage({viewport:{width:1440,height:900}});await page.addInitScript(([k,s])=>localStorage.setItem(k,JSON.stringify(s)),[key,payload.save]);await page.goto('http://127.0.0.1:4192/build-assets-v4/');await page.waitForSelector('#story:not([disabled])');await page.click('#story');await page.waitForSelector('#dialogue:not([hidden])');await page.screenshot({path:path.join(root,'qa','chapter-5-session-ready.png'),fullPage:true});await browser.close();console.log('chapter-5-session-ready.png');})().catch(e=>{console.error(e);process.exit(1)});

@@ -1,0 +1,96 @@
+.upgrade-wallet {
+  margin: -3px 0 9px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  background: #e9f7f0;
+  color: #466b5b;
+  font: 800 9px ui-monospace;
+}
+.upgrade-wallet b { color: #246d55; }
+.restaurant-upgrade {
+  width: 100%;
+  margin-bottom: 10px;
+  background: #d47743 !important;
+  box-shadow: 0 3px 0 #9d4e2d;
+}
+.debug-drawer button {
+  width: 100%;
+  border: 1px solid #76d7ab;
+  border-radius: 7px;
+  padding: 8px;
+  background: #265a45;
+  color: #e5fff0;
+  font: 800 9px ui-monospace;
+  cursor: pointer;
+}
+.room-switcher{display:grid;grid-template-columns:1fr 1fr 150px;gap:8px;padding:8px;background:#182b3a;border-inline:4px solid #513732}.room-switcher button{display:grid;gap:2px;min-width:0;padding:8px 10px;border:2px solid #6e5360;border-radius:10px;background:linear-gradient(145deg,#3a2c48,#27283d);color:#f8e9e1;text-align:left;cursor:pointer}.room-switcher button span{color:#f2aa76;font:900 7px ui-monospace;letter-spacing:1px}.room-switcher button b{font-size:11px}.room-switcher button small{color:#c9b8c7;font-size:7px}.room-switcher button.active{border-color:#ffd074;background:linear-gradient(145deg,#87506c,#42354f);box-shadow:inset 0 0 0 1px #fff4b966}.room-switcher button.locked{filter:saturate(.35);opacity:.68}.room-switcher #camera-follow{background:linear-gradient(145deg,#235d65,#263849)}.room-switcher #camera-follow.follow-active{border-color:#75ded0;box-shadow:inset 0 0 0 1px #9fffe355}.room-level-summary{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:10px 0}.room-level-summary article{padding:9px;border:1px solid #cfae91;border-radius:9px;background:#fff8e9}.room-level-summary span,.room-level-summary b,.room-level-summary small{display:block}.room-level-summary span{color:#b15e61;font:900 7px ui-monospace;letter-spacing:.7px}.room-level-summary b{margin:3px 0;color:#5d4135;font-size:9px}.room-level-summary small{color:#8d725f;font-size:7px}.room-level-summary article.locked{filter:grayscale(.55);opacity:.65}.resource-sources{display:grid;gap:3px;padding:9px;border-radius:9px;background:#eaf3fb;color:#425e75}.resource-sources b{font-size:9px}.resource-sources small{font-size:7px;line-height:1.4}
+.roster-v3 button.staff-card{width:100%;font:inherit;text-align:left;cursor:pointer}.roster-v3 button.staff-card.selected{border-color:#4bbca0;background:#edfff8;box-shadow:inset 0 0 0 1px #72d5bd,0 2px 0 #9bcabf}.roster-v3 button.staff-card.selected:after{content:"CAM";padding:2px 4px;border-radius:4px;background:#4aa88f;color:white;font:900 6px ui-monospace}
+.quick-demo .full-test-room2{background:linear-gradient(135deg,#653c8e,#bd5f8f);border-color:#f0bb68;color:#fff6df;box-shadow:0 0 0 2px #6b315f33,0 3px 0 #572747;font-weight:1000}.quick-demo .full-test-room2.active{background:linear-gradient(135deg,#247c72,#4daf85);border-color:#8bf1c6;box-shadow:0 3px 0 #1b5a51}
+.staff-gacha-banner .gacha-actions{grid-template-columns:1fr}.staff-gacha-banner .gacha-actions button{width:100%;min-height:48px;font-size:12px!important}.gacha-reveal{width:min(760px,92vw)!important}.gacha-result-layout{grid-template-columns:minmax(230px,290px) minmax(260px,1fr)!important;justify-content:center}.gacha-results.single .gacha-result-card{flex-basis:230px}.gacha-results.single .gacha-card-art{height:230px}
+.room-upgrade-box{margin-bottom:13px;padding:10px;border:2px solid #d8a358;border-radius:12px;background:linear-gradient(145deg,#fff8df,#f5e0bd);box-shadow:0 4px 0 #bd8758}.room-upgrade-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.room-upgrade-head span{display:block;color:#c2603e;font:900 7px ui-monospace;letter-spacing:1px}.room-upgrade-head h3{margin:2px 0 0;color:#52382d;font-size:13px}.room-upgrade-head>b{padding:5px 8px;border-radius:7px;background:#65405b;color:#ffe4a1;font:1000 10px ui-monospace}.room-upgrade-box>p{margin:6px 0 8px;color:#806451;font-size:8px}.room-upgrade-list{display:grid;gap:6px}.room-upgrade-item{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:7px;padding:7px;border:1px solid #dfc09a;border-radius:9px;background:#fffaf0}.room-upgrade-item>span{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#dcebe4;color:#32775f;font-size:17px}.room-upgrade-item b,.room-upgrade-item small{display:block}.room-upgrade-item b{color:#5d4032;font-size:9px}.room-upgrade-item small{margin-top:2px;color:#927461;font-size:7px;line-height:1.25}.room-upgrade-item button,.room-upgrade-reset{border:0;border-radius:7px;padding:7px;background:#4ba180;color:#fff;font:900 7px ui-monospace;box-shadow:0 2px 0 #2c6b57;cursor:pointer}.room-upgrade-item.is-upgraded{border-color:#6fb493;background:#effbf4}.room-upgrade-item.is-upgraded>span{background:#8fd1b4}.room-upgrade-item button:disabled{background:#9aac9f;box-shadow:none;cursor:default}.room-upgrade-reset{width:100%;margin-top:7px;background:#7c7188;box-shadow:0 2px 0 #554b61}.room-upgrade-note{display:block;margin-top:7px;color:#9a704d;font:800 7px/1.35 ui-monospace}
+
+/* Readability pass: avoid 7–9px copy in the management UI. */
+.v3-integrated .demo-layout{grid-template-columns:270px minmax(680px,1fr) 370px}
+.v3-integrated .control-tabs button{font-size:11px;line-height:1.2}
+.v3-integrated .control-note,.v3-integrated .empty-state{font-size:12px;line-height:1.55}
+.room-switcher button span{font-size:9px}.room-switcher button b{font-size:13px}.room-switcher button small{font-size:9px;line-height:1.35}
+.roster-v3 .staff-card b{font-size:12px}.roster-v3 .staff-card small{font-size:10px}.roster-v3 .staff-card em{font-size:11px}
+.job-list-v3 .job b{font-size:12px}.job-list-v3 .job small{font-size:10px;line-height:1.4}
+.decor-shop-head span{font-size:9px}.decor-shop-head h2{font-size:19px}.decor-shop-head>b{font-size:9px}
+.decor-divider{font-size:9px}.decor-drag-help{font-size:10px;line-height:1.5}
+.table-shop-head{font-size:11px}.table-shop-head button{font-size:9px}
+.table-shop-info strong{font-size:12px}.table-shop-info small{font-size:9px;line-height:1.4}.table-shop-info span{font-size:9px;line-height:1.4}.table-shop-actions button{font-size:9px}
+.decor-shop-card span{font-size:9px}.decor-shop-card b{font-size:12px}.decor-shop-card small{font-size:9px;line-height:1.45}.decor-shop-card button{font-size:9px;line-height:1.25}
+.upgrade-level-cost{font-size:11px;line-height:1.45}.upgrade-wallet{font-size:10px}.upgrade-price-note{font-size:9px;line-height:1.55}.resource-sources b{font-size:11px}.resource-sources small{font-size:9px;line-height:1.5}
+.room-level-summary span{font-size:9px}.room-level-summary b{font-size:11px}.room-level-summary small{font-size:9px;line-height:1.4}
+.room-upgrade-head span{font-size:9px}.room-upgrade-head h3{font-size:16px}.room-upgrade-head>b{font-size:12px}.room-upgrade-box>p{font-size:10px;line-height:1.45}
+.room-upgrade-item{grid-template-columns:38px minmax(0,1fr) auto;padding:9px;gap:9px}.room-upgrade-item>span{width:36px;height:36px;font-size:20px}.room-upgrade-item b{font-size:12px}.room-upgrade-item small{font-size:9px;line-height:1.45}.room-upgrade-item button,.room-upgrade-reset{font-size:9px;padding:8px}.room-upgrade-note{font-size:9px;line-height:1.5}
+.staff-slot-row b{font-size:12px}.staff-slot-row small{font-size:9px;line-height:1.4}.staff-slot-row button{font-size:9px}
+.assignment-grid .assignment{font-size:10px}.assignment-grid .assignment select{font-size:10px}
+.gacha-collection{font-size:10px}.staff-codex-card b{font-size:10px}.staff-codex-card small{font-size:8px}.staff-codex-card em{font-size:8px}
+@media(max-width:1350px){.v3-integrated .demo-layout{grid-template-columns:230px minmax(620px,1fr) 330px}}
+.v3-integrated .day-dashboard span{font-size:10px}.v3-integrated .day-dashboard b{font-size:18px}.v3-integrated .trend-chip b{font-size:15px}.v3-integrated .meter-chip b{font-size:13px}
+.v3-integrated .phase-tabs button b{font-size:13px}.v3-integrated .phase-tabs button small{font-size:10px;line-height:1.3}
+.v3-integrated .tiny-label{font-size:10px}.v3-integrated .phase-brief p{font-size:13px;line-height:1.55}.v3-integrated .objective-row,.v3-integrated .objective-list div{font-size:12px;line-height:1.4}
+.v3-integrated .section-heading h2{font-size:16px}.v3-integrated .shift-stats dt{font-size:9px}.v3-integrated .shift-stats dd{font-size:16px}.v3-integrated .timer-badge{font-size:9px}
+.v3-integrated .stage-topline{font-size:10px}.v3-integrated .stage-topline b{font-size:13px}.v3-integrated .stage-scale button{font-size:10px}
+.v3-integrated .event-ticker{font-size:11px}.v3-integrated .event-ticker b{font-size:9px}
+.v3-integrated .senti-dock button b{font-size:10px}.v3-integrated .senti-dock button small{font-size:8px;line-height:1.35}
+.v3-integrated .quick-demo>div b{font-size:13px}.v3-integrated .quick-demo button{font-size:9px;padding:8px 10px}
+
+/* Staff panel: the old demo used a 3-column banner grid, so reset it for V3. */
+.staff-gacha-banner{grid-template-columns:minmax(0,1fr)!important;align-items:stretch!important}
+.staff-gacha-banner>*{grid-column:1;min-width:0}
+.staff-gacha-banner .gacha-head strong{font-size:20px;line-height:1.08}
+.staff-gacha-banner .gacha-vat{margin:8px auto 5px}
+.staff-gacha-banner .gacha-rates{grid-template-columns:repeat(4,minmax(0,1fr))}
+.staff-gacha-banner .gacha-rates span{font-size:9px;padding:5px 2px}
+.staff-gacha-banner .gacha-pity span{font-size:9px}
+.staff-gacha-banner .gacha-demo-note{font-size:9px!important;line-height:1.45}
+
+.staff-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0 0 11px;padding:4px;border:1px solid #d4b18e;border-radius:11px;background:#ead6bd}
+.staff-mode-tabs button{min-width:0;border:0;border-radius:8px;padding:10px 5px;background:transparent;color:#72503e;font:1000 10px/1.2 ui-monospace,Consolas,monospace;cursor:pointer}
+.staff-mode-tabs button.active{background:linear-gradient(145deg,#6b3d70,#a75878);color:#fff8dc;box-shadow:0 3px 0 #472c51}
+.staff-mode-view[hidden]{display:none!important}
+
+.dorm-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;padding:12px;border:2px solid #d8995a;border-radius:12px;background:linear-gradient(145deg,#fff2cb,#f4d7ad);box-shadow:0 4px 0 #ad754f}
+.dorm-head span{display:block;color:#aa4f55;font:1000 9px ui-monospace,Consolas,monospace;letter-spacing:1px}
+.dorm-head h2{margin:3px 0 0;color:#4f3441;font-size:17px;line-height:1.15}
+.dorm-head>b{flex:none;padding:7px 8px;border-radius:8px;background:#684268;color:#ffe6a3;font:1000 9px ui-monospace,Consolas,monospace}
+.dorm-note{margin:11px 2px 9px!important}
+.dorm-test-note{margin:9px 2px 0!important;padding:9px;border-radius:8px;background:#fff4d7;color:#7b5b40!important}
+.staff-dorm-list{display:grid;gap:8px;max-height:600px;padding:2px 3px 4px 0;overflow:auto}
+.staff-dorm-card{--dorm-rank:#cbd5e1;display:grid;grid-template-columns:74px minmax(0,1fr);grid-template-areas:"art copy" "art action";gap:6px 9px;min-width:0;padding:8px;border:2px solid var(--dorm-rank);border-radius:12px;background:linear-gradient(145deg,#fffaf0,#f3e5d4);box-shadow:0 3px 0 #c2a185}
+.staff-dorm-card.rank-S{--dorm-rank:#50b6d5}.staff-dorm-card.rank-SR{--dorm-rank:#9670cf}.staff-dorm-card.rank-SSR{--dorm-rank:#e6ac42}
+.staff-dorm-art{position:relative;grid-area:art;min-height:112px;border-radius:9px;background-color:#352a45;background-position:center top;background-repeat:no-repeat;background-size:cover;image-rendering:pixelated;box-shadow:inset 0 0 0 2px #ffffff45}
+.staff-dorm-art em{position:absolute;left:5px;top:5px;padding:3px 5px;border-radius:5px;background:var(--dorm-rank);color:#2d2133;font:1000 9px ui-monospace,Consolas,monospace}
+.staff-dorm-copy{grid-area:copy;min-width:0}
+.staff-dorm-copy>span{display:block;color:#a15b58;font:900 8px ui-monospace,Consolas,monospace;text-transform:uppercase}
+.staff-dorm-copy>b{display:block;margin:2px 0 4px;color:#4d3440;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.staff-dorm-copy>small{display:-webkit-box;overflow:hidden;color:#765c53;font-size:9px;line-height:1.35;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.staff-dorm-copy>p{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 0}
+.staff-dorm-copy>p i,.staff-dorm-copy>p strong{padding:3px 5px;border-radius:5px;font:900 8px ui-monospace,Consolas,monospace}
+.staff-dorm-copy>p i{background:#f5deb0;color:#8a552e;font-style:normal}.staff-dorm-copy>p strong{background:#e7d9ef;color:#6a467e}
+.staff-dorm-copy .staff-dorm-bonus{display:block;margin-top:5px;color:#278267;font-weight:900}
+.staff-dorm-card>button{grid-area:action;width:100%;border:0;border-radius:7px;padding:7px;background:linear-gradient(#ef9b59,#d86b4c);color:#fff;font:1000 9px ui-monospace,Consolas,monospace;box-shadow:0 2px 0 #963f42;cursor:pointer}
+.staff-dorm-card>button:active{transform:translateY(2px);box-shadow:none}

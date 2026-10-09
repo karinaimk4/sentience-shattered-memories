@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#9ddfff">
+  <title>Bếp Lửa Thái Hư V3 — Canvas Rush</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="event-demo-pixel.css?v=3d5">
+  <link rel="stylesheet" href="event-v3-integrated.css?v=8">
+  <link rel="stylesheet" href="event-v3-economy.css?v=5">
+</head>
+<body class="pixel-prototype v3-integrated">
+  <header class="event-header">
+    <a class="back-link" href="index.html">← <span>VỀ MENU GAME</span></a>
+    <div class="event-brand">
+      <span class="brand-kicker">SENTIENCE · EVENT MODE</span>
+      <strong>Bếp Lửa Thái Hư</strong>
+      <small>Thực Khách Lượng Tử</small>
+    </div>
+    <div class="header-actions">
+      <button id="feature-tour" class="soft-button">? CÁCH CHƠI</button>
+    </div>
+  </header>
+
+  <section class="day-dashboard" aria-label="Chỉ số nhà hàng">
+    <div class="day-chip"><span>NGÀY</span><b>01</b></div>
+    <div class="trend-chip"><span>BẢN TIN QUÁN</span><b>Gian 1 đang mở · Phục vụ khách để nâng quán</b></div>
+    <div class="stat-chip coin"><span>Xu trong ví</span><b id="coin-value">0</b></div>
+    <div class="stat-chip"><span>Uy tín</span><b id="rep-value">50</b></div>
+    <div class="balance-chip">
+      <div><span>ZEN</span><b>−</b></div>
+      <div class="balance-track"><i id="atmos-fill"></i></div>
+      <div><span>YATTA</span><b id="atmos-value">0</b></div>
+    </div>
+    <div class="meter-chip stress-chip"><span>FU HUA · STRESS</span><div class="mini-track"><i id="stress-fill"></i></div><b id="stress-value">0</b></div>
+    <div class="meter-chip rage-chip"><span>SENTI · NỘ</span><div class="mini-track"><i id="rage-fill"></i></div><b id="rage-value">0</b></div>
+  </section>
+
+  <nav class="phase-tabs" aria-label="Bốn buổi trong ngày">
+    <button data-phase="morning"><span>☀</span><b>BUỔI SÁNG</b><small>Thu mua nguyên liệu</small></button>
+    <button data-phase="afternoon"><span>◐</span><b>BUỔI CHIỀU</b><small>Nấu mẻ 3 bước</small></button>
+    <button data-phase="evening" class="active"><span>★</span><b>BUỔI TỐI</b><small>Rush Hour Canvas</small></button>
+    <button data-phase="night"><span>☾</span><b>KHUYA</b><small>Tổng kết & nâng cấp</small></button>
+  </nav>
+
+  <main class="demo-layout">
+    <aside class="mission-column">
+      <section class="paper-card phase-brief">
+        <span class="tiny-label" id="phase-kicker">03 · BUỔI TỐI</span>
+        <h1 id="phase-title">Rush Hour mở quán</h1>
+        <p id="phase-copy">Nhân viên tự nhận job, đi bộ tới đúng trạm rồi mới làm việc. Bấm trực tiếp trong quán để điều khiển Senti.</p>
+        <div id="phase-objectives" class="objective-list">
+          <div>✓ Bấm trong quán để điều khiển Senti</div><div>✓ Nhân viên tự nhận việc từ Bảng Việc</div><div>G · xem đường đi của nhân viên</div>
+        </div>
+      </section>
+
+      <section class="paper-card compact-card">
+        <div class="section-heading"><h2>Đội hình trong ca</h2><span id="loop-status">ĐANG CHẠY</span></div>
+        <div id="roster" class="roster-v3"></div>
+      </section>
+
+      <section class="paper-card compact-card shift-card">
+        <div class="section-heading"><h2>Chỉ số ca</h2><span id="time-value" class="timer-badge">90.0s</span></div>
+        <dl class="shift-stats">
+          <div><dt>Khách phục vụ</dt><dd id="served-value">0</dd></div>
+          <div><dt>Job hoàn thành</dt><dd id="completed-value">0</dd></div>
+          <div><dt>Rác</dt><dd id="trash-value">0</dd></div>
+        </dl>
+      </section>
+    </aside>
+
+    <section class="game-column">
+      <div class="stage-topline">
+        <div><span id="location-label">NAGAZORA · NGÃ TƯ NGẬP NƯỚC</span><b id="level-name">Lv.1 · Quầy Xe Đẩy</b></div>
+        <div class="stage-scale"><span>CANVAS</span><button data-scale="2" class="active">×2</button><button data-scale="3">×3</button></div>
+      </div>
+      <nav class="room-switcher" aria-label="Chuyển gian quán">
+        <button data-room="room1" class="active"><span>GIAN 1</span><b>Quầy Nagazora</b><small id="room1-status-label">Lv.1 · 3 bàn · 1 bếp · nâng 0/3</small></button>
+        <button data-room="room2" class="locked"><span>GIAN 2 · BÊN PHẢI</span><b>Quán Heliopolis</b><small id="room2-lock-label">Khóa · cần nâng Lv.2</small></button>
+        <button id="camera-follow" class="follow-active"><span>CAMERA</span><b>Theo nhân vật</b><small id="camera-target">Senti</small></button>
+      </nav>
+
+      <section id="restaurant-stage" class="restaurant-stage v3-canvas-stage">
+        <div id="phase-screen" class="phase-screen" hidden></div>
+        <div id="canvas-wrap" class="canvas-wrap scale-2">
+          <canvas id="rush-canvas" width="640" height="416" aria-label="Rush Hour Canvas V3"></canvas>
+        </div>
+      </section>
+
+      <div class="event-ticker"><b>V3</b><span>Khách vào cổng → xếp hàng → lễ tân dẫn bàn → gọi món → bếp nấu → phục vụ bưng → ăn → trả tiền → dọn bàn.</span></div>
+
+      <section class="senti-dock">
+        <div class="senti-badge"><span>S</span><div><b>SENTI</b><small>Click trong Canvas để di chuyển/nhận job</small></div></div>
+        <button id="horn-btn"><b>📣 CỔ VŨ CƯỠNG CHẾ</b><small>Cần 35 Nộ</small></button>
+        <button id="tea-btn"><b>🍵 PHA TRÀ CÚC</b><small>Stress −38</small></button>
+        <button id="chase-btn"><b>⛓ CHẾ ĐỘ ĐUỔI</b><small>Chưa bật ở greybox</small></button>
+      </section>
+    </section>
+
+    <aside class="control-column">
+      <div class="control-tabs" role="tablist">
+        <button class="active" data-panel="operate">VẬN HÀNH</button>
+        <button data-panel="staff">NHÂN SỰ<br><strong>GACHA</strong></button>
+        <button data-panel="menu">MENU</button>
+        <button data-panel="decor">NỘI THẤT</button>
+        <button data-panel="vip">VIP</button>
+      </div>
+
+      <section class="control-panel v3-control">
+        <div data-panel-view="operate" class="panel-view active">
+          <div class="section-heading"><h2>Job Board trực tiếp</h2><span>Ưu tiên → gần → cũ</span></div>
+          <div id="job-list" class="job-list-v3"></div>
+          <p class="control-note">Job chỉ hoàn tất sau khi nhân viên đi tới trạm và làm đủ thời gian.</p>
+        </div>
+
+        <div data-panel-view="staff" class="panel-view">
+          <div class="staff-mode-tabs" role="tablist" aria-label="Quản lý nhân viên">
+            <button class="active" data-staff-mode="gacha" role="tab" aria-selected="true">GACHA &amp; PHÂN CA</button>
+            <button data-staff-mode="dorm" role="tab" aria-selected="false">KTX · NÂNG CẤP</button>
+          </div>
+          <section id="staff-gacha-view" class="staff-mode-view active" data-staff-mode-view="gacha">
+            <div id="gacha-machine" class="staff-gacha-banner">
+              <div class="gacha-head"><div><span>GACHA NHÂN SỰ</span><strong>Máy Nồi Áp Suất<br>Khổng Lồ</strong></div><i class="gacha-steam">♨</i></div>
+              <div class="gacha-vat" aria-hidden="true"><span class="vat-glass"><b>?</b></span><i class="dial"></i><em>YATTA</em></div>
+              <div class="gacha-rates"><span class="rank-a">A 50%</span><span class="rank-s">S 30%</span><span class="rank-sr">SR 15%</span><span class="rank-ssr">SSR 5%</span></div>
+              <div class="gacha-pity"><span>≥S <b id="pity-s">0/10</b></span><span>SSR <b id="pity-ssr">0/50</b></span></div>
+              <div class="gacha-actions"><button id="gacha-one">QUAY 1 NHÂN VIÊN<small>BẢN TEST · 0 XU</small></button></div>
+              <small class="gacha-demo-note">Mỗi lần chỉ ra 1 người · Trùng thẻ → 1 Mảnh Đột Phá</small>
+            </div>
+            <div class="decor-divider"><span>NÂNG CẤP SỐ NHÂN VIÊN</span></div>
+            <div id="staff-slot-list" class="staff-slot-list"></div>
+            <p class="control-note">Mở thêm vị trí theo nghề. Nhân viên đã chiêu mộ sẽ vào vị trí trống. Bản duyệt mở thử miễn phí; giá nâng cấp chưa chốt. Đầu bếp và dọn dẹp bắt đầu làm từ Lv.2.</p>
+            <div id="gacha-collection" class="gacha-collection"></div>
+            <div id="staff-codex" class="staff-codex" aria-label="Toàn bộ nhân viên"></div>
+            <div class="assignment-grid">
+              <label class="assignment">Lễ tân<select id="reception-select" class="staff-assignment"><option value="rozaliya">Rozaliya</option><option value="susannah">Susannah</option><option value="elysia">Elysia</option></select></label>
+              <label class="assignment">Phục vụ<select id="server-select" class="staff-assignment"><option value="liliya">Liliya</option><option value="carole">Carole</option><option value="seele">Seele / Veliona</option></select></label>
+              <label class="assignment">Đầu bếp<select id="chef-select" class="staff-assignment"><option value="kiana">Kiana</option><option value="yae">Yae Sakura</option><option value="mei">Raiden Mei</option></select></label>
+              <label class="assignment">Dọn dẹp<select id="cleaner-select" class="staff-assignment"><option value="griseo">Griseo</option><option value="bronya">Bronya</option></select></label>
+            </div>
+          </section>
+          <section id="staff-dorm-view" class="staff-mode-view" data-staff-mode-view="dorm" hidden>
+            <div class="dorm-head">
+              <div><span>KTX NHÂN VIÊN</span><h2>Phòng Huấn Luyện Thái Hư</h2></div>
+              <b>✦ Mảnh Đột Phá</b>
+            </div>
+            <p class="control-note dorm-note">Thẻ trùng từ gacha biến thành Mảnh Đột Phá. Dùng KTX để nâng bậc nhân viên, tăng kỹ năng và giảm tật xấu.</p>
+            <div id="staff-dorm-list" class="staff-dorm-list" aria-label="Nhân viên trong KTX"></div>
+            <p class="control-note dorm-test-note">Bản test chỉ tăng <b>Bậc thử</b> và không trừ Mảnh vì tài liệu chưa chốt số Mảnh cần cho mỗi bậc.</p>
+          </section>
+        </div>
+
+        <div data-panel-view="menu" class="panel-view">
+          <h2>Menu Lv.1 · 4 ô</h2>
+          <div class="menu-grey-list"><div>🥟 Bánh Bao Mưa Arc City</div><div>💧 Nước Lọc Trắng Sạch</div><div>🍧 Đá Bào Vĩnh Cửu</div><div>🍵 Trà Cúc Bát Gỗ</div></div>
+        </div>
+
+        <div data-panel-view="decor" class="panel-view">
+          <div class="decor-shop-head"><div><span>IKEA LƯỢNG TỬ</span><h2>Cửa hàng nội thất</h2></div><b id="decor-capacity">0/3 món đang đặt</b></div>
+          <section id="room-upgrade-box" class="room-upgrade-box">
+            <div class="room-upgrade-head"><div><span>NÂNG CẤP RIÊNG TỪNG GIAN</span><h3 id="room-upgrade-title">Gian 1 · Quầy Nagazora</h3></div><b id="room-upgrade-progress">0/3</b></div>
+            <p id="room-upgrade-summary">Mọi thay đổi chỉ áp dụng cho gian đang chọn.</p>
+            <div id="room-upgrade-list" class="room-upgrade-list"></div>
+            <button id="room-upgrade-reset" class="room-upgrade-reset">HOÀN TÁC NÂNG CẤP GIAN NÀY</button>
+            <small class="room-upgrade-note">Bản test cho nâng thử để duyệt hình ảnh. Giá Xu từng hạng mục chưa có trong tài liệu nên chưa trừ ví.</small>
+          </section>
+          <div class="decor-divider"><span>BÀN ĂN · KHO VẬT PHẨM</span></div>
+          <div class="table-shop-head"><b id="table-capacity">0/3 bàn đang đặt</b><button id="table-edit-toggle">DI CHUYỂN BÀN</button></div>
+          <div id="table-shop" class="table-shop"></div>
+          <p class="decor-drag-help">Bàn khởi đầu là bàn gỗ đơn sơ. Bàn hiện tại chuyển thành bàn cấp 2. Cất bàn sạch vào kho, đặt bàn mới rồi bật di chuyển để kéo trên sàn.</p>
+          <div class="decor-divider"><span>TRANG TRÍ</span></div>
+          <div class="decor-shop-tools"><select id="decor-filter" aria-label="Lọc nội thất"><option value="all">TẤT CẢ · 19</option><option value="basic">BỘ CƠ BẢN · 10</option><option value="rare">HIẾM/KỶ VẬT · 9</option><option value="zen">ZEN</option><option value="yatta">YATTA</option></select><button id="decor-edit-toggle">TỰ CHỈNH VỊ TRÍ</button></div>
+          <p class="decor-drag-help">Bật bố trí → giữ và kéo món đồ ngay trên Canvas → thả để dính lưới.</p>
+          <div id="decor-shop" class="decor-shop"></div>
+          <p class="upgrade-price-note">Bản duyệt: đồ cơ bản mua thử miễn phí; đồ hiếm chế thử bằng mốc 5 Mảnh Bản Vẽ nhưng không trừ kho. Tài liệu chưa chốt giá Xu từng món.</p>
+          <div class="decor-divider"><span>MỞ THÊM GIAN QUÁN</span></div>
+          <div class="section-heading"><h2>Mở rộng mặt bằng</h2><span>GIAN 1 → GIAN 2</span></div>
+          <p class="upgrade-level-cost">Mở Gian 2 Lv.2: <b>10.000 Xu + 50 Sắt Arc City</b></p>
+          <div class="upgrade-wallet">Đang có: <b id="upgrade-wallet-coins">0</b> Xu · <b id="upgrade-wallet-iron">0</b> Sắt Arc City</div>
+          <button id="restaurant-upgrade" class="panel-action restaurant-upgrade">MỞ GIAN 2</button>
+          <div class="room-level-summary">
+            <article><span>GIAN 1 · LV.1</span><b>20×13 ô · 3 bàn</b><small>Bếp cấp 1 · 1 bếp Senti</small></article>
+            <article id="room2-summary" class="locked"><span>GIAN 2 · LV.2</span><b>20×13 ô · 6 bàn</b><small>Bếp cấp 2 · 2 đầu bếp · 3 trạm</small></article>
+          </div>
+          <p class="upgrade-price-note">Bàn cũ giữ nguyên trong kho Gian 1; chị tự cất, đổi hoặc di chuyển. Gian 2 có map, kho bàn và trang trí riêng.</p>
+          <div class="resource-sources"><b>Nguồn Sắt Arc City đã chốt</b><small>Thu mua Arc City buổi sáng · Nhiệm vụ/tổng kết ngày. Số lượng mỗi nguồn đang chờ chốt.</small></div>
+          <div class="decor-test"><b>Test khí quán</b><small>ZEN ↔ YATTA</small><button id="conflict-btn" class="panel-action">ĐẶT ĐỒ XUNG ĐỘT</button></div>
+        </div>
+
+        <div data-panel-view="vip" class="panel-view"><h2>VIP</h2><p class="empty-state">Lv.1 chưa có khách VIP. Mở từ Quán Cơm Heliopolis.</p></div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="quick-demo">
+    <div><span class="tiny-label">CHUYỂN BUỔI</span><b>Chọn hoạt động trong ngày</b></div>
+    <button id="full-test-room2" class="full-test-room2">⚡ TEST GIAN 2 · FULL TÀI NGUYÊN</button>
+    <button data-phase-jump="morning">SÁNG</button><button data-phase-jump="afternoon">NẤU MẺ</button><button data-phase-jump="evening">RUSH HOUR</button><button data-phase-jump="night">TỔNG KẾT</button>
+    <button id="spawn-btn">GỌI KHÁCH</button><button id="doze-btn">NV LÀM BIẾNG</button><button id="speed-btn">TỐC ĐỘ ×1</button>
+  </section>
+
+  <aside id="debug-drawer" class="debug-drawer" hidden>
+    <b>DEBUG · G</b><pre id="qa-stats"></pre><button id="upgrade-test-pack">NHẬN GÓI TÀI NGUYÊN TEST · +10.000 XU, +50 SẮT</button><button id="level-btn">NHẢY LV.2 · DEBUG</button>
+  </aside>
+  <div id="gacha-modal" class="gacha-modal" hidden>
+    <section class="gacha-reveal" role="dialog" aria-modal="true" aria-labelledby="gacha-result-title">
+      <div class="gacha-reveal-head"><div><span>KẾT QUẢ ÁP SUẤT</span><h2 id="gacha-result-title">Nhân sự đã bật nắp!</h2></div><button id="gacha-close" aria-label="Đóng">×</button></div>
+      <div class="gacha-result-layout"><div id="gacha-results" class="gacha-results"></div><aside id="gacha-detail" class="gacha-detail" hidden></aside></div>
+      <button id="gacha-again" class="gacha-again">QUAY THỬ THÊM ×1</button>
+    </section>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="event-v3-greybox.js?v=28"></script>
+</body>
+</html>
+
+
+
