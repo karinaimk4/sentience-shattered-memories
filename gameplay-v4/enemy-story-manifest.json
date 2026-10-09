@@ -1,0 +1,66 @@
+{
+  "image": "assets/nagazora-enemies-wiki.png",
+  "alphaZeroPixels": 949143,
+  "frames": [
+    {
+      "kind": "zombie",
+      "pose": 0,
+      "rect": [
+        84,
+        95,
+        399,
+        388
+      ]
+    },
+    {
+      "kind": "zombie",
+      "pose": 1,
+      "rect": [
+        542,
+        99,
+        445,
+        384
+      ]
+    },
+    {
+      "kind": "zombie",
+      "pose": 2,
+      "rect": [
+        1026,
+        140,
+        468,
+        343
+      ]
+    },
+    {
+      "kind": "husk",
+      "pose": 0,
+      "rect": [
+        32,
+        522,
+        460,
+        454
+      ]
+    },
+    {
+      "kind": "husk",
+      "pose": 1,
+      "rect": [
+        536,
+        523,
+        488,
+        453
+      ]
+    },
+    {
+      "kind": "husk",
+      "pose": 2,
+      "rect": [
+        1024,
+        600,
+        482,
+        335
+      ]
+    }
+  ]
+}

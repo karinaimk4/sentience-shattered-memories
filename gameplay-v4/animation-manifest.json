@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "fallback": "idle",
+  "pixelSmoothing": false,
+  "states": {
+    "idle": {
+      "frames": [
+        "idle.5"
+      ],
+      "fps": 3,
+      "loop": true
+    },
+    "run": {
+      "frames": [
+        "run.0",
+        "run.1",
+        "run.2",
+        "run.3",
+        "run.4",
+        "run.5"
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    "jump_start": {
+      "frames": [
+        "jump.0",
+        "jump.1"
+      ],
+      "fps": 18,
+      "loop": false
+    },
+    "jump_air": {
+      "frames": [
+        "jump.2"
+      ],
+      "fps": 6,
+      "loop": true
+    },
+    "land": {
+      "frames": [
+        "jump.3",
+        "jump.0"
+      ],
+      "fps": 15,
+      "loop": false
+    },
+    "slide_start": {
+      "frames": [
+        "dash.3",
+        "dash.5"
+      ],
+      "fps": 18,
+      "loop": false
+    },
+    "slide_loop": {
+      "frames": [
+        "dash.6"
+      ],
+      "fps": 8,
+      "loop": true
+    },
+    "slide_end": {
+      "frames": [
+        "dash.7",
+        "dash.8"
+      ],
+      "fps": 16,
+      "loop": false
+    },
+    "sword_attack_1": {
+      "frames": [
+        "sword.1",
+        "sword.5",
+        "sword.6",
+        "sword.3"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "sword_attack_2": {
+      "frames": [
+        "sword.7",
+        "sword.8",
+        "sword.8",
+        "sword.10"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "sword_attack_3": {
+      "frames": [
+        "sword.5",
+        "sword.6",
+        "sword.8",
+        "sword.11"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "spear_attack_1": {
+      "frames": [
+        "spear.1",
+        "spear.3",
+        "spear.3",
+        "spear.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "spear_attack_2": {
+      "frames": [
+        "spear.2",
+        "spear.4",
+        "spear.4",
+        "spear.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "spear_attack_3": {
+      "frames": [
+        "spear.2",
+        "spear.5",
+        "spear.5",
+        "spear.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "chain_attack_1": {
+      "frames": [
+        "chain.1",
+        "chain.3",
+        "chain.4",
+        "chain.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "chain_attack_2": {
+      "frames": [
+        "chain.2",
+        "chain.4",
+        "chain.5",
+        "chain.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "chain_attack_3": {
+      "frames": [
+        "chain.1",
+        "chain.5",
+        "chain.5",
+        "chain.6"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "hurt": {
+      "frames": [
+        "hurt.1",
+        "hurt.2"
+      ],
+      "fps": 10,
+      "loop": false
+    },
+    "defeat": {
+      "frames": [
+        "hurt.3",
+        "hurt.4"
+      ],
+      "fps": 5,
+      "loop": false
+    },
+    "fu_hua_assist": {
+      "frames": [
+        "hua.8",
+        "hua.2",
+        "hua.4",
+        "hua.9"
+      ],
+      "fps": 8,
+      "loop": false
+    }
+  }
+}

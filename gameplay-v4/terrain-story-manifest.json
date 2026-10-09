@@ -1,0 +1,141 @@
+{
+  "terrainArt": {
+    "atlas": "assets/terrain-nagazora-alpha-v1.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "sprites": {
+      "block": [
+        68,
+        109,
+        208,
+        195
+      ],
+      "breakable": [
+        458,
+        111,
+        207,
+        192
+      ],
+      "crate": [
+        837,
+        108,
+        200,
+        192
+      ],
+      "stairs": [
+        1168,
+        85,
+        325,
+        214
+      ],
+      "floating": [
+        26,
+        410,
+        349,
+        71
+      ],
+      "moving": [
+        414,
+        430,
+        333,
+        137
+      ],
+      "barricade": [
+        815,
+        419,
+        282,
+        184
+      ],
+      "gate": [
+        1177,
+        411,
+        321,
+        151
+      ],
+      "pitLeft": [
+        33,
+        695,
+        280,
+        265
+      ],
+      "pitRight": [
+        460,
+        695,
+        282,
+        269
+      ],
+      "pitInterior": [
+        841,
+        650,
+        230,
+        325
+      ],
+      "crystals": [
+        1153,
+        766,
+        365,
+        191
+      ]
+    },
+    "notes": "Manually audited source rectangles; not an equal-cell grid. Block/front-face and ledge crops align their horizontal tops to collision Y. Pit banks are clipped to solid banks; interior clipped inside the exact gap. Decorative sprites without matching gameplay colliders remain reserved."
+  },
+  "terrain": [
+    {
+      "file": "assets/terrain-0.png",
+      "source": "map-00-nagazora-ruins-v1.png",
+      "sourceRect": [
+        0,
+        690,
+        1672,
+        150
+      ],
+      "content": "broken concrete and road"
+    },
+    {
+      "file": "assets/terrain-1.png",
+      "source": "map-01-arc-city-night-v1.png",
+      "sourceRect": [
+        0,
+        735,
+        1672,
+        150
+      ],
+      "content": "metal bridge / roof"
+    },
+    {
+      "file": "assets/terrain-2.png",
+      "source": "map-03-babylon-snowfield-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "snow covered research platform"
+    },
+    {
+      "file": "assets/terrain-3.png",
+      "source": "map-04-taixuan-steps-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "stone steps / timber"
+    },
+    {
+      "file": "assets/terrain-4.png",
+      "source": "map-06-sea-of-quanta-v1.png",
+      "sourceRect": [
+        0,
+        745,
+        1672,
+        150
+      ],
+      "content": "floating quanta rock"
+    }
+  ]
+}

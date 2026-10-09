@@ -1,0 +1,29 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {newSave,makeWorld,SAVE_KEY} from '../engine.js';
+import {ensureGear} from '../gear-system.js';
+import {RECIPES,addForgePart,canCraft,craft} from '../story-crafting.js';
+import {initializeSessions,createSession,selectSession,listSessions,writeSession,manualSaveKey,exportSession,importSession} from '../story-sessions.js';
+import {updateEnvironment} from '../environment-runtime.js';
+import {safeGround,canCollect} from '../story-environment.js';
+import {initHusk,huskDamage,updateHusk} from '../boss-husk.js';
+import {sanitizeSave} from '../save-validation.js';
+const level=JSON.parse(fs.readFileSync(new URL('../level-chapter-1.json',import.meta.url))),patterns=JSON.parse(fs.readFileSync(new URL('../endless-patterns.json',import.meta.url))),world=makeWorld(level,patterns);
+assert(world.coinRepairs>=17);assert.equal(world.coins.filter(c=>world.platforms.some(p=>c.x>p.x&&c.x<p.x+p.w&&c.y>p.y&&c.y<p.y+p.h)).length,0);for(const h of world.pickups)assert(safeGround(world,h.x));assert.equal(world.pickups.length,9);assert.equal(world.vents.length,4);assert.equal(world.salvage.length,3);assert.equal(world.gaps.filter(g=>g.hazard==='lava').length,5);
+// Healing consumes once only when health is missing; pause and Endless never tick Story hazards.
+let heals=0,damage=0;const p={x:world.pickups[0].x,y:490,h:88,w:32,slide:false,vx:0},g={mode:'story',phase:'explore',p,world,collected:new Set()},api={damage:()=>damage++,heal:()=>heals++,needsHeal:()=>false,notify(){},impact(){}};
+updateEnvironment(g,.1,api);assert.equal(heals,0);api.needsHeal=()=>true;updateEnvironment(g,.1,api);updateEnvironment(g,.1,api);assert.equal(heals,1);
+p.x=Array.from({length:50},(_,i)=>(966+i)*64).find(x=>safeGround(world,x,320));assert(p.x);for(let i=0;i<24;i++)updateEnvironment(g,.1,api);assert(damage>0);const before=damage;p.slide=true;for(let i=0;i<6;i++)updateEnvironment(g,.1,api);assert.equal(damage,before);g.phase='paused';const clock=g.environment.clock;updateEnvironment(g,10,api);assert.equal(g.environment.clock,clock);g.mode='endless';g.phase='explore';updateEnvironment(g,10,api);assert.equal(g.environment.clock,clock);
+// Crafting is blueprint-gated, charges every resource exactly once, and grants ownership only on success.
+const s=ensureGear(newSave());s.gold=1000;s.materials=20;s.crystals=20;assert(!canCraft(s,'cas_ii_namiko'));s.storyEvents.push('forge-namiko');assert(!canCraft(s,'cas_ii_namiko'));assert(addForgePart(s,'namiko_coil',3));assert(!canCraft(s,'cas_ii_namiko'));assert(addForgePart(s,'namiko_coil',1));assert(craft(s,'cas_ii_namiko'));assert.deepEqual([s.gold,s.materials,s.crystals,s.forgeParts.namiko_coil],[350,8,11,0]);assert(s.cores.cas_ii_namiko);assert(!craft(s,'cas_ii_namiko'));assert(s.journal.some(x=>x.id==='crafted:cas_ii_namiko'));
+for(const r of RECIPES.filter(r=>r.rarity>=4)){assert(Object.keys(r.parts).length,'Every high-tier recipe needs its own part');assert(!canCraft(s,r.id),'Unreleased chapter must not unlock '+r.id);}
+const migrated=ensureGear({...newSave(),forgeParts:{},collected:['salvage-story-0','salvage-story-1']});assert.equal(migrated.forgeParts.namiko_coil,4);
+// Independent worlds retain a progressed original, a blank second run, and scoped manual slots.
+const map=new Map(),storage={getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,v)};storage.setItem(SAVE_KEY,JSON.stringify({...newSave(),gold:150,checkpoint:{m:300,hp:600}}));initializeSessions(storage);const oldManual=manualSaveKey(storage,1);assert(createSession(storage,'Lần hai'));assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).gold,0);assert.notEqual(oldManual,manualSaveKey(storage,1));const second=listSessions(storage).find(x=>x.active).id;writeSession(storage,{...newSave(),gold:55});storage.setItem(SAVE_KEY,JSON.stringify({...newSave(),gold:55}));assert(selectSession(storage,'original'));assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).checkpoint.m,300);assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).gold,150);assert(selectSession(storage,second));assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).gold,55);
+const exported=exportSession(storage,second);assert.equal(exported.save.gold,55);const imported=importSession(storage,exported);assert(imported);assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).gold,55);assert.equal(listSessions(storage).filter(x=>x.name.startsWith('Lần hai')).length,2);assert.throws(()=>importSession(storage,{type:'không-hợp-lệ'}));
+// The first full bar cannot be burst into a kill: it triggers rage and a second full bar.
+const boss=initHusk({x:500,y:490,kind:'boss'});boss.ai.open=2;assert.equal(huskDamage(boss,999999),4199);boss.ai.barrier=true;assert.equal(huskDamage(boss,100),0);boss.ai.barrier=false;boss.hp=1;let rageCalls=0;const bg={p:{x:100,y:490,h:88},arena:{x:0},enemies:[boss]},ba={damage(){},say(){},cue(){},rage(){rageCalls++},huaAssist(){},summon(kinds){for(const kind of kinds)bg.enemies.push({kind,hp:100,bossGuard:true})},parry(){}};updateHusk(boss,bg,.1,ba);assert.equal(boss.ai.life,2);assert.equal(boss.hp,5400);assert.equal(boss.ai.state,'rage');assert.equal(rageCalls,1);assert.equal(huskDamage(boss,100),0);updateHusk(boss,bg,3.5,ba);assert(boss.ai.barrier);assert.equal(bg.enemies.length,3);
+const normalized=sanitizeSave({...newSave(),journal:[{id:'x',title:'cũ',lines:[['Senti','Bà cụ! Bà ấy ở kia.']]}]});assert.equal(normalized.journal[0].lines[0][1],'Old Timer! Cô ấy ở kia.');assert(!/bà cụ|bà ấy/i.test(JSON.stringify(level)));
+const cleanParts=sanitizeSave({...newSave(),forgeParts:{namiko_coil:5,brick_heart:1,malicious:999}});assert.equal(cleanParts.forgeParts.namiko_coil,5);assert.equal(cleanParts.forgeParts.brick_heart,1);assert.equal(cleanParts.forgeParts.malicious,undefined);
+console.log('PASS: corrected coins, hazards/crouch/pause, healing, forging, journeys, two boss lives and rage shield, migrated pronouns.');
+

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2304" height="512" viewBox="0 0 2304 512">
+ <defs>
+  <linearGradient id="robe" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8f2ff"/><stop offset=".48" stop-color="#baa5d2"/><stop offset="1" stop-color="#3a315c"/></linearGradient>
+  <linearGradient id="core" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6bd"/><stop offset=".45" stop-color="#f276c4"/><stop offset="1" stop-color="#7854d9"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <g id="body">
+   <path d="M192 96C155 96 137 121 139 158L119 210 86 372 146 399 192 318 238 399 298 372 265 210 245 158C247 121 229 96 192 96Z" fill="url(#robe)" stroke="#281f43" stroke-width="8"/>
+   <path d="M143 166 90 213 45 299 82 314 139 252M241 166l53 47 45 86-37 15-57-62" fill="none" stroke="#d7c9e8" stroke-width="30" stroke-linecap="round"/>
+   <path d="M143 166 90 213 45 299M241 166l53 47 45 86" fill="none" stroke="#34284e" stroke-width="7" stroke-linecap="round"/>
+   <path d="M151 102Q191 57 233 103L239 154Q194 181 145 154Z" fill="#ebe4f2" stroke="#2e2745" stroke-width="7"/>
+   <path d="M147 112Q119 79 126 51Q165 64 192 101Q223 61 264 53Q268 86 235 114" fill="#f5eff8" stroke="#40355c" stroke-width="7"/>
+   <path d="M154 127Q191 151 230 127" fill="none" stroke="#6b537e" stroke-width="6"/>
+   <path d="M161 130h18M205 130h18" stroke="#e75f9d" stroke-width="7" stroke-linecap="round"/>
+   <path d="M192 183 225 225 192 265 159 225Z" fill="url(#core)" stroke="#fff2c2" stroke-width="5" filter="url(#glow)"/>
+   <path d="M126 198 79 148 118 136 145 180M258 198l47-50-39-12-27 44" fill="#8569ad" stroke="#d9c6f2" stroke-width="5"/>
+   <path d="M141 321 93 430 151 407 192 349 233 407 291 430 243 321" fill="#2f294c" stroke="#75649c" stroke-width="6"/>
+   <circle cx="46" cy="303" r="14" fill="#fff0bf" stroke="#db5c9c" stroke-width="5"/><circle cx="338" cy="303" r="14" fill="#fff0bf" stroke="#db5c9c" stroke-width="5"/>
+  </g>
+ </defs>
+ <rect width="2304" height="512" fill="none"/>
+ <g transform="translate(0 18)"><use href="#body"/></g>
+ <g transform="translate(384 18) rotate(-3 192 250)"><use href="#body"/><path d="M35 305 8 330 49 340" fill="none" stroke="#ff729f" stroke-width="10"/><path d="M349 303 380 277 365 337" fill="none" stroke="#8beaff" stroke-width="10"/></g>
+ <g transform="translate(768 15)"><use href="#body"/><path d="M48 303Q192 232 337 303" fill="none" stroke="#c890ff" stroke-width="10"/><path d="M192 44V8M145 60l-22-35M239 60l22-35" stroke="#fff3bd" stroke-width="7" filter="url(#glow)"/></g>
+ <g transform="translate(1152 11) rotate(4 192 250)"><use href="#body"/><path d="M37 305 192 234 350 305" fill="none" stroke="#fff0b8" stroke-width="12" filter="url(#glow)"/></g>
+ <g transform="translate(1536 18)"><use href="#body"/><path d="M78 184 28 92M306 184l50-92" stroke="#ffffff" stroke-width="9"/><path d="M17 76 42 103M367 76l-25 27" stroke="#f05e9f" stroke-width="7"/></g>
+ <g transform="translate(1920 8) rotate(-5 192 250)"><use href="#body"/><path d="M32 304Q192 126 352 304" fill="none" stroke="#ff608f" stroke-width="14" filter="url(#glow)"/><path d="M110 90 192 18 274 90" fill="none" stroke="#fff3c8" stroke-width="8"/></g>
+</svg>

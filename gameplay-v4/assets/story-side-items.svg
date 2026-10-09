@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1088" height="64" viewBox="0 0 1088 64" shape-rendering="crispEdges">
+  <!-- 0 Mnemosyne record -->
+  <g><path fill="#101c2d" d="M10 13h44v40H10z"/><path fill="#4b7f8f" d="M14 9h36v4H14zm0 44h36v4H14z"/><path fill="#82e3db" d="M15 17h34v31H15z"/><path fill="#17384a" d="M19 21h26v23H19z"/><path fill="#ef7fae" d="M22 40V24h6l4 6 4-6h6v16h-5v-9l-5 7-5-7v9z"/><path fill="#f4d28a" d="M30 21h4v4h-4zm0 17h4v4h-4z"/><path fill="#d9fff6" d="M20 17h9v3h-9zm19 27h6v3h-6z"/></g>
+  <!-- 1 Helheim technician message -->
+  <g transform="translate(64)"><path fill="#162633" d="M8 15h48v35H8z"/><path fill="#79d9d3" d="M12 11h40v4H12zm0 39h40v4H12z"/><path fill="#214d58" d="M14 19h36v27H14z"/><path fill="#aaf6e9" d="M18 23h19v3H18zm0 7h26v3H18zm0 7h12v3H18z"/><path fill="#ef7996" d="m45 18 3 3-8 8 6 5-10 12h-5l9-12-5-5z"/></g>
+  <!-- 2 Incubator name tags -->
+  <g transform="translate(128)"><path fill="#dcebf0" d="M9 21h19v29H9zm27-8h19v29H36z"/><path fill="#557281" d="M12 24h13v23H12zm27-8h13v23H39z"/><path fill="#9ceaf0" d="M15 28h7v3h-7zm0 7h7v3h-7zm27-15h7v3h-7zm0 7h7v3h-7z"/><path fill="#f2b1c8" d="M17 17h4v7h-4zm27-10h4v9h-4z"/><path fill="#efffff" d="M19 8h27v3H19z"/></g>
+  <!-- 3 Warm tea -->
+  <g transform="translate(192)"><path fill="#6b3b35" d="M12 30h34v21H12z"/><path fill="#d7a75f" d="M16 25h26v5H16zm0 26h28v4H16z"/><path fill="#b96d4b" d="M46 33h8v14h-8v-4h4v-6h-4z"/><path fill="#f4d092" d="M20 34h18v12H20z"/><path fill="#fff0bd" d="M14 21h30v4H14z"/><path fill="#dceef0" d="M23 7h4v7h-4zm8 5h4v8h-4zm8-7h4v11h-4z"/></g>
+  <!-- 4 Taixuan letter -->
+  <g transform="translate(256)"><path fill="#ead7ac" d="M8 16h48v34H8z"/><path fill="#b98d65" d="M8 16h48L32 37z"/><path fill="#fff0c9" d="m8 50 19-18 5 5 5-5 19 18z"/><path fill="#7c2945" d="M27 34h10v10H27z"/><path fill="#ef9ab6" d="M30 36h4v6h-4z"/></g>
+  <!-- 5 Taixuan tablet -->
+  <g transform="translate(320)"><path fill="#423747" d="M13 8h38v49H13z"/><path fill="#aa7b7f" d="M17 12h30v41H17z"/><path fill="#251f30" d="M21 16h22v33H21z"/><path fill="#f2b6d2" d="M30 18h4v9h6v4h-6v6h7v4H27v-4h3v-6h-7v-4h7z"/><path fill="#f4d195" d="M22 45h20v3H22z"/></g>
+  <!-- 6 Arc City parts crate -->
+  <g transform="translate(384)"><path fill="#17192c" d="M5 21h54v35H5z"/><path fill="#744b87" d="M9 16h46v5H9zm0 35h46v5H9z"/><path fill="#e875c8" d="M9 25h46v4H9z"/><path fill="#77dcf1" d="M27 21h10v35H27z"/><path fill="#eefaff" d="M29 32h6v8h-6z"/><path fill="#301f43" d="M12 33h12v13H12zm28 0h12v13H40z"/></g>
+  <!-- 7 Helheim core case -->
+  <g transform="translate(448)"><path fill="#102c35" d="M6 19h52v37H6z"/><path fill="#4d9b9d" d="M10 14h44v5H10zm0 37h44v5H10z"/><path fill="#72e1d7" d="M12 23h40v25H12z"/><path fill="#193d48" d="M17 27h30v17H17z"/><path fill="#e7769c" d="M27 28h10v15H27z"/><path fill="#fff0f4" d="M30 31h4v9h-4z"/></g>
+  <!-- 8 Babylon ice core -->
+  <g transform="translate(512)"><path fill="#203a57" d="M7 22h50v34H7z"/><path fill="#89cee5" d="M11 17h42v5H11zm0 34h42v5H11z"/><path fill="#c8f6ff" d="m32 19 13 13-13 18-13-18z"/><path fill="#6bb4d7" d="m32 24 7 9-7 11-7-11z"/><path fill="#efffff" d="M30 25h4v15h-4z"/></g>
+  <!-- 9 Taixuan script chest -->
+  <g transform="translate(576)"><path fill="#2e1c2d" d="M6 22h52v34H6z"/><path fill="#8d4f5e" d="M10 16h44v6H10zm0 34h44v6H10z"/><path fill="#e2b66d" d="M10 26h44v4H10zm20-4h6v34h-6z"/><path fill="#fff0be" d="M17 33h10v13H17zm20 0h10v13H37z"/><path fill="#b33e67" d="M20 36h4v7h-4zm20 0h4v7h-4z"/></g>
+  <!-- 10 Red shadow fragment -->
+  <g transform="translate(640)"><path fill="#241522" d="M8 25h48v31H8z"/><path fill="#7f334a" d="M12 20h40v6H12zm0 31h40v5H12z"/><path fill="#d65a74" d="m32 8 16 20-16 25-16-25z"/><path fill="#351a31" d="m32 15 9 14-9 16-9-16z"/><path fill="#ffd0d7" d="m29 20 6 5-4 8 6 5-5 6-7-10 4-7z"/><path fill="#f5bd75" d="M11 32h8v4h-8zm34 0h8v4h-8z"/></g>
+  <!-- 11 Wanru bandage -->
+  <g transform="translate(704)"><path fill="#20242d" d="M7 39h50v14H7z"/><path fill="#eadfc9" d="m9 39 10-23 35 10-9 25z"/><path fill="#fff7e7" d="m15 35 6-13 27 8-5 14z"/><path fill="#9d4658" d="m25 23 7 2-3 6 6 2-3 7-7-3 3-6-6-2z"/><path fill="#d8c8ae" d="m12 42 34-10 2 5-34 10z"/><path fill="#ef8792" d="M18 48h23v3H18z"/></g>
+  <!-- 12 Silent bell -->
+  <g transform="translate(768)"><path fill="#1b1d29" d="M8 48h48v8H8z"/><path fill="#9b7443" d="M21 18h22l7 27H14z"/><path fill="#e5be70" d="M25 12h14v8H25zm-7 31h28v6H18z"/><path fill="#63422f" d="M28 46h8v8h-8z"/><path fill="#2c2332" d="M29 20h6v19h-6z"/><path fill="#f1dfad" d="M16 29h7v4h-7zm25 0h7v4h-7z"/><path fill="#c64d69" d="m12 10 4-4 36 40-4 4z"/></g>
+  <!-- 13 Eighth wooden bowl -->
+  <g transform="translate(832)"><path fill="#211b21" d="M7 48h50v8H7z"/><path fill="#6d4431" d="M10 23h44l-7 27H17z"/><path fill="#b77948" d="M12 20h40l4 6H8z"/><path fill="#e0ad6d" d="M17 25h30l-4 17H21z"/><path fill="#fff0bd" d="M18 17h28v4H18z"/><path fill="#75404d" d="M24 31h4v4h-4zm12 0h4v4h-4zm-8 7h8v3h-8z"/><path fill="#d7e2df" d="M22 7h4v8h-4zm9 3h4v7h-4zm9-4h4v9h-4z"/></g>
+  <!-- 14 Red blindfold -->
+  <g transform="translate(896)"><path fill="#1d1d29" d="M5 47h54v8H5z"/><path fill="#a73f59" d="M11 20h42v20H11z"/><path fill="#e86b7d" d="m7 23 8-9 6 8-8 12zm50 0-8-9-6 8 8 12z"/><path fill="#f5a2a8" d="M16 24h12v10H16zm20 0h12v10H36z"/><path fill="#5b253c" d="M28 26h8v6h-8z"/><path fill="#d7b36e" d="M10 39h44v4H10z"/></g>
+  <!-- 15 Portrait of eight -->
+  <g transform="translate(960)"><path fill="#221e28" d="M8 10h48v48H8z"/><path fill="#b58255" d="M11 13h42v42H11z"/><path fill="#f1dfb7" d="M15 17h34v34H15z"/><path fill="#71878a" d="M17 42h30v6H17z"/><path fill="#55475b" d="M18 26h6v14h-6zm8-5h6v19h-6zm8 1h6v18h-6zm8 4h6v14h-6z"/><path fill="#9f485c" d="M20 22h3v4h-3zm8-5h3v4h-3zm8 1h3v4h-3zm8 4h3v4h-3z"/><path fill="#e8bc72" d="M29 43h6v5h-6z"/></g>
+  <!-- 16 Empty moon sheath -->
+  <g transform="translate(1024)"><path fill="#171d2b" d="M6 48h52v8H6z"/><path fill="#34334d" d="m13 45 34-34 7 7-34 34z"/><path fill="#8d526c" d="m17 43 29-29 4 4-29 29z"/><path fill="#e7c477" d="m44 9 11 11-5 5-11-11z"/><path fill="#c7d8e2" d="M12 36h9v12h-9z"/><path fill="#f1e7ba" d="M9 8a12 12 0 1 0 15 15A10 10 0 1 1 9 8z"/><path fill="#7789a7" d="M31 38h5v5h-5z"/></g>
+</svg>

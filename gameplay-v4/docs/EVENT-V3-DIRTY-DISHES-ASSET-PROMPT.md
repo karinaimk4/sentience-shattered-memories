@@ -1,0 +1,7 @@
+# Dirty dishes sprite — Bếp Lửa Thái Hư V3
+
+Generated with the built-in image generation tool. The existing `simple-wood-table-v1.png` was used as a style reference only. The full-resolution transparent source is `assets/event-v3/lv1/generated-source/dirty-dishes-source-v1.png`; the game-ready 64 × 32 sprite is `assets/event-v3/lv1/dirty-dishes-v1.png`.
+
+## Final prompt
+
+> Use case: stylized-concept. Asset type: transparent 2D pixel-art game sprite overlay for a dirty restaurant table in the Bếp Lửa Thái Hư minigame. Reference image 1 is STYLE REFERENCE ONLY: match the crisp chunky pixel edges, warm brown outline, softly shaded pixel-art rendering, and three-quarter top-down perspective of the existing wooden table; do not include the table itself in the output. Primary request: one cohesive small pile of used dinnerware after a guest finishes eating: a clearly recognizable off-white ceramic shallow bowl with a little orange-brown soup residue and tiny food bits, a second smaller tilted bowl, one pair of chopsticks resting askew across the bowls, a couple of visible crumbs. Cute and readable at tiny in-game scale. Compact horizontal composition, silhouette clearly distinct against a wood table, with no lettering or UI. TRUE fully transparent background, clean alpha cutout, no black backdrop, no cast shadow outside the object. Pixel-art only, avoid smooth painting, avoid photorealism, avoid excessive details, avoid food that still looks freshly served. This is a separate overlay sprite, not a scene.

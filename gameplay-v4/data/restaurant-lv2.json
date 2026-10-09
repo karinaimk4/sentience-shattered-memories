@@ -1,0 +1,46 @@
+{
+  "id": "lv2",
+  "name": "Lv.2 · Quán Cơm Heliopolis",
+  "rushDuration": 120,
+  "rows": [
+    "####################",
+    "#........#WWW.NNNN.#",
+    "#SSSccPP.#.........#",
+    "#..................#",
+    "#..................#",
+    "#.bTTb....bTTbbTTb.#",
+    "#..................#",
+    "#.bTTb....bTTbbTTb.#",
+    "#..................#",
+    "#..r...............#",
+    "#.LLL...........F..#",
+    "#..gqqq............#",
+    "#######GG###########"
+  ],
+  "stations": {
+    "sentiSpawn": [9, 4],
+    "receptionIdle": [3, 9],
+    "serverIdle": [8, 3],
+    "chefIdle": [2, 3],
+    "cleanerIdle": [15, 3],
+    "fuHuaHome": [16, 9],
+    "entrance": [7, 12],
+    "queue": [[3,11],[4,11],[5,11],[6,11]],
+    "seatGreeting": [2,11],
+    "cook": [2,3],
+    "cooks": [[2,3],[5,3],[8,3]],
+    "passPickup": [10,3],
+    "wash": [15,3],
+    "patrol": [[8,4],[17,8],[9,10],[2,8]],
+    "rest": [[14,2],[16,2]]
+  },
+  "tables": [
+    {"id":"t1","footprint":[3,5,2,1],"seat":[2,5],"service":[2,6]},
+    {"id":"t2","footprint":[11,5,2,1],"seat":[10,5],"service":[10,6]},
+    {"id":"t3","footprint":[15,5,2,1],"seat":[14,5],"service":[14,6]},
+    {"id":"t4","footprint":[3,7,2,1],"seat":[2,7],"service":[2,8]},
+    {"id":"t5","footprint":[11,7,2,1],"seat":[10,7],"service":[10,8]},
+    {"id":"t6","footprint":[15,7,2,1],"seat":[14,7],"service":[14,8]}
+  ],
+  "decorSlots": [[7,9],[8,9],[9,9],[10,9]]
+}

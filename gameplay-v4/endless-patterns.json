@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "seed": 58321,
+  "safeLeadSeconds": 1.8,
+  "biomeEveryMeters": 500,
+  "minibossEveryMeters": 1000,
+  "maxSpeed": 420,
+  "patterns": [
+    {
+      "id": "tutorial-gap",
+      "length": 1150,
+      "difficulty": "tutorial",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.55
+      },
+      "kind": "gap"
+    },
+    {
+      "id": "stepping-stones",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "heights": [
+        50,
+        95,
+        140
+      ]
+    },
+    {
+      "id": "low-gate",
+      "length": 1100,
+      "difficulty": "normal",
+      "kind": "gate",
+      "offset": 600,
+      "clearance": 74,
+      "width": 175
+    },
+    {
+      "id": "upper-cache",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "upper",
+      "heights": [
+        55,
+        112,
+        165
+      ],
+      "rare": true
+    },
+    {
+      "id": "broken-bridge",
+      "length": 1350,
+      "difficulty": "normal",
+      "kind": "gap",
+      "gap": {
+        "offset": 600,
+        "ratio": 0.68
+      }
+    },
+    {
+      "id": "moving-bridge",
+      "length": 1550,
+      "difficulty": "hard",
+      "kind": "moving",
+      "gap": {
+        "offset": 650,
+        "ratio": 0.82
+      },
+      "intermediate": true
+    },
+    {
+      "id": "sealed-memory",
+      "length": 1200,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "offset": 600
+    },
+    {
+      "id": "quanta-pulse",
+      "length": 1300,
+      "difficulty": "hard",
+      "kind": "pulse",
+      "heights": [
+        55,
+        110
+      ],
+      "safeGround": true
+    },
+    {
+      "id": "skirmish",
+      "length": 1450,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "heights": [
+        60,
+        115
+      ],
+      "enemyOffset": 1120
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.battle-track{position:fixed;right:16px;bottom:16px;z-index:8;width:min(565px,calc(100vw - 32px));display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 14px;background:linear-gradient(100deg,#231526f5,#121628f5);border:1px solid #f1b58488;border-left:3px solid #ef9b75;box-shadow:0 10px 34px #0009}
+.battle-track>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.battle-track strong{color:#ffe3c7;font-size:10px;letter-spacing:1.6px}
+.battle-track small{color:#c6b9bd;font-size:10px}
+.battle-track a{color:#eda984;font-size:10px;text-decoration:none}
+.battle-track a:hover{text-decoration:underline}
+.battle-track iframe{flex:none;border:0;max-width:100%}
+@media(max-width:650px){.battle-track{position:static;width:100%;margin:8px 0 12px;flex-direction:column;align-items:stretch}.battle-track iframe{width:100%}}

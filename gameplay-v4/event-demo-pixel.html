@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#9ddfff">
+  <title>Bếp Lửa Thái Hư — 3D Chibi Restaurant Prototype</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="event-demo-pixel.css?v=3d5">
+</head>
+<body class="pixel-prototype">
+  <header class="event-header">
+    <a class="back-link" href="index.html" aria-label="Về game chính">← <span>GAME CHÍNH</span></a>
+    <div class="event-brand">
+      <span class="brand-kicker">3D CHIBI RESTAURANT · GAMEPLAY PROTOTYPE</span>
+      <strong>Bếp Lửa Thái Hư</strong>
+      <small>Thực Khách Lượng Tử</small>
+    </div>
+    <div class="header-actions">
+      <button id="feature-tour" class="soft-button">? FLOW NHÀ HÀNG</button>
+      <button id="reset-demo" class="soft-button danger">↻ RESET DEMO</button>
+    </div>
+  </header>
+
+  <section class="day-dashboard" aria-label="Chỉ số nhà hàng">
+    <div class="day-chip"><span>NGÀY</span><b id="day-value">07</b></div>
+    <div class="trend-chip"><span>BẢN TIN QUÁN</span><b id="trend-title">Trời lạnh · Súp x2 giá</b></div>
+    <div class="stat-chip coin"><span>Xu Yatta</span><b id="coins-value">12,800</b></div>
+    <div class="stat-chip"><span>Uy tín</span><b id="rep-value">82</b></div>
+    <div class="balance-chip">
+      <div><span>ZEN</span><b id="zen-value">46</b></div>
+      <div class="balance-track"><i id="balance-fill"></i></div>
+      <div><span>YATTA</span><b id="yatta-value">54</b></div>
+    </div>
+    <div class="meter-chip stress-chip">
+      <span>FU HUA · STRESS</span>
+      <div class="mini-track"><i id="stress-fill"></i></div>
+      <b id="stress-value">28%</b>
+    </div>
+    <div class="meter-chip rage-chip">
+      <span>SENTI · NỘ</span>
+      <div class="mini-track"><i id="rage-fill"></i></div>
+      <b id="rage-value">62%</b>
+    </div>
+  </section>
+
+  <nav class="phase-tabs" aria-label="Bốn buổi trong ngày">
+    <button data-phase="morning" class="active"><span>☀</span><b>BUỔI SÁNG</b><small>Đi chợ & săn bắt</small></button>
+    <button data-phase="afternoon"><span>◐</span><b>BUỔI CHIỀU</b><small>Nghiên cứu & chế biến</small></button>
+    <button data-phase="evening"><span>★</span><b>BUỔI TỐI</b><small>Rush hour mở quán</small></button>
+    <button data-phase="night"><span>☾</span><b>KHUYA</b><small>Dọn dẹp & nâng cấp</small></button>
+  </nav>
+
+  <main class="demo-layout">
+    <aside class="mission-column">
+      <section class="paper-card phase-brief">
+        <span class="tiny-label" id="phase-kicker">01 · BUỔI SÁNG</span>
+        <h1 id="phase-title">Đi chợ & săn bắt</h1>
+        <p id="phase-copy"></p>
+        <div id="phase-objectives" class="objective-list"></div>
+      </section>
+
+      <section class="paper-card compact-card">
+        <div class="section-heading"><h2>Kho nguyên liệu</h2><button data-open-panel="menu" class="mini-link">XEM MÓN →</button></div>
+        <div id="inventory-mini" class="inventory-mini"></div>
+      </section>
+
+      <section class="paper-card compact-card">
+        <div class="section-heading"><h2>Chỉ số ca</h2><span id="rush-timer" class="timer-badge">CHƯA MỞ QUÁN</span></div>
+        <dl class="shift-stats">
+          <div><dt>Doanh thu</dt><dd id="shift-revenue">0</dd></div>
+          <div><dt>Khách đã phục vụ</dt><dd id="served-count">0</dd></div>
+          <div><dt>Rác trên sàn</dt><dd id="trash-count">0</dd></div>
+          <div><dt>Mảnh bản vẽ</dt><dd id="blueprint-count">4 / 5</dd></div>
+        </dl>
+      </section>
+    </aside>
+
+    <section class="game-column">
+      <div class="stage-topline">
+        <div><span id="location-label">CỔNG LƯỢNG TỬ · KHU THU MUA</span><b id="restaurant-level">LV.2 · QUÁN CƠM HELIOPOLIS</b></div>
+        <div id="autosave-state">● ĐÃ LƯU TỰ ĐỘNG</div>
+      </div>
+      <section id="restaurant-stage" class="restaurant-stage phase-morning" aria-live="polite"></section>
+      <div id="event-ticker" class="event-ticker"><b>TIN NÓNG</b><span>Khách đi từ cổng → chờ bàn → gọi món → ăn → thanh toán → rời quán.</span></div>
+
+      <section class="senti-dock">
+        <div class="senti-badge"><span>S</span><div><b>SENTI</b><small>Avatar người chơi</small></div></div>
+        <button data-senti-action="horn"><b>📣 CỔ VŨ YATTA</b><small>Hồi toàn bộ stamina · +Stress</small></button>
+        <button data-senti-action="tea"><b>🍵 TRÀ CHO FU HUA</b><small>Giảm stress · buff Điềm Tĩnh</small></button>
+        <button data-senti-action="clean"><b>🧹 TỰ DỌN</b><small>Xóa 1 rác · +Nộ</small></button>
+        <button data-senti-action="kick"><b>⛓ ĐUỔI KHÁCH</b><small>−Uy tín · +50 Nộ</small></button>
+      </section>
+    </section>
+
+    <aside class="control-column">
+      <div class="control-tabs" role="tablist">
+        <button class="active" data-panel="operate">VẬN HÀNH</button>
+        <button data-panel="staff">NHÂN SỰ<br><strong>GACHA</strong></button>
+        <button data-panel="menu">MENU</button>
+        <button data-panel="decor">NỘI THẤT</button>
+        <button data-panel="vip">VIP</button>
+      </div>
+      <section id="control-panel" class="control-panel"></section>
+    </aside>
+  </main>
+
+  <section class="quick-demo">
+    <div><span class="tiny-label">BỘ ĐIỀU KHIỂN DUYỆT TÍNH NĂNG</span><b>Test nhanh không cần cày</b></div>
+    <button data-demo="morning">SÁNG</button>
+    <button data-demo="afternoon">NẤU QTE</button>
+    <button data-demo="evening">RUSH HOUR</button>
+    <button data-demo="vip">GỌI VIP</button>
+    <button data-demo="stress">STRESS 95%</button>
+    <button data-demo="exhaust">CẠN STAMINA</button>
+    <button data-demo="night">TỔNG KẾT</button>
+    <button data-demo="money">+10.000 XU</button>
+  </section>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <section id="modal-card" class="modal-card" role="dialog" aria-modal="true"></section>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="event-demo-pixel.js?v=3d5"></script>
+</body>
+</html>

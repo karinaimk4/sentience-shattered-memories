@@ -1,0 +1,986 @@
+{
+  "chapter": 6,
+  "title": "HAI ĐƯỜNG, MỘT ĐIỂM ĐẾN",
+  "place": "SEA OF QUANTA ↔ KOLOSTEN",
+  "color": "#92b6fb",
+  "lengthMeters": 7760,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    11,
+    16
+  ],
+  "physics": {
+    "speed": 320,
+    "backSpeed": 230,
+    "gravity": 1800,
+    "jumpVelocity": 680,
+    "groundY": 490
+  },
+  "opening": [
+    [
+      "Senti",
+      "...Yên lặng quá. Ta ghét yên lặng. Old Timer, ta sẽ tìm."
+    ],
+    [
+      "Fu Hua",
+      "Ở Kolosten, Mnemosyne bắt tôi chọn tự hy sinh lần nữa. Tôi sẽ không chọn vậy."
+    ],
+    [
+      "Senti",
+      "Cứ đánh vỡ thứ chắn đường. Hai ta sẽ gặp lại."
+    ]
+  ],
+  "scenes": [
+    {
+      "from": 6620,
+      "to": 6840,
+      "id": "quanta-bubbles",
+      "name": "6.1 · SEA OF QUANTA",
+      "objective": "Nhảy giữa bong bóng ký ức · Xích kéo đường ra",
+      "line": "Một bong bóng sáng ở bên trái... có thứ gì trong đó."
+    },
+    {
+      "from": 6840,
+      "to": 7060,
+      "id": "kolosten-storm",
+      "name": "6.2 · KOLOSTEN · FU HUA",
+      "objective": "Chơi Fu Hua · Quyền pháp và né sét",
+      "line": "Không có vũ khí. Cô vẫn còn đôi tay mình."
+    },
+    {
+      "from": 7060,
+      "to": 7280,
+      "id": "quanta-collision",
+      "name": "6.3 · KÝ ỨC CHỒNG",
+      "objective": "Xích quét quái từ nhiều thời điểm",
+      "line": "Nagazora và Taixuan va vào nhau rồi!"
+    },
+    {
+      "from": 7280,
+      "to": 7500,
+      "id": "kolosten-choice",
+      "name": "6.4 · TỪ CHỐI HY SINH",
+      "objective": "Fu Hua đập vỡ ảo ảnh · Né sét",
+      "line": "Old Timer, đừng đứng lại chịu đòn như trước!"
+    },
+    {
+      "from": 7500,
+      "to": 7720,
+      "id": "reunion",
+      "name": "6.5 · TÁI HỢP",
+      "objective": "Tìm ánh sáng Kolosten · Cùng đánh Jizo",
+      "line": "Ta không lo đâu nhé. Chỉ đến nhanh hơn thôi!"
+    },
+    {
+      "from": 7720,
+      "to": 7760,
+      "id": "jizo",
+      "name": "JIZO",
+      "objective": "Đọc nhịp đòn · Phá khiên · Sống sót qua mọi pha",
+      "line": ""
+    }
+  ],
+  "arenas": [
+    {
+      "m": 6840,
+      "name": "BONG BÓNG VỠ",
+      "waves": [
+        [
+          "enemy",
+          "flyer"
+        ],
+        [
+          "elite",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường bong bóng vỡ có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 7125,
+      "name": "BÃO KOLOSTEN",
+      "waves": [
+        [
+          "enemy",
+          "flyer"
+        ],
+        [
+          "elite",
+          "enemy"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường bão kolosten có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 7410,
+      "name": "HAI DÒNG KÝ ỨC",
+      "waves": [
+        [
+          "enemy",
+          "knight"
+        ],
+        [
+          "elite",
+          "machine"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Đường hai dòng ký ức có kẻ chặn. Ta mở lối."
+        ],
+        [
+          "Fu Hua",
+          "Nhìn dấu báo trước khi né, đừng lao thẳng."
+        ]
+      ],
+      "after": [
+        [
+          "Fu Hua",
+          "Lối đi đã mở. Nhưng ký ức trước mặt còn bất ổn."
+        ],
+        [
+          "Senti",
+          "Đi tiếp. Ta không để nó chôn thêm thứ gì."
+        ]
+      ]
+    },
+    {
+      "m": 7720,
+      "name": "JIZO MITAMA",
+      "waves": [
+        [
+          "knight",
+          "flyer"
+        ],
+        [
+          "jizo"
+        ]
+      ],
+      "before": [
+        [
+          "Senti",
+          "Old Timer! Ta không có lo đâu nhé."
+        ],
+        [
+          "Fu Hua",
+          "Tôi biết. Nhịp ba?"
+        ],
+        [
+          "Senti",
+          "Nhịp ba!"
+        ]
+      ],
+      "after": [
+        [
+          "Ký ức chính #6",
+          "Hai nửa ký ức ghép lại: “Ta là ai?” và “Ta đã quên gì?”"
+        ],
+        [
+          "Fu Hua",
+          "Chúng ta bắt đầu ở một khoảng trống. Rồi tự tìm câu trả lời."
+        ],
+        [
+          "Senti",
+          "Cây trước mặt... Imaginary Tree. Ta tới tận gốc."
+        ]
+      ],
+      "power": 2300
+    }
+  ],
+  "checkpoints": [
+    6620,
+    6730,
+    6905,
+    7060,
+    7190,
+    7345,
+    7480,
+    7605,
+    7685
+  ],
+  "placements": [
+    {
+      "m": 6648,
+      "pattern": "ch6-layout-0"
+    },
+    {
+      "m": 6686,
+      "pattern": "ch6-layout-1"
+    },
+    {
+      "m": 6762,
+      "pattern": "ch6-layout-2"
+    },
+    {
+      "m": 6800,
+      "pattern": "ch6-layout-3"
+    },
+    {
+      "m": 6876,
+      "pattern": "ch6-layout-4"
+    },
+    {
+      "m": 6952,
+      "pattern": "ch6-layout-5"
+    },
+    {
+      "m": 6990,
+      "pattern": "ch6-layout-6"
+    },
+    {
+      "m": 7028,
+      "pattern": "ch6-layout-7"
+    },
+    {
+      "m": 7218,
+      "pattern": "ch6-layout-8"
+    },
+    {
+      "m": 7256,
+      "pattern": "ch6-layout-9"
+    },
+    {
+      "m": 7294,
+      "pattern": "ch6-layout-10"
+    },
+    {
+      "m": 7370,
+      "pattern": "ch6-layout-11"
+    },
+    {
+      "m": 7446,
+      "pattern": "ch6-layout-12"
+    },
+    {
+      "m": 7522,
+      "pattern": "ch6-layout-13"
+    },
+    {
+      "m": 7560,
+      "pattern": "ch6-layout-14"
+    },
+    {
+      "m": 7636,
+      "pattern": "ch6-layout-15"
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch6-layout-0",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "quanta-bubbles",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch6-layout-1",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "quanta-bubbles",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-2",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "quanta-bubbles",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-3",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "quanta-bubbles",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch6-layout-4",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "kolosten-storm",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch6-layout-5",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "kolosten-storm",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-6",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "kolosten-storm",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch6-layout-7",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "kolosten-storm",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-8",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "quanta-collision",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch6-layout-9",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "quanta-collision",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-10",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "kolosten-choice",
+      "offset": 640
+    },
+    {
+      "id": "ch6-layout-11",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "kolosten-choice",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch6-layout-12",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "kolosten-choice",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch6-layout-13",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "reunion",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-14",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "reunion",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch6-layout-15",
+      "length": 1250,
+      "difficulty": "hard",
+      "kind": "gap",
+      "region": "reunion",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      },
+      "intermediate": true
+    }
+  ],
+  "patrols": [
+    {
+      "m": 6695,
+      "kind": "knight"
+    },
+    {
+      "m": 6783,
+      "kind": "elite"
+    },
+    {
+      "m": 6959,
+      "kind": "machine"
+    },
+    {
+      "m": 7047,
+      "kind": "enemy"
+    },
+    {
+      "m": 7223,
+      "kind": "elite"
+    },
+    {
+      "m": 7311,
+      "kind": "flyer"
+    },
+    {
+      "m": 7487,
+      "kind": "enemy"
+    },
+    {
+      "m": 7575,
+      "kind": "knight"
+    }
+  ],
+  "beats": [
+    {
+      "m": 6710,
+      "id": "ch6-beat-0",
+      "speaker": "Senti",
+      "text": "Bong bóng này có mùi mưa Nagazora. Nó trôi ngược dòng."
+    },
+    {
+      "m": 6900,
+      "id": "ch6-beat-1",
+      "speaker": "Mnemosyne",
+      "text": "Fu Hua, nơi ngươi từng chọn tự hy sinh. Hãy chọn lại."
+    },
+    {
+      "m": 7180,
+      "id": "ch6-beat-2",
+      "speaker": "Fu Hua",
+      "text": "Không. Tôi sẽ đi tiếp."
+    },
+    {
+      "m": 7440,
+      "id": "ch6-beat-3",
+      "speaker": "Senti",
+      "text": "Ánh sáng Kolosten kia! Ta tìm thấy cô rồi."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 6760,
+      "id": "ch6-clue-0",
+      "title": "BONG BÓNG LỆCH",
+      "lines": [
+        [
+          "Dấu vết",
+          "Một bong bóng ký ức trôi ngược dòng, bên trong là cơn mưa đầu tiên Senti nhìn thấy."
+        ],
+        [
+          "Senti",
+          "Ta còn nhớ cảm giác hạt mưa chạm tay."
+        ]
+      ]
+    },
+    {
+      "m": 7270,
+      "id": "ch6-clue-1",
+      "title": "LỜI CHỌN MỚI",
+      "lines": [
+        [
+          "Fu Hua",
+          "Tôi từng đứng yên để nhận đòn thay người khác."
+        ],
+        [
+          "Fu Hua",
+          "Lần này tôi phá ảo ảnh và sống tiếp."
+        ]
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-11",
+      "m": 6770,
+      "y": 403,
+      "title": "GIỌT MƯA ĐẦU TIÊN",
+      "condition": "jump",
+      "lines": [
+        [
+          "Ký ức ẩn #11",
+          "Senti đưa tay hứng những giọt mưa đầu tiên, tò mò và vui như đứa trẻ."
+        ],
+        [
+          "Senti",
+          "Ta không muốn nó bị xóa thêm lần nữa."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ]
+    },
+    {
+      "id": "hidden-12",
+      "m": 7330,
+      "y": 403,
+      "title": "CĂN BẾP CHÁY",
+      "condition": "dodge",
+      "lines": [
+        [
+          "Ký ức ẩn #12",
+          "Fu Hua làm cháy bếp, mặt dính lọ nghẹ. Senti cười ngặt nghẽo rồi giúp cô lau đi."
+        ],
+        [
+          "Senti",
+          "Old Timer... ký ức này là của chúng ta."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ]
+    }
+  ],
+  "nodes": [],
+  "weather": [
+    {
+      "id": "ch6-weather-0",
+      "kind": "quanta",
+      "from": 6620,
+      "to": 6900,
+      "title": "DÒNG CHẢY LƯỢNG TỬ",
+      "hint": "Nhảy qua bong bóng vỡ"
+    },
+    {
+      "id": "ch6-weather-1",
+      "kind": "lightning",
+      "from": 6900,
+      "to": 7140,
+      "title": "BÃO SÉT KOLOSTEN",
+      "hint": "Nhìn vệt báo sét rồi né"
+    },
+    {
+      "id": "ch6-weather-2",
+      "kind": "quanta",
+      "from": 7140,
+      "to": 7300,
+      "title": "KÝ ỨC VA CHẠM",
+      "hint": "Nhảy qua bong bóng vỡ"
+    },
+    {
+      "id": "ch6-weather-3",
+      "kind": "lightning",
+      "from": 7300,
+      "to": 7500,
+      "title": "SÉT KOLOSTEN",
+      "hint": "Nhìn vệt báo sét rồi né"
+    }
+  ],
+  "salvage": [
+    {
+      "m": 6755,
+      "id": "salvage-ch6-0"
+    },
+    {
+      "m": 6910,
+      "id": "salvage-ch6-1"
+    },
+    {
+      "m": 7065,
+      "id": "salvage-ch6-2"
+    },
+    {
+      "m": 7220,
+      "id": "salvage-ch6-3"
+    },
+    {
+      "m": 7375,
+      "id": "salvage-ch6-4"
+    },
+    {
+      "m": 7530,
+      "id": "salvage-ch6-5"
+    }
+  ],
+  "unlock": null,
+  "materials": [
+    [
+      "oblivion_inscription",
+      8,
+      "forge-keys-oblivion"
+    ]
+  ],
+  "gearRewards": {},
+  "blueprintRewards": {},
+  "gearStories": {},
+  "cutscenes": [
+    {
+      "m": 6645,
+      "id": "ch6-senti-alone",
+      "album": "6-01",
+      "visual": "quanta-alone",
+      "title": "YÊN LẶNG TRONG BIỂN LƯỢNG TỬ",
+      "lines": [
+        [
+          "Senti",
+          "...Yên lặng quá. Ta ghét yên lặng."
+        ],
+        [
+          "Senti",
+          "Xích Nhận đã đứt. Thanh Assist cũng trống. Old Timer, ta sẽ tìm."
+        ],
+        [
+          "Mnemosyne",
+          "Hai sai số đã được tách rời. Quá trình hiệu đính tiếp tục."
+        ],
+        [
+          "Senti",
+          "Ngươi vẫn chưa hiểu. Tách ra chỉ khiến ta tìm cô ấy nhanh hơn."
+        ]
+      ]
+    },
+    {
+      "m": 6860,
+      "id": "ch6-hua-alone",
+      "album": "6-03",
+      "visual": "kolosten-alone",
+      "title": "KOLOSTEN · LỰA CHỌN CŨ",
+      "lines": [
+        [
+          "Phù Hoa",
+          "Kolosten... nơi ta từng chọn tự hy sinh."
+        ],
+        [
+          "Mnemosyne",
+          "Ký ức #6,400. Hãy đứng lại và nhận lấy đòn đáng lẽ thuộc về ngươi."
+        ],
+        [
+          "Phù Hoa",
+          "...Không."
+        ],
+        [
+          "Phù Hoa",
+          "Ta không có vũ khí, nhưng vẫn còn đôi tay. Lần này ta sẽ tự mở đường sống."
+        ]
+      ]
+    },
+    {
+      "m": 7080,
+      "id": "ch6-overlap",
+      "album": "6-04",
+      "visual": "memory-collision",
+      "title": "KÝ ỨC CHỒNG LÊN KÝ ỨC",
+      "lines": [
+        [
+          "Senti",
+          "Nagazora dính vào Thái Hư, còn Babylon đang rơi từ trần nhà. Trí nhớ kiểu gì thế này?"
+        ],
+        [
+          "Mnemosyne",
+          "Những phần không tương thích sẽ bị loại bỏ."
+        ],
+        [
+          "Senti",
+          "Ta không cần chúng tương thích. Ta chỉ cần chúng là thật."
+        ],
+        [
+          "Senti",
+          "Xích đã nối lại. Tốt. Giờ kéo cả đám này ra khỏi đường."
+        ]
+      ]
+    },
+    {
+      "m": 7290,
+      "id": "ch6-refuse-sacrifice",
+      "album": "6-05",
+      "mark": "red",
+      "visual": "refuse-sacrifice",
+      "title": "TỪ CHỐI HY SINH",
+      "lines": [
+        [
+          "Mnemosyne",
+          "Hãy đứng yên. Như ngươi vẫn luôn làm."
+        ],
+        [
+          "Phù Hoa",
+          "Ta từng cho rằng nhận hết mọi vết thương là cách duy nhất để bảo vệ người khác."
+        ],
+        [
+          "Ký ức của Senti",
+          "Old Timer lúc nào cũng tự nhận hết! Chán!"
+        ],
+        [
+          "Phù Hoa",
+          "...Cậu nói đúng."
+        ],
+        [
+          "Phù Hoa",
+          "Ta sẽ không đứng yên nữa."
+        ]
+      ]
+    },
+    {
+      "m": 7440,
+      "id": "ch6-nihilius-cameo",
+      "album": "6-06",
+      "visual": "nihilius-cameo",
+      "title": "BONG BÓNG ĐEN",
+      "lines": [
+        [
+          "Ký ức",
+          "Trong bong bóng đen, Husk–Nihilius đứng bất động và nhìn thẳng ra ngoài."
+        ],
+        [
+          "Senti",
+          "Kệ. Ta nhìn lại đáng sợ hơn."
+        ],
+        [
+          "Ký ức",
+          "Ba giây sau, bong bóng khép lại. Nó không hề truy đuổi."
+        ]
+      ]
+    },
+    {
+      "m": 7515,
+      "id": "ch6-reunion",
+      "album": "6-07",
+      "mark": "green",
+      "visual": "reunion",
+      "title": "HAI ĐƯỜNG GẶP LẠI",
+      "lines": [
+        [
+          "Senti",
+          "OLD TIMER!"
+        ],
+        [
+          "Phù Hoa",
+          "Lâu vậy?"
+        ],
+        [
+          "Senti",
+          "Ta không lo đâu nhé! Ta chỉ... muốn đến nhanh hơn thôi!"
+        ],
+        [
+          "Phù Hoa",
+          "Ta biết."
+        ],
+        [
+          "Ký ức",
+          "Hai nửa xích nối lại. Thanh Assist bừng sáng giữa cơn bão."
+        ]
+      ]
+    }
+  ],
+  "sideStories": [
+    {
+      "id": "ch6-side-claw",
+      "m": 6740,
+      "title": "MÓN QUÀ KHÔNG GẮP ĐƯỢC",
+      "item": "claw_plush",
+      "storyOnly": true,
+      "trial": "keepsake",
+      "album": "6-02",
+      "mark": "green",
+      "keepsake": "Chim Bông Một Mắt",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Ký ức",
+          "Một bong bóng nhỏ giữ lại chiếc máy gắp quà đã tắt từ lâu."
+        ],
+        [
+          "Senti",
+          "Old Timer đứng trước nó ba mươi phút chỉ để gắp con chim xấu này."
+        ],
+        [
+          "Phù Hoa trong ký ức",
+          "Ta chỉ đang tính góc rơi."
+        ],
+        [
+          "Senti",
+          "Cô gắp trượt mười hai lần. Ta nhớ rất rõ."
+        ]
+      ],
+      "panels": [
+        [
+          "Ký ức",
+          "Cái cần gạt cũng là một dạng quyền pháp, Phù Hoa tự nhủ."
+        ],
+        [
+          "Senti",
+          "Lần thứ mười ba, ta đập vào thành máy. Con chim rơi xuống."
+        ],
+        [
+          "Phù Hoa trong ký ức",
+          "Như vậy là gian lận."
+        ]
+      ],
+      "end": [
+        [
+          "Senti",
+          "Ta giữ con chim. Còn cô giữ việc mình đã cười sau đó."
+        ],
+        [
+          "Ký ức",
+          "Chiếc máy tắt hẳn, nhưng con chim bông vẫn ấm trong tay Senti."
+        ]
+      ]
+    },
+    {
+      "id": "ch6-side-flower",
+      "m": 7380,
+      "title": "BÔNG HOA SAU CỘT SÉT",
+      "item": "memory_flower",
+      "storyOnly": true,
+      "trial": "keepsake",
+      "requiresEvent": "ch6-refuse-sacrifice",
+      "album": "6-05",
+      "mark": "green",
+      "keepsake": "Hoa Trắng Kolosten",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Phù Hoa",
+          "Năm cột sét đã bị phá. Vẫn còn một nhịp điện không thuộc về cơn bão."
+        ],
+        [
+          "Mnemosyne",
+          "Một lựa chọn nhỏ không thể đổi được bản chất của ngươi."
+        ],
+        [
+          "Phù Hoa",
+          "Nó không cần thay đổi toàn bộ ta. Chỉ cần cho ta thêm một con đường."
+        ]
+      ],
+      "panels": [
+        [
+          "Ký ức",
+          "Quyền thứ nhất bẻ gãy sứ cách điện."
+        ],
+        [
+          "Ký ức",
+          "Quyền thứ hai dẫn tia sét xuống phần kim loại đã vỡ."
+        ],
+        [
+          "Ký ức",
+          "Sau cột sét là một bông hoa trắng chưa hề bị cháy."
+        ]
+      ],
+      "end": [
+        [
+          "Bàn tay trong ký ức",
+          "Hãy cầm lấy. Không phải mọi thứ sống sót đều cần một lời giải thích."
+        ],
+        [
+          "Phù Hoa",
+          "Cảm ơn. Ta sẽ mang nó đến khi gặp lại Senti."
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    "HoS_Script_Ch1-4.md",
+    "HoS_Script_Ch5-7_Endings.md",
+    "HoS_Story_Bible.md",
+    "HoS_Game_Design_Doc.md"
+  ]
+}

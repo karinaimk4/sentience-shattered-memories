@@ -1,0 +1,1272 @@
+{
+  "chapter": 5,
+  "title": "NGƯỜI KHÔNG CÓ KHUYẾT ĐIỂM",
+  "place": "THÁI HƯ SƠN",
+  "color": "#aebfc0",
+  "lengthMeters": 6620,
+  "pixelsPerMeter": 64,
+  "targetMinutes": [
+    11,
+    16
+  ],
+  "physics": {
+    "speed": 320,
+    "backSpeed": 230,
+    "gravity": 1800,
+    "jumpVelocity": 680,
+    "groundY": 490
+  },
+  "opening": [
+    [
+      "Senti",
+      "Thái Hư sạch đến mức đáng ngờ. Không bụi, không ai cãi nhau, không ai làm đổ trà."
+    ],
+    [
+      "Phù Hoa",
+      "Ký ức thường giữ lại điều người ta muốn tin."
+    ],
+    [
+      "Senti",
+      "Vậy thứ này không phải ký ức. Nó là lời bào chữa. Với lại trời ở đây có nét bút."
+    ],
+    [
+      "Phù Hoa",
+      "…Cậu nói như thể từng đến đây rồi."
+    ],
+    [
+      "Senti",
+      "Ta từng sống trong đống ký ức này. Chưa lần nào nó sạch thế này."
+    ]
+  ],
+  "scenes": [
+    {
+      "from": 5480,
+      "to": 5700,
+      "id": "taixuan-perfect",
+      "name": "5.1 · THÁI HƯ HOÀN HẢO",
+      "objective": "Tìm cánh cửa không có trong bản đồ",
+      "line": "Mọi người đều có bóng. Riêng Phù Hoa thì không."
+    },
+    {
+      "from": 5700,
+      "to": 5920,
+      "id": "ash-gate",
+      "name": "5.2 · CỔNG NÚI PHỦ TRO",
+      "objective": "Nghe Tần Tố Y · Tìm nét bút ướt",
+      "line": "Ngọn bút lại ướt mực sau mỗi lần cảnh tua lại."
+    },
+    {
+      "from": 5920,
+      "to": 6140,
+      "id": "seven-testimonies",
+      "name": "5.3 · BẢY THANH KIẾM, BẢY LỜI KHAI",
+      "objective": "Hoàn thành ba nhánh ký ức",
+      "line": "Cha mẹ họ đã chết thế nào, và vì sao họ rút kiếm?"
+    },
+    {
+      "from": 6140,
+      "to": 6360,
+      "id": "silent-night",
+      "name": "5.4 · ĐÊM KHÔNG TIẾNG",
+      "objective": "Đọc ánh sáng · Phá ba neo trận",
+      "line": "Không có cue âm thanh. Hãy nhìn bụi và vết mực."
+    },
+    {
+      "from": 6360,
+      "to": 6580,
+      "id": "blade-happened",
+      "name": "5.5 · NHÁT KIẾM ĐÃ XẢY RA",
+      "objective": "Senti đỡ kiếm · Cõng Phù Hoa qua lửa",
+      "line": "Cô cứ nghe đi. Nhưng đừng chết thêm lần nữa."
+    },
+    {
+      "from": 6580,
+      "to": 6620,
+      "id": "phantom",
+      "name": "5.6 · THẤT KIẾM HỒI SÁT SƯ",
+      "objective": "Đối mặt bảy hồi ức · Phá Thất Kiếm Trận · Hạ Hư Ảnh Phù Hoa",
+      "line": "Đây là đêm sát sư do Mnemosyne tái dựng, không phải một trận đấu ngoài cốt truyện."
+    }
+  ],
+  "arenas": [
+    {
+      "m": 5700,
+      "name": "NHÁNH A · BÓNG TỐI PHẢN BỘI",
+      "waves": [
+        [
+          "seven-swords"
+        ]
+      ],
+      "before": [
+        [
+          "Lâm Triều Vũ",
+          "Ánh đèn chỉ còn đủ soi một người."
+        ],
+        [
+          "Senti",
+          "Ta sẽ phản kiếm của ngươi để tự thắp đường. Ngạn Khanh trốn tới đâu cũng vô ích."
+        ]
+      ],
+      "after": [
+        [
+          "Mã Ngạn Khanh",
+          "Ánh sáng không thay đổi điều đã xảy ra."
+        ],
+        [
+          "Phù Hoa",
+          "Nhưng nó cho ta nhìn rõ người đang đứng trước mình."
+        ]
+      ],
+      "encounter": "branch-a",
+      "requiresEvents": [
+        "ch5-branch-a"
+      ],
+      "lockHint": "QUAY LẠI CHẠM VÀO KÝ ỨC NHÁNH A",
+      "power": 1450
+    },
+    {
+      "m": 5985,
+      "name": "NHÁNH B · SỰ IM LẶNG CỦA CĂN BỆNH",
+      "waves": [
+        [
+          "seven-swords"
+        ]
+      ],
+      "before": [
+        [
+          "Giang Uyển Hề",
+          "Phong Thanh Dương sẽ lấy toàn bộ âm thanh."
+        ],
+        [
+          "Senti",
+          "Vậy ta nhìn bụi tuyết, né tên và kéo cái chuông của ngươi ra."
+        ]
+      ],
+      "after": [
+        [
+          "Giang Uyển Như",
+          "Muội vẫn còn ở đây."
+        ],
+        [
+          "Senti",
+          "Không ai cần phải giết cô để kết thúc ký ức này."
+        ]
+      ],
+      "encounter": "branch-b",
+      "requiresEvents": [
+        "ch5-branch-b"
+      ],
+      "lockHint": "QUAY LẠI CHẠM VÀO KÝ ỨC NHÁNH B",
+      "power": 1575
+    },
+    {
+      "m": 6270,
+      "name": "NHÁNH C · TUYỆT ĐỐI HỌC HỎI",
+      "waves": [
+        [
+          "seven-swords"
+        ]
+      ],
+      "before": [
+        [
+          "Tô My",
+          "Ta sẽ khóa từng lựa chọn của ngươi."
+        ],
+        [
+          "Trình Lăng Sương",
+          "Còn ta sẽ học động tác cuối cùng của ngươi."
+        ],
+        [
+          "Senti",
+          "Vậy ta đổi nhịp cho tới khi các ngươi không theo kịp."
+        ]
+      ],
+      "after": [
+        [
+          "Trình Lăng Sương",
+          "Lần này con đã kịp tra kiếm vào vỏ."
+        ],
+        [
+          "Phù Hoa",
+          "Và ta đã kịp dạy con cách dừng lại."
+        ]
+      ],
+      "encounter": "branch-c",
+      "requiresEvents": [
+        "ch5-branch-c"
+      ],
+      "lockHint": "QUAY LẠI CHẠM VÀO KÝ ỨC NHÁNH C",
+      "power": 1700
+    },
+    {
+      "m": 6580,
+      "name": "THẤT KIẾM TRẬN · HƯ ẢNH FU HUA",
+      "waves": [
+        [
+          "seven-swords"
+        ],
+        [
+          "phantom"
+        ]
+      ],
+      "before": [
+        [
+          "Tần Tố Y",
+          "Sư phụ… xin người đừng lên núi."
+        ],
+        [
+          "Mnemosyne",
+          "Ba nhánh đã khép lại. Bảy lưỡi kiếm sẽ hợp thành một bản án cuối."
+        ],
+        [
+          "Senti",
+          "Không còn bảy trận kéo dài. Ta phá trận pháp, rồi xử lý bản sao của Old Timer."
+        ],
+        [
+          "Phù Hoa",
+          "Ta sẽ nghe hết. Nhưng không để ký ức phán xét thay mình."
+        ]
+      ],
+      "after": [
+        [
+          "Tần Tố Y",
+          "Sở kiến phi chân. Những gì nhìn thấy chưa chắc đã là thật."
+        ],
+        [
+          "Senti",
+          "Đưa bút đây. Ta giữ giọt mực cho cô."
+        ],
+        [
+          "Tần Tố Y",
+          "Cái bóng này là thật. Sư phụ cũng đang đứng trong thực tại này."
+        ],
+        [
+          "Phù Hoa",
+          "Ta đã thấy sai lầm của mình. Nhưng ghi nhớ không có nghĩa là chết lại trong quá khứ."
+        ],
+        [
+          "Senti",
+          "YATTA! Và Old Timer còn nợ ta một chén trà."
+        ],
+        [
+          "Mnemosyne",
+          "Vậy ta sẽ xé hai ngươi khỏi cùng một ký ức."
+        ],
+        [
+          "Phù Hoa",
+          "Tìm tôi. Tôi sẽ tìm cậu."
+        ]
+      ],
+      "encounter": "formation",
+      "requiresEvents": [
+        "branch-a:cleared",
+        "branch-b:cleared",
+        "branch-c:cleared",
+        "ch5-dual"
+      ],
+      "lockHint": "HOÀN THÀNH BA NHÁNH VÀ NHÁT KIẾM CHÍ MẠNG TRƯỚC",
+      "power": 2100
+    }
+  ],
+  "checkpoints": [
+    5480,
+    5590,
+    5765,
+    5920,
+    6050,
+    6205,
+    6340,
+    6465,
+    6545
+  ],
+  "placements": [
+    {
+      "m": 5508,
+      "pattern": "ch5-layout-0"
+    },
+    {
+      "m": 5546,
+      "pattern": "ch5-layout-1"
+    },
+    {
+      "m": 5622,
+      "pattern": "ch5-layout-2"
+    },
+    {
+      "m": 5660,
+      "pattern": "ch5-layout-3"
+    },
+    {
+      "m": 5736,
+      "pattern": "ch5-layout-4"
+    },
+    {
+      "m": 5812,
+      "pattern": "ch5-layout-5"
+    },
+    {
+      "m": 5850,
+      "pattern": "ch5-layout-6"
+    },
+    {
+      "m": 5888,
+      "pattern": "ch5-layout-7"
+    },
+    {
+      "m": 6078,
+      "pattern": "ch5-layout-8"
+    },
+    {
+      "m": 6116,
+      "pattern": "ch5-layout-9"
+    },
+    {
+      "m": 6154,
+      "pattern": "ch5-layout-10"
+    },
+    {
+      "m": 6230,
+      "pattern": "ch5-layout-11"
+    },
+    {
+      "m": 6306,
+      "pattern": "ch5-layout-12"
+    },
+    {
+      "m": 6382,
+      "pattern": "ch5-layout-13"
+    },
+    {
+      "m": 6420,
+      "pattern": "ch5-layout-14"
+    },
+    {
+      "m": 6496,
+      "pattern": "ch5-layout-15"
+    }
+  ],
+  "authoredPatterns": [
+    {
+      "id": "ch5-layout-0",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "taixuan-perfect",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-1",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "taixuan-perfect",
+      "offset": 640
+    },
+    {
+      "id": "ch5-layout-2",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "taixuan-perfect",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch5-layout-3",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "moving",
+      "region": "taixuan-perfect",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    },
+    {
+      "id": "ch5-layout-4",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "pulse",
+      "region": "ash-gate",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-5",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "ash-gate",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-6",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "ash-gate",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch5-layout-7",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "ash-gate",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch5-layout-8",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "seven-testimonies",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-9",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gap",
+      "region": "seven-testimonies",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.54
+      }
+    },
+    {
+      "id": "ch5-layout-10",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "stairs",
+      "region": "silent-night",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-11",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "gate",
+      "region": "silent-night",
+      "offset": 620,
+      "width": 155,
+      "clearance": 74
+    },
+    {
+      "id": "ch5-layout-12",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "upper",
+      "region": "silent-night",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135
+    },
+    {
+      "id": "ch5-layout-13",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "breakable",
+      "region": "blade-happened",
+      "offset": 640
+    },
+    {
+      "id": "ch5-layout-14",
+      "length": 1250,
+      "difficulty": "normal",
+      "kind": "skirmish",
+      "region": "blade-happened",
+      "heights": [
+        55,
+        105,
+        145
+      ],
+      "spacing": 155,
+      "blockWidth": 135,
+      "enemyOffset": 1020
+    },
+    {
+      "id": "ch5-layout-15",
+      "length": 1250,
+      "difficulty": "hard",
+      "kind": "moving",
+      "region": "blade-happened",
+      "gap": {
+        "offset": 620,
+        "ratio": 0.7
+      },
+      "intermediate": true
+    }
+  ],
+  "patrols": [
+    {
+      "m": 5555,
+      "kind": "enemy"
+    },
+    {
+      "m": 5643,
+      "kind": "knight"
+    },
+    {
+      "m": 5819,
+      "kind": "flyer"
+    },
+    {
+      "m": 5907,
+      "kind": "machine"
+    },
+    {
+      "m": 6083,
+      "kind": "knight"
+    },
+    {
+      "m": 6171,
+      "kind": "elite"
+    },
+    {
+      "m": 6347,
+      "kind": "machine"
+    },
+    {
+      "m": 6435,
+      "kind": "enemy"
+    }
+  ],
+  "beats": [
+    {
+      "m": 5590,
+      "id": "ch5-beat-0",
+      "speaker": "Senti",
+      "text": "Mép tường đang chảy mực. Ai đó vẽ cả ngọn núi này."
+    },
+    {
+      "m": 5810,
+      "id": "ch5-beat-1",
+      "speaker": "Tần Tố Y",
+      "text": "Sư phụ… xin người đừng ở lại Phất Vân Quán đêm nay."
+    },
+    {
+      "m": 6020,
+      "id": "ch5-beat-2",
+      "speaker": "Senti",
+      "text": "Ba nhánh, bảy lời chưa nói. Ta sẽ tìm đủ."
+    },
+    {
+      "m": 6310,
+      "id": "ch5-beat-3",
+      "speaker": "Phù Hoa",
+      "text": "Ta nghe thấy họ rồi. Lần này ta sẽ không im lặng."
+    }
+  ],
+  "investigations": [
+    {
+      "m": 5780,
+      "id": "ch5-clue-0",
+      "title": "MẢNH GIẤY ƯỚT MỰC",
+      "lines": [
+        [
+          "Mảnh giấy",
+          "Sáu người kiếm là binh khí. Riêng thất muội cầm một cây bút. Người có biết vì sao không?"
+        ],
+        [
+          "Senti",
+          "Mực còn ướt. Tần Tố Y đang vẽ lối cho chúng ta."
+        ]
+      ]
+    },
+    {
+      "m": 6100,
+      "id": "ch5-clue-1",
+      "title": "NHẬP MA TẤT TRU",
+      "lines": [
+        [
+          "Bia đá",
+          "Bốn chữ vừa được thếp lại: Nhập ma tất tru."
+        ],
+        [
+          "Phù Hoa",
+          "Khi ấy ta nhìn căn bệnh trước khi nhìn con người."
+        ],
+        [
+          "Senti",
+          "Bây giờ cô đã thấy cả hai."
+        ]
+      ]
+    }
+  ],
+  "memories": [
+    {
+      "id": "hidden-9",
+      "m": 5790,
+      "y": 403,
+      "title": "LỚP HỌC TRÊN NÚI",
+      "condition": "spear",
+      "lines": [
+        [
+          "Ký ức ẩn #9",
+          "Phù Hoa dạy học trò trên núi. Không có chiến tranh, chỉ có một buổi sáng bình thường."
+        ],
+        [
+          "Senti",
+          "Ta không muốn nó bị xóa thêm lần nữa."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresNode": "false-wall"
+    },
+    {
+      "id": "hidden-10",
+      "m": 6400,
+      "y": 403,
+      "title": "TÁCH TRÀ ĐẮNG",
+      "condition": "dual",
+      "lines": [
+        [
+          "Ký ức ẩn #10",
+          "Senti lén uống trà của Phù Hoa rồi nhăn mặt. Phù Hoa cười phía sau, giả vờ như không thấy."
+        ],
+        [
+          "Senti",
+          "Old Timer... ký ức này là của chúng ta."
+        ],
+        [
+          "Dấu ấn ký ức",
+          "Đã ghi vào nhật ký. Cần đủ 14 mảnh ẩn để thấy Ký ức #0."
+        ]
+      ],
+      "requiresDual": 3
+    }
+  ],
+  "nodes": [
+    {
+      "m": 5780,
+      "id": "ink-gate",
+      "hp": 95,
+      "order": 0,
+      "requiredWeapon": "sword"
+    },
+    {
+      "m": 6080,
+      "id": "silent-anchor",
+      "hp": 105,
+      "order": 1,
+      "requiredWeapon": "spear"
+    },
+    {
+      "m": 6240,
+      "id": "distant-anchor",
+      "hp": 110,
+      "order": 2,
+      "requiredWeapon": "chain"
+    }
+  ],
+  "weather": [
+    {
+      "id": "ch5-weather-0",
+      "kind": "petals",
+      "from": 5480,
+      "to": 6150,
+      "title": "CÁNH HOA TAIXUAN",
+      "hint": "Cánh hoa che mép bậc"
+    },
+    {
+      "id": "ch5-weather-1",
+      "kind": "wind",
+      "from": 6150,
+      "to": 6620,
+      "title": "GIÓ TRÊN ĐỈNH",
+      "hint": "L né giữ thăng bằng"
+    }
+  ],
+  "salvage": [
+    {
+      "m": 5615,
+      "id": "salvage-ch5-0"
+    },
+    {
+      "m": 5770,
+      "id": "salvage-ch5-1"
+    },
+    {
+      "m": 5925,
+      "id": "salvage-ch5-2"
+    },
+    {
+      "m": 6080,
+      "id": "salvage-ch5-3"
+    },
+    {
+      "m": 6235,
+      "id": "salvage-ch5-4"
+    },
+    {
+      "m": 6390,
+      "id": "salvage-ch5-5"
+    }
+  ],
+  "unlock": {
+    "at": 6180,
+    "type": "dual",
+    "title": "DUAL COMBO"
+  },
+  "materials": [
+    [
+      "taixuan_script",
+      8,
+      "forge-tai-xuan"
+    ]
+  ],
+  "gearRewards": {},
+  "blueprintRewards": {},
+  "gearStories": {},
+  "sources": [
+    "HoS_Script_Ch1-4.md",
+    "HoS_Script_Ch5-7_Endings.md",
+    "HoS_Story_Bible.md",
+    "HoS_Game_Design_Doc.md"
+  ],
+  "cutscenes": [
+    {
+      "m": 5520,
+      "id": "ch5-perfect",
+      "album": "5-01",
+      "visual": "perfect",
+      "title": "THÁI HƯ HOÀN HẢO",
+      "lines": [
+        [
+          "Senti",
+          "Mọi người đều có bóng, riêng Old Timer trong ký ức thì không."
+        ],
+        [
+          "Phù Hoa",
+          "Và mép trời có nét bút. Đây là tranh, không phải quá khứ."
+        ]
+      ]
+    },
+    {
+      "m": 5550,
+      "id": "ch5-warning",
+      "album": "5-03",
+      "visual": "paths",
+      "title": "LỜI CẢNH BÁO CỦA TẦN TỐ Y",
+      "lines": [
+        [
+          "Tần Tố Y",
+          "Sư phụ… xin người đừng lên núi."
+        ],
+        [
+          "Phù Hoa",
+          "Tố Y, con muốn cảnh báo ta điều gì?"
+        ],
+        [
+          "Tần Tố Y",
+          "Đêm nay, xin người đừng ở lại Phất Vân Quán. Bọn con—"
+        ],
+        [
+          "Senti",
+          "Nó lại kéo cô ấy về đầu. Vậy ta tự tìm phần còn lại."
+        ]
+      ]
+    },
+    {
+      "m": 6085,
+      "id": "ch5-testimonies",
+      "album": "5-04",
+      "visual": "ambush",
+      "title": "BẢY LỜI KHAI",
+      "lines": [
+        [
+          "Senti",
+          "Ba nhánh ký ức đã hiện ra. Đèn tắt, tử sĩ hoá, và câu hỏi không được trả lời."
+        ],
+        [
+          "Phù Hoa",
+          "Ta sẽ nghe tất cả, dù thứ nghe được không thể sửa lại quá khứ."
+        ]
+      ]
+    },
+    {
+      "m": 6320,
+      "id": "ch5-night-silent",
+      "requiresEvents": [
+        "ch5-branch-a",
+        "ch5-branch-b",
+        "ch5-branch-c"
+      ],
+      "album": "5-05",
+      "mark": "red",
+      "visual": "choice",
+      "title": "ĐÊM KHÔNG TIẾNG",
+      "lines": [
+        [
+          "Giang Uyển Hề",
+          "Phong Thanh Dương đã nuốt mọi âm thanh."
+        ],
+        [
+          "Senti",
+          "Vậy nhìn bụi, nhìn ánh đèn. Kiếm phản, Thương phá, Xích kéo. Ta vẫn đi tiếp."
+        ]
+      ]
+    },
+    {
+      "m": 6365,
+      "id": "ch5-dual",
+      "requiresEvents": [
+        "ch5-night-silent"
+      ],
+      "album": "5-06",
+      "mark": "red",
+      "visual": "dual",
+      "title": "NHÁT KIẾM ĐÃ XẢY RA",
+      "lines": [
+        [
+          "Senti",
+          "Old Timer, cô không cần bước tiếp chỉ vì ký ức ra lệnh."
+        ],
+        [
+          "Phù Hoa",
+          "Ta đã không nghe thấy điều các con ấy không dám nói."
+        ],
+        [
+          "Senti",
+          "Ta từng nhớ nhát kiếm này như thể nó chém vào chính ta. Nên lần này ta đỡ. Cô cứ nghe đi. Nhưng đừng chết thêm lần nữa."
+        ],
+        [
+          "Tần Tố Y",
+          "Con không ngăn được họ. Con chỉ mang người ra được thôi."
+        ]
+      ]
+    }
+  ],
+  "sideStories": [
+    {
+      "id": "ch5-branch-a",
+      "m": 5600,
+      "title": "NHÁNH A · ĐÈN TẮT",
+      "item": "red_shadow_fragment",
+      "storyOnly": true,
+      "trial": "testimony",
+      "album": "5-04",
+      "mark": "red",
+      "keepsake": "Mảnh Xích Tuyệt Ảnh",
+      "start": [
+        [
+          "Lâm Triều Vũ",
+          "Năm sáu tuổi, con cầm đèn đi sau người. Người vừa giết cha mẹ con, rồi quay lại hỏi con có lạnh không."
+        ],
+        [
+          "Phù Hoa",
+          "Ta nhớ. Con không khóc."
+        ]
+      ],
+      "end": [
+        [
+          "Mã Ngạn Khanh",
+          "Ta có hỏi. Chỉ là hỏi sau khi đã rút kiếm."
+        ],
+        [
+          "Senti",
+          "Mảnh Xích Tuyệt Ảnh. Một lời khai đã trở về."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-branch-b",
+      "m": 5890,
+      "title": "NHÁNH B · TỬ SĨ HOÁ",
+      "item": "wanru_bandage",
+      "storyOnly": true,
+      "trial": "hide",
+      "album": "5-04",
+      "mark": "red",
+      "keepsake": "Dải Băng Của Uyển Như",
+      "start": [
+        [
+          "Giang Uyển Như",
+          "Con nói đó là số mệnh, để sư phụ nghe thấy con ngoan."
+        ],
+        [
+          "Phù Hoa",
+          "Còn điều con không dám nói to?"
+        ]
+      ],
+      "end": [
+        [
+          "Giang Uyển Như",
+          "Con muốn sống. Chỉ vậy thôi. Như thế là sai sao?"
+        ],
+        [
+          "Phù Hoa",
+          "Không sai. Ta đã nhìn căn bệnh trước khi nhìn con."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-branch-c",
+      "m": 6130,
+      "title": "NHÁNH C · CÂU HỎI KHÔNG ĐƯỢC TRẢ LỜI",
+      "item": "silent_bell",
+      "storyOnly": true,
+      "trial": "testimony",
+      "album": "5-04",
+      "mark": "red",
+      "keepsake": "Chuông Câm",
+      "start": [
+        [
+          "Tô My",
+          "Con oán trời. Oán Băng Hoại. Oán cả chính con, vì hiểu luật của người quá rõ."
+        ],
+        [
+          "Senti",
+          "Ba ấn. Nghe hết ba lời buộc tội mới mở được."
+        ]
+      ],
+      "end": [
+        [
+          "Trình Lăng Sương",
+          "Đó là lần duy nhất con thắng mà không thấy vui."
+        ],
+        [
+          "Phù Hoa",
+          "Bây giờ ta biết không do dự cũng là một lựa chọn."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-side-bowl",
+      "m": 5810,
+      "title": "BÁT GỖ THỨ TÁM",
+      "item": "wooden_bowl",
+      "storyOnly": true,
+      "trial": "bowls",
+      "requiresEvent": "ch5-branch-a",
+      "albumSide": "v-side-bowl",
+      "keepsake": "Bát Gỗ Thứ Tám",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Ký ức",
+          "Bữa tối đã nguội. Bảy chiếc bát có vết xước riêng, còn chiếc thứ tám trơn nhẵn như chưa từng có người chạm vào."
+        ],
+        [
+          "Phù Hoa",
+          "Ta nhớ khẩu vị của từng đứa, nhưng không nhớ mình đã ngồi ở đâu."
+        ],
+        [
+          "Senti",
+          "Vậy đặt lại từng chiếc. Đừng dùng trí nhớ của Mnemosyne—dùng điều cô thật sự biết về họ."
+        ],
+        [
+          "Phù Hoa",
+          "Triều Vũ không ăn hành. Ngạn Khanh luôn đòi phần gấp đôi. Tố Y đợi mọi người ăn trước."
+        ],
+        [
+          "Senti",
+          "Tốt. Còn chiếc bát trơn, ta sẽ để dành đến cuối."
+        ]
+      ],
+      "panels": [
+        [
+          "Ký ức",
+          "Bảy vết xước là bảy thói quen nhỏ Phù Hoa vẫn nhớ."
+        ],
+        [
+          "Phù Hoa",
+          "Uyển Hề ít cay. Uyển Như luôn lén đổi bát cho tỷ tỷ."
+        ],
+        [
+          "Senti",
+          "Đặt họ về đúng chỗ. Không ai bị biến thành một cái tên chung chung."
+        ],
+        [
+          "Ký ức",
+          "Bảy chiếc bát đã đủ. Chỉ còn chỗ gần bếp luôn bỏ trống."
+        ],
+        [
+          "Senti",
+          "Chiếc thứ tám chưa từng thuộc về ta. Nó là chỗ của cô, Old Timer."
+        ]
+      ],
+      "end": [
+        [
+          "Senti",
+          "Bát trơn này là của cô. Cô chưa từng ngồi xuống cùng họ."
+        ],
+        [
+          "Ký ức",
+          "Senti dùng mũi dao khắc một khuôn mặt cười lệch lên đáy bát."
+        ],
+        [
+          "Senti",
+          "Giờ nó có dấu rồi. Ngồi xuống ăn đi, Old Timer."
+        ],
+        [
+          "Phù Hoa",
+          "…Mặn."
+        ],
+        [
+          "Senti",
+          "Thì ăn chậm thôi."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-side-hide",
+      "m": 6065,
+      "title": "TRỐN TÌM KHÔNG DẤU CHÂN",
+      "item": "blindfold",
+      "storyOnly": true,
+      "trial": "hide",
+      "requiresEvent": "ch5-branch-b",
+      "albumSide": "v-side-hide",
+      "keepsake": "Khăn Bịt Mắt",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Ký ức",
+          "Uyển Hề buộc khăn đỏ lên mắt sư phụ. Uyển Như xóa sạch dấu chân trên nền tuyết."
+        ],
+        [
+          "Uyển Hề",
+          "Không được dùng mắt, cũng không được nghe hơi thở. Người phải tìm bằng tiếng bọn con cười."
+        ],
+        [
+          "Uyển Như",
+          "Nếu người tìm sai, bọn con được nghỉ luyện kiếm một ngày."
+        ],
+        [
+          "Phù Hoa",
+          "Ta đã nói trò này làm các con nhiễm lạnh."
+        ],
+        [
+          "Senti",
+          "Còn ta nghe thấy cô đang cố làm ký ức vui vẻ biến thành bài học. Đưa khăn đây."
+        ]
+      ],
+      "panels": [
+        [
+          "Uyển Hề",
+          "Bên này! Không, bên kia!"
+        ],
+        [
+          "Uyển Như",
+          "Đừng nhìn dấu chân. Bọn con đã quét hết rồi."
+        ],
+        [
+          "Senti",
+          "Nghe tiếng cười dội vào bình phong. Âm thật không vang giống ký ức giả."
+        ],
+        [
+          "Phù Hoa",
+          "Ta nhớ rồi. Hai đứa luôn nấp cùng một chỗ để không ai bị tìm thấy sau cùng."
+        ],
+        [
+          "Ký ức",
+          "Sau bình phong, hai bàn tay nhỏ đang nắm chặt lấy nhau."
+        ]
+      ],
+      "end": [
+        [
+          "Uyển Hề",
+          "Sư phụ tìm thấy bọn con rồi!"
+        ],
+        [
+          "Uyển Như",
+          "Vậy ngày mai người phải chơi lại."
+        ],
+        [
+          "Phù Hoa",
+          "Ta đã nhớ luật của trò chơi, nhưng quên rằng mình từng cười khi bắt được chúng."
+        ],
+        [
+          "Senti",
+          "Không sao. Ta giữ chiếc khăn. Lần sau cô sẽ không trốn được."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-side-painting",
+      "m": 6200,
+      "title": "BỨC TRANH THIẾU MỘT GƯƠNG MẶT",
+      "item": "unfinished_portrait",
+      "storyOnly": true,
+      "trial": "painting",
+      "requiresEvent": "ch5-testimonies",
+      "albumSide": "v-side-painting",
+      "keepsake": "Bức Tranh Tám Người",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Tần Tố Y",
+          "Con vẽ bảy người sáu lần rồi. Mỗi lần đến chỗ của sư phụ, mực đều khô trước."
+        ],
+        [
+          "Phù Hoa",
+          "Không cần vẽ ta. Bức tranh là của các con."
+        ],
+        [
+          "Tần Tố Y",
+          "Nhưng nếu thiếu người, sau này ai nhìn vào cũng tưởng chúng ta chỉ có bảy."
+        ],
+        [
+          "Senti",
+          "Cô ấy không dám đứng vào tranh thì cứ kéo vào. Ta giữ giấy, ngươi giữ bút."
+        ],
+        [
+          "Phù Hoa",
+          "…Chỉ ba nét thôi."
+        ]
+      ],
+      "panels": [
+        [
+          "Ký ức",
+          "Nét thứ nhất giữ lại mái tóc bạc dưới nắng sân sau."
+        ],
+        [
+          "Tần Tố Y",
+          "Nét thứ hai là bàn tay luôn đặt sau lưng, như thể không cần ai nắm lấy."
+        ],
+        [
+          "Senti",
+          "Nét cuối cùng vẽ gần họ hơn. Đừng để Old Timer đứng ngoài rìa nữa."
+        ],
+        [
+          "Phù Hoa",
+          "Ta không nhớ mình đã ngồi lâu đến vậy để Tố Y hoàn thành bức tranh."
+        ],
+        [
+          "Ký ức",
+          "Mực khô. Tám bóng người cuối cùng cùng đứng dưới một mái hiên."
+        ]
+      ],
+      "end": [
+        [
+          "Tần Tố Y",
+          "Tám người. Cuối cùng cũng đủ."
+        ],
+        [
+          "Senti",
+          "Khoan, còn ta?"
+        ],
+        [
+          "Phù Hoa",
+          "Cậu đứng bên ngoài tranh, nên mới giữ được nó."
+        ]
+      ]
+    },
+    {
+      "id": "ch5-side-moon",
+      "m": 6460,
+      "title": "KIẾM DƯỚI TRĂNG",
+      "item": "moon_sheath",
+      "storyOnly": true,
+      "trial": "moon",
+      "requiresEvent": "ch5-dual",
+      "albumSide": "v-side-moon",
+      "keepsake": "Vỏ Kiếm Dưới Trăng",
+      "rewardCrystals": false,
+      "start": [
+        [
+          "Trình Lăng Sương",
+          "Đệ tử đã đứng ở đây suốt một canh giờ. Vì sao người vẫn chưa rút kiếm?"
+        ],
+        [
+          "Phù Hoa",
+          "Nếu ta rút kiếm, ký ức này sẽ chỉ còn người thắng và kẻ thua."
+        ],
+        [
+          "Trình Lăng Sương",
+          "Chúng ta còn biết nói với nhau bằng cách khác sao?"
+        ],
+        [
+          "Senti",
+          "Có. Đặt tay lên chuôi, nghe hết điều muốn chém, rồi bỏ tay ra. Ta ngồi đây canh cho hai người."
+        ],
+        [
+          "Phù Hoa",
+          "Lăng Sương, lần này ta sẽ ở lại đến khi con nói xong."
+        ]
+      ],
+      "panels": [
+        [
+          "Trình Lăng Sương",
+          "Con từng nghĩ chỉ cần thắng người, câu hỏi năm đó sẽ có đáp án."
+        ],
+        [
+          "Phù Hoa",
+          "Ta từng nghĩ im lặng là cách duy nhất để các con không gánh lấy lỗi của ta."
+        ],
+        [
+          "Senti",
+          "Hai người đều giỏi biến im lặng thành vũ khí. Bây giờ đặt nó xuống."
+        ],
+        [
+          "Ký ức",
+          "Bàn tay rời khỏi chuôi kiếm. Tiếng côn trùng trở lại dưới ánh trăng."
+        ],
+        [
+          "Trình Lăng Sương",
+          "Đệ tử không tha thứ. Nhưng đệ tử đã nghe thấy người."
+        ]
+      ],
+      "end": [
+        [
+          "Trình Lăng Sương",
+          "Hoá ra tra kiếm cũng là một đòn."
+        ],
+        [
+          "Phù Hoa",
+          "Là đòn ta học quá muộn."
+        ]
+      ]
+    }
+  ]
+}

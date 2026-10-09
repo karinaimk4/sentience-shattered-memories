@@ -1,0 +1,4 @@
+const {chromium}=require('./playwright-runtime.cjs'),fs=require('fs'),path=require('path');
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true}),p=await b.newPage(),out=path.join(__dirname,'../docs/audio-research');let n=0;const pending=[];
+p.on('response',r=>{const u=r.url();if(r.headers()['content-type']?.includes('json')&&!/log|analytics|sdk|account/i.test(u)){pending.push((async()=>{try{const t=await r.text();fs.writeFileSync(path.join(out,'api-'+(++n)+'.json'),t);console.log(JSON.stringify({n,url:u,bytes:t.length}));}catch{}})())}});
+await p.goto('https://honkaiimpact3.hoyoverse.com/global/en-us/valkyries',{waitUntil:'networkidle',timeout:45000});console.log((await p.locator('body').innerText()).slice(0,3500));await Promise.allSettled(pending);await b.close();})().catch(e=>{console.error(e.message);process.exit(1)});
