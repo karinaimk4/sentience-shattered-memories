@@ -1,6 +1,6 @@
 # Tiến độ web game
 
-Cập nhật: 08/10/2026.
+Cập nhật: 09/10/2026.
 
 ## Đã hoàn thành
 
@@ -12,19 +12,23 @@ Cập nhật: 08/10/2026.
 - Có hook chặn push thẳng `main`.
 - Có Pull Request template và tài liệu quy trình.
 - Build tự kiểm tra giới hạn website 1 GiB và giới hạn 100 MiB cho từng tệp GitHub.
+- Repository public: `karinaimk4/sentience-shattered-memories`.
+- Pull Request khởi tạo đã vượt kiểm tra và được merge vào `main`.
+- GitHub Pages đã phát hành tại `https://karinaimk4.github.io/sentience-shattered-memories/`.
 
-## Chờ kết nối ngoài
+## Trạng thái phát hành
 
-- Chưa gắn GitHub remote; repository game phải tách khỏi Aurora Website.
-- GitHub CLI trên máy đang mất phiên đăng nhập của tài khoản cũ.
-- Chưa bật GitHub Pages vì repository online chưa được tạo.
-- Chưa có URL GitHub Pages chính thức.
+- Remote `origin` đã trỏ tới repository game riêng.
+- GitHub CLI đang dùng tài khoản `karinaimk4`.
+- GitHub Pages dùng nguồn GitHub Actions và HTTPS.
+- Mỗi lần merge `main`, workflow tự build và phát hành lại game.
 
-## Cần owner chốt
+## Quy trình cho thay đổi tiếp theo
 
-- GitHub owner/organization dùng cho game.
-- Tên repository cuối cùng.
-- Repository Public hay tài khoản GitHub có gói trả phí cho Pages private.
+- Tạo nhánh `feat/`, `fix/`, `assets/` hoặc `docs/` từ `main` mới nhất.
+- Chạy build và smoke test trước khi push.
+- Mở Pull Request, chờ kiểm tra đạt và duyệt rồi mới merge.
+- Không push thẳng vào `main`.
 
 ## Kiểm tra bắt buộc trước mỗi PR
 
