@@ -1,6 +1,13 @@
 import {startExpedition} from './event-v3-expedition.js';
+import {startCookingMiniGame} from './event-v3-cooking.js?v=4';
+import {startDishwashingMiniGame} from './event-v3-washing.js?v=1';
 const TILE = 32;
 const FIXED_STEP = 1 / 60;
+const SEARCH_PARAMS = new URLSearchParams(location.search);
+const TEST_MODE = SEARCH_PARAMS.get('test') === 'full';
+const PREP_DEMO_MODE = SEARCH_PARAMS.get('demo') === 'prep';
+const GACHA_COST = 500;
+const GACHA_TEN_COST = 4500;
 const DIRS = [[1,0],[-1,0],[0,1],[0,-1]];
 const ROLE_LABEL = {reception:'Lễ tân',server:'Phục vụ',chef:'Đầu bếp',cleaner:'Dọn dẹp',manager:'Quản lý',buyer:'Thu mua',senti:'Senti'};
 const TYPE_LABEL = {SEAT:'Dẫn bàn',COOK:'Nấu món',SERVE:'Bưng món',CLEAN_TABLE:'Dọn bàn',PICK_TRASH:'Nhặt rác',REPAIR_TABLE:'Sửa bàn'};
@@ -63,6 +70,40 @@ const GUEST_ARCHETYPES = [
   {assetKey:'guestFemale',name:'Học viên St. Freya',color:'#b66d6a',asset:'assets/event-v3/guest-sprites/guest-adult-female.png'},
   {assetKey:'guestChild',name:'Bé Nagazora',color:'#ed7147',asset:'assets/event-v3/guest-sprites/guest-child.png'}
 ];
+const DISH_CATALOG = [
+  {id:'burnt-congee',name:'Bát Cháo Khê',stars:1,system:'YATTA',price:5,effect:'hot',ingredients:[]},
+  {id:'pure-water',name:'Nước Lọc Trắng Sạch',stars:1,system:'ZEN',price:10,effect:'cold',ingredients:['Đá Bào Parvati']},
+  {id:'arc-city-bao',name:'Bánh Bao Mưa Arc City',stars:1,system:'Cân bằng',price:15,effect:'hot',ingredients:['Thịt Lợn Neon','Nấm Ký Ức']},
+  {id:'quantum-waste',name:'Chất Thải Lượng Tử',stars:1,system:'—',price:0,effect:'quantum',ingredients:[]},
+  {id:'eternal-shaved-ice',name:'Đá Bào Vĩnh Cửu',stars:2,system:'YATTA',price:45,effect:'cold',ingredients:['Đá Bào Parvati','Gia vị công nghiệp']},
+  {id:'glitch-salad',name:'Salad Nhiễu Sóng',stars:2,system:'ZEN',price:50,effect:'fresh',ingredients:['Cà Chua Nhiễu Sóng','Măng rừng']},
+  {id:'honkai-seaweed-soup',name:'Canh Rong Biển Honkai',stars:2,system:'ZEN',price:60,effect:'hot',ingredients:['Rong Biển Honkai','Đá Bào Parvati']},
+  {id:'chrysanthemum-tea',name:'Trà Cúc Bát Gỗ',stars:2,system:'ZEN',price:75,effect:'hot',ingredients:['Lá trà']},
+  {id:'yatta-roast-chicken',name:'Gà Quay YATTA',stars:3,system:'YATTA',price:150,effect:'hot',ingredients:['Gà chạy bộ','Gia vị công nghiệp']},
+  {id:'apocalypse-pizza',name:'Pizza Khải Huyền',stars:3,system:'YATTA',price:180,effect:'hot',ingredients:['Thịt Lợn Neon','Cà Chua Nhiễu Sóng']},
+  {id:'dead-sea-fried-rice',name:'Cơm Chiên Biển Chết',stars:3,system:'Cân bằng',price:200,effect:'hot',ingredients:['Cua Biển Chết','Nấm Ký Ức']},
+  {id:'frozen-tuna-rolls',name:'Cá Ngừ Cuộn Rong Biển',stars:3,system:'ZEN',price:220,effect:'cold',ingredients:['Cá Ngừ đóng băng','Rong Biển Honkai']},
+  {id:'tea-smoked-bacon',name:'Thịt Xông Khói Vị Trà',stars:4,system:'Cân bằng',price:450,effect:'hot',ingredients:['Thịt Lợn Neon','Lá trà']},
+  {id:'memory-chicken-soup',name:'Súp Nấm Ký Ức Hầm Gà',stars:4,system:'ZEN',price:500,effect:'hot',ingredients:['Gà chạy bộ','Nấm Ký Ức']},
+  {id:'frozen-noodles',name:'Mì Gói Băng Giá',stars:4,system:'YATTA',price:550,effect:'cold',ingredients:['Cá Ngừ đóng băng','Đá Bào Parvati','Gia vị công nghiệp']},
+  {id:'machine-core-skewers',name:'Xiên Nướng Lõi Máy',stars:4,system:'YATTA',price:600,effect:'hot',ingredients:['Lõi Heimdall','Cà Chua Nhiễu Sóng','Gia vị công nghiệp']},
+  {id:'quantum-sichuan-hotpot',name:'Lẩu Tứ Xuyên Lượng Tử',stars:5,system:'YATTA MAX',price:2000,effect:'fire',ingredients:['Cua Biển Chết','Thịt Lợn Neon','Gia vị công nghiệp','Gia vị công nghiệp','Gia vị công nghiệp']},
+  {id:'sunken-soup',name:'Canh Trầm Luân',stars:5,system:'ZEN MAX',price:2500,effect:'zen',ingredients:['Gà chạy bộ','Măng rừng','Nấm Ký Ức','Lá trà']},
+  {id:'thirteen-feast',name:'Đại Tiệc Mười Ba Anh Kiệt',stars:5,system:'Cân bằng',price:4000,effect:'quantum',ingredients:['Gà chạy bộ','Thịt Lợn Neon','Cá Ngừ đóng băng','Cua Biển Chết','Nấm Ký Ức','Lõi Heimdall']},
+  {id:'kiana-truth-dessert',name:'Tráng Miệng Chân Lý Kiana',stars:5,system:'???',price:5000,effect:'quantum',ingredients:['Cá Ngừ đóng băng','Lá trà','Cà Chua Nhiễu Sóng']}
+].map(dish=>({...dish,asset:`assets/event-demo/food/${dish.id}.png`}));
+const STARTER_MENU = ['arc-city-bao','pure-water','eternal-shaved-ice','chrysanthemum-tea'];
+const OUTCOME_ONLY_DISHES = new Set(['burnt-congee','quantum-waste']);
+const RESEARCH_DISHES = DISH_CATALOG.filter(dish=>dish.stars<=3&&!STARTER_MENU.includes(dish.id)&&!OUTCOME_ONLY_DISHES.has(dish.id)).map(dish=>dish.id);
+const FRAGMENT_DISHES = DISH_CATALOG.filter(dish=>dish.stars>=4).map(dish=>dish.id);
+const RECIPE_INGREDIENTS = [...new Set(DISH_CATALOG.flatMap(dish=>dish.ingredients))];
+const dishById=id=>DISH_CATALOG.find(dish=>dish.id===id)||DISH_CATALOG[2];
+const DAILY_TRENDS = [
+  {dishId:'arc-city-bao',title:'Ca tăng giờ Arc City',copy:'Dân văn phòng chuộng món gọn, nóng và no bụng.'},
+  {dishId:'pure-water',title:'Ngày thanh tịnh',copy:'Khách ưu tiên món ZEN nhẹ nhàng, sạch vị.'},
+  {dishId:'eternal-shaved-ice',title:'Khách nhí ghé quán',copy:'Đá bào và món mát có nhu cầu cao.'},
+  {dishId:'chrysanthemum-tea',title:'Mưa lạnh Nagazora',copy:'Đồ uống nóng được gọi nhiều hơn.'}
+];
 const GACHA_POOL = [
   {id:'rozaliya',name:'Rozaliya',rank:'A',role:'Lễ tân',speed:4,work:'1,0×',skill:'Khách cô dẫn +10 Kiên nhẫn',quirk:'20% hát mic 4 giây',art:'assets/event-v3/gacha-portraits/rozaliya-v2.png'},
   {id:'susannah',name:'Susannah',rank:'S',role:'Lễ tân',speed:'Nhanh · chờ chốt số',work:'—',skill:'Đón khách nhanh, thân thiện',quirk:'Có thể xếp nhầm khách vào bàn bẩn',art:'assets/event-v3/gacha-portraits/susannah-v1.png'},
@@ -80,6 +121,11 @@ const GACHA_POOL = [
   {id:'pardofelis',name:'Pardofelis',rank:'SSR',role:'Thu mua',speed:'—',work:'—',skill:'Chợ Đen giảm 30% giá',quirk:'10% chôm đồ trang trí',art:'assets/event-v3/gacha-portraits/pardofelis-v2.png'}
 ];
 const GACHA_RANKS = {A:50,S:30,SR:15,SSR:5};
+const VIP_CATALOG=[
+  {id:'elysia',name:'Elysia',title:'Tiệc Mười Ba Anh Kiệt',dish:'thirteen-feast',issue:'Muốn cả sảnh cùng nâng ly và chụp ảnh.',reward:'Mảnh Công Thức 5★ + 800 Xu',art:'assets/event-v3/gacha-portraits/elysia-v2.png',tone:'zen'},
+  {id:'kalpas',name:'Kalpas',title:'Thử Lửa Tứ Xuyên',dish:'quantum-sichuan-hotpot',issue:'Nộ khí tăng nhanh; phục vụ chậm sẽ làm cháy nội thất.',reward:'1.200 Xu + YATTA 40',art:'assets/event-demo/characters/kalpas.png',tone:'yatta'},
+  {id:'kevin',name:'Kevin',title:'Bữa Tối Băng Giá',dish:'frozen-noodles',issue:'Chỉ chấp nhận món lạnh và bàn sạch tuyệt đối.',reward:'900 Xu + ZEN 30',art:'assets/event-demo/guests/world-serpent-logistics-25d.png',tone:'ice'}
+];
 const ANIM_ROWS = {idle_down:0,walk_down:1,walk_up:2,walk_right:3,work_a:4,work_b:5,emote:6,rest_floor:7,rest:7,doze:8};
 const STAFF_BY_ROLE={
   reception:['rozaliya','susannah','elysia'],
@@ -113,12 +159,16 @@ const DECOR_CATALOG = [
   {id:'eden-board',name:'Bảng Eden Bao',system:'YATTA',kind:'yatta',tier:'rare',assetKey:'decorEdenBoard',art:ENVIRONMENT_ASSETS.decorEdenBoard,effect:'Giờ Vàng 2 phút · mọi món được trả ×5',footprint:[1,1],draw:[46,60]}
 ];
 const gachaState={pulls:0,sinceS:0,sinceSSR:0,owned:new Set(['rozaliya','liliya','kiana','griseo']),shards:{},training:{},busy:false,lastResults:[]};
+const dormState={decorByFloor:{1:new Set(['plant','rug']),2:new Set(),3:new Set()},activeFloor:1,theme:'warm'};
+const vipState={active:null,stage:0,history:[]};
+let selectedSkillId='rozaliya';
 const roomUpgradeState={
   room1:{floor:0,kitchen:0,waiting:0},
   room2:{floor:0,kitchen:0,waiting:0}
 };
 const RESTAURANT_UPGRADE_COST={coins:10000,arcIron:50};
 const FULL_TEST_RESOURCES={coins:999999,arcIron:999};
+const PERFECT_DISH_BONUS=.2;
 const economyState={coins:0,arcIron:0,unlockedLv2:false};
 const ROOM_CONFIG={
   room1:{mapId:'lv1',level:1,name:'Gian 1 · Quầy Nagazora',location:'NAGAZORA · GIAN 1 NGOÀI TRỜI',tables:3,kitchens:1},
@@ -127,6 +177,10 @@ const ROOM_CONFIG={
 const roomState={active:'room1',unlocked:new Set(['room1']),worlds:{room1:null,room2:null},selectedCharacterId:'senti',followCharacter:true,followClock:0};
 let restaurantUpgradeBusy=false;
 const staffSlotState={reception:1,server:1,chef:1,cleaner:1};
+const assignmentState={
+  room1:{reception:['rozaliya'],server:['liliya'],chef:['kiana'],cleaner:['griseo']},
+  room2:{reception:['rozaliya'],server:['liliya'],chef:['kiana','yae'],cleaner:['griseo']}
+};
 const decorStoreState={owned:new Set(),placed:[],tiles:{lv1:{},lv2:{}}};
 const decorPlacementState={active:false,dragId:null,hoverTile:null,valid:false,grabOffset:[0,0]};
 const tableStoreState={
@@ -140,15 +194,22 @@ const canvas = document.querySelector('#rush-canvas');
 const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false;
 const ui = Object.fromEntries([...document.querySelectorAll('[id]')].map(el => [el.id, el]));
+document.body.classList.toggle('test-mode',TEST_MODE);
+if(TEST_MODE){
+  document.querySelectorAll('[data-test-only]:not(#debug-drawer)').forEach(element=>{element.hidden=false;});
+  ui['phase-objectives']?.insertAdjacentHTML('beforeend','<div>G · xem lưới đường đi</div>');
+}
 let world;
-let activePhase = 'evening';
-const phaseState={day:1,selectedMap:null,buyer:'senti',trips:0,stock:{},prepared:0,batches:0,cookStep:0,washes:0,blueprintParts:0};
+let activePhase = 'morning';
+const phaseState={day:1,selectedMap:null,buyer:'senti',trips:0,stock:{},prepared:0,preparedByDish:{},preparedQualityByDish:{},plan:{},planLocked:false,planQueue:[],planIndex:0,batches:0,cookStep:0,cookResults:[],washes:0,blueprintParts:0,rushEnded:false};
+const recipeState={unlocked:new Set(STARTER_MENU),fragments:new Set(),selected:new Set(),lastResult:'Chọn 1–3 nguyên liệu rồi thử nghiệm. Sai công thức sẽ tạo Chất Thải Lượng Tử.'};
 let lastFrame = performance.now();
 let accumulator = 0;
 let toastClock = 0;
 let rosterRenderKey = '';
 const characterImages = {};
 const environmentImages = {};
+const dishImages = {};
 
 async function loadCharacterAssets(){
   const sources=[...Object.entries(STAFF).filter(([,data])=>data.asset),...GUEST_ARCHETYPES.map(data=>[data.assetKey,data])];
@@ -169,6 +230,15 @@ async function loadEnvironmentAssets(){
   })));
 }
 
+async function loadDishAssets(){
+  await Promise.all(DISH_CATALOG.map(dish=>new Promise(resolve=>{
+    const image=new Image();
+    image.onload=()=>{dishImages[dish.id]=image;resolve();};
+    image.onerror=resolve;
+    image.src=dish.asset;
+  })));
+}
+
 const keyOf = ([x,y]) => `${x},${y}`;
 const sameTile = (a,b) => a && b && a[0] === b[0] && a[1] === b[1];
 const manhattan = (a,b) => Math.abs(a[0]-b[0]) + Math.abs(a[1]-b[1]);
@@ -176,6 +246,28 @@ const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
 const seeded = (() => { let seed=0x51e17; return () => ((seed=Math.imul(seed,1664525)+1013904223|0)>>>0)/4294967296; })();
 const roomIdForLevel=level=>level==='lv2'?'room2':'room1';
 const cookStationsForMap=map=>map.stations.cooks||[map.stations.cook];
+const dailyTrend=()=>DAILY_TRENDS[(phaseState.day-1)%DAILY_TRENDS.length];
+const plannedBatchCount=()=>Object.values(phaseState.plan).reduce((sum,count)=>sum+count,0);
+const ingredientCounts=dish=>dish.ingredients.reduce((counts,name)=>(counts[name]=(counts[name]||0)+1,counts),{});
+const isRecipeUnlocked=id=>recipeState.unlocked.has(id);
+const unlockedMenuIds=()=>DISH_CATALOG.filter(dish=>isRecipeUnlocked(dish.id)&&!OUTCOME_ONLY_DISHES.has(dish.id)&&dish.ingredients.length).map(dish=>dish.id);
+const recipeSignature=ingredients=>[...ingredients].sort((a,b)=>a.localeCompare(b,'vi')).join('|');
+function planRequirements(){
+  const required={};
+  for(const [dishId,batches] of Object.entries(phaseState.plan))for(const [name,count] of Object.entries(ingredientCounts(dishById(dishId))))required[name]=(required[name]||0)+count*2*batches;
+  return required;
+}
+const missingPlanIngredients=()=>Object.fromEntries(Object.entries(planRequirements()).map(([name,count])=>[name,Math.max(0,count-(phaseState.stock[name]||0))]).filter(([,count])=>count>0));
+const marketPrice=()=>gachaState.owned.has('pardofelis')?210:300;
+function reserveGuestOrder(){
+  const trend=dailyTrend(),candidates=Object.entries(phaseState.preparedByDish).filter(([,count])=>count>0).map(([id,count])=>({id,count,weight:id===trend.dishId?3:1}));
+  if(!candidates.length)return null;
+  let roll=seeded()*candidates.reduce((sum,item)=>sum+item.weight,0),selected=candidates[0];
+  for(const item of candidates){roll-=item.weight;if(roll<=0){selected=item;break;}}
+  phaseState.preparedByDish[selected.id]--;phaseState.prepared=Math.max(0,phaseState.prepared-1);
+  const qualityQueue=phaseState.preparedQualityByDish[selected.id]||[];
+  return {dishId:selected.id,quality:qualityQueue.shift()||'standard'};
+}
 
 async function loadMap(level){
   const response = await fetch(`data/restaurant-${level}.json`);
@@ -202,9 +294,9 @@ function tableCells(table,tile=table.tile){return [[tile[0],tile[1]],[tile[0]+1,
 function syncTableCollision(map,tables){map.tableBlocked=new Set(tables.filter(table=>table.placed).flatMap(table=>tableCells(table).map(keyOf)));}
 function initialTablesForMap(map){
   const state=tableStoreState[map.id],saved=state.layout;
-  if(saved)return saved.map(item=>updateTableGeometry({...item,state:'CLEAN',guestId:null,reserved:false},item.tile));
+  if(saved)return saved.map(item=>updateTableGeometry({...item,state:'CLEAN',guestId:null,reserved:false,meal:null},item.tile));
   const styleId=map.id==='lv1'?'basic':'polished';
-  const layout=map.tables.map(template=>updateTableGeometry({id:template.id,styleId,placed:true,state:'CLEAN',guestId:null,reserved:false},[template.footprint[0],template.footprint[1]]));
+  const layout=map.tables.map(template=>updateTableGeometry({id:template.id,styleId,placed:true,state:'CLEAN',guestId:null,reserved:false,meal:null},[template.footprint[0],template.footprint[1]]));
   state.layout=layout.map(table=>({id:table.id,styleId:table.styleId,placed:table.placed,tile:[...table.tile]}));
   return layout;
 }
@@ -299,20 +391,21 @@ class Character{
 
 class World{
   constructor(map,options={}){
-    this.map=map; this.level=map.id; this.roomId=options.roomId||roomIdForLevel(map.id);this.roomLevel=ROOM_CONFIG[this.roomId]?.level||1;this.time=0; this.timeLeft=map.rushDuration; this.speed=options.speed||1; this.running=true;
+    this.map=map; this.level=map.id; this.roomId=options.roomId||roomIdForLevel(map.id);this.roomLevel=ROOM_CONFIG[this.roomId]?.level||1;this.time=0; this.timeLeft=map.rushDuration; this.speed=options.speed||1; this.running=options.running??false;
     if(this.level==='lv2'){staffSlotState.chef=Math.max(staffSlotState.chef,2);gachaState.owned.add('yae');}
     this.debug=false; this.coins=economyState.coins; this.rep=50; this.stress=0; this.rage=0; this.atmosphere=0; this.revenue=0;
     this.jobs=[]; this.characters=[]; this.guests=[]; this.floorItems=[]; this.decor=[]; this.plates=[]; this.nextId=1;
     this.spawnClock=0; this.windClock=0; this.patrolClock=0; this.huaPatrolIndex=0; this.dozeClock=0; this.conflict=false;
     this.metrics={maxJobWait:0,maxGuestState:0,overlapSeconds:0,overlapPairs:{},slideViolations:0,slideDetails:{},jobStarvationViolations:0,completedJobs:0,served:0,angry:0};
     this.tables=initialTablesForMap(map);syncTableCollision(this.map,this.tables);
-    this.assignments={reception:'rozaliya',server:'liliya',chef:'kiana',cleaner:'griseo',...(options.assignments||{})};
-    this.receptionId=this.assignments.reception;
+    const defaults={reception:['rozaliya'],server:['liliya'],chef:['kiana'],cleaner:['griseo']},provided=options.assignments||{};
+    this.assignments=Object.fromEntries(Object.keys(defaults).map(role=>{const value=provided[role]??defaults[role];return [role,(Array.isArray(value)?value:[value]).filter(Boolean)];}));
+    this.receptionId=this.assignments.reception[0]||'rozaliya';
     this.addStaff('senti',map.stations.sentiSpawn);
     this.addStaff('fuhua',map.stations.fuHuaHome);
     for(const role of ['reception','server','chef','cleaner'])this.addRoleStaff(role);
     this.decor=decorForMap(map);syncDecorCollision(this.map,this.decor);
-    this.spawnGuest(true);
+    if(this.running)this.spawnGuest(true);
   }
   addStaff(id,tile){ const c=new Character(id,STAFF[id],tile); this.characters.push(c); return c; }
   roleStation(role){return this.map.stations[`${role}Idle`]||({chef:cookStationsForMap(this.map)[0],cleaner:this.map.stations.wash}[role])||this.map.stations.sentiSpawn;}
@@ -323,7 +416,7 @@ class World{
   }
   addRoleStaff(role){
     if(this.level==='lv1'&&['chef','cleaner'].includes(role))return;
-    const primary=this.assignments[role],ids=[primary,...STAFF_BY_ROLE[role].filter(id=>id!==primary&&id!=='veliona'&&gachaState.owned.has(id))].slice(0,staffSlotState[role]);
+    const selected=this.assignments[role]||[],ids=[...new Set([...selected,...STAFF_BY_ROLE[role].filter(id=>!selected.includes(id)&&id!=='veliona'&&gachaState.owned.has(id))])].slice(0,staffSlotState[role]);
     const base=this.roleStation(role);ids.forEach((id,index)=>this.addStaff(id,role==='chef'&&this.level==='lv2'?(cookStationsForMap(this.map)[index]||this.openSpawnNear(base,index)):this.openSpawnNear(base,index)));
   }
   fillOpenStaffSlots(){
@@ -349,11 +442,13 @@ class World{
     }
     let target=[...queue].reverse().find(t=>!occupied.has(keyOf(t)));
     if(!target&&!force) return false;
+    const reservedOrder=reserveGuestOrder();
+    if(!reservedOrder)return false;
     target=target||queue[queue.length-1];
     const id=`guest${this.nextId++}`;
     const archetype=GUEST_ARCHETYPES[Math.floor(seeded()*GUEST_ARCHETYPES.length)];
     const g=new Character(id,{...archetype,name:archetype.name,role:'guest',speed:3,work:1},this.map.stations.entrance,'guest');
-    Object.assign(g,{guestState:this.conflict?'CONFUSED':'WALK_IN',stateAge:0,patience:100,queueTarget:target,order:null,tableId:null,eatLeft:0,done:false});
+    Object.assign(g,{guestState:this.conflict?'CONFUSED':'WALK_IN',stateAge:0,patience:100,queueTarget:target,order:reservedOrder.dishId,orderQuality:reservedOrder.quality,tableId:null,eatLeft:0,done:false});
     if(g.guestState==='CONFUSED') g.confusedLeft=3; else g.goTo(target,this.map);
     this.guests.push(g); this.characters.push(g); return true;
   }
@@ -366,7 +461,9 @@ class World{
     return cookStationsForMap(this.map).find(tile=>!used.has(keyOf(tile))&&!blockedByOtherRoles.has(keyOf(tile)))||null;
   }
   update(dt){
+    if(!this.running)return;
     this.time+=dt; this.timeLeft=Math.max(0,this.timeLeft-dt); if(this.timeLeft<=0) this.running=false;
+    if(!this.running)return;
     this.spawnClock+=dt; this.windClock+=dt; this.patrolClock+=dt; this.dozeClock+=dt;
     if(this.dozeClock>=30){this.dozeClock=0;if(this.staff('liliya')&&seeded()<.15)this.forceDoze('liliya');if(this.staff('bronya')&&seeded()<.1)this.forceDoze('bronya');}
     const spawnGap=Math.max(3,7*(this.atmosphere>=30?.8:1)*(1-this.rep/400));
@@ -419,18 +516,12 @@ class World{
     for(const g of this.guests.filter(x=>!x.done)){
       if(g.guestState==='AT_FRONT'&&!this.jobForGuest(g)){
         const table=this.availableTable();
-        if(table){ table.reserved=true;g.tableId=table.id;this.addJob('SEAT','reception',this.map.stations.seatGreeting,'down',.6,2,{guestId:g.id,tableId:table.id}); }
+        if(table){ table.reserved=true;table.guestId=g.id;g.tableId=table.id;this.addJob('SEAT','reception',this.map.stations.seatGreeting,'down',.6,2,{guestId:g.id,tableId:table.id}); }
       }
       if(g.guestState==='SEATED_WAITING'&&!this.jobForGuest(g)){
-        if(phaseState.prepared>0){
-          phaseState.prepared--;
-          this.plates.push({guestId:g.id,tableId:g.tableId,bornAt:this.time,dish:'Bánh Bao Mưa'});
-          this.addJob('SERVE','server',this.map.stations.passPickup,'up',.3,2,{guestId:g.id,tableId:g.tableId,dish:'Bánh Bao Mưa'});
-        }else{
-          const role=this.characters.some(c=>c.kind==='staff'&&c.role==='chef')?'chef':'senti';
-          const cookStation=this.availableCookStation();
-          if(cookStation)this.addJob('COOK',role,cookStation,'down',1.5,2,{guestId:g.id,tableId:g.tableId,dish:'Bánh Bao Mưa'});
-        }
+        const role=this.characters.some(c=>c.kind==='staff'&&c.role==='chef')?'chef':'senti';
+        const cookStation=this.availableCookStation();
+        if(cookStation)this.addJob('COOK',role,cookStation,'down',1.5,2,{guestId:g.id,tableId:g.tableId,dish:g.order,fromWarmer:true});
       }
     }
     for(const table of this.tables.filter(table=>table.placed)){
@@ -489,7 +580,11 @@ class World{
     }else if(job.phase==='DELIVER'){
       if(c.updateMove(dt))return; job.phase='PLACE';job.workLeft=.3;
     }else if(job.phase==='PLACE'){
-      c.anim='work_serve';job.workLeft-=dt;if(job.workLeft<=0){const g=this.guests.find(x=>x.id===job.payload.guestId);if(g){g.guestState='EATING';g.eatLeft=4;g.stateAge=0;}c.carry=null;this.complete(c,job,3);}
+      c.anim='work_serve';job.workLeft-=dt;if(job.workLeft<=0){
+        const g=this.guests.find(x=>x.id===job.payload.guestId),table=this.tables.find(t=>t.id===job.payload.tableId);
+        if(g&&table){g.guestState='EATING';g.eatLeft=4;g.stateAge=0;table.guestId=g.id;table.meal={dish:job.payload.dish,servedAt:this.time};}
+        c.carry=null;this.complete(c,job,3);
+      }
     }
   }
   finishJob(c,job){
@@ -502,20 +597,22 @@ class World{
     }
     if(job.type==='COOK'&&guest){this.plates.push({guestId:guest.id,tableId:guest.tableId,bornAt:this.time,dish:job.payload.dish});this.addJob('SERVE','server',this.map.stations.passPickup,'up',.3,2,{guestId:guest.id,tableId:guest.tableId,dish:job.payload.dish});this.complete(c,job,5);return;}
     if(job.type==='SERVE'&&table){this.plates=this.plates.filter(plate=>plate.guestId!==job.payload.guestId);c.carry={kind:'tray',dish:job.payload.dish};job.phase='DELIVER';c.goTo(table.service,this.map);return;}
-    if(job.type==='CLEAN_TABLE'&&table){table.state='CLEAN';table.reserved=false;table.guestId=null;this.complete(c,job,4);return;}
+    if(job.type==='CLEAN_TABLE'&&table){table.state='CLEAN';table.reserved=false;table.guestId=null;table.meal=null;this.complete(c,job,4);return;}
     if(job.type==='PICK_TRASH'){this.floorItems=this.floorItems.filter(i=>i.id!==job.payload.itemId);this.complete(c,job,2);return;}
     this.complete(c,job,3);
   }
   complete(c,job,stamina){job.done=true;c.jobId=null;c.state='IDLE';c.stamina=Math.max(0,c.stamina-stamina);this.metrics.completedJobs++;}
-  cancelSeatJob(c,job,guest){job.done=true;c.jobId=null;c.state='IDLE';if(guest){guest.guestState='AT_FRONT';guest.stateAge=0;guest.tableId=null;}const table=this.tables.find(t=>t.id===job.payload.tableId);if(table)table.reserved=false;}
+  cancelSeatJob(c,job,guest){job.done=true;c.jobId=null;c.state='IDLE';if(guest){guest.guestState='AT_FRONT';guest.stateAge=0;guest.tableId=null;}const table=this.tables.find(t=>t.id===job.payload.tableId);if(table){table.reserved=false;table.guestId=null;table.meal=null;}}
   payAndLeave(g){
-    const table=this.tables.find(t=>t.id===g.tableId);if(table){table.state='DIRTY';table.reserved=false;table.guestId=null;}
-    const pay=15+Math.round(15*(this.atmosphere<=-30?.25:this.atmosphere>=30?.08:.15));this.coins+=pay;economyState.coins=this.coins;this.revenue+=pay;this.metrics.served++;
+    const table=this.tables.find(t=>t.id===g.tableId);if(table){table.state='DIRTY';table.reserved=false;table.guestId=null;table.meal=null;}
+    const dish=dishById(g.order),trendBonus=dailyTrend().dishId===dish.id?.5:0,qualityBonus=g.orderQuality==='perfect'?PERFECT_DISH_BONUS:0,tipRate=this.atmosphere<=-30?.25:this.atmosphere>=30?.08:.15;
+    const salePrice=Math.round(dish.price*(1+trendBonus+qualityBonus)),pay=salePrice+Math.round(salePrice*tipRate);this.coins+=pay;economyState.coins=this.coins;this.revenue+=pay;this.metrics.served++;
+    if(qualityBonus)showToast(`✨ Món Hoàn hảo: ${dish.name} được thưởng +${Math.round(PERFECT_DISH_BONUS*100)}% giá bán!`);
     g.guestState='PAY_AND_LEAVE';g.stateAge=0;g.goTo(this.map.stations.entrance,this.map);
   }
   angryLeave(g){
     this.rep=Math.max(0,this.rep-3);this.stress=clamp(this.stress+5,0,100);this.metrics.angry++;
-    const table=this.tables.find(t=>t.id===g.tableId);if(table){table.state='DIRTY';table.reserved=false;if(seeded()<.5)this.spawnTrash();}
+    const table=this.tables.find(t=>t.id===g.tableId);if(table){table.state='DIRTY';table.reserved=false;table.guestId=null;table.meal=null;if(seeded()<.5)this.spawnTrash();}
     const job=this.jobForGuest(g);if(job)job.done=true;g.guestState='ANGRY_LEAVE';g.stateAge=0;g.path=[];g.goTo(this.map.stations.entrance,this.map);
   }
   updateFuHua(dt){
@@ -585,7 +682,9 @@ class World{
 function drawWorld(w){
   ctx.clearRect(0,0,640,416);drawGround(w);if(decorPlacementState.active)drawDecorPlacementGrid(w);if(tablePlacementState.active)drawTablePlacementGrid(w);const drawables=[];
   for(const f of furniture(w))drawables.push(f);
-  for(const table of w.tables.filter(table=>table.placed))drawables.push({sortY:(table.tile[1]+1)*TILE,draw:()=>drawDiningTable(table)});
+  // The seat and guest share a row. Draw the table set just before that row's
+  // character baseline so stools stay behind seated and walking guests.
+  for(const table of w.tables.filter(table=>table.placed))drawables.push({sortY:table.tile[1]*TILE+20,draw:()=>drawDiningTable(table,w)});
   for(const plate of w.plates)drawables.push({sortY:129,draw:()=>drawPassPlate(plate,w)});
   const upgrades=upgradesForRoom(w.roomId);
   if(upgrades.waiting&&environmentImages.waitingLobby){
@@ -656,7 +755,7 @@ function drawArcCityGround(w){
   // Fixed visual zoning; collision still comes entirely from the map grid.
   ctx.fillStyle='#211a32dd';ctx.fillRect(32,34,286,15);
   ctx.fillStyle='#f4ba61';ctx.fillRect(38,38,3,7);
-  ctx.font='bold 7px ui-monospace';ctx.textAlign='left';ctx.fillStyle='#fff0d5';ctx.fillText('BẾP HELIOPOLIS · 3 TRẠM',48,44);
+  ctx.font='bold 9px ui-monospace';ctx.textAlign='left';ctx.fillStyle='#fff0d5';ctx.fillText('BẾP HELIOPOLIS · 3 TRẠM',48,44);
   ctx.fillStyle='#15283bcc';ctx.fillRect(322,34,286,15);
   ctx.fillStyle='#61d4da';ctx.fillRect(328,38,3,7);ctx.fillStyle='#d6fbfa';ctx.fillText('RỬA · PASS · KHO LẠNH',338,44);
 
@@ -668,7 +767,7 @@ function drawArcCityGround(w){
   ctx.fillStyle='#102137';ctx.fillRect(0,384,640,32);
   ctx.fillStyle='#5fd8d9';ctx.fillRect(0,384,640,3);
   ctx.fillStyle='#ef74b7';ctx.fillRect(208,384,224,3);
-  ctx.font='bold 8px ui-monospace';ctx.textAlign='right';ctx.fillStyle='#87e5e0';ctx.fillText('ARC CITY // GIAN 2',624,406);
+  ctx.font='bold 10px ui-monospace';ctx.textAlign='right';ctx.fillStyle='#87e5e0';ctx.fillText('ARC CITY // GIAN 2',624,406);
 }
 
 function drawFloorUpgrade(w){
@@ -693,13 +792,45 @@ function furniture(w){
   return out;
 }
 
-function drawDiningTable(table){
+function drawDiningTable(table,w){
   const style=TABLE_CATALOG.find(item=>item.id===table.styleId)||TABLE_CATALOG[0],x=table.tile[0]*TILE,y=(table.tile[1]+1)*TILE;
   const tableArt=environmentImages[style.tableAssetKey],stoolArt=environmentImages[style.stoolAssetKey];
   ctx.save();if(tablePlacementState.dragId===table.id)ctx.globalAlpha=.58;
   if(stoolArt)for(const stool of table.stools)ctx.drawImage(stoolArt,stool[0]*TILE-1,(stool[1]+1)*TILE-34,34,34);
   if(tableArt)ctx.drawImage(tableArt,x-11,y-58,86,58);else{ctx.fillStyle='#98643f';ctx.fillRect(x-8,y-42,80,38);}
+  if(table.meal)drawTableMeal(table,x,y,w);
   if(table.state==='DIRTY')drawDirtyDishes(x,y);
+  ctx.restore();
+}
+
+function drawTableMeal(table,tableX,tableBottom,w){
+  const age=Math.max(0,w.time-(table.meal?.servedAt||w.time)),dish=dishById(table.meal.dish),cx=tableX+32,cy=tableBottom-39;
+  ctx.fillStyle='#21182e88';ctx.fillRect(cx-17,cy+12,34,4);
+  drawDishThumbnail(dish.id,cx,cy,31);
+  drawDishFx(dish,cx,cy,w.time);
+  if(age<1){
+    const blink=Math.floor(age*12)%2===0;ctx.fillStyle=blink?'#fff6a8':'#ffcf62';
+    ctx.fillRect(cx-20,cy-12,3,3);ctx.fillRect(cx+18,cy-16,3,3);ctx.fillRect(cx+16,cy-4,2,2);
+  }
+}
+
+function drawDishThumbnail(dishId,cx,cy,size){
+  const image=dishImages[dishId];
+  ctx.save();ctx.beginPath();ctx.arc(cx,cy,size/2,0,Math.PI*2);ctx.clip();
+  if(image)ctx.drawImage(image,cx-size/2,cy-size/2,size,size);
+  else{ctx.fillStyle='#ffe0a2';ctx.fillRect(cx-size/2,cy-size/2,size,size);}
+  ctx.restore();ctx.strokeStyle='#fff3d1';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,size/2,0,Math.PI*2);ctx.stroke();
+}
+
+function drawDishFx(dish,cx,cy,time){
+  const shift=Math.floor((time*8)%10);ctx.save();
+  if(['hot','fire','zen'].includes(dish.effect)){
+    for(let i=0;i<3;i++){const sx=cx-8+i*8,sy=cy-17-((shift+i*3)%9);ctx.globalAlpha=.35+((i+shift)%3)*.18;ctx.fillStyle=dish.effect==='fire'?'#ffb34f':'#fff8df';ctx.fillRect(sx,sy,2,5);ctx.fillRect(sx+(i%2?1:-1),sy-3,2,3);}
+  }else if(dish.effect==='cold'){
+    ctx.globalAlpha=.8;ctx.fillStyle='#c8f7ff';ctx.fillRect(cx-18,cy-8-shift%4,3,3);ctx.fillRect(cx+16,cy-13+(shift%3),3,3);ctx.fillRect(cx+11,cy+10,2,2);
+  }else{
+    ctx.globalAlpha=.75;ctx.fillStyle=dish.effect==='quantum'?'#e99aff':'#b9ffad';ctx.fillRect(cx-18,cy-10,3,3);ctx.fillRect(cx+16,cy-14,3,3);
+  }
   ctx.restore();
 }
 
@@ -792,7 +923,9 @@ function drawCharacter(c,w){
       if(c.state==='DOZE'||c.state==='EXHAUSTED')drawBubble(c,'zzz');
       if(c.state==='SCOLD')drawBubble(c,'!');
       if(c.state==='CAUGHT_LAZY')drawBubble(c,'!');
-    ctx.font='7px ui-monospace';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(c.name,x,y+10);return;
+      if(c.kind==='guest'&&c.guestState==='CONFUSED')drawBubble(c,'???');
+      if(c.kind==='guest'&&c.guestState==='SEATED_WAITING')drawOrderBubble(c);
+    ctx.font='bold 9px ui-monospace';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(c.name,x,y+11);return;
   }
   ctx.save();ctx.translate(x,y+bob);if(c.facing==='left')ctx.scale(-1,1);
   const col=c.color, dark='#20172d';
@@ -811,25 +944,25 @@ function drawCharacter(c,w){
   drawChefWorkFx(c,w,x,y+bob);
   if(c.state==='DOZE')drawBubble(c,'zzz');
   if(c.kind==='guest'&&c.guestState==='CONFUSED')drawBubble(c,'???');
-  if(c.kind==='guest'&&c.guestState==='SEATED_WAITING')drawBubble(c,'🍽');
-  ctx.font='7px ui-monospace';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(c.name,x,y+10);
+    if(c.kind==='guest'&&c.guestState==='SEATED_WAITING')drawOrderBubble(c);
+  ctx.font='bold 9px ui-monospace';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(c.name,x,y+11);
 }
 
 function drawPassPlate(plate,w){
   const age=w.time-plate.bornAt,pop=age<.55?Math.sin(Math.PI*age/.55)*10:0;
   const index=Math.max(0,w.plates.indexOf(plate));const x=177+(index%2)*18,y=113-pop;
-  ctx.save();ctx.lineWidth=2;ctx.strokeStyle='#30203a';ctx.fillStyle='#f7f0dc';ctx.beginPath();ctx.ellipse(x,y,10,4,0,0,Math.PI*2);ctx.fill();ctx.stroke();
-  ctx.fillStyle='#ed7451';ctx.fillRect(x-5,y-5,10,4);ctx.fillStyle='#7fc36a';ctx.fillRect(x+1,y-7,4,3);
+  ctx.save();ctx.lineWidth=2;ctx.strokeStyle='#30203a';ctx.fillStyle='#f7f0dc';ctx.beginPath();ctx.ellipse(x,y+5,12,4,0,0,Math.PI*2);ctx.fill();ctx.stroke();
+  drawDishThumbnail(plate.dish,x,y-2,18);
   if(age<.65){ctx.fillStyle='#ffe777';ctx.fillRect(x-15,y-12,3,3);ctx.fillRect(x+13,y-15,3,3);}
-  ctx.strokeStyle='#ffffffaa';ctx.beginPath();ctx.moveTo(x-3,y-9);ctx.lineTo(x-5,y-14);ctx.moveTo(x+3,y-9);ctx.lineTo(x+5,y-15);ctx.stroke();ctx.restore();
+  drawDishFx(dishById(plate.dish),x,y-2,w.time);ctx.restore();
 }
 
 function drawCarry(c,x,y,behind){
   const side=c.facing==='right'?13:c.facing==='left'?-13:0;
   const trayY=y+(c.facing==='up'?-36:-25)+(Math.floor(c.animTime*8)%2?-1:0);
   const trayX=x+side;ctx.save();ctx.lineWidth=2;ctx.strokeStyle='#291c34';ctx.fillStyle='#70483f';ctx.fillRect(trayX-11,trayY,22,5);ctx.strokeRect(trayX-11,trayY,22,5);
-  ctx.fillStyle='#fff2d1';ctx.beginPath();ctx.ellipse(trayX,trayY-2,8,3,0,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#ef7252';ctx.fillRect(trayX-4,trayY-6,8,3);
-  if(!behind){ctx.strokeStyle='#ffffffbb';ctx.beginPath();ctx.moveTo(trayX-3,trayY-8);ctx.lineTo(trayX-5,trayY-13);ctx.moveTo(trayX+3,trayY-8);ctx.lineTo(trayX+5,trayY-14);ctx.stroke();}
+  drawDishThumbnail(c.carry.dish,trayX,trayY-5,16);
+  if(!behind)drawDishFx(dishById(c.carry.dish),trayX,trayY-5,c.animTime);
   ctx.restore();
 }
 
@@ -847,7 +980,8 @@ function drawFuHuaScoldFx(c,x,y){
   ctx.strokeStyle='#fff1b5';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(bookX+10,bookY-11-(tap?0:3));ctx.lineTo(bookX+14,bookY-15-(tap?0:3));ctx.moveTo(bookX+12,bookY-5);ctx.lineTo(bookX+17,bookY-6);ctx.stroke();ctx.restore();
 }
 
-function drawBubble(c,text){const x=Math.round(c.px),y=Math.round(c.py)-66;ctx.font='bold 8px ui-monospace';const width=ctx.measureText(text).width+10;ctx.fillStyle='#fff';ctx.fillRect(x-width/2,y-9,width,14);ctx.fillStyle='#21182e';ctx.textAlign='center';ctx.fillText(text,x,y+1);}
+function drawBubble(c,text){const x=Math.round(c.px),y=Math.round(c.py)-68;ctx.font='bold 10px ui-monospace';const width=ctx.measureText(text).width+12;ctx.fillStyle='#fff';ctx.fillRect(x-width/2,y-11,width,17);ctx.fillStyle='#21182e';ctx.textAlign='center';ctx.fillText(text,x,y+2);}
+function drawOrderBubble(c){const x=Math.round(c.px),y=Math.round(c.py)-76;ctx.save();ctx.fillStyle='#fff8e8';ctx.strokeStyle='#4b3046';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,16,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#fff8e8';ctx.fillRect(x-2,y+14,5,6);drawDishThumbnail(c.order,x,y,24);ctx.restore();}
 function drawFloorItem(i){const x=i.tile[0]*TILE+16,y=i.tile[1]*TILE+24;ctx.fillStyle=i.type==='graffiti'?'#ef485f':'#c9b071';ctx.fillRect(x-7,y-7,14,10);ctx.strokeStyle='#21182e';ctx.strokeRect(x-7,y-7,14,10);}
 function drawDecor(d){const [fw,fh]=d.footprint||[1,1],x=d.tile[0]*TILE+fw*TILE/2,y=(d.tile[1]+fh)*TILE-4,art=environmentImages[d.assetKey];if(art){const [w,h]=d.draw||[42,42];ctx.save();if(decorPlacementState.dragId===d.id)ctx.globalAlpha=.62;ctx.drawImage(art,x-w/2,y-h,w,h);ctx.restore();return;}ctx.fillStyle=d.kind==='zen'?'#62d8c6':'#f05a68';ctx.fillRect(x-10,y-22,20,22);ctx.strokeStyle='#21182e';ctx.strokeRect(x-10,y-22,20,22);}
 function drawRain(w){if(w.level!=='lv1')return;ctx.strokeStyle='#a8d8e955';ctx.lineWidth=1;const offset=(w.time*80)%32;for(let x=10;x<640;x+=29)for(let y=-20;y<416;y+=64){ctx.beginPath();ctx.moveTo(x,y+offset);ctx.lineTo(x-4,y+offset+9);ctx.stroke();}}
@@ -908,21 +1042,45 @@ function renderUI(){
 function frame(now){
   const raw=Math.min(.1,(now-lastFrame)/1000);lastFrame=now;accumulator+=raw*(world?.speed||1);
   while(world&&accumulator>=FIXED_STEP){if(activePhase==='evening')world.update(FIXED_STEP);accumulator-=FIXED_STEP;}
+  if(world&&activePhase==='evening'&&!world.running&&!phaseState.rushEnded)showRushSummary();
   if(world){drawWorld(world);renderUI();centerSelectedCharacter();}requestAnimationFrame(frame);
 }
 
-function currentAssignments(){return {reception:ui['reception-select']?.value||'rozaliya',server:ui['server-select']?.value||'liliya',chef:ui['chef-select']?.value||'kiana',cleaner:ui['cleaner-select']?.value||'griseo'};}
+function assignmentsForRoom(roomId=roomState.active){
+  const state=assignmentState[roomId]||assignmentState.room1;
+  for(const role of ['reception','server','chef','cleaner']){
+    const available=STAFF_BY_ROLE[role].filter(id=>id!=='veliona'&&gachaState.owned.has(id));
+    state[role]=Array.from({length:staffSlotState[role]},(_,index)=>state[role]?.[index]||available.find(id=>!state[role]?.includes(id))||'');
+  }
+  return state;
+}
+function currentAssignments(){const state=assignmentsForRoom();return Object.fromEntries(Object.entries(state).map(([role,ids])=>[role,ids.filter(Boolean)]));}
+function renderAssignments(){
+  if(!ui['assignment-grid'])return;
+  const state=assignmentsForRoom(),roomName=ROOM_CONFIG[roomState.active]?.name||'Gian hiện tại';
+  ui['assignment-grid'].innerHTML=['reception','server','chef','cleaner'].flatMap(role=>Array.from({length:staffSlotState[role]},(_,index)=>{
+    const selected=state[role][index]||'',locked=world?.level==='lv1'&&['chef','cleaner'].includes(role);
+    const candidates=[...new Set([...STAFF_BY_ROLE[role].filter(id=>id!=='veliona'&&gachaState.owned.has(id)),...state[role].filter(Boolean)])];
+    const options=candidates.map(id=>`<option value="${id}" ${id===selected?'selected':''} ${state[role].some((chosen,slot)=>slot!==index&&chosen===id)?'disabled':''}>${GACHA_POOL.find(card=>card.id===id)?.name||STAFF[id]?.name||id}</option>`).join('');
+    return `<label class="assignment ${locked?'is-locked':''}"><span>${ROLE_LABEL[role]} ${index+1}</span><small>${roomName}${locked?' · mở từ Lv.2':''}</small><select class="staff-assignment" data-assignment-role="${role}" data-assignment-slot="${index}" ${locked?'disabled':''}>${selected?'':'<option value="">Chưa có nhân viên</option>'}${options}</select></label>`;
+  })).join('');
+}
+async function updateAssignment(role,index,id){
+  const state=assignmentsForRoom();if(!state[role]||!STAFF_BY_ROLE[role]?.includes(id))return false;
+  if(state[role].some((chosen,slot)=>slot!==index&&chosen===id)){showToast('Mỗi nhân viên chỉ đứng một vị trí trong cùng gian.');renderAssignments();return false;}
+  state[role][index]=id;await start(world.level,{roomId:world.roomId,speed:world.speed,running:world.running});renderAssignments();showToast(`${ROLE_LABEL[role]} ${index+1}: ${STAFF[id]?.name||id}.`);return true;
+}
 async function start(level='lv1',options={}){
   const roomId=options.roomId||roomIdForLevel(level);
-  world=new World(await loadMap(level),{...options,roomId,assignments:options.assignments||currentAssignments()});
+  world=new World(await loadMap(level),{...options,roomId,assignments:options.assignments||assignmentsForRoom(roomId)});
   roomState.active=roomId;roomState.worlds[roomId]=world;rosterRenderKey='';window.__TAIXUAN_WORLD__=world;
-  renderDecorShop();renderTableShop();renderStaffSlots();renderUpgradePanel();requestAnimationFrame(()=>centerSelectedCharacter(true));
+  renderDecorShop();renderTableShop();renderStaffSlots();renderAssignments();renderUpgradePanel();requestAnimationFrame(()=>centerSelectedCharacter(true));
 }
 async function switchRoom(roomId,{debug=false}={}){
   if(!ROOM_CONFIG[roomId])return false;
   if(!debug&&!roomState.unlocked.has(roomId)){showToast('Gian 2 đang khóa. Cần đủ 10.000 Xu và 50 Sắt Arc City để mở.');return false;}
   const cached=roomState.worlds[roomId];
-  if(cached){world=cached;world.coins=economyState.coins;roomState.active=roomId;rosterRenderKey='';window.__TAIXUAN_WORLD__=world;renderDecorShop();renderTableShop();renderStaffSlots();renderUpgradePanel();requestAnimationFrame(()=>centerSelectedCharacter(true));return true;}
+  if(cached){world=cached;world.coins=economyState.coins;roomState.active=roomId;rosterRenderKey='';window.__TAIXUAN_WORLD__=world;renderDecorShop();renderTableShop();renderStaffSlots();renderAssignments();renderUpgradePanel();requestAnimationFrame(()=>centerSelectedCharacter(true));return true;}
   await start(ROOM_CONFIG[roomId].mapId,{roomId,speed:world?.speed||1});return true;
 }
 function showToast(message){ui.toast.textContent=message;ui.toast.classList.add('show');clearTimeout(toastClock);toastClock=setTimeout(()=>ui.toast.classList.remove('show'),1800);}
@@ -943,7 +1101,7 @@ function pullGachaCard(){
   const candidates=GACHA_POOL.filter(card=>card.rank===rank);
   const card=candidates[Math.floor(seeded()*candidates.length)];
   const duplicate=gachaState.owned.has(card.id);
-  if(duplicate)gachaState.shards[card.id]=(gachaState.shards[card.id]||0)+1;else{gachaState.owned.add(card.id);world?.fillOpenStaffSlots();renderStaffSlots();}
+  if(duplicate)gachaState.shards[card.id]=(gachaState.shards[card.id]||0)+1;else{gachaState.owned.add(card.id);world?.fillOpenStaffSlots();renderStaffSlots();renderAssignments();}
   return {...card,duplicate};
 }
 
@@ -954,23 +1112,125 @@ function renderGachaStatus(){
     const shards=Object.values(gachaState.shards).reduce((sum,value)=>sum+value,0);
     ui['gacha-collection'].innerHTML=`<span>Bộ sưu tập nhân sự</span><b>${gachaState.owned.size}/${GACHA_POOL.length}</b><span>✦ Mảnh ${shards}</span>`;
   }
-  if(ui['staff-codex'])ui['staff-codex'].innerHTML=GACHA_POOL.map(card=>`<button class="staff-codex-card rank-${card.rank}" data-codex-id="${card.id}"><span style="background-image:url('${card.art}')"></span><b>${card.name}</b><small>${card.role}</small><em>${card.rank}</em></button>`).join('');
-  renderStaffDorm();
+  if(ui['staff-codex'])ui['staff-codex'].innerHTML=GACHA_POOL.map(card=>`<button class="staff-codex-card rank-${card.rank} ${card.id===selectedSkillId?'is-selected':''}" data-codex-id="${card.id}"><span style="background-image:url('${card.art}')"></span><b>${card.name}</b><small>${card.role}</small><strong>XEM SKILL</strong><em>${card.rank}</em></button>`).join('');
+  renderStaffSkill(selectedSkillId);renderStaffDorm();
 }
 
+function renderStaffSkill(id){
+  const card=GACHA_POOL.find(entry=>entry.id===id)||GACHA_POOL[0];selectedSkillId=card.id;
+  if(!ui['staff-skill-panel'])return;
+  const owned=gachaState.owned.has(card.id),training=gachaState.training[card.id]||0;
+  ui['staff-skill-panel'].className=`staff-skill-panel rank-${card.rank}`;
+  ui['staff-skill-panel'].innerHTML=`<div class="staff-skill-art" style="background-image:url('${card.art}')"><em>${card.rank}</em></div><div class="staff-skill-copy"><span>${card.role} · ${owned?'ĐÃ CHIÊU MỘ':'CHƯA SỞ HỮU'}</span><h3>${card.name}</h3><div class="staff-skill-stats"><b>Tốc độ ${card.speed}</b><b>Hiệu suất ${card.work}</b><b>Bậc ${training}</b></div><strong>KỸ NĂNG</strong><p>${card.skill}</p><strong>ĐẶC TÍNH / TẬT XẤU</strong><p>${card.quirk}</p></div>`;
+  document.querySelectorAll('[data-codex-id]').forEach(el=>el.classList.toggle('is-selected',el.dataset.codexId===card.id));
+}
+
+function renderRecipeBook(){
+  if(!ui['recipe-book-grid']||!ui['recipe-lab'])return;
+  if(ui['recipe-progress'])ui['recipe-progress'].textContent=`${recipeState.unlocked.size}/${DISH_CATALOG.length}`;
+  const selected=[...recipeState.selected];
+  ui['recipe-lab'].innerHTML=`<div class="recipe-lab-title"><div><span>NGHIÊN CỨU MÙ · MÓN 1–3★</span><b>Bàn thử nguyên liệu</b></div><small>${selected.length}/3 nguyên liệu</small></div><div class="recipe-ingredient-grid">${RECIPE_INGREDIENTS.map(name=>`<button type="button" class="${recipeState.selected.has(name)?'is-selected':''}" data-recipe-ingredient="${encodeURIComponent(name)}"><span>${name}</span><b>Kho ×${phaseState.stock[name]||0}</b></button>`).join('')}</div><p>${recipeState.lastResult}</p><div class="recipe-lab-actions"><button type="button" data-recipe-reset ${selected.length?'':'disabled'}>BỎ NGUYÊN LIỆU</button><button type="button" data-recipe-research ${selected.length?'':'disabled'}>NẤU THỬ 1 BỘ</button>${TEST_MODE||PREP_DEMO_MODE?'<button type="button" class="recipe-test" data-test-recipe-fragment>TEST · NHẶT MẢNH BOSS</button>':''}</div>`;
+  ui['recipe-book-grid'].innerHTML=DISH_CATALOG.map(dish=>{
+    const unlocked=isRecipeUnlocked(dish.id),outcome=OUTCOME_ONLY_DISHES.has(dish.id),hasFragment=recipeState.fragments.has(dish.id),fragmentRoute=FRAGMENT_DISHES.includes(dish.id);
+    const stateLabel=unlocked?'ĐÃ HỌC':outcome?'MÓN KẾT QUẢ':fragmentRoute?(hasFragment?'ĐÃ CÓ MẢNH':'CẦN MẢNH CÔNG THỨC'):'CHƯA NGHIÊN CỨU';
+    const source=unlocked?`${dish.ingredients.join(' + ')||'Sinh ra từ kết quả nấu'}`:outcome?(dish.id==='burnt-congee'?'Nấu cháy để phát hiện':'Thử sai nguyên liệu để phát hiện'):fragmentRoute?'Boss · NPC ẩn · VIP · thành tựu':'Thử nghiệm mù đúng bộ nguyên liệu';
+    const action=!unlocked&&fragmentRoute&&hasFragment?`<button type="button" data-unlock-recipe="${dish.id}">GIẢI MÃ MẢNH</button>`:'';
+    const name=unlocked||fragmentRoute||outcome?dish.name:'Công thức chưa biết';
+    return `<article class="recipe-card ${unlocked?'is-unlocked':'is-locked'} ${hasFragment?'has-fragment':''}"><div class="recipe-card-art"><img src="${dish.asset}" alt="${name}"><em>${'★'.repeat(dish.stars)}</em></div><div><span>${stateLabel}</span><b>${name}</b><small>${source}</small>${unlocked?`<strong>${dish.price.toLocaleString('vi-VN')} Xu · ${dish.system}</strong>`:''}${action}</div></article>`;
+  }).join('');
+}
+
+function toggleRecipeIngredient(name){
+  if(!RECIPE_INGREDIENTS.includes(name))return;
+  if(recipeState.selected.has(name))recipeState.selected.delete(name);
+  else if(recipeState.selected.size>=3){showToast('Bàn nghiên cứu chỉ nhận tối đa 3 nguyên liệu.');return;}
+  else recipeState.selected.add(name);
+  renderRecipeBook();
+}
+
+function researchRecipe(){
+  const selected=[...recipeState.selected];
+  if(!selected.length){showToast('Chọn nguyên liệu để thử nghiệm trước.');return false;}
+  const missing=selected.filter(name=>(phaseState.stock[name]||0)<1);
+  if(missing.length){showToast(`Kho thiếu: ${missing.join(', ')}.`);return false;}
+  selected.forEach(name=>phaseState.stock[name]--);
+  const signature=recipeSignature(selected);
+  const match=RESEARCH_DISHES.map(dishById).find(dish=>!isRecipeUnlocked(dish.id)&&recipeSignature(dish.ingredients)===signature);
+  recipeState.selected.clear();
+  if(match){
+    recipeState.unlocked.add(match.id);
+    recipeState.lastResult=`✨ Thành công! Đã ghi ${match.name} vào Sổ Công Thức.`;
+    showToast(`MỞ CÔNG THỨC: ${match.name}. Từ giờ có thể chọn món này vào kế hoạch nấu.`);
+  }else{
+    recipeState.unlocked.add('quantum-waste');
+    recipeState.lastResult='Thử nghiệm sai: tạo Chất Thải Lượng Tử. Nguyên liệu đã dùng không hoàn lại.';
+    showToast('Sai công thức · đã phát hiện Chất Thải Lượng Tử.');
+  }
+  renderRecipeBook();
+  if(activePhase==='afternoon'&&!phaseState.planLocked)renderPhaseScreen();
+  return Boolean(match);
+}
+
+function grantNextRecipeFragmentForTest(){
+  if(!(TEST_MODE||PREP_DEMO_MODE))return false;
+  const id=FRAGMENT_DISHES.find(recipeId=>!isRecipeUnlocked(recipeId)&&!recipeState.fragments.has(recipeId));
+  if(!id){showToast('Đã có đủ Mảnh Công Thức 4–5★ để duyệt.');return false;}
+  recipeState.fragments.add(id);recipeState.lastResult=`Boss thử nghiệm rơi Mảnh Công Thức: ${dishById(id).name}.`;
+  renderRecipeBook();showToast(`Nhặt được Mảnh Công Thức: ${dishById(id).name}.`);return id;
+}
+
+function unlockRecipeByFragment(id){
+  if(!FRAGMENT_DISHES.includes(id)||!recipeState.fragments.has(id)||isRecipeUnlocked(id))return false;
+  recipeState.fragments.delete(id);recipeState.unlocked.add(id);recipeState.lastResult=`Đã giải mã và học ${dishById(id).name}.`;
+  renderRecipeBook();showToast(`MỞ CÔNG THỨC: ${dishById(id).name}.`);
+  if(activePhase==='afternoon'&&!phaseState.planLocked)renderPhaseScreen();
+  return true;
+}
+
+function renderDormRoom(){
+  if(!ui['dorm-room'])return;
+  const coreResidents=['fuhua','senti'].map(id=>({id,name:STAFF[id].name,asset:STAFF[id].asset,special:true}));
+  const regularResidents=GACHA_POOL.filter(card=>gachaState.owned.has(card.id)&&STAFF[card.id]).slice(0,8).map(card=>({id:card.id,name:card.name,asset:STAFF[card.id].asset,special:false}));
+  const decorForFloor=floor=>`<div class="dorm-floor-decor" aria-label="Trang trí tầng ${floor}">${[...(dormState.decorByFloor[floor]||new Set())].map(id=>`<i class="dorm-item dorm-${id}" aria-label="${id}"></i>`).join('')}</div>`;
+  const residentButton=(resident,index,shared=false)=>`<button class="dorm-pixel-resident ${shared?'is-roommate':''} ${resident.id==='fuhua'?'has-reversed-sheet':''} walk-${index%3}" data-dorm-skill="${resident.id}" style="--walk-delay:-${(index*.73).toFixed(2)}s" aria-label="${resident.name} đang đi trong phòng"><span class="dorm-pixel-sprite" style="background-image:url('${resident.asset}')"></span><b>${resident.name}</b></button>`;
+  const regularRoom=(resident,index)=>`<article class="dorm-unit ${resident?'is-occupied':'is-empty'}"><span class="dorm-room-number">P.${String(index+1).padStart(2,'0')}</span><i class="dorm-unit-window"></i><i class="dorm-unit-bed"></i>${resident?residentButton(resident,index):'<em>PHÒNG TRỐNG</em>'}</article>`;
+  const floors=[regularResidents.slice(0,4),regularResidents.slice(4,8)];
+  ui['dorm-room'].dataset.theme=dormState.theme;
+  ui['dorm-room'].innerHTML=`<div class="dorm-building-head"><div><b>KTX THÁI HƯ</b><span>3 TẦNG · TỐI ĐA 10 CƯ DÂN</span></div><strong>${regularResidents.length+2}/10</strong></div><section class="dorm-floor dorm-floor-special ${dormState.activeFloor===3?'is-editing':''}" data-dorm-floor-panel="3"><div class="dorm-floor-label"><b>TẦNG 3</b><span>PHÒNG ĐÔI HUA–SENTI</span></div><article class="dorm-unit dorm-unit-shared"><span class="dorm-room-number">P.HS</span><i class="dorm-unit-window"></i><i class="dorm-unit-bed dorm-unit-bed-left"></i><i class="dorm-unit-bed dorm-unit-bed-right"></i>${decorForFloor(3)}<div class="dorm-roommates">${coreResidents.map((resident,index)=>residentButton(resident,index,true)).join('')}</div></article></section>${floors.map((floor,floorIndex)=>{const floorNumber=2-floorIndex;return `<section class="dorm-floor ${dormState.activeFloor===floorNumber?'is-editing':''}" data-dorm-floor-panel="${floorNumber}"><div class="dorm-floor-label"><b>TẦNG ${floorNumber}</b><span>${floor.filter(Boolean).length}/4 PHÒNG ĐÃ DÙNG</span></div><div class="dorm-floor-rooms">${Array.from({length:4},(_,roomIndex)=>regularRoom(floor[roomIndex],floorIndex*4+roomIndex)).join('')}</div>${decorForFloor(floorNumber)}</section>`;}).join('')}<i class="dorm-elevator" aria-label="Thang máy">↕</i>`;
+  document.querySelectorAll('[data-dorm-floor]').forEach(button=>{const active=Number(button.dataset.dormFloor)===dormState.activeFloor;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+  const activeDecor=dormState.decorByFloor[dormState.activeFloor];
+  document.querySelectorAll('[data-dorm-decor]').forEach(button=>{const active=activeDecor.has(button.dataset.dormDecor);button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+  if(ui['dorm-decor-status'])ui['dorm-decor-status'].textContent=`Đang chỉnh Tầng ${dormState.activeFloor} · ${activeDecor.size} vật phẩm đã đặt`;
+}
+function toggleDormDecor(id){
+  if(!['plant','lamp','rug','sofa'].includes(id))return;
+  const floor=dormState.activeFloor,set=dormState.decorByFloor[floor];
+  if(set.has(id))set.delete(id);else set.add(id);
+  renderDormRoom();showToast(`${set.has(id)?'Đã đặt':'Đã cất'} ${id.toUpperCase()} ở Tầng ${floor}.`);
+}
+function selectDormFloor(floor){
+  const next=Number(floor);if(![1,2,3].includes(next))return;
+  dormState.activeFloor=next;renderDormRoom();
+  ui['dorm-room']?.querySelector(`[data-dorm-floor-panel="${next}"]`)?.scrollIntoView({behavior:'smooth',block:'center'});
+  showToast(`Đang chỉnh nội thất Tầng ${next}.`);
+}
 function renderStaffDorm(){
   if(!ui['staff-dorm-list'])return;
+  renderDormRoom();
   const owned=GACHA_POOL.filter(card=>gachaState.owned.has(card.id));
   if(!owned.length){ui['staff-dorm-list'].innerHTML='<div class="empty-state">Chưa có nhân viên để vào KTX.</div>';return;}
   ui['staff-dorm-list'].innerHTML=owned.map(card=>{
     const shards=gachaState.shards[card.id]||0,training=gachaState.training[card.id]||0;
-    return `<article class="staff-dorm-card rank-${card.rank}" data-dorm-id="${card.id}"><div class="staff-dorm-art" style="background-image:url('${card.art}')"><em>${card.rank}</em></div><div class="staff-dorm-copy"><span>${card.role}</span><b>${card.name}</b><small>${card.skill}</small><p><i>✦ Mảnh ${shards}</i><strong>Bậc thử ${training}</strong></p>${training?'<small class="staff-dorm-bonus">Kỹ năng ↑ · Tật xấu ↓ (xem trước)</small>':''}</div><button data-staff-train="${card.id}">NÂNG THỬ</button></article>`;
+    const rankLabel=TEST_MODE?`Bậc thử ${training}`:`Bậc ${training}`;
+    const trainLabel=TEST_MODE?'NÂNG THỬ':'CHƯA CÓ ĐỊNH MỨC';
+    return `<article class="staff-dorm-card rank-${card.rank}" data-dorm-id="${card.id}"><div class="staff-dorm-art" style="background-image:url('${card.art}')"><em>${card.rank}</em></div><div class="staff-dorm-copy"><span>${card.role}</span><b>${card.name}</b><small>${card.skill}</small><p><i>✦ Mảnh ${shards}</i><strong>${rankLabel}</strong></p>${training?'<small class="staff-dorm-bonus">Kỹ năng ↑ · Tật xấu ↓</small>':''}</div><button data-staff-train="${card.id}" ${TEST_MODE?'':'disabled'}>${trainLabel}</button></article>`;
   }).join('');
 }
 
 function previewTrainStaff(id){
   const card=GACHA_POOL.find(entry=>entry.id===id);
   if(!card||!gachaState.owned.has(id)){showToast('Cần chiêu mộ nhân viên trước khi vào KTX.');return false;}
+  if(!TEST_MODE){showToast('Định mức Mảnh Đột Phá cho mỗi bậc đang chờ chốt.');return false;}
   gachaState.training[id]=(gachaState.training[id]||0)+1;
   renderStaffDorm();
   showToast(`${card.name}: Bậc thử +1 · chưa trừ Mảnh vì ngưỡng chưa chốt.`);
@@ -987,6 +1247,43 @@ function setStaffMode(mode){
   if(mode==='dorm')renderStaffDorm();
 }
 
+function openDormScreen(){
+  if(!ui['dorm-modal'])return;
+  renderStaffDorm();
+  ui['dorm-modal'].hidden=false;
+  document.body.classList.add('dorm-open');
+}
+function closeDormScreen(){
+  if(!ui['dorm-modal'])return;
+  ui['dorm-modal'].hidden=true;
+  document.body.classList.remove('dorm-open');
+}
+
+function renderVipSystem(){
+  if(!ui['vip-list']||!ui['vip-event'])return;
+  const unlocked=economyState.unlockedLv2||TEST_MODE;
+  ui['vip-list'].innerHTML=VIP_CATALOG.map(vip=>`<article class="vip-card tone-${vip.tone} ${vipState.active===vip.id?'is-active':''}"><div class="vip-art" style="background-image:url('${vip.art}')"></div><div><span>${vip.title}</span><h3>${vip.name}</h3><small>Yêu cầu: ${dishById(vip.dish).name}</small><p>${vip.issue}</p><b>${vip.reward}</b></div><button data-vip-start="${vip.id}" ${!unlocked?'disabled':''}>${vipState.active===vip.id?'EVENT ĐANG CHẠY':'TEST EVENT'}</button></article>`).join('');
+  if(ui['vip-status'])ui['vip-status'].textContent=unlocked?(vipState.active?'EVENT ĐANG CHẠY':'SẴN SÀNG TEST'):'CẦN MỞ GIAN 2';
+  const vip=VIP_CATALOG.find(entry=>entry.id===vipState.active);
+  if(!vip){ui['vip-event'].innerHTML=`<div class="vip-event-empty"><b>Chưa chọn VIP</b><p>Mở Gian 2 rồi chọn TEST EVENT để xem chuỗi tình huống, món yêu cầu và phần thưởng.</p></div>`;return;}
+  if(vipState.stage===1)ui['vip-event'].innerHTML=`<div class="vip-event-scene"><span style="background-image:url('${vip.art}')"></span><div><small>BƯỚC 1/2 · VIP ĐẾN QUÁN</small><h3>${vip.name} đang đợi ở sảnh</h3><p>Lễ tân cần ưu tiên dẫn VIP vào bàn sạch.</p><button data-vip-action="seat">ĐÓN VIP VÀO BÀN →</button></div></div>`;
+  else if(vipState.stage===2)ui['vip-event'].innerHTML=`<div class="vip-event-scene"><span style="background-image:url('${dishById(vip.dish).asset}')"></span><div><small>BƯỚC 2/2 · YÊU CẦU ĐẶC BIỆT</small><h3>${dishById(vip.dish).name}</h3><p>${vip.issue}</p><div class="vip-actions"><button data-vip-action="serve">PHỤC VỤ ĐÚNG MÓN</button><button data-vip-action="senti">CHO SENTI XỬ LÝ</button></div></div></div>`;
+  else ui['vip-event'].innerHTML=`<div class="vip-event-complete"><b>★ EVENT HOÀN TẤT</b><h3>${vip.name} hài lòng</h3><p>Nhận ${vip.reward}. Event đã lưu vào lịch sử test.</p><button data-vip-action="reset">TEST VIP KHÁC</button></div>`;
+}
+function startVipEvent(id){
+  if(!VIP_CATALOG.some(vip=>vip.id===id))return false;
+  if(!economyState.unlockedLv2&&!TEST_MODE){showToast('Khách VIP mở sau khi khai trương Gian 2.');return false;}
+  vipState.active=id;vipState.stage=1;renderVipSystem();showToast(`VIP ${VIP_CATALOG.find(vip=>vip.id===id).name} đã tới sảnh chờ.`);return true;
+}
+function handleVipAction(action){
+  const vip=VIP_CATALOG.find(entry=>entry.id===vipState.active);if(!vip)return;
+  if(action==='seat'){vipState.stage=2;renderVipSystem();showToast(`${vip.name} đã vào bàn VIP.`);return;}
+  if(action==='serve'||action==='senti'){
+    vipState.stage=3;vipState.history.push({id:vip.id,action,day:phaseState.day});economyState.coins+=action==='serve'?800:500;if(world){world.coins=economyState.coins;world.atmosphere=clamp(world.atmosphere+(vip.tone==='zen'?30:vip.tone==='yatta'?40:15),-100,100);}if(FRAGMENT_DISHES.includes(vip.dish)&&!isRecipeUnlocked(vip.dish))recipeState.fragments.add(vip.dish);renderVipSystem();renderRecipeBook();renderUI();showToast(`${vip.name}: event hoàn tất · đã nhận thưởng test.`);return;
+  }
+  if(action==='reset'){vipState.active=null;vipState.stage=0;renderVipSystem();}
+}
+
 function renderUpgradePanel(){
   if(ui['restaurant-upgrade'])ui['restaurant-upgrade'].textContent=restaurantUpgradeBusy?'ĐANG MỞ GIAN…':economyState.unlockedLv2?'VÀO GIAN 2':'MỞ GIAN 2';
   const roomId=world?.roomId||roomState.active,state=upgradesForRoom(roomId),config=ROOM_CONFIG[roomId]||ROOM_CONFIG.room1;
@@ -1000,7 +1297,11 @@ function renderUpgradePanel(){
       ['kitchen','♨','Khu bếp',`Nâng hình bếp; số trạm vẫn theo cấp gian (${config.kitchens})`],
       ['waiting','♧','Sảnh chờ','Thêm khu ghế chờ riêng cho khách của gian này']
     ];
-    ui['room-upgrade-list'].innerHTML=items.map(([id,icon,name,copy])=>`<article class="room-upgrade-item ${state[id]?'is-upgraded':''}"><span>${icon}</span><div><b>${name}</b><small>${copy}</small></div><button data-room-upgrade="${id}" ${state[id]?'disabled':''}>${state[id]?'ĐÃ NÂNG':'NÂNG THỬ'}</button></article>`).join('');
+    ui['room-upgrade-list'].innerHTML=items.map(([id,icon,name,copy])=>{
+      const disabled=state[id]||!TEST_MODE;
+      const label=state[id]?'ĐÃ NÂNG':TEST_MODE?'NÂNG THỬ':'CHƯA CÓ GIÁ';
+      return `<article class="room-upgrade-item ${state[id]?'is-upgraded':''}"><span>${icon}</span><div><b>${name}</b><small>${copy}</small></div><button data-room-upgrade="${id}" ${disabled?'disabled':''}>${label}</button></article>`;
+    }).join('');
   }
   renderRoomNavigation();
 }
@@ -1046,12 +1347,14 @@ async function enterFullResourceRoom2(){
     const capacity=level==='lv2'?ROOM_CONFIG.room2.tables:ROOM_CONFIG.room1.tables;
     for(const style of TABLE_CATALOG)state.owned[style.id]=Math.max(state.owned[style.id]||0,capacity);
   }
+  for(const dish of DISH_CATALOG)for(const ingredient of dish.ingredients)phaseState.stock[ingredient]=99;
+  phaseState.plan={};phaseState.planLocked=false;phaseState.planQueue=[];phaseState.planIndex=0;phaseState.batches=0;phaseState.cookStep=0;phaseState.cookResults=[];phaseState.prepared=0;phaseState.preparedByDish={};phaseState.preparedQualityByDish={};phaseState.rushEnded=false;
   Object.values(roomState.worlds).filter(Boolean).forEach(roomWorld=>roomWorld.coins=economyState.coins);
-  await start('lv2',{roomId:'room2',speed:world?.speed||1});
+  await start('lv2',{roomId:'room2',speed:world?.speed||1,running:false});
   roomState.selectedCharacterId='kiana';roomState.followCharacter=true;rosterRenderKey='';
-  setPhase('evening');renderGachaStatus();renderUpgradePanel();renderDecorShop();renderTableShop();renderStaffSlots();
+  setPhase('afternoon');renderGachaStatus();renderRecipeBook();renderUpgradePanel();renderDecorShop();renderTableShop();renderStaffSlots();
   if(ui['full-test-room2']){ui['full-test-room2'].classList.add('active');ui['full-test-room2'].textContent='✓ GIAN 2 · FULL TÀI NGUYÊN';}
-  showToast('Bản test đã mở Gian 2: 999.999 Xu, 999 Sắt, mở toàn bộ nhân sự và nội thất trong kho.');
+  showToast('Đã mở Gian 2 với kho đầy để thử chọn món, nấu và bấm MỞ QUÁN.');
   return {wallet:{...economyState},room:roomState.active,staff:[...gachaState.owned],decor:[...decorStoreState.owned]};
 }
 
@@ -1061,15 +1364,18 @@ function renderStaffSlots(){
     const max=STAFF_BY_ROLE[role].filter(id=>id!=='veliona').length,capacity=staffSlotState[role];
     const active=world?.characters.filter(c=>c.kind==='staff'&&c.role===role).length||0;
     const locked=world?.level==='lv1'&&['chef','cleaner'].includes(role);
-    return `<article class="staff-slot-row"><div><b>${ROLE_LABEL[role]}</b><small>${locked?'Mở ở Lv.2':`${active}/${capacity} người đang làm`} · tối đa ${max} vị trí</small></div><button data-staff-slot="${role}" ${capacity>=max?'disabled':''}>${capacity>=max?'ĐÃ ĐỦ':`MỞ Ô ${capacity+1}`}</button></article>`;
+    const disabled=capacity>=max||!TEST_MODE;
+    const label=capacity>=max?'ĐÃ ĐỦ':TEST_MODE?`MỞ Ô ${capacity+1}`:'CHƯA CÓ GIÁ';
+    return `<article class="staff-slot-row"><div><b>${ROLE_LABEL[role]}</b><small>${locked?'Mở ở Lv.2':`${active}/${capacity} người đang làm`} · tối đa ${max} vị trí</small></div><button data-staff-slot="${role}" ${disabled?'disabled':''}>${label}</button></article>`;
   }).join('');
 }
 
 function upgradeStaffSlot(role){
   const max=STAFF_BY_ROLE[role]?.filter(id=>id!=='veliona').length||0;
+  if(!TEST_MODE){showToast('Giá mở thêm vị trí nhân viên đang chờ chốt.');return;}
   if(!max||staffSlotState[role]>=max)return;
   staffSlotState[role]++;
-  world.fillOpenStaffSlots();renderStaffSlots();
+  assignmentsForRoom(roomState.active);world.fillOpenStaffSlots();renderStaffSlots();renderAssignments();
   showToast(`Đã mở ${staffSlotState[role]} vị trí ${ROLE_LABEL[role]}. Nhân viên đã chiêu mộ sẽ vào ca.`);
 }
 
@@ -1080,7 +1386,7 @@ function renderTableShop(){
   ui['table-capacity'].textContent=`${world.tables.filter(table=>table.placed).length}/${capacity} bàn đang đặt`;
   ui['table-shop'].innerHTML=TABLE_CATALOG.map(item=>{
     const owned=state.owned[item.id],placed=tablePlacedCount(item.id),stored=owned-placed;
-    return `<article class="table-shop-card" data-table-style="${item.id}"><img src="${ENVIRONMENT_ASSETS[item.tableAssetKey]}" alt="${item.name}"><div class="table-shop-info"><strong>${item.name}</strong><small>CẤP ${item.level} · ${item.description}</small><span>Sở hữu ${owned} · Đang đặt ${placed} · Trong kho ${stored}</span></div><div class="table-shop-actions"><button data-table-action="buy">MUA THỬ</button><button data-table-action="place" ${stored<=0?'disabled':''}>ĐẶT</button><button data-table-action="store" ${placed<=0?'disabled':''}>CẤT 1</button></div></article>`;
+    return `<article class="table-shop-card" data-table-style="${item.id}"><img src="${ENVIRONMENT_ASSETS[item.tableAssetKey]}" alt="${item.name}"><div class="table-shop-info"><strong>${item.name}</strong><small>CẤP ${item.level} · ${item.description}</small><span>Sở hữu ${owned} · Đang đặt ${placed} · Trong kho ${stored}</span></div><div class="table-shop-actions"><button data-table-action="buy" ${TEST_MODE?'':'disabled'}>${TEST_MODE?'MUA THỬ':'CHƯA CÓ GIÁ'}</button><button data-table-action="place" ${stored<=0?'disabled':''}>ĐẶT</button><button data-table-action="store" ${placed<=0?'disabled':''}>CẤT 1</button></div></article>`;
   }).join('');
   ui['table-edit-toggle'].classList.toggle('active',tablePlacementState.active);
   ui['table-edit-toggle'].textContent=tablePlacementState.active?'XONG DI CHUYỂN':'DI CHUYỂN BÀN';
@@ -1088,7 +1394,7 @@ function renderTableShop(){
 
 function tableAction(styleId,action){
   const state=tableStoreState[world.level],style=TABLE_CATALOG.find(item=>item.id===styleId);if(!style)return false;
-  if(action==='buy'){state.owned[styleId]++;showToast(`Đã mua thử ${style.name}.`);renderTableShop();return true;}
+  if(action==='buy'){if(!TEST_MODE){showToast('Giá bàn đang chờ chốt.');return false;}state.owned[styleId]++;showToast(`Đã mua thử ${style.name}.`);renderTableShop();return true;}
   if(action==='store'){
     const table=world.tables.find(item=>item.placed&&item.styleId===styleId&&item.state==='CLEAN'&&!item.reserved&&!world.jobs.some(job=>!job.done&&job.payload.tableId===item.id));
     if(!table){showToast('Bàn đang có khách, bẩn hoặc đang được phục vụ.');return false;}
@@ -1109,6 +1415,7 @@ function tableAction(styleId,action){
 
 function applyUpgrade(type,roomId=world?.roomId||roomState.active){
   const state=upgradesForRoom(roomId);if(!(type in state)||state[type])return false;
+  if(!TEST_MODE){showToast('Chi phí hạng mục nâng cấp này đang chờ chốt.');return false;}
   state[type]=1;renderUpgradePanel();
   const names={floor:'Sàn quán',kitchen:'Khu bếp',waiting:'Sảnh chờ'},roomName=ROOM_CONFIG[roomId]?.name||roomId;
   showToast(`${roomName}: đã nâng thử ${names[type].toLowerCase()}; chưa trừ Xu vì giá chưa chốt.`);
@@ -1121,8 +1428,8 @@ function renderDecorShop(){
   const shown=DECOR_CATALOG.filter(item=>decorFilter==='all'||item.tier===decorFilter||item.kind===decorFilter);
   ui['decor-shop'].innerHTML=shown.map(item=>{
     const owned=decorStoreState.owned.has(item.id),placed=decorStoreState.placed.includes(item.id);
-    const action=placed?'CẤT ĐI':owned?'ĐẶT VÀO QUÁN':item.tier==='rare'?'CHẾ THỬ · 5 MẢNH':'MUA THỬ · 0 XU';
-    return `<article class="decor-shop-card ${placed?'is-placed':''} tier-${item.tier} kind-${item.kind}" data-decor-id="${item.id}"><div class="decor-shop-art" style="background-image:url('${item.art}')"></div><div><span>${item.system}</span>${item.tier==='rare'?'<em>HIẾM</em>':''}<b>${item.name}</b><small>${item.effect}</small></div><button>${action}</button></article>`;
+    const action=placed?'CẤT ĐI':owned?'ĐẶT VÀO QUÁN':TEST_MODE?(item.tier==='rare'?'CHẾ THỬ · 5 MẢNH':'MUA THỬ · 0 XU'):'CHƯA CÓ GIÁ';
+    return `<article class="decor-shop-card ${placed?'is-placed':''} tier-${item.tier} kind-${item.kind}" data-decor-id="${item.id}"><div class="decor-shop-art" style="background-image:url('${item.art}')"></div><div><span>${item.system}</span>${item.tier==='rare'?'<em>HIẾM</em>':''}<b>${item.name}</b><small>${item.effect}</small></div><button ${!owned&&!TEST_MODE?'disabled':''}>${action}</button></article>`;
   }).join('');
   if(ui['decor-capacity'])ui['decor-capacity'].textContent=`${decorStoreState.placed.length}/${capacity} món đang đặt`;
   if(ui['decor-edit-toggle']){ui['decor-edit-toggle'].classList.toggle('active',decorPlacementState.active);ui['decor-edit-toggle'].textContent=decorPlacementState.active?'XONG BỐ TRÍ':'TỰ CHỈNH VỊ TRÍ';}
@@ -1130,7 +1437,7 @@ function renderDecorShop(){
 
 function toggleDecorItem(id){
   const item=DECOR_CATALOG.find(entry=>entry.id===id);if(!item)return;
-  if(!decorStoreState.owned.has(id)){decorStoreState.owned.add(id);showToast(item.tier==='rare'?`Đã chế thử ${item.name}.`:`Đã mua thử ${item.name}.`);}
+  if(!decorStoreState.owned.has(id)){if(!TEST_MODE){showToast('Giá nội thất đang chờ chốt.');return;}decorStoreState.owned.add(id);showToast(item.tier==='rare'?`Đã chế thử ${item.name}.`:`Đã mua thử ${item.name}.`);}
   else if(decorStoreState.placed.includes(id)){decorStoreState.placed=decorStoreState.placed.filter(entry=>entry!==id);delete decorStoreState.tiles[world.level][id];showToast(`Đã cất ${item.name}.`);}
   else{
     const capacity=world.map.decorSlots.length;if(decorStoreState.placed.length>=capacity){showToast(`Quán chỉ còn ${capacity} ô trang trí.`);return;}
@@ -1180,14 +1487,27 @@ function endTableDrag(event){
 
 function gachaCardTemplate(card,index){
   const art=card.art?`<div class="gacha-card-art" style="background-image:url('${card.art}')"></div>`:`<div class="gacha-card-fallback">${card.name.slice(0,1)}</div>`;
-  return `<article class="gacha-result-card rank-${card.rank}" tabindex="0" data-gacha-id="${card.id}" style="--delay:${index*.05}s"><i class="gacha-beam"></i>${card.duplicate?'':`<span class="gacha-new">NEW</span>`}${art}<div class="gacha-card-copy"><b>${card.name}</b><small>${card.role}</small><strong class="gacha-rank-hero">${card.rank}</strong><small class="gacha-skill-line">${card.skill}</small><small class="${card.duplicate?'gacha-duplicate':''}">${card.duplicate?'Trùng → +1 Mảnh Đột Phá':'Đã vào bộ sưu tập'}</small></div></article>`;
+  const starCount={A:3,S:4,SR:5,SSR:6}[card.rank]||3;
+  return `<article class="gacha-result-card rank-${card.rank}" role="button" aria-label="Xem thông tin ${card.name}" tabindex="0" data-gacha-id="${card.id}" style="--delay:${index*.065}s"><i class="gacha-beam"></i><i class="gacha-card-sigil">✦</i>${card.duplicate?'':`<span class="gacha-new">NEW</span>`}<span class="gacha-rank-ribbon">${card.rank}</span>${art}<div class="gacha-card-copy"><b>${card.name}</b><small>${card.role}</small><span class="gacha-stars" aria-label="${starCount} sao">${'★'.repeat(starCount)}</span><small class="${card.duplicate?'gacha-duplicate':''}">${card.duplicate?'Đổi thành +1 Mảnh':'Nhân viên mới'}</small></div></article>`;
 }
 
 function showGachaDetail(card){
   if(!card||!ui['gacha-detail'])return;
   ui['gacha-detail'].hidden=false;
   ui['gacha-detail'].className=`gacha-detail rank-${card.rank}`;
-  ui['gacha-detail'].innerHTML=`<div class="gacha-detail-art" style="background-image:url('${card.art}')"></div><div><span class="gacha-detail-rank">${card.rank}</span><h3>${card.name}</h3><p>${card.role} · Tốc độ ${card.speed} · Hiệu suất ${card.work}</p><b>KỸ NĂNG</b><p>${card.skill}</p><b>ĐẶC TÍNH</b><p>${card.quirk}</p></div>`;
+  ui['gacha-detail'].innerHTML=`<button class="gacha-detail-close" type="button" data-gacha-detail-close aria-label="Đóng thông tin">×</button><div class="gacha-detail-art" style="background-image:url('${card.art}')"></div><div class="gacha-detail-copy"><span class="gacha-detail-rank">${card.rank}</span><h3>${card.name}</h3><p>${card.role} · Tốc độ ${card.speed} · Hiệu suất ${card.work}</p><b>KỸ NĂNG</b><p>${card.skill}</p><b>ĐẶC TÍNH</b><p>${card.quirk}</p></div>`;
+}
+
+function showGachaSummon(card){
+  if(!ui['gacha-modal']||!ui['gacha-summon-stage'])return;
+  ui['gacha-modal'].hidden=false;
+  if(ui['gacha-reveal-panel'])ui['gacha-reveal-panel'].hidden=true;
+  ui['gacha-summon-stage'].hidden=false;
+  ui['gacha-summon-stage'].className=`gacha-summon-stage summon-rank-${card.rank}`;
+  if(ui['summon-silhouette'])ui['summon-silhouette'].style.backgroundImage=`url('${card.art}')`;
+  if(ui['summon-rank'])ui['summon-rank'].textContent=card.rank==='SSR'?'SSR · CỰC HIẾM':card.rank==='SR'?'SR · HIẾM':`${card.rank} · ÁP SUẤT ỔN ĐỊNH`;
+  void ui['gacha-summon-stage'].offsetWidth;
+  ui['gacha-summon-stage'].classList.add('is-active');
 }
 
 function showGachaResults(results){
@@ -1195,20 +1515,27 @@ function showGachaResults(results){
   if(!ui['gacha-results']||!ui['gacha-modal'])return;
   ui['gacha-results'].classList.toggle('single',results.length===1);
   ui['gacha-results'].innerHTML=results.map(gachaCardTemplate).join('');
-  showGachaDetail([...results].sort((a,b)=>Object.keys(GACHA_RANKS).indexOf(b.rank)-Object.keys(GACHA_RANKS).indexOf(a.rank))[0]);
+  if(ui['gacha-detail']){ui['gacha-detail'].hidden=true;ui['gacha-detail'].innerHTML='';}
   ui['gacha-modal'].hidden=false;
+  if(ui['gacha-summon-stage']){ui['gacha-summon-stage'].classList.remove('is-active');ui['gacha-summon-stage'].hidden=true;}
+  if(ui['gacha-reveal-panel'])ui['gacha-reveal-panel'].hidden=false;
   renderGachaStatus();
 }
 
-function pullGacha(_count=1,instant=false){
+function pullGacha(count=1,instant=false,free=false){
   if(gachaState.busy||!ui['gacha-machine'])return Promise.resolve([]);
+  count=count===10?10:1;const cost=count===10?GACHA_TEN_COST:GACHA_COST;
+  if(!free&&economyState.coins<cost){showToast(`Cần ${cost.toLocaleString('vi-VN')} Xu để quay ×${count}.`);return Promise.resolve([]);}
+  if(!free){economyState.coins-=cost;if(world)world.coins=economyState.coins;renderUI();}
   gachaState.busy=true;ui['gacha-machine'].classList.add('is-spinning');
-  ui['gacha-one'].disabled=true;
+  if(ui['gacha-one'])ui['gacha-one'].disabled=true;if(ui['gacha-ten'])ui['gacha-ten'].disabled=true;
+  const results=Array.from({length:count},pullGachaCard);
+  const showcase=[...results].sort((a,b)=>Object.keys(GACHA_RANKS).indexOf(b.rank)-Object.keys(GACHA_RANKS).indexOf(a.rank))[0];
+  if(!instant)showGachaSummon(showcase);
   return new Promise(resolve=>setTimeout(()=>{
-    const results=[pullGachaCard()];
-    ui['gacha-machine'].classList.remove('is-spinning');ui['gacha-one'].disabled=false;
+    ui['gacha-machine'].classList.remove('is-spinning');if(ui['gacha-one'])ui['gacha-one'].disabled=false;if(ui['gacha-ten'])ui['gacha-ten'].disabled=false;
     gachaState.busy=false;showGachaResults(results);resolve(results);
-  },instant?0:900));
+  },instant?0:1800));
 }
 
 canvas.addEventListener('click',event=>{
@@ -1218,27 +1545,47 @@ canvas.addEventListener('click',event=>{
 });
 canvas.addEventListener('pointerdown',beginDecorDrag);canvas.addEventListener('pointermove',moveDecorDrag);canvas.addEventListener('pointerup',endDecorDrag);canvas.addEventListener('pointercancel',endDecorDrag);
 canvas.addEventListener('pointerdown',beginTableDrag);canvas.addEventListener('pointermove',moveTableDrag);canvas.addEventListener('pointerup',endTableDrag);canvas.addEventListener('pointercancel',endTableDrag);
-document.addEventListener('keydown',event=>{if(event.key.toLowerCase()==='g'){world.debug=!world.debug;if(ui['debug-drawer'])ui['debug-drawer'].hidden=!world.debug;showToast(`Debug ${world.debug?'BẬT':'TẮT'}`);}});
-document.querySelectorAll('.staff-assignment').forEach(select=>select.addEventListener('change',()=>start(world.level,{roomId:world.roomId,speed:world.speed})));
+document.addEventListener('keydown',event=>{if(TEST_MODE&&event.key.toLowerCase()==='g'){world.debug=!world.debug;if(ui['debug-drawer'])ui['debug-drawer'].hidden=!world.debug;showToast(`Debug ${world.debug?'BẬT':'TẮT'}`);}});
+if(ui['assignment-grid'])ui['assignment-grid'].addEventListener('change',event=>{const select=event.target.closest('[data-assignment-role]');if(select)updateAssignment(select.dataset.assignmentRole,Number(select.dataset.assignmentSlot),select.value);});
 document.querySelectorAll('[data-room]').forEach(button=>button.addEventListener('click',()=>switchRoom(button.dataset.room)));
 if(ui.roster)ui.roster.addEventListener('click',event=>{const card=event.target.closest('[data-follow-staff]');if(!card)return;roomState.selectedCharacterId=card.dataset.followStaff;roomState.followCharacter=true;renderRoomNavigation();centerSelectedCharacter(true);showToast(`Camera đang theo ${world.staff(roomState.selectedCharacterId)?.name||'nhân viên'}.`);});
 if(ui['camera-follow'])ui['camera-follow'].addEventListener('click',()=>{roomState.followCharacter=!roomState.followCharacter;renderRoomNavigation();if(roomState.followCharacter)centerSelectedCharacter(true);showToast(`Camera theo nhân vật: ${roomState.followCharacter?'BẬT':'TẮT'}.`);});
-ui['spawn-btn'].addEventListener('click',()=>world.spawnGuest(true));
-ui['doze-btn'].addEventListener('click',()=>world.forceDoze());
-ui['conflict-btn'].addEventListener('click',()=>world.toggleConflict());
-ui['level-btn'].addEventListener('click',async()=>{const target=world.roomId==='room1'?'room2':'room1';await switchRoom(target,{debug:true});ui['level-btn'].textContent=target==='room1'?'Nhảy Gian 2 debug':'Về Gian 1 debug';});
-ui['speed-btn'].addEventListener('click',()=>{world.speed=world.speed===1?10:1;ui['speed-btn'].textContent=`Tốc độ ×${world.speed}`;});
+if(ui['spawn-btn'])ui['spawn-btn'].addEventListener('click',()=>world.spawnGuest(true));
+if(ui['doze-btn'])ui['doze-btn'].addEventListener('click',()=>world.forceDoze());
+if(ui['conflict-btn'])ui['conflict-btn'].addEventListener('click',()=>world.toggleConflict());
+if(ui['level-btn'])ui['level-btn'].addEventListener('click',async()=>{const target=world.roomId==='room1'?'room2':'room1';await switchRoom(target,{debug:true});ui['level-btn'].textContent=target==='room1'?'Nhảy Gian 2 debug':'Về Gian 1 debug';});
+if(ui['speed-btn'])ui['speed-btn'].addEventListener('click',()=>{world.speed=world.speed===1?10:1;ui['speed-btn'].textContent=`Tốc độ ×${world.speed}`;});
 ui['horn-btn'].addEventListener('click',()=>{if(world.rage<35){showToast('Cần 35 Nộ.');return;}world.rage-=35;world.stress=clamp(world.stress+18,0,100);world.characters.filter(c=>c.kind==='staff').forEach(c=>c.stamina=100);showToast('YATTA! Toàn đội đầy Stamina.');});
 ui['tea-btn'].addEventListener('click',()=>{world.stress=clamp(world.stress-38,0,100);showToast('Fu Hua mỉm cười. Stress −38.');});
-ui['chase-btn'].addEventListener('click',()=>showToast('Greybox: click khách để đuổi sẽ nối ở pass tương tác.'));
+if(ui['chase-btn'])ui['chase-btn'].addEventListener('click',()=>showToast('Chế độ đuổi chỉ mở khi có sự cố VIP.'));
 if(ui['gacha-one'])ui['gacha-one'].addEventListener('click',()=>pullGacha(1));
+if(ui['gacha-ten'])ui['gacha-ten'].addEventListener('click',()=>pullGacha(10));
 if(ui['gacha-again'])ui['gacha-again'].addEventListener('click',()=>{ui['gacha-modal'].hidden=true;pullGacha(1);});
-if(ui['gacha-close'])ui['gacha-close'].addEventListener('click',()=>{ui['gacha-modal'].hidden=true;});
+if(ui['gacha-again-ten'])ui['gacha-again-ten'].addEventListener('click',()=>{ui['gacha-modal'].hidden=true;pullGacha(10);});
+if(ui['gacha-close'])ui['gacha-close'].addEventListener('click',()=>{ui['gacha-modal'].hidden=true;if(ui['gacha-detail'])ui['gacha-detail'].hidden=true;});
 if(ui['gacha-results'])ui['gacha-results'].addEventListener('click',event=>{const cardEl=event.target.closest('[data-gacha-id]');if(cardEl)showGachaDetail(GACHA_POOL.find(card=>card.id===cardEl.dataset.gachaId));});
-if(ui['staff-codex'])ui['staff-codex'].addEventListener('click',event=>{const cardEl=event.target.closest('[data-codex-id]');if(!cardEl)return;const card=GACHA_POOL.find(entry=>entry.id===cardEl.dataset.codexId);showGachaResults([{...card,duplicate:gachaState.owned.has(card.id)}]);});
+if(ui['gacha-results'])ui['gacha-results'].addEventListener('keydown',event=>{if(!['Enter',' '].includes(event.key))return;const cardEl=event.target.closest('[data-gacha-id]');if(cardEl){event.preventDefault();showGachaDetail(GACHA_POOL.find(card=>card.id===cardEl.dataset.gachaId));}});
+if(ui['gacha-detail'])ui['gacha-detail'].addEventListener('click',event=>{if(event.target.closest('[data-gacha-detail-close]'))ui['gacha-detail'].hidden=true;});
+if(ui['staff-codex'])ui['staff-codex'].addEventListener('click',event=>{const cardEl=event.target.closest('[data-codex-id]');if(!cardEl)return;renderStaffSkill(cardEl.dataset.codexId);ui['staff-skill-panel']?.scrollIntoView({behavior:'smooth',block:'nearest'});});
 document.querySelectorAll('[data-staff-mode]').forEach(button=>button.addEventListener('click',()=>setStaffMode(button.dataset.staffMode)));
+if(ui['open-dorm'])ui['open-dorm'].addEventListener('click',openDormScreen);
+if(ui['dorm-close'])ui['dorm-close'].addEventListener('click',closeDormScreen);
+if(ui['dorm-modal'])ui['dorm-modal'].addEventListener('click',event=>{if(event.target===ui['dorm-modal'])closeDormScreen();});
 if(ui['staff-dorm-list'])ui['staff-dorm-list'].addEventListener('click',event=>{const button=event.target.closest('[data-staff-train]');if(button)previewTrainStaff(button.dataset.staffTrain);});
+document.querySelector('.dorm-decor-tools')?.addEventListener('click',event=>{const button=event.target.closest('[data-dorm-decor]');if(button)toggleDormDecor(button.dataset.dormDecor);});
+document.querySelector('.dorm-floor-picker')?.addEventListener('click',event=>{const button=event.target.closest('[data-dorm-floor]');if(button)selectDormFloor(button.dataset.dormFloor);});
+if(ui['dorm-room'])ui['dorm-room'].addEventListener('click',event=>{const resident=event.target.closest('[data-dorm-skill]');if(!resident)return;const card=ui['staff-dorm-list']?.querySelector(`[data-dorm-id="${resident.dataset.dormSkill}"]`);ui['staff-dorm-list']?.querySelectorAll('.is-focused').forEach(item=>item.classList.remove('is-focused'));card?.classList.add('is-focused');card?.scrollIntoView({behavior:'smooth',block:'center'});});
+if(ui['vip-list'])ui['vip-list'].addEventListener('click',event=>{const button=event.target.closest('[data-vip-start]');if(button)startVipEvent(button.dataset.vipStart);});
+if(ui['vip-event'])ui['vip-event'].addEventListener('click',event=>{const button=event.target.closest('[data-vip-action]');if(button)handleVipAction(button.dataset.vipAction);});
 if(ui['gacha-modal'])ui['gacha-modal'].addEventListener('click',event=>{if(event.target===ui['gacha-modal'])ui['gacha-modal'].hidden=true;});
+if(ui['recipe-lab'])ui['recipe-lab'].addEventListener('click',event=>{
+  const ingredient=event.target.closest('[data-recipe-ingredient]');
+  if(ingredient){toggleRecipeIngredient(decodeURIComponent(ingredient.dataset.recipeIngredient));return;}
+  if(event.target.closest('[data-recipe-reset]')){recipeState.selected.clear();recipeState.lastResult='Đã dọn bàn nghiên cứu. Chọn 1–3 nguyên liệu để thử lại.';renderRecipeBook();return;}
+  if(event.target.closest('[data-recipe-research]')){researchRecipe();return;}
+  if(event.target.closest('[data-test-recipe-fragment]'))grantNextRecipeFragmentForTest();
+});
+if(ui['recipe-book-grid'])ui['recipe-book-grid'].addEventListener('click',event=>{const button=event.target.closest('[data-unlock-recipe]');if(button)unlockRecipeByFragment(button.dataset.unlockRecipe);});
 if(ui['room-upgrade-list'])ui['room-upgrade-list'].addEventListener('click',event=>{const button=event.target.closest('[data-room-upgrade]');if(button)applyUpgrade(button.dataset.roomUpgrade);});
 if(ui['restaurant-upgrade'])ui['restaurant-upgrade'].addEventListener('click',upgradeRestaurant);
 if(ui['upgrade-test-pack'])ui['upgrade-test-pack'].addEventListener('click',grantRestaurantUpgradeTestPack);
@@ -1253,8 +1600,8 @@ if(ui['room-upgrade-reset'])ui['room-upgrade-reset'].addEventListener('click',()
 document.querySelectorAll('[data-scale]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-scale]').forEach(b=>b.classList.toggle('active',b===button));ui['canvas-wrap'].className=`canvas-wrap scale-${button.dataset.scale}`;requestAnimationFrame(()=>centerSelectedCharacter(true));}));
 
 const PHASE_CONTENT={
-  morning:{kicker:'01 · BUỔI SÁNG',title:'Thu mua nguyên liệu',copy:'Chọn khu vực và người đi, vào event run để nhặt nguyên liệu. Mang hàng về quán mới có thể nấu.'},
-  afternoon:{kicker:'02 · BUỔI CHIỀU',title:'Chuẩn bị món',copy:'Làm ba thao tác Thái → Xào → Hầm để nấu một mẻ. Một mẻ dùng 2 nguyên liệu và cho 3 phần vào Tủ Giữ Ấm.'},
+  morning:{kicker:'01 · BUỔI SÁNG',title:'Thu mua nguyên liệu',copy:'Chọn khu vực và người đi. Nhân vật tự chạy vô tận; hết tim mới chốt số nguyên liệu mang về.'},
+  afternoon:{kicker:'02 · BUỔI CHIỀU',title:'Chọn thực đơn & chuẩn bị món',copy:'Xem khẩu vị hôm nay, chọn món và số mẻ, kiểm kho hoặc mua phần còn thiếu rồi mới nấu.'},
   night:{kicker:'04 · KHUYA',title:'Tổng kết & nâng cấp',copy:'Xem kết quả ca, rửa bát lấy Mảnh Bản Vẽ, quản lý nhân sự hoặc mở rộng gian quán.'}
 };
 const SUPPLY_MAPS=[
@@ -1265,6 +1612,8 @@ const SUPPLY_MAPS=[
 ];
 const stockText=()=>Object.entries(phaseState.stock).filter(([,count])=>count>0).map(([name,count])=>`${name} ×${count}`).join(' · ')||'Kho đang trống';
 let currentExpedition=null;
+let currentCookingGame=null;
+let currentWashingGame=null;
 function phaseDetail(text,actions=''){return `<div class="phase-choice-detail"><p>${text}</p>${actions}</div>`;}
 function renderPhaseScreen(){
   if(activePhase==='morning'){
@@ -1273,8 +1622,19 @@ function renderPhaseScreen(){
     return;
   }
   if(activePhase==='afternoon'){
-    const steps=[['🔪','THÁI','1. Sơ chế nguyên liệu'],['🍳','XÀO','2. Canh lửa và đảo chảo'],['♨','HẦM','3. Hoàn thành mẻ'],['🧺','TỦ GIỮ ẤM',`${phaseState.prepared} phần đã nấu`]];
-    ui['phase-screen'].innerHTML=`<div class="phase-screen-grid">${steps.map((step,index)=>`<article class="phase-screen-card ${index===phaseState.cookStep?'is-selected':''}"><div class="phase-icon">${step[0]}</div><h3>${step[1]}</h3><p>${step[2]}</p><button type="button" data-cook-step="${index}">${index===3?'XEM TỦ':'THỰC HIỆN'}</button></article>`).join('')}</div>${phaseDetail(`Mẻ ${phaseState.batches}/3 · Bước kế tiếp: <b>${steps[phaseState.cookStep][1]}</b> · Tủ giữ ấm: <b>${phaseState.prepared} phần</b>.<br>Kho: ${stockText()}`,`<button type="button" data-phase-next="evening">MỞ QUÁN BUỔI TỐI →</button>`)}`;
+    const trend=dailyTrend(),trendDish=dishById(trend.dishId);
+    if(!phaseState.planLocked){
+      const total=plannedBatchCount(),requirements=planRequirements(),missing=missingPlanIngredients(),price=marketPrice();
+      const menu=unlockedMenuIds().map(id=>{const dish=dishById(id),count=phaseState.plan[id]||0,isTrend=id===trend.dishId;return `<article class="prep-dish-card ${isTrend?'is-trend':''}"><img src="${dish.asset}" alt="${dish.name}"><div><span>${'★'.repeat(dish.stars)} · ${dish.system}${isTrend?' · GỢI Ý HÔM NAY':''}</span><h3>${dish.name}</h3><p>${dish.ingredients.join(' + ')}</p><b>${dish.price} Xu${isTrend?' · Dễ bán hơn hôm nay':''}</b></div><div class="prep-dish-actions"><button type="button" data-plan-remove="${id}" ${count<=0?'disabled':''}>−</button><label><input type="number" min="0" step="1" value="${count}" data-plan-count="${id}" aria-label="Số mẻ ${dish.name}"><small>mẻ · ${count*3} phần</small></label><button type="button" data-plan-dish="${id}">＋</button></div></article>`;}).join('');
+      const requirementRows=Object.keys(requirements).length?Object.entries(requirements).map(([name,need])=>{const have=phaseState.stock[name]||0,short=Math.max(0,need-have),buyAll=short*price;return `<li class="${short?'is-missing':''}"><span>${name}</span><b>${have}/${need}</b>${short?`<button type="button" data-buy-ingredient="${encodeURIComponent(name)}" data-buy-count="${short}">MUA ĐỦ ×${short} · ${buyAll.toLocaleString('vi-VN')} XU</button>`:''}</li>`;}).join(''):'<li><span>Chưa chọn mẻ nấu.</span></li>';
+      ui['phase-screen'].innerHTML=`<section class="prep-board"><header class="trend-banner"><div><small>GỢI Ý KHẨU VỊ HÔM NAY · KHÔNG BẮT BUỘC</small><h2>${trend.title}</h2><p>${trend.copy} Chị vẫn có thể chọn mọi món khác trong menu.</p></div><img src="${trendDish.asset}" alt="${trendDish.name}"><b>Gợi ý: ${trendDish.name}<br>Dễ bán hơn hôm nay</b></header><div class="prep-layout"><div><div class="prep-section-title"><b>1 · CHỌN MÓN VÀ SỐ LƯỢNG</b><span>Không giới hạn mẻ · mỗi mẻ 3 phần</span></div><div class="prep-menu">${menu}</div></div><aside class="prep-inventory"><div class="prep-section-title"><b>2 · KIỂM KHO</b><span>${total} mẻ · ${total*3} phần dự kiến</span></div><ul>${requirementRows}</ul><button class="prep-lock" type="button" data-lock-plan ${!total||Object.keys(missing).length?'disabled':''}>CHỐT ${total} MẺ · NẤU ${total*3} PHẦN →</button><button class="prep-open-restaurant is-locked" type="button" data-open-restaurant>🔥 MỞ QUÁN</button><small class="prep-open-note">Chọn món → nấu xong toàn bộ mẻ → bấm MỞ QUÁN.</small><p>Kho hiện có: ${stockText()}</p><p>Ví: <b>${economyState.coins.toLocaleString('vi-VN')} Xu</b>${gachaState.owned.has('pardofelis')?' · Pardo giảm Chợ Đen còn 210 Xu':''}</p><p class="prep-risk">⚠ Nấu dư mà bán không hết sẽ bị bỏ cuối ngày; nguyên liệu không hoàn lại.</p></aside></div></section>`;
+      return;
+    }
+    const done=phaseState.planIndex>=phaseState.planQueue.length,currentDish=done?null:dishById(phaseState.planQueue[phaseState.planIndex]);
+    const warmer=Object.entries(phaseState.preparedByDish).filter(([,count])=>count>0).map(([id,count])=>{const perfect=(phaseState.preparedQualityByDish[id]||[]).filter(quality=>quality==='perfect').length;return `<div><img src="${dishById(id).asset}" alt=""><span><b>${dishById(id).name}</b><small>${count} phần${perfect?` · ✨ ${perfect} Hoàn hảo`:''}</small></span></div>`;}).join('')||'<p>Chưa có món trong tủ.</p>';
+    if(done){ui['phase-screen'].innerHTML=`<section class="prep-board"><header class="trend-banner"><div><small>ĐÃ CHUẨN BỊ XONG</small><h2>Tủ Giữ Ấm sẵn sàng</h2><p>Món Hoàn hảo được cộng ${Math.round(PERFECT_DISH_BONUS*100)}% giá bán. Đúng khẩu vị hôm nay được gọi nhiều hơn và giá +50%.</p></div><img src="${trendDish.asset}" alt=""><b>${trend.title}</b></header><div class="warmer-grid">${warmer}</div><div class="open-restaurant-box"><span>Ca bán giới hạn ${world.map.rushDuration} giây · hết giờ sẽ chốt món bán, món hết và món còn dư.</span><button type="button" data-open-restaurant ${phaseState.prepared<=0?'disabled':''}>LẬT BIỂN · MỞ QUÁN</button></div></section>`;return;}
+    const steps=[['🔪','THÁI','Sơ chế nguyên liệu'],['🍳','XÀO','Canh lửa và đảo chảo'],['♨','HẦM','Hoàn thành mẻ']];
+    ui['phase-screen'].innerHTML=`<section class="prep-board"><header class="cooking-batch-head"><img src="${currentDish.asset}" alt="${currentDish.name}"><div><small>MẺ ${phaseState.planIndex+1}/${phaseState.planQueue.length}</small><h2>${currentDish.name}</h2><p>Đạt xanh cả ba minigame để tạo món Hoàn hảo và nhận +${Math.round(PERFECT_DISH_BONUS*100)}% giá bán.</p></div></header><div class="phase-screen-grid cooking-steps">${steps.map((step,index)=>{const prior=phaseState.cookResults[index];return `<article class="phase-screen-card ${index===phaseState.cookStep?'is-selected':''} ${index<phaseState.cookStep?'is-complete':''} ${prior?.grade==='perfect'?'is-perfect':''}"><div class="phase-icon">${index<phaseState.cookStep?(prior?.grade==='perfect'?'★':'✓'):step[0]}</div><h3>${step[1]}</h3><p>${index<phaseState.cookStep?(prior?.grade==='perfect'?'Hoàn hảo · Xanh':'Tạm ổn · Vàng'):step[2]}</p><button type="button" data-cook-step="${index}" ${index!==phaseState.cookStep?'disabled':''}>${index===phaseState.cookStep?'CHƠI MINIGAME':index<phaseState.cookStep?'ĐÃ XONG':'CHỜ'}</button></article>`;}).join('')}</div><div class="warmer-grid compact">${warmer}</div><div class="open-restaurant-box is-locked"><span>🔒 Cần nấu xong ${phaseState.planQueue.length-phaseState.planIndex} mẻ còn lại trước khi mở quán.</span><button type="button" data-open-restaurant>🔥 MỞ QUÁN</button></div></section>`;
     return;
   }
   const cards=[['📋','Nhiệm vụ & tổng kết','Xem doanh thu và khách đã phục vụ','summary'],['🫧','Rửa bát','Rửa bát để nhận Mảnh Bản Vẽ','wash'],['🍲','Gacha nhân sự','Mở bảng nhân sự','staff'],['🏮','Mở rộng mặt bằng','Mở cửa hàng nội thất và nâng quán','upgrade']];
@@ -1298,30 +1658,57 @@ function dispatchSupply(){
     onLeave(){currentExpedition=null;renderPhaseScreen();showToast('Đã về chọn khu; nguyên liệu của chuyến chưa được nhập kho.');}
   });
 }
-function cookStep(index){
-  if(index===3){showToast(`Tủ giữ ấm đang có ${phaseState.prepared} phần.`);return;}
+function cookStep(index,result={grade:'good',perfect:false}){
+  if(!phaseState.planLocked||phaseState.planIndex>=phaseState.planQueue.length)return;
   if(index!==phaseState.cookStep){showToast('Làm theo thứ tự: THÁI → XÀO → HẦM.');return;}
-  if(phaseState.batches>=3){showToast('Buổi chiều chỉ nấu tối đa 3 mẻ.');return;}
-  if(Object.values(phaseState.stock).reduce((sum,count)=>sum+count,0)<2){showToast('Kho thiếu nguyên liệu. Thu mua buổi sáng trước.');return;}
+  phaseState.cookResults[index]=result;
   phaseState.cookStep++;
-  if(phaseState.cookStep===3){let needed=2;for(const item of Object.keys(phaseState.stock)){const used=Math.min(needed,phaseState.stock[item]);phaseState.stock[item]-=used;needed-=used;if(!needed)break;}phaseState.prepared+=3;phaseState.batches++;phaseState.cookStep=0;showToast('Mẻ đã hoàn thành · +3 phần trong Tủ Giữ Ấm.');}
-  else showToast(`Đã làm bước ${index+1}/3. Tiếp tục ${['THÁI','XÀO','HẦM'][phaseState.cookStep]}.`);
+  if(phaseState.cookStep===3){const plannedDish=dishById(phaseState.planQueue[phaseState.planIndex]),burnt=phaseState.cookResults.some(entry=>entry?.grade==='burnt'),dish=burnt?dishById('burnt-congee'):plannedDish,perfect=!burnt&&phaseState.cookResults.every(entry=>entry?.grade==='perfect'),quality=perfect?'perfect':burnt?'burnt':'standard';for(const [name,count] of Object.entries(ingredientCounts(plannedDish)))phaseState.stock[name]-=count*2;if(burnt)recipeState.unlocked.add('burnt-congee');phaseState.preparedByDish[dish.id]=(phaseState.preparedByDish[dish.id]||0)+3;(phaseState.preparedQualityByDish[dish.id]??=[]).push(quality,quality,quality);phaseState.prepared+=3;phaseState.batches++;phaseState.planIndex++;phaseState.cookStep=0;phaseState.cookResults=[];renderRecipeBook();showToast(burnt?`🔥 Mẻ ${plannedDish.name} bị cháy · biến thành 3 Bát Cháo Khê.`:perfect?`✨ ${dish.name}: +3 món Hoàn hảo · thưởng +${Math.round(PERFECT_DISH_BONUS*100)}% khi bán!`:`${dish.name}: +3 phần chất lượng tiêu chuẩn trong Tủ Giữ Ấm.`);}
+  else showToast(`${result.grade==='perfect'?'★ Hoàn hảo!':'Đạt hạng Vàng.'} Tiếp tục ${['THÁI','XÀO','HẦM'][phaseState.cookStep]}.`);
   renderPhaseScreen();
 }
+
+function launchCookingMiniGame(index){
+  if(currentCookingGame)return;
+  if(!phaseState.planLocked||phaseState.planIndex>=phaseState.planQueue.length||index!==phaseState.cookStep){showToast('Làm theo thứ tự: THÁI → XÀO → HẦM.');return;}
+  const dish=dishById(phaseState.planQueue[phaseState.planIndex]);
+  currentCookingGame=startCookingMiniGame({container:ui['phase-screen'],step:index,dish,
+    onComplete(result){currentCookingGame=null;cookStep(index,result);},
+    onCancel(){currentCookingGame=null;renderPhaseScreen();}
+  });
+}
+
+function launchDishwashingMiniGame(){
+  if(currentWashingGame||phaseState.washes)return;
+  currentWashingGame=startDishwashingMiniGame({container:ui['phase-screen'],sentiAsset:STAFF.senti.asset,
+    onComplete(result){currentWashingGame=null;phaseState.washes=1;phaseState.blueprintParts+=result.reward;renderPhaseScreen();showToast(`Senti rửa xong · Mảnh Bản Vẽ +${result.reward}.`);},
+    onCancel(){currentWashingGame=null;renderPhaseScreen();}
+  });
+}
+
+function setPlanDishCount(id,value){if(phaseState.planLocked||!unlockedMenuIds().includes(id))return;const next=Math.max(0,Math.floor(Number(value)||0));if(next)phaseState.plan[id]=next;else delete phaseState.plan[id];renderPhaseScreen();}
+function changePlanDish(id,delta){if(phaseState.planLocked||!unlockedMenuIds().includes(id))return;setPlanDishCount(id,(phaseState.plan[id]||0)+delta);}
+function buyIngredient(name,quantity=1){const unitPrice=marketPrice(),count=Math.max(1,Math.floor(Number(quantity)||1)),totalPrice=unitPrice*count;if(economyState.coins<totalPrice){showToast(`Chưa đủ ${totalPrice.toLocaleString('vi-VN')} Xu để mua ${name} ×${count}.`);return;}economyState.coins-=totalPrice;if(world)world.coins=economyState.coins;phaseState.stock[name]=(phaseState.stock[name]||0)+count;showToast(`Đã mua ${name} ×${count} · ${totalPrice.toLocaleString('vi-VN')} Xu.`);renderPhaseScreen();renderUI();}
+function lockCookingPlan(){const missing=missingPlanIngredients();if(!plannedBatchCount()){showToast('Chọn ít nhất 1 mẻ trước.');return;}if(Object.keys(missing).length){showToast('Kho chưa đủ nguyên liệu. Thu mua hoặc mua thêm ở Chợ Đen.');return;}phaseState.planLocked=true;phaseState.planQueue=Object.entries(phaseState.plan).flatMap(([id,count])=>Array(count).fill(id));phaseState.planIndex=0;phaseState.cookStep=0;phaseState.cookResults=[];renderPhaseScreen();}
+async function openRestaurant(){if(!phaseState.planLocked){showToast('Chọn món và chốt kế hoạch nấu trước khi mở quán.');return;}if(phaseState.planIndex<phaseState.planQueue.length){showToast(`Còn ${phaseState.planQueue.length-phaseState.planIndex} mẻ chưa nấu xong.`);return;}if(phaseState.prepared<=0){showToast('Tủ Giữ Ấm chưa có món.');return;}phaseState.rushEnded=false;await start(world.level,{roomId:world.roomId,speed:1,running:true});setPhase('evening');showToast(`Đã mở quán · ${phaseState.prepared} phần sẵn sàng bán.`);}
+function showRushSummary(){if(phaseState.rushEnded)return;phaseState.rushEnded=true;ui['canvas-wrap'].hidden=true;ui['phase-screen'].hidden=false;const leftovers=Object.entries(phaseState.preparedByDish).filter(([,count])=>count>0).map(([id,count])=>`<div class="is-waste"><img src="${dishById(id).asset}" alt=""><span><b>${dishById(id).name}</b><small>Ế ${count} phần · bỏ cuối ngày, không hoàn nguyên liệu</small></span></div>`).join('')||'<p>Đã bán hết toàn bộ món chuẩn bị.</p>';ui['phase-kicker'].textContent='03 · HẾT GIỜ BÁN';ui['phase-title'].textContent='Đóng ca';ui['phase-copy'].textContent=phaseState.prepared?'Món bán ế được tính là lỗ và sẽ bị bỏ khi sang ngày mới.':'Đã bán hết món chuẩn bị trong ca.';ui['phase-screen'].innerHTML=`<section class="rush-summary"><h2>Ca bán đã kết thúc</h2><div class="rush-summary-stats"><b>${world.metrics.served}<small>khách đã phục vụ</small></b><b>${world.revenue}<small>Xu doanh thu</small></b><b>${phaseState.prepared}<small>phần bán ế · tính lỗ</small></b></div><div class="warmer-grid">${leftovers}</div><button type="button" data-phase-next="night">SANG KHUYA · TỔNG KẾT →</button></section>`;}
 function openPanel(name){document.querySelector(`[data-panel="${name}"]`)?.click();document.querySelector('.control-column')?.scrollIntoView({behavior:'smooth',block:'nearest'});}
-async function nextDay(){phaseState.day++;phaseState.trips=0;phaseState.batches=0;phaseState.cookStep=0;phaseState.washes=0;phaseState.selectedMap=null;await start(world.level,{roomId:world.roomId,speed:world.speed});setPhase('morning');showToast(`Ngày ${phaseState.day} bắt đầu. Chọn khu vực thu mua.`);}
+async function nextDay(){phaseState.day++;phaseState.trips=0;phaseState.batches=0;phaseState.cookStep=0;phaseState.cookResults=[];phaseState.washes=0;phaseState.selectedMap=null;phaseState.prepared=0;phaseState.preparedByDish={};phaseState.preparedQualityByDish={};phaseState.plan={};phaseState.planLocked=false;phaseState.planQueue=[];phaseState.planIndex=0;phaseState.rushEnded=false;await start(world.level,{roomId:world.roomId,speed:world.speed,running:false});setPhase('morning');showToast(`Ngày ${phaseState.day} bắt đầu. Chọn khu vực thu mua.`);}
 
 function setPhase(phase){
+  if(currentCookingGame){showToast('Hoàn thành minigame hoặc bấm VỀ BẾP trước.');return;}
+  if(currentWashingGame){showToast('Hoàn thành rửa bát hoặc bấm VỀ TỔNG KẾT trước.');return;}
   if(currentExpedition&&phase!=='morning'){showToast('Hoàn thành lượt chạy hoặc bấm VỀ CHỌN KHU trước.');return;}
   if(currentExpedition&&phase==='morning')return;
   activePhase=phase;
+  document.body.dataset.phase=phase;
   if(!ui['phase-screen'])return;
   document.querySelectorAll('[data-phase]').forEach(b=>b.classList.toggle('active',b.dataset.phase===phase));
   const canvasVisible=phase==='evening';ui['canvas-wrap'].hidden=!canvasVisible;ui['phase-screen'].hidden=canvasVisible;
   if(canvasVisible){ui['phase-kicker'].textContent='03 · BUỔI TỐI';ui['phase-title'].textContent='Rush Hour mở quán';ui['phase-copy'].textContent='Nhân viên tự nhận job, đi bộ tới đúng trạm rồi mới làm việc. Bấm trực tiếp trong quán để điều khiển Senti.';return;}
   const data=PHASE_CONTENT[phase];ui['phase-kicker'].textContent=data.kicker;ui['phase-title'].textContent=data.title;ui['phase-copy'].textContent=data.copy;
   document.querySelector('.day-chip b').textContent=String(phaseState.day).padStart(2,'0');
-  ui['phase-objectives'].innerHTML=(phase==='morning'?['Chọn một trong bốn khu vực','A/D di chuyển · Space nhảy','Nhặt ít nhất 3 nguyên liệu và tới cổng về']:phase==='afternoon'?['Thu mua đủ nguyên liệu trước','Bấm THÁI → XÀO → HẦM','Mỗi mẻ cho 3 phần vào Tủ Giữ Ấm']:['Xem kết quả ca và rửa bát','Quản lý nhân viên hoặc nâng quán','Bấm SANG NGÀY MỚI để thu mua tiếp']).map(item=>`<div>✓ ${item}</div>`).join('');
+  ui['phase-objectives'].innerHTML=(phase==='morning'?['Chọn một trong bốn khu vực','Nhân vật tự chạy · Space để nhảy','Hết 4 tim thì chốt và nhập kho']:phase==='afternoon'?['Khẩu vị chỉ là gợi ý · tự chọn nhiều món','Không giới hạn mẻ · thiếu thì mua thêm','Nấu dư bán ế sẽ mất nguyên liệu']:['Xem kết quả ca và rửa bát','Quản lý nhân viên hoặc nâng quán','Bấm SANG NGÀY MỚI để thu mua tiếp']).map(item=>`<div>✓ ${item}</div>`).join('');
   renderPhaseScreen();
 }
 
@@ -1329,35 +1716,58 @@ ui['phase-screen'].addEventListener('click',async event=>{
   const button=event.target.closest('button');if(!button)return;
   if(button.dataset.supplyMap){if(phaseState.trips)return;phaseState.selectedMap=button.dataset.supplyMap;dispatchSupply();return;}
   if(button.hasAttribute('data-dispatch-supply')){dispatchSupply();return;}
+  if(button.dataset.planDish){changePlanDish(button.dataset.planDish,1);return;}
+  if(button.dataset.planRemove){changePlanDish(button.dataset.planRemove,-1);return;}
+  if(button.dataset.buyIngredient){buyIngredient(decodeURIComponent(button.dataset.buyIngredient),button.dataset.buyCount);return;}
+  if(button.hasAttribute('data-lock-plan')){lockCookingPlan();return;}
+  if(button.hasAttribute('data-open-restaurant')){await openRestaurant();return;}
   if(button.dataset.phaseNext){setPhase(button.dataset.phaseNext);return;}
-  if(button.dataset.cookStep!==undefined){cookStep(Number(button.dataset.cookStep));return;}
+  if(button.dataset.cookStep!==undefined){launchCookingMiniGame(Number(button.dataset.cookStep));return;}
   if(button.hasAttribute('data-next-day')){await nextDay();return;}
   if(button.dataset.nightAction==='summary'){renderPhaseScreen();showToast(`Tổng kết: ${world.metrics.served} khách · ${world.revenue} Xu.`);return;}
-  if(button.dataset.nightAction==='wash'){if(phaseState.washes)return;phaseState.washes=1;phaseState.blueprintParts++;showToast(`Đã rửa bát · Mảnh Bản Vẽ ×${phaseState.blueprintParts}.`);renderPhaseScreen();return;}
+  if(button.dataset.nightAction==='wash'){launchDishwashingMiniGame();return;}
   if(button.dataset.nightAction==='staff'){openPanel('staff');return;}
   if(button.dataset.nightAction==='upgrade')openPanel('decor');
 });
-ui['phase-screen'].addEventListener('change',event=>{if(event.target.id==='phase-buyer')phaseState.buyer=event.target.value;});
+ui['phase-screen'].addEventListener('change',event=>{if(event.target.id==='phase-buyer')phaseState.buyer=event.target.value;if(event.target.dataset.planCount)setPlanDishCount(event.target.dataset.planCount,event.target.value);});
 
-document.querySelectorAll('[data-phase]').forEach(button=>button.addEventListener('click',()=>setPhase(button.dataset.phase)));
+document.querySelectorAll('[data-phase]').forEach(button=>{
+  button.disabled=!TEST_MODE;
+  if(TEST_MODE)button.addEventListener('click',()=>setPhase(button.dataset.phase));
+});
 document.querySelectorAll('[data-phase-jump]').forEach(button=>button.addEventListener('click',()=>setPhase(button.dataset.phaseJump)));
 document.querySelectorAll('[data-panel]').forEach(button=>button.addEventListener('click',()=>{
   document.querySelectorAll('[data-panel]').forEach(b=>b.classList.toggle('active',b===button));
   document.querySelectorAll('[data-panel-view]').forEach(view=>view.classList.toggle('active',view.dataset.panelView===button.dataset.panel));
+  if(button.dataset.panel==='menu')renderRecipeBook();
+  if(button.dataset.panel==='staff'){renderAssignments();renderGachaStatus();}
+  if(button.dataset.panel==='vip')renderVipSystem();
 }));
 if(ui['feature-tour'])ui['feature-tour'].addEventListener('click',()=>showToast('Sáng thu mua → Chiều nấu mẻ → Tối Rush Canvas → Khuya tổng kết.'));
 
 window.__TAIXUAN_QA__={
-  phase(){return {active:activePhase,day:phaseState.day,selectedMap:phaseState.selectedMap,buyer:phaseState.buyer,trips:phaseState.trips,stock:{...phaseState.stock},prepared:phaseState.prepared,batches:phaseState.batches,cookStep:phaseState.cookStep,washes:phaseState.washes,blueprintParts:phaseState.blueprintParts,run:currentExpedition?.snapshot()||null};},
-  async reset(level='lv1',speed=10){await start(level,{speed});return true;},
-  snapshot(){return {level:world.level,roomId:world.roomId,roomLevel:world.roomLevel,kitchenSlots:cookStationsForMap(world.map).length,time:world.time,timeLeft:world.timeLeft,assets:Object.keys(characterImages),jobs:world.jobs.map(j=>({...j})),guests:world.guests.map(g=>({id:g.id,state:g.guestState,stateAge:g.stateAge,done:g.done,tile:g.tile,tableId:g.tableId})),staff:world.characters.filter(c=>c.kind==='staff').map(c=>({id:c.id,role:c.role,state:c.state,tile:c.tile,anim:c.anim,path:c.path,carry:Boolean(c.carry)})),tables:world.tables.map(t=>({id:t.id,styleId:t.styleId,placed:t.placed,tile:t.tile,state:t.state,reserved:t.reserved})),staffSlots:{...staffSlotState},metrics:{...world.metrics},conflict:world.conflict};},
+  phase(){return {active:activePhase,day:phaseState.day,selectedMap:phaseState.selectedMap,buyer:phaseState.buyer,trips:phaseState.trips,stock:{...phaseState.stock},prepared:phaseState.prepared,preparedByDish:{...phaseState.preparedByDish},preparedQualityByDish:Object.fromEntries(Object.entries(phaseState.preparedQualityByDish).map(([id,quality])=>[id,[...quality]])),plan:{...phaseState.plan},planLocked:phaseState.planLocked,planIndex:phaseState.planIndex,batches:phaseState.batches,cookStep:phaseState.cookStep,cookResults:phaseState.cookResults.map(result=>({...result})),washes:phaseState.washes,blueprintParts:phaseState.blueprintParts,trend:{...dailyTrend()},run:currentExpedition?.snapshot()||null};},
+  async reset(level='lv1',speed=10){phaseState.preparedByDish={'arc-city-bao':20};phaseState.preparedQualityByDish={'arc-city-bao':Array(20).fill('standard')};phaseState.prepared=20;phaseState.rushEnded=false;await start(level,{speed,running:true});setPhase('evening');return true;},
+  finishExpedition(){return currentExpedition?.finishForTest()||false;},
+  completeCookingMiniGame(){return currentCookingGame?.finishForTest()||false;},
+  cookingMiniGame(){return currentCookingGame?.snapshot()||null;},
+  completeWashingMiniGame(){return currentWashingGame?.finishForTest()||false;},
+  washingMiniGame(){return currentWashingGame?.snapshot()||null;},
+  endRush(){if(!world)return false;world.timeLeft=0;world.running=false;return true;},
+  snapshot(){if(!world)return {ready:false,assets:Object.keys(characterImages),dishAssets:Object.keys(dishImages),jobs:[],guests:[],staff:[],tables:[]};return {ready:true,running:world.running,level:world.level,roomId:world.roomId,roomLevel:world.roomLevel,kitchenSlots:cookStationsForMap(world.map).length,time:world.time,timeLeft:world.timeLeft,revenue:world.revenue,assets:Object.keys(characterImages),dishAssets:Object.keys(dishImages),jobs:world.jobs.map(j=>({...j})),guests:world.guests.map(g=>({id:g.id,state:g.guestState,stateAge:g.stateAge,done:g.done,tile:g.tile,tableId:g.tableId,order:g.order})),staff:world.characters.filter(c=>c.kind==='staff').map(c=>({id:c.id,role:c.role,state:c.state,tile:c.tile,anim:c.anim,path:c.path,carry:Boolean(c.carry),dish:c.carry?.dish||null})),tables:world.tables.map(t=>({id:t.id,styleId:t.styleId,placed:t.placed,tile:t.tile,state:t.state,reserved:t.reserved,meal:t.meal?.dish||null})),staffSlots:{...staffSlotState},metrics:{...world.metrics},conflict:world.conflict};},
   forceDoze(){world.forceDoze();},toggleConflict(){world.toggleConflict();},spawn(){world.spawnGuest(true);},toggleDebug(){world.debug=!world.debug;},
-  setReception(id){ui['reception-select'].value=id;return start(world.level,{roomId:world.roomId,speed:world.speed});},
-  setAssignments(assignments){for(const [role,id] of Object.entries(assignments)){const select=ui[`${role}-select`];if(select)select.value=id;}return start(world.level,{roomId:world.roomId,speed:world.speed});},
-  pullGacha(){return pullGacha(1,true);},
+  setReception(id){assignmentState[roomState.active].reception[0]=id;return start(world.level,{roomId:world.roomId,speed:world.speed});},
+  setAssignments(assignments){const state=assignmentsForRoom();for(const [role,value] of Object.entries(assignments))if(state[role])state[role]=Array.isArray(value)?value:[value];return start(world.level,{roomId:world.roomId,speed:world.speed});},
+  pullGacha(){return pullGacha(1,true,true);},
+  pullGachaTen(){return pullGacha(10,true,true);},
   previewGacha(ids){const wanted=(ids||GACHA_POOL.map(card=>card.id)).map(id=>GACHA_POOL.find(card=>card.id===id)).filter(Boolean).map(card=>({...card,duplicate:false}));showGachaResults(wanted);return wanted;},
   gachaPool(){return GACHA_POOL.map(card=>({...card,loaded:Boolean(characterImages[card.id])}));},
   gacha(){return {pulls:gachaState.pulls,sinceS:gachaState.sinceS,sinceSSR:gachaState.sinceSSR,owned:[...gachaState.owned],shards:{...gachaState.shards},training:{...gachaState.training},lastResults:gachaState.lastResults};},
+  recipes(){return {unlocked:[...recipeState.unlocked],fragments:[...recipeState.fragments],selected:[...recipeState.selected]};},
+  selectRecipeIngredients(names=[]){recipeState.selected=new Set(names.filter(name=>RECIPE_INGREDIENTS.includes(name)).slice(0,3));renderRecipeBook();return [...recipeState.selected];},
+  researchRecipe(){return researchRecipe();},
+  grantRecipeFragment(id){if(!FRAGMENT_DISHES.includes(id))return false;recipeState.fragments.add(id);renderRecipeBook();return true;},
+  unlockRecipe(id){return unlockRecipeByFragment(id);},
   dorm(){return {owned:[...gachaState.owned],shards:{...gachaState.shards},training:{...gachaState.training}};},
   trainStaff(id){return previewTrainStaff(id);},
   setStaffShards(id,count){if(!GACHA_POOL.some(card=>card.id===id))return false;gachaState.shards[id]=Math.max(0,Math.floor(Number(count)||0));renderGachaStatus();return gachaState.shards[id];},
@@ -1371,9 +1781,11 @@ window.__TAIXUAN_QA__={
   tableState(){return {owned:{...tableStoreState[world.level].owned},tables:world.tables.map(t=>({id:t.id,styleId:t.styleId,placed:t.placed,tile:[...t.tile]}))};},
   moveTable(id,tile){const table=world.tables.find(item=>item.id===id);if(!table?.placed||table.state!=='CLEAN'||table.reserved||!isValidTableTile(world,tile,id))return false;updateTableGeometry(table,tile);saveTableLayout(world);syncTableCollision(world.map,world.tables);return true;},
   upgradeStaffSlot(role){upgradeStaffSlot(role);return {...staffSlotState};},
+  assignments(){return JSON.parse(JSON.stringify(assignmentState));},
+  startVip(id){return startVipEvent(id);},vipAction(action){handleVipAction(action);return {active:vipState.active,stage:vipState.stage,history:[...vipState.history]};},vip(){return {active:vipState.active,stage:vipState.stage,history:[...vipState.history]};},
   tableCatalog(){return TABLE_CATALOG.map(item=>({id:item.id,loaded:Boolean(environmentImages[item.tableAssetKey])&&Boolean(environmentImages[item.stoolAssetKey])}));}
 };
 
-await Promise.all([loadCharacterAssets(),loadEnvironmentAssets()]);await start('lv1');setPhase('evening');renderGachaStatus();renderUpgradePanel();renderDecorShop();
-if(new URLSearchParams(location.search).get('test')==='full')await enterFullResourceRoom2();
+await Promise.all([loadCharacterAssets(),loadEnvironmentAssets(),loadDishAssets()]);await start('lv1',{running:false});setPhase('morning');renderGachaStatus();renderRecipeBook();renderUpgradePanel();renderDecorShop();
+if(TEST_MODE||PREP_DEMO_MODE)await enterFullResourceRoom2();
 requestAnimationFrame(frame);
