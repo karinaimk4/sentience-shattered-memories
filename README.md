@@ -2,6 +2,8 @@
 
 Web game gồm Story Mode, Endless Mode và event **Bếp Lửa Thái Hư**. Repository này tách riêng khỏi Aurora Website và được phát hành bằng GitHub Pages.
 
+Hướng dẫn đầy đủ cho người vận hành: [Sổ tay web game và Pull Request](docs/SO-TAY-WEB-GAME-VA-PULL-REQUEST.md).
+
 ## Quy trình bắt buộc khi bổ sung hoặc sửa game
 
 Mọi thay đổi, dù nhỏ, đều phải đi theo luồng:
